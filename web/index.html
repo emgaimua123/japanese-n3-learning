@@ -8,7 +8,8 @@
 :root{
   --font-vi:"Segoe UI",system-ui,-apple-system,sans-serif;
   --font-jp:"Yu Gothic UI","Meiryo","Noto Sans JP","MS PGothic",sans-serif;
-  --bg:#f5f6f8; --card:#ffffff; --ink:#1a2233; --ink2:#5a6478; --muted:#98a1b3;
+  --bg:#f5f6f8; --card:#ffffff; --elev:#ffffff; --hover:#fafbfc;
+  --ink:#1a2233; --ink2:#5a6478; --muted:#98a1b3;
   --line:#e6e9ef;
   --vocab:#4f46e5; --vocab-soft:#eef0fd; --vocab-dark:#3d37b8;
   --kanji:#0d9488; --kanji-soft:#e7f6f4; --kanji-dark:#0a7268;
@@ -16,11 +17,81 @@
   --radius:14px;
   --shadow:0 1px 2px rgba(26,34,51,.05),0 4px 16px rgba(26,34,51,.06);
 }
+/* ---------- themes ---------- */
+body[data-theme="dark"]{
+  --bg:#11141b; --card:#1a1f29; --elev:#222836; --hover:#262d3d;
+  --ink:#e9edf5; --ink2:#a8b1c3; --muted:#707a8e; --line:#2a3140;
+  --vocab:#6c63ee; --vocab-soft:rgba(108,99,238,.16); --vocab-dark:#8981f2;
+  --kanji:#17a99b; --kanji-soft:rgba(23,169,155,.15); --kanji-dark:#3fc4b6;
+  --good:#4ade80; --good-soft:rgba(34,197,94,.12); --bad:#f87171; --bad-soft:rgba(239,68,68,.13);
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 22px rgba(0,0,0,.4);
+}
+body[data-theme="dark"] .chip.pos{background:#2a3140;color:#b6c0d2}
+body[data-theme="dark"] .chip.hv{background:#3a2f1d;color:#e0b46a}
+body[data-theme="dark"] .story{background:#262117;border-color:#3a3222;color:#cdb98a}
+body[data-theme="dark"] .feedback.ok{border-color:#2a5c3a}
+body[data-theme="dark"] .feedback.no{border-color:#6b2f2f}
+body[data-theme="dark"] .pbar{background:#262d3b}
+body[data-theme="dark"] .stepper .dot{background:#333c4e}
+body[data-theme="aurora"],body[data-theme="sunset"],body[data-theme="ocean"]{
+  --bg:transparent;
+  --card:rgba(255,255,255,.87); --elev:rgba(255,255,255,.93); --hover:#ffffff;
+  --ink2:#2e3950; --muted:#46536e; --line:rgba(26,34,51,.10);
+  --shadow:0 2px 8px rgba(20,25,40,.10),0 10px 30px rgba(20,25,40,.12);
+}
+body[data-theme="aurora"] .card,body[data-theme="sunset"] .card,body[data-theme="ocean"] .card{
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body[data-theme="aurora"]::before,body[data-theme="sunset"]::before,body[data-theme="ocean"]::before{
+  content:"";position:fixed;inset:0;z-index:-1;background-size:380% 380%;
+  animation:bgshift 22s ease-in-out infinite}
+body[data-theme="aurora"]::before{
+  background-image:linear-gradient(115deg,#818cf8,#f0abfc,#fcd34d,#6ee7b7,#7dd3fc,#818cf8);
+  animation:bgshift 22s ease-in-out infinite,hueshift 36s linear infinite}
+body[data-theme="sunset"]::before{
+  background-image:linear-gradient(115deg,#fda4af,#fdba74,#fcd34d,#f9a8d4,#c4b5fd,#fda4af)}
+body[data-theme="ocean"]::before{
+  background-image:linear-gradient(115deg,#7dd3fc,#a5f3fc,#93c5fd,#99f6e4,#c7d2fe,#7dd3fc)}
+@keyframes bgshift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes hueshift{to{filter:hue-rotate(360deg)}}
+.themes{display:flex;gap:8px;align-items:center}
+.themes .tlab{font-size:11.5px;color:var(--muted);font-weight:650;margin-right:2px}
+.tsw{width:22px;height:22px;border-radius:99px;cursor:pointer;border:2px solid var(--line);padding:0;transition:.12s}
+.tsw:hover{transform:scale(1.15)}
+.tsw.on{border-color:var(--ink);box-shadow:0 0 0 2px var(--card)}
+.tsw.t-light{background:linear-gradient(135deg,#ffffff 50%,#dfe3ec 50%)}
+.tsw.t-dark{background:#171c26}
+.tsw.t-aurora{background:linear-gradient(120deg,#818cf8,#f0abfc,#fcd34d);animation:hueshift 8s linear infinite}
+.tsw.t-sunset{background:linear-gradient(120deg,#fb923c,#f472b6,#a78bfa)}
+.tsw.t-ocean{background:linear-gradient(120deg,#38bdf8,#60a5fa,#2dd4bf)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-vi);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 .jp{font-family:var(--font-jp)}
-#app{max-width:1060px;margin:0 auto;padding:28px 24px 48px}
+#app{display:flex;width:100%;align-items:stretch;min-height:100vh}
+#main{flex:1;min-width:0;padding:28px 34px 48px}
+/* scale content up with the window so wide screens don't feel empty */
+@media (min-width:1500px){#main{zoom:1.08}}
+@media (min-width:1750px){#main{zoom:1.18}}
+@media (min-width:2100px){#main{zoom:1.3}}
+/* ---------- sidebar ---------- */
+#sidebar{width:216px;flex:none;position:sticky;top:0;height:100vh;overflow-y:auto;
+  display:flex;flex-direction:column;gap:6px;padding:26px 16px 20px;
+  background:var(--card);border-right:1px solid var(--line)}
+body[data-theme="aurora"] #sidebar,body[data-theme="sunset"] #sidebar,body[data-theme="ocean"] #sidebar{
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.nosb #sidebar{display:none}
+#sidebar .brand{display:flex;align-items:center;gap:11px;padding:0 8px 18px}
+#sidebar .brand .sub{font-size:11.5px}
+.navitem{display:flex;align-items:center;gap:10px;width:100%;padding:11px 14px;border-radius:10px;
+  border:none;background:transparent;color:var(--ink2);font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;text-align:left;transition:.12s}
+.navitem:hover{background:var(--hover);color:var(--ink)}
+.navitem.on{background:var(--vocab-soft);color:var(--vocab-dark)}
+.sbspacer{flex:1}
+.sbtheme{padding:14px 8px 0;border-top:1px solid var(--line)}
+.sbtheme .tlab{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.07em;margin-bottom:10px}
+.sechead{display:flex;align-items:center;gap:14px;margin:28px 0 14px;color:var(--ink2);
+  font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}
+.sechead::before,.sechead::after{content:"";height:1px;background:var(--line);flex:1}
 .screen{display:none}
 .screen.on{display:block;animation:fade .18s ease}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -31,15 +102,17 @@ h2{font-size:18px;font-weight:650}
 .sub{color:var(--ink2)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);
-  background:#fff;color:var(--ink);font:inherit;font-weight:600;padding:10px 20px;border-radius:10px;cursor:pointer;transition:.12s}
-.btn:hover{border-color:#cfd5e0;background:#fafbfc}
+  background:var(--elev);color:var(--ink);font:inherit;font-weight:600;padding:10px 20px;border-radius:10px;cursor:pointer;transition:.12s}
+.btn:hover{border-color:var(--muted);background:var(--hover)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn.primary{background:var(--vocab);border-color:var(--vocab);color:#fff}
 .btn.primary:hover{background:var(--vocab-dark)}
 .btn.kanjiC{background:var(--kanji);border-color:var(--kanji);color:#fff}
 .btn.kanjiC:hover{background:var(--kanji-dark)}
+.btn.danger{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn.danger:hover{background:#991717;border-color:#991717}
 .btn.ghost{background:transparent;border-color:transparent;color:var(--ink2)}
-.btn.ghost:hover{color:var(--ink);background:#eef0f4}
+.btn.ghost:hover{color:var(--ink);background:var(--hover)}
 .chip{display:inline-block;font-size:12px;font-weight:650;padding:2px 10px;border-radius:99px;letter-spacing:.02em}
 .chip.pos{background:#eef1f6;color:#4a5568}
 .chip.hv{background:#fdf3e7;color:#9a5b13}
@@ -56,7 +129,7 @@ h2{font-size:18px;font-weight:650}
 .namebox{width:420px;padding:40px 36px;text-align:center}
 .namebox .logo{width:64px;height:64px;font-size:32px;border-radius:18px;margin:0 auto 18px}
 .namebox input{width:100%;margin:22px 0 16px;padding:12px 14px;font:inherit;font-size:16px;
-  border:1.5px solid var(--line);border-radius:10px;outline:none;text-align:center}
+  border:1.5px solid var(--line);border-radius:10px;outline:none;text-align:center;background:var(--elev);color:var(--ink)}
 .namebox input:focus{border-color:var(--vocab)}
 
 /* ---------- dashboard ---------- */
@@ -67,7 +140,7 @@ h2{font-size:18px;font-weight:650}
 .tile .lab{font-size:12.5px;font-weight:650;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em}
 .tile .val{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:4px}
 .tile .det{font-size:12.5px;color:var(--muted);margin-top:2px}
-.pbar{height:6px;background:#edeff4;border-radius:99px;margin-top:10px;overflow:hidden}
+.pbar{height:6px;background:var(--line);border-radius:99px;margin-top:10px;overflow:hidden}
 .pbar>i{display:block;height:100%;border-radius:99px}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .panel{padding:20px 22px}
@@ -93,6 +166,57 @@ h2{font-size:18px;font-weight:650}
 .startcard.k .ico{background:var(--kanji-soft);color:var(--kanji)}
 .startcard b{font-size:16px}
 .startcard .det{font-size:13px;color:var(--ink2)}
+.clock{padding:12px 20px;text-align:right}
+.clock .time{font-size:27px;font-weight:700;letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1.2;
+  background:linear-gradient(100deg,var(--vocab),var(--kanji));-webkit-background-clip:text;background-clip:text;color:transparent}
+.clock .date{font-size:12.5px;color:var(--ink2);margin-top:2px}
+.xrows{max-height:420px;overflow-y:auto;margin-top:16px;text-align:left}
+.xrow{border-left:3px solid;padding:10px 14px;margin:8px 0;background:var(--elev);border:1px solid var(--line);
+  border-left-width:3px;border-radius:9px;font-size:13.5px}
+.xrow.ok{border-left-color:var(--good)} .xrow.no{border-left-color:var(--bad)}
+.xrow .xq{font-weight:650;margin-bottom:2px}
+.xrow .xa{color:var(--ink2);font-size:12.5px}
+.xrow .xm{margin-top:4px;color:var(--ink2)}
+/* ---------- modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(13,16,26,.52);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;z-index:100;animation:fade .15s ease;padding:20px}
+.modal{max-height:88vh;overflow-y:auto;width:min(680px,94vw);padding:26px 30px;animation:pop .16s ease}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.mtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.mclose{border:none;background:transparent;color:var(--muted);font-size:17px;cursor:pointer;padding:4px 10px;border-radius:8px;line-height:1}
+.mclose:hover{background:var(--hover);color:var(--ink)}
+.mbtns{display:flex;gap:12px;justify-content:flex-end;margin-top:22px}
+.locknote{display:none;margin:12px 0 2px;padding:9px 14px;border-radius:9px;font-size:13px;font-weight:600;
+  background:#fdf3e7;color:#9a5b13;border:1px solid #f3e2c8}
+body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:#4a3d26}
+.setrow input:disabled{opacity:.45;cursor:not-allowed}
+.setrow{display:grid;grid-template-columns:230px 110px 1fr;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.setrow label{font-size:14px;color:var(--ink2);font-weight:600}
+.setrow input{padding:8px 12px;font:inherit;border:1.5px solid var(--line);border-radius:9px;outline:none;
+  background:var(--elev);color:var(--ink);width:100%}
+.setrow input:focus{border-color:var(--vocab)}
+.setrow .shint{font-size:12px;color:var(--muted)}
+.goalwrap{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.goalrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.goalrow .gchips{display:flex;gap:6px}
+.gchip{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;background:var(--line);color:var(--muted);cursor:default}
+.gchip.part{background:var(--gsoft);color:var(--gdark)}
+.gchip.met{background:var(--gacc);color:#fff}
+.gchip.today{outline:2px solid var(--gacc);outline-offset:2px}
+.goalrow .gtoday{font-size:13.5px;font-weight:650;color:var(--ink2)}
+.goalrow .gtoday b{color:var(--ink)}
+.history{margin-top:12px;max-height:320px;overflow-y:auto}
+.history.full{margin-top:0;max-height:none}
+.hrow{display:grid;grid-template-columns:86px 1fr 148px 92px 96px;gap:10px;padding:10px 4px;
+  border-bottom:1px solid var(--line);align-items:center;font-size:13.5px}
+.hrow:last-child{border-bottom:none}
+.hrow .ht b{font-weight:650}
+.hrow .ht .sub{font-size:12.5px}
+.hrow .hd,.hrow .hdur{color:var(--ink2);font-size:12.5px}
+.hrow .hscore{text-align:right;font-weight:650}
+.hrow .hscore .sub{font-weight:500;font-size:12px}
+.hempty{padding:22px 0;text-align:center;color:var(--muted);font-size:13.5px}
 .footer{margin-top:26px;text-align:center;font-size:12px;color:var(--muted)}
 .footer a{color:var(--muted);cursor:pointer;text-decoration:underline}
 
@@ -126,22 +250,22 @@ h2{font-size:18px;font-weight:650}
 .qprompt{margin:8px 0 22px}
 .qprompt .vi-word{font-size:26px;font-weight:700}
 .opts{display:grid;gap:10px;max-width:560px;margin:0 auto}
-.opt{padding:13px 18px;border:1.5px solid var(--line);border-radius:11px;background:#fff;font:inherit;
+.opt{padding:13px 18px;border:1.5px solid var(--line);border-radius:11px;background:var(--elev);color:var(--ink);font:inherit;
   font-size:15px;text-align:left;cursor:pointer;transition:.1s}
-.opt:hover{border-color:var(--accent);background:#fafbff}
+.opt:hover{border-color:var(--accent);background:var(--hover)}
 .opt.correct{border-color:var(--good);background:var(--good-soft)}
 .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
 .opt:disabled{cursor:default}
 .typedrow{display:flex;gap:10px;max-width:520px;margin:0 auto}
 .typedrow input{flex:1;padding:12px 16px;font-family:var(--font-jp);font-size:18px;border:1.5px solid var(--line);
-  border-radius:11px;outline:none}
+  border-radius:11px;outline:none;background:var(--elev);color:var(--ink)}
 .typedrow input:focus{border-color:var(--accent)}
 .feedback{max-width:640px;margin:22px auto 0;text-align:left;border-radius:12px;padding:16px 20px;border:1.5px solid}
 .feedback.ok{border-color:#bfe3cb;background:var(--good-soft)}
 .feedback.no{border-color:#f2c4c4;background:var(--bad-soft)}
 .feedback .verdict{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
 .feedback.ok .verdict{color:var(--good)} .feedback.no .verdict{color:var(--bad)}
-.expl{margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.expl{margin-top:12px;background:var(--elev);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 .expl .w{font-family:var(--font-jp);font-size:24px;font-weight:700}
 .expl .r{font-family:var(--font-jp);color:var(--ink2);font-size:15px;margin-left:8px}
 .expl .chips{margin:6px 0 4px}
@@ -162,6 +286,18 @@ h2{font-size:18px;font-weight:650}
 </head>
 <body data-palette="#4f46e5,#0d9488">
 <div id="app">
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="logo jp">語</div>
+      <div><b>GunGun N3</b><div class="sub">Từ vựng &amp; Kanji</div></div>
+    </div>
+    <button class="navitem on" id="nav-dash" onclick="App.navDash()">🏠&ensp;Học</button>
+    <button class="navitem" id="nav-exam" onclick="App.navExam()">📝&ensp;Kiểm tra</button>
+    <button class="navitem" id="nav-history" onclick="App.navHistory()">🕘&ensp;Lịch sử</button>
+    <button class="navitem" id="nav-settings" onclick="App.openSettings()">⚙️&ensp;Cài đặt</button>
+    <div class="sbspacer"></div>
+  </aside>
+  <main id="main">
   <!-- ===== name ===== -->
   <section id="scr-name" class="screen">
     <div class="card namebox">
@@ -176,18 +312,17 @@ h2{font-size:18px;font-weight:650}
   <!-- ===== dashboard ===== -->
   <section id="scr-dash" class="screen">
     <div class="topbar">
-      <div class="brand">
-        <div class="logo jp">語</div>
-        <div><b>GunGun N3 Trainer</b><div class="sub" style="font-size:12.5px">Từ vựng &amp; Kanji · JLPT N3</div></div>
+      <div class="hello">
+        <h1 id="helloLine"></h1>
+        <div class="jp-greet">今日も頑張りましょう！</div>
       </div>
-      <span class="sub" id="dashDate"></span>
-    </div>
-    <div class="hello">
-      <h1 id="helloLine"></h1>
-      <div class="jp-greet">今日も頑張りましょう！</div>
+      <div class="clock card">
+        <div class="time" id="clockTime">--:--:--</div>
+        <div class="date" id="clockDate"></div>
+      </div>
     </div>
     <div class="tiles" id="tiles"></div>
-    <div class="startrow" id="startrow"></div>
+    <div class="card panel" id="goalPanel" style="margin-bottom:14px"></div>
     <div class="duo">
       <div class="card panel">
         <h2>Quiz từ vựng theo session</h2>
@@ -200,7 +335,32 @@ h2{font-size:18px;font-weight:650}
         <div class="chart" id="chartKanji"></div>
       </div>
     </div>
-    <div class="footer">Dữ liệu: GunGun Joutatsu N3 · Tiến trình lưu tại máy của bạn · <a onclick="App.resetAll()">đặt lại dữ liệu</a></div>
+    <div class="sechead"><span>✦ Bắt đầu học hôm nay</span></div>
+    <div class="startrow" id="startrow" style="margin:0 0 14px"></div>
+  </section>
+
+  <!-- ===== history ===== -->
+  <section id="scr-history" class="screen">
+    <div class="topbar">
+      <div class="hello">
+        <h1>Lịch sử ôn tập</h1>
+        <div class="sub" style="margin-top:2px">Các session đã học, kiểm tra bài cũ và bài kiểm tra tổng hợp — mới nhất ở trên</div>
+      </div>
+    </div>
+    <div class="card panel" style="margin-top:22px">
+      <div class="history full" id="historyList"></div>
+    </div>
+  </section>
+
+  <!-- ===== exam hub ===== -->
+  <section id="scr-exam" class="screen">
+    <div class="topbar">
+      <div class="hello">
+        <h1>Kiểm tra tổng hợp</h1>
+        <div class="sub" style="margin-top:2px">Chọn tối đa 5 session ngẫu nhiên đã học, làm bài có tính giờ — không hiện đúng/sai từng câu, chấm điểm và giải thích toàn bộ ở cuối bài.</div>
+      </div>
+    </div>
+    <div class="startrow" id="examCards" style="margin-top:22px"></div>
   </section>
 
   <!-- ===== session ===== -->
@@ -210,10 +370,48 @@ h2{font-size:18px;font-weight:650}
         <button class="btn ghost" onclick="App.quitSession()">← Trang chính</button>
         <span class="chip" id="sessChip"></span>
       </div>
-      <span class="counter" id="sessPhase"></span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="counter" id="sessPhase"></span>
+        <button class="btn ghost" style="padding:6px 10px" title="Cài đặt (tên, giao diện)" onclick="App.openSettings()">⚙️</button>
+      </div>
     </div>
     <div id="sessBody"></div>
   </section>
+  </main>
+</div>
+
+<!-- ===== settings modal ===== -->
+<div class="overlay" id="settingsOverlay" style="display:none">
+  <div class="modal card">
+    <div class="mtop">
+      <div><h2>Cài đặt</h2><div class="sub" style="font-size:13px">Tùy chỉnh việc học theo nhịp độ của riêng bạn</div></div>
+      <button class="mclose" onclick="App.closeSettings()">✕</button>
+    </div>
+    <div class="locknote" id="setLockNote">🔒 Đang trong bài học/kiểm tra — chỉ chỉnh được tên và giao diện. Các thông số khác sẽ mở khóa sau khi kết thúc.</div>
+    <h2 style="margin-top:14px">Hồ sơ</h2>
+    <div class="setrow"><label>Tên hiển thị</label><input id="setName" maxlength="30"></div>
+    <h2 style="margin-top:22px">Giao diện</h2>
+    <div class="setrow" style="grid-template-columns:230px 1fr">
+      <label>Chủ đề màu</label>
+      <div class="themes" id="themeRow" style="flex-wrap:wrap"></div>
+    </div>
+    <h2 style="margin-top:22px">Session học</h2>
+    <div class="setrow"><label>Số từ vựng mỗi session</label><input id="setVps" type="number" min="3" max="30"><span class="shint">3–30 · mặc định 10</span></div>
+    <div class="setrow"><label>Số kanji mỗi session</label><input id="setKps" type="number" min="2" max="10"><span class="shint">2–10 · mặc định 4</span></div>
+    <h2 style="margin-top:22px">Bài kiểm tra tổng hợp</h2>
+    <div class="setrow"><label>Số session tối đa mỗi bài</label><input id="setExS" type="number" min="1" max="10"><span class="shint">1–10 · mặc định 5</span></div>
+    <div class="setrow"><label>Giây cho mỗi câu trắc nghiệm</label><input id="setMcS" type="number" min="5" max="60"><span class="shint">5–60 · mặc định 15</span></div>
+    <div class="setrow"><label>Giây cho mỗi câu tự luận</label><input id="setTyS" type="number" min="5" max="90"><span class="shint">5–90 · mặc định 25</span></div>
+    <h2 style="margin-top:22px">Mục tiêu mỗi ngày</h2>
+    <div class="setrow"><label>Session từ vựng / ngày</label><input id="setGV" type="number" min="0" max="20"><span class="shint">0 = tắt mục tiêu</span></div>
+    <div class="setrow"><label>Session kanji / ngày</label><input id="setGK" type="number" min="0" max="20"><span class="shint">0 = tắt mục tiêu</span></div>
+    <div style="margin-top:24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <button class="btn primary" onclick="App.saveSettings()">Lưu cài đặt</button>
+      <button class="btn" id="btnResetDefaults" onclick="App.resetSettings()">↺ Về mặc định</button>
+      <button class="btn danger" id="btnResetAll" onclick="App.resetAll()">🗑 Đặt lại toàn bộ dữ liệu</button>
+      <span id="setToast" style="color:var(--good);font-weight:650;opacity:0;transition:.3s">✓ Đã lưu</span>
+    </div>
+  </div>
 </div>
 <div id="tooltip"></div>
 
@@ -229,8 +427,15 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 const pct = (c, t) => t ? Math.round(100 * c / t) : 0;
 
 const STORE_KEY = "gungun_n3_state_v1";
-const VOCAB_PER_SESSION = 10;
-const KANJI_PER_SESSION = 4;
+const CFG_DEFAULTS = { vocabPerSession: 10, kanjiPerSession: 4, examSessions: 5, mcSec: 15, typedSec: 25 };
+const GOAL_DEFAULTS = { vocabPerDay: 1, kanjiPerDay: 1 };
+const THEMES = [
+  { id: "light",  name: "Sáng" },
+  { id: "dark",   name: "Tối" },
+  { id: "aurora", name: "Aurora — gradient động, đổi màu liên tục" },
+  { id: "sunset", name: "Hoàng hôn — gradient động" },
+  { id: "ocean",  name: "Đại dương — gradient động" },
+];
 
 const App = {
   data: null,          // {vocab:[...], kanji:[...]}
@@ -251,8 +456,23 @@ const App = {
         vocab: { sessions: [], reviews: [] },
         kanji: { sessions: [], reviews: [] } };
     }
+    this.applyTheme();
+    this.startClock();
+    this.renderThemeRow();
     if (!this.state.name) this.show("scr-name");
     else this.renderDash();
+  },
+  applyTheme() {
+    document.body.dataset.theme = (this.state && this.state.theme) || "light";
+  },
+  setTheme(id) {
+    this.state.theme = id; this.save(); this.applyTheme();
+    this.renderThemeRow();
+  },
+  renderThemeRow() {
+    const cur = this.state.theme || "light";
+    $("#themeRow").innerHTML = `<span class="tlab">Giao diện</span>` + THEMES.map(t =>
+      `<button class="tsw t-${t.id}${t.id === cur ? " on" : ""}" title="${t.name}" onclick="App.setTheme('${t.id}')"></button>`).join("");
   },
   async loadData() {
     // pywebview api, with a fetch fallback for browser development
@@ -282,7 +502,43 @@ const App = {
   show(id) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("on"));
     $("#" + id).classList.add("on");
+    document.body.classList.toggle("nosb", id === "scr-name" || id === "scr-session");
+    $("#nav-dash").classList.toggle("on", id === "scr-dash");
+    $("#nav-exam").classList.toggle("on", id === "scr-exam");
+    $("#nav-history").classList.toggle("on", id === "scr-history");
     window.scrollTo(0, 0);
+  },
+  navDash() { if (this.S) return; this.renderDash(); },
+  navExam() { if (this.S) return; this.renderExamHub(); },
+  navHistory() { if (this.S) return; this.show("scr-history"); this.renderHistory(); },
+  askConfirm(msg, okLabel, danger) {
+    return new Promise(res => {
+      const ov = document.createElement("div");
+      ov.className = "overlay";
+      ov.innerHTML = `<div class="modal card" style="width:min(440px,94vw)">
+        <div style="font-size:34px;text-align:center">${danger ? "⚠️" : "❓"}</div>
+        <p style="margin-top:12px;text-align:center;white-space:pre-line">${msg}</p>
+        <div class="mbtns" style="justify-content:center">
+          <button class="btn" data-a="no">Hủy</button>
+          <button class="btn ${danger ? "danger" : "primary"}" data-a="yes">${esc(okLabel)}</button>
+        </div></div>`;
+      const done = v => { ov.remove(); res(v); };
+      ov.addEventListener("mousedown", e => { if (e.target === ov) done(false); });
+      ov.querySelector('[data-a="no"]').onclick = () => done(false);
+      ov.querySelector('[data-a="yes"]').onclick = () => done(true);
+      document.body.appendChild(ov);
+      ov.querySelector('[data-a="no"]').focus();
+    });
+  },
+  cfg() { return Object.assign({}, CFG_DEFAULTS, this.state && this.state.settings); },
+  goalsCfg() { return Object.assign({}, GOAL_DEFAULTS, this.state && this.state.goals); },
+  startClock() {
+    const tick = () => {
+      const n = new Date(), t = $("#clockTime"), d = $("#clockDate");
+      if (t) t.textContent = n.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      if (d) d.textContent = n.toLocaleDateString("vi-VN", { weekday: "long", day: "numeric", month: "numeric", year: "numeric" });
+    };
+    tick(); setInterval(tick, 1000);
   },
 
   /* ---------------- name ---------------- */
@@ -303,7 +559,7 @@ const App = {
   renderDash() {
     this.show("scr-dash");
     const st = this.state, d = this.data;
-    $("#dashDate").textContent = new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    this.renderThemeRow();
     $("#helloLine").textContent = `Xin chào, ${st.name}!`;
 
     const nSess = st.vocab.sessions.length + st.kanji.sessions.length;
@@ -329,7 +585,7 @@ const App = {
       <div class="card startcard v" onclick="${vLeft ? "App.startSession('vocab')" : ""}" ${vLeft ? "" : 'style="opacity:.55;cursor:default"'}>
         <div class="ico">あ</div>
         <div><b>Session từ vựng mới</b>
-          <div class="det">${vLeft ? `${Math.min(VOCAB_PER_SESSION, vLeft)} từ tiếp theo đang chờ bạn` : "Bạn đã học hết toàn bộ từ vựng 🎉"}</div></div>
+          <div class="det">${vLeft ? `${Math.min(this.cfg().vocabPerSession, vLeft)} từ tiếp theo đang chờ bạn` : "Bạn đã học hết toàn bộ từ vựng 🎉"}</div></div>
       </div>
       <div class="card startcard k" onclick="${kLeft ? "App.startSession('kanji')" : ""}" ${kLeft ? "" : 'style="opacity:.55;cursor:default"'}>
         <div class="ico">漢</div>
@@ -339,6 +595,48 @@ const App = {
 
     this.renderChart($("#chartVocab"), st.vocab.sessions, "var(--vocab)");
     this.renderChart($("#chartKanji"), st.kanji.sessions, "var(--kanji)");
+    this.renderGoals();
+  },
+  fmtDur(sec) {
+    if (sec == null) return "—";
+    const m = Math.floor(sec / 60), s = sec % 60;
+    return m ? `${m}p ${String(s).padStart(2, "0")}s` : `${s}s`;
+  },
+  fmtDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString("vi-VN") + " " +
+      d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
+  },
+  renderHistory() {
+    const rows = [];
+    for (const mode of ["vocab", "kanji"]) {
+      const chip = mode === "vocab" ? `<span class="chip sec-v">Từ vựng</span>` : `<span class="chip sec-k">Kanji</span>`;
+      for (const s of this.state[mode].sessions) {
+        const what = mode === "vocab" ? `${s.items.length} từ mới` : `${s.items.length} kanji mới`;
+        rows.push({ date: s.date, html: `<div class="hrow">${chip}
+          <div class="ht"><b>Session ${s.id}</b> <span class="sub">· học ${what}</span></div>
+          <div class="hd">${this.fmtDate(s.date)}</div>
+          <div class="hdur">⏱ ${this.fmtDur(s.dur)}</div>
+          <div class="hscore">${s.first ? `${pct(s.first.c, s.first.t)}% <span class="sub">(${s.first.c}/${s.first.t})</span>` : "—"}</div></div>` });
+      }
+      for (const r of this.state[mode].reviews) {
+        rows.push({ date: r.date, html: `<div class="hrow">${chip}
+          <div class="ht"><b>Bài cũ · Session ${r.sid}</b> <span class="sub">· kiểm tra lại</span></div>
+          <div class="hd">${this.fmtDate(r.date)}</div>
+          <div class="hdur">⏱ ${this.fmtDur(r.dur)}</div>
+          <div class="hscore">${pct(r.c, r.t)}% <span class="sub">(${r.c}/${r.t})</span></div></div>` });
+      }
+      for (const e of (this.state[mode].exams || [])) {
+        rows.push({ date: e.date, html: `<div class="hrow">${chip}
+          <div class="ht"><b>Kiểm tra tổng hợp</b> <span class="sub">· Session ${e.sids.join(", ")}</span></div>
+          <div class="hd">${this.fmtDate(e.date)}</div>
+          <div class="hdur">⏱ ${this.fmtDur(e.dur)}</div>
+          <div class="hscore">${pct(e.c, e.t)}% <span class="sub">(${e.c}/${e.t})</span></div></div>` });
+      }
+    }
+    rows.sort((a, b) => b.date.localeCompare(a.date));
+    $("#historyList").innerHTML = rows.length ? rows.map(r => r.html).join("")
+      : `<div class="hempty">Chưa có session nào — lịch sử sẽ hiện ở đây sau khi bạn hoàn thành session đầu tiên.</div>`;
   },
 
   renderChart(el, sessions, color) {
@@ -363,17 +661,23 @@ const App = {
     });
   },
 
-  resetAll() {
-    if (!confirm("Xóa toàn bộ tiến trình học (tên, session, thống kê)?")) return;
+  async resetAll() {
+    if (this.S) return;
+    const ok = await this.askConfirm(
+      "Đặt lại toàn bộ dữ liệu?\n\nTên, tất cả session đã học, lịch sử, thống kê và mục tiêu sẽ bị xóa vĩnh viễn.\nHành động này KHÔNG thể hoàn tác!",
+      "Xóa toàn bộ", true);
+    if (!ok) return;
+    this.closeSettings();
     localStorage.removeItem(STORE_KEY);
-    this.state = { name: null, vocab: { sessions: [], reviews: [] }, kanji: { sessions: [], reviews: [] } };
+    this.state = { name: null, theme: this.state.theme,
+      vocab: { sessions: [], reviews: [] }, kanji: { sessions: [], reviews: [] } };
     this.save(); this.show("scr-name");
   },
 
   /* ---------------- item normalization ---------------- */
   nextKanjiSlice() {
     const n = this.learnedKanjiCount(), total = this.data.kanji.length;
-    let take = KANJI_PER_SESSION;
+    let take = this.cfg().kanjiPerSession;
     if (total - n - take === 1) take += 1;          // avoid an orphan session of 1 kanji
     take = Math.min(take, total - n);
     return Array.from({ length: take }, (_, i) => n + i);
@@ -381,7 +685,13 @@ const App = {
   // unified quiz item: {jp, reading, kana[], meanText, meanings[], pos, hanviet, kref}
   vocabItem(idx) {
     const e = this.data.vocab[idx];
-    return { jp: e.word, reading: e.reading, kana: [e.reading],
+    // dual-reading entries keep extra readings inside the meanings ("だく：bế, ôm")
+    const kana = [e.reading];
+    for (const m of e.meanings) {
+      for (const mt of m.matchAll(/([ぁ-ゖー]{2,})(?=[：:／/])|[／/]([ぁ-ゖー]{2,})/g))
+        kana.push(mt[1] || mt[2]);
+    }
+    return { jp: e.word, reading: e.reading, kana,
       meanings: e.meanings, meanText: e.meanings.join("; "),
       pos: e.pos, hanviet: e.hanviet, kref: null, ref: { mode: "vocab", idx } };
   },
@@ -455,12 +765,337 @@ const App = {
     return String(s || "").normalize("NFKC").replace(/\s+/g, "")
       .replace(/[（(].*?[）)]/g, "").replace(/[～〜]/g, "");
   },
+  foldKana(s) { // katakana -> hiragana, so カード ~ かーど
+    return s.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+  },
+  romajiToKana(s) {
+    const M = {
+      kya:"きゃ",kyu:"きゅ",kyo:"きょ",gya:"ぎゃ",gyu:"ぎゅ",gyo:"ぎょ",
+      sha:"しゃ",shu:"しゅ",sho:"しょ",sya:"しゃ",syu:"しゅ",syo:"しょ",
+      ja:"じゃ",ju:"じゅ",jo:"じょ",jya:"じゃ",jyu:"じゅ",jyo:"じょ",zya:"じゃ",zyu:"じゅ",zyo:"じょ",
+      cha:"ちゃ",chu:"ちゅ",cho:"ちょ",tya:"ちゃ",tyu:"ちゅ",tyo:"ちょ",
+      nya:"にゃ",nyu:"にゅ",nyo:"にょ",hya:"ひゃ",hyu:"ひゅ",hyo:"ひょ",
+      bya:"びゃ",byu:"びゅ",byo:"びょ",pya:"ぴゃ",pyu:"ぴゅ",pyo:"ぴょ",
+      mya:"みゃ",myu:"みゅ",myo:"みょ",rya:"りゃ",ryu:"りゅ",ryo:"りょ",
+      shi:"し",chi:"ち",tsu:"つ",dzu:"づ",
+      ka:"か",ki:"き",ku:"く",ke:"け",ko:"こ",ga:"が",gi:"ぎ",gu:"ぐ",ge:"げ",go:"ご",
+      sa:"さ",si:"し",su:"す",se:"せ",so:"そ",za:"ざ",ji:"じ",zi:"じ",zu:"ず",ze:"ぜ",zo:"ぞ",
+      ta:"た",ti:"ち",tu:"つ",te:"て",to:"と",da:"だ",di:"ぢ",du:"づ",de:"で",do:"ど",
+      na:"な",ni:"に",nu:"ぬ",ne:"ね",no:"の",
+      ha:"は",hi:"ひ",fu:"ふ",hu:"ふ",he:"へ",ho:"ほ",
+      ba:"ば",bi:"び",bu:"ぶ",be:"べ",bo:"ぼ",pa:"ぱ",pi:"ぴ",pu:"ぷ",pe:"ぺ",po:"ぽ",
+      ma:"ま",mi:"み",mu:"む",me:"め",mo:"も",ya:"や",yu:"ゆ",yo:"よ",
+      ra:"ら",ri:"り",ru:"る",re:"れ",ro:"ろ",wa:"わ",wo:"を",
+      a:"あ",i:"い",u:"う",e:"え",o:"お",n:"ん"
+    };
+    s = s.toLowerCase().replace(/-/g, "ー");
+    let out = "", i = 0;
+    while (i < s.length) {
+      const c = s[i];
+      if (c === "ー") { out += c; i++; continue; }
+      // sokuon: doubled consonant (kippu -> きっぷ, matcha via tch)
+      if (i + 1 < s.length && c === s[i + 1] && !"aiueon".includes(c) && /[a-z]/.test(c)) { out += "っ"; i++; continue; }
+      if (c === "t" && s.slice(i, i + 3) === "tch") { out += "っ"; i++; continue; }
+      // n before consonant (not y/vowel) or end -> ん ; "nn" -> ん
+      if (c === "n") {
+        const nx = s[i + 1];
+        if (nx === "n") { out += "ん"; i += 2; continue; }
+        if (!nx || !"aiueoy".includes(nx)) { out += "ん"; i++; continue; }
+      }
+      let hit = null;
+      for (const L of [3, 2, 1]) {
+        const seg = s.slice(i, i + L);
+        if (M[seg]) { hit = M[seg]; i += L; break; }
+      }
+      if (!hit) return null; // not valid romaji
+      out += hit;
+    }
+    return out;
+  },
   checkTyped(it, input) {
-    const inp = this.normJP(input);
-    if (!inp) return false;
-    const answers = new Set([this.normJP(it.jp), ...it.kana.map(k => this.normJP(k))]);
-    if (it.reading) answers.add(this.normJP(it.reading));
-    return answers.has(inp);
+    const raw = this.normJP(input);
+    if (!raw) return false;
+    // build candidate answers, splitting compound listings like 抱く・抱く / だく／
+    const answers = new Set();
+    const add = s => {
+      s = this.normJP(s);
+      if (!s) return;
+      for (const part of s.split(/[・/／、,;]/)) {
+        const p = part.trim();
+        if (p) answers.add(this.foldKana(p));
+      }
+    };
+    add(it.jp); it.kana.forEach(add); if (it.reading) add(it.reading);
+    const inputs = [this.foldKana(raw)];
+    if (/^[a-zA-Z-]+$/.test(raw)) {           // romaji typed on a normal keyboard
+      const k = this.romajiToKana(raw);
+      if (k) inputs.push(k);
+    }
+    return inputs.some(x => answers.has(x));
+  },
+
+  /* ---------------- settings (modal) ---------------- */
+  openSettings() {
+    const c = this.cfg(), g = this.goalsCfg();
+    $("#setName").value = this.state.name || "";
+    $("#setVps").value = c.vocabPerSession; $("#setKps").value = c.kanjiPerSession;
+    $("#setExS").value = c.examSessions; $("#setMcS").value = c.mcSec; $("#setTyS").value = c.typedSec;
+    $("#setGV").value = g.vocabPerDay; $("#setGK").value = g.kanjiPerDay;
+    // during a session/exam only name + theme are editable
+    const locked = !!this.S;
+    ["#setVps", "#setKps", "#setExS", "#setMcS", "#setTyS", "#setGV", "#setGK"]
+      .forEach(id => $(id).disabled = locked);
+    $("#btnResetDefaults").disabled = locked;
+    $("#btnResetAll").disabled = locked;
+    $("#setLockNote").style.display = locked ? "block" : "none";
+    this.renderThemeRow();
+    $("#settingsOverlay").style.display = "flex";
+  },
+  closeSettings() {
+    $("#settingsOverlay").style.display = "none";
+    // refresh hub screens so name/config changes show up right away
+    if (!this.S) {
+      const cur = document.querySelector(".screen.on");
+      if (cur && cur.id === "scr-dash") this.renderDash();
+      else if (cur && cur.id === "scr-exam") this.renderExamHub();
+    }
+  },
+  saveSettings() {
+    const num = (id, min, max, def) => {
+      const v = parseInt($(id).value, 10);
+      const r = isNaN(v) ? def : Math.max(min, Math.min(max, v));
+      $(id).value = r; return r;
+    };
+    const name = $("#setName").value.trim();
+    if (name) this.state.name = name;
+    else $("#setName").value = this.state.name || "";
+    if (!this.S) {           // locked values are not saved mid-session
+      this.state.settings = {
+        vocabPerSession: num("#setVps", 3, 30, 10),
+        kanjiPerSession: num("#setKps", 2, 10, 4),
+        examSessions: num("#setExS", 1, 10, 5),
+        mcSec: num("#setMcS", 5, 60, 15),
+        typedSec: num("#setTyS", 5, 90, 25),
+      };
+      this.state.goals = {
+        vocabPerDay: num("#setGV", 0, 20, 1),
+        kanjiPerDay: num("#setGK", 0, 20, 1),
+      };
+    }
+    this.save();
+    this.toastSaved("✓ Đã lưu");
+  },
+  resetSettings() {
+    if (this.S) return;
+    this.state.settings = Object.assign({}, CFG_DEFAULTS);
+    this.state.goals = Object.assign({}, GOAL_DEFAULTS);
+    this.save();
+    this.openSettings();
+    this.toastSaved("↺ Đã về mặc định");
+  },
+  toastSaved(msg) {
+    const t = $("#setToast");
+    t.textContent = msg;
+    t.style.opacity = 1;
+    clearTimeout(this._toastT);
+    this._toastT = setTimeout(() => t.style.opacity = 0, 1800);
+  },
+
+  /* ---------------- daily goals ---------------- */
+  dayKey(d) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  },
+  renderGoals() {
+    const g = this.goalsCfg(), el = $("#goalPanel");
+    if (!g.vocabPerDay && !g.kanjiPerDay) {
+      el.innerHTML = `<h2>Mục tiêu hằng ngày</h2>
+        <div class="sub">Đang tắt — đặt mục tiêu session mỗi ngày trong <a style="cursor:pointer;text-decoration:underline" onclick="App.openSettings()">Cài đặt</a> để theo dõi chuỗi ngày học của bạn.</div>`;
+      return;
+    }
+    const counts = { vocab: {}, kanji: {} };
+    for (const m of ["vocab", "kanji"])
+      for (const s of this.state[m].sessions) {
+        const k = this.dayKey(new Date(s.date));
+        counts[m][k] = (counts[m][k] || 0) + 1;
+      }
+    const days = [...Array(7)].map((_, i) => {
+      const d = new Date(); d.setDate(d.getDate() - (6 - i)); return d;
+    });
+    const todayKey = this.dayKey(new Date());
+    const DOW = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
+    const row = (mode, goal, chipCls, acc, soft, dark) => {
+      if (!goal) return "";
+      const chips = days.map(d => {
+        const k = this.dayKey(d), c = counts[mode][k] || 0;
+        const st = c >= goal ? "met" : c > 0 ? "part" : "";
+        return `<div class="gchip ${st}${k === todayKey ? " today" : ""}"
+          style="--gacc:${acc};--gsoft:${soft};--gdark:${dark}"
+          title="${DOW[d.getDay()]} ${d.getDate()}/${d.getMonth() + 1}: ${c}/${goal} session">${d.getDate()}</div>`;
+      }).join("");
+      const tc = counts[mode][todayKey] || 0;
+      const done = tc >= goal;
+      return `<div class="goalrow">
+        <span class="chip ${chipCls}" style="width:74px;text-align:center">${mode === "vocab" ? "Từ vựng" : "Kanji"}</span>
+        <div class="gchips">${chips}</div>
+        <div class="gtoday">Hôm nay: <b>${tc}/${goal}</b> ${done ? "✅ Đạt mục tiêu!" : `— còn ${goal - tc} session nữa`}</div>
+      </div>`;
+    };
+    el.innerHTML = `<h2>Mục tiêu hằng ngày</h2>
+      <div class="sub">Checkpoint 7 ngày gần nhất — ô đậm là ngày đạt mục tiêu, ô nhạt là có học nhưng chưa đủ</div>
+      <div class="goalwrap">
+        ${row("vocab", g.vocabPerDay, "sec-v", "var(--vocab)", "var(--vocab-soft)", "var(--vocab-dark)")}
+        ${row("kanji", g.kanjiPerDay, "sec-k", "var(--kanji)", "var(--kanji-soft)", "var(--kanji-dark)")}
+      </div>`;
+  },
+
+  /* ---------------- exam (kiểm tra tổng hợp) ---------------- */
+  renderExamHub() {
+    this.show("scr-exam");
+    const mk = (mode, cls, ico, label) => {
+      const st = this.state[mode];
+      const ns = st.sessions.length;
+      if (!ns) return `
+        <div class="card startcard ${cls}" style="opacity:.55;cursor:default">
+          <div class="ico">${ico}</div>
+          <div><b>${label}</b><div class="det">Cần hoàn thành ít nhất 1 session ${mode === "vocab" ? "từ vựng" : "kanji"} trước đã</div></div>
+        </div>`;
+      const cfg = this.cfg();
+      const pick = Math.min(cfg.examSessions, ns);
+      const countItems = s => mode === "vocab" ? s.items.length
+        : s.items.reduce((m, i) => m + this.data.kanji[i].words.length, 0);
+      const avg = st.sessions.reduce((n, s) => n + countItems(s), 0) / ns;
+      const estQ = Math.round(avg * pick);
+      const estSec = Math.ceil(estQ / 2) * cfg.mcSec + Math.floor(estQ / 2) * cfg.typedSec;
+      return `
+        <div class="card startcard ${cls}" onclick="App.startExam('${mode}')">
+          <div class="ico">${ico}</div>
+          <div><b>${label}</b>
+            <div class="det">${pick}/${ns} session ngẫu nhiên · ≈${estQ} câu · ⏱ ~${Math.ceil(estSec / 60)} phút</div></div>
+        </div>`;
+    };
+    $("#examCards").innerHTML = mk("vocab", "v", "あ", "Kiểm tra từ vựng") + mk("kanji", "k", "漢", "Kiểm tra kanji");
+  },
+  startExam(mode) {
+    const st = this.state[mode];
+    if (!st.sessions.length) return;
+    const cfg = this.cfg();
+    const picked = shuffle(st.sessions).slice(0, cfg.examSessions);
+    const items = [].concat(...picked.map(s => s.items));
+    this.S = { mode, exam: true, id: null, items,
+      sids: picked.map(s => s.id).sort((a, b) => a - b) };
+    const qs = this.buildQuiz(this.sessionItems(items));
+    this.S.quiz = { qs, i: 0, c: 0, wrong: [], answers: [] };
+    const total = qs.reduce((t, q) => t + (q.type === "mc" ? cfg.mcSec : cfg.typedSec), 0);
+    this.S.totalTime = total;
+    this.S.t0 = Date.now();
+    this.S.deadline = Date.now() + total * 1000;
+    this.S.timer = setInterval(() => this.tickExam(), 500);
+    this.gotoPhase("exam-quiz");
+  },
+  fmtClock(sec) {
+    sec = Math.max(0, Math.ceil(sec));
+    return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
+  },
+  tickExam() {
+    if (!this.S || !this.S.deadline) return;
+    const remain = (this.S.deadline - Date.now()) / 1000;
+    const el = $("#examTimer");
+    if (el) {
+      el.textContent = "⏱ " + this.fmtClock(remain);
+      el.style.color = remain < 60 ? "var(--bad)" : "";
+    }
+    if (remain <= 0) this.finishExam(true);
+  },
+  rExamQuiz() {
+    const q = this.S.quiz;
+    if (q.i >= q.qs.length) { this.finishExam(false); return; }
+    const Q = q.qs[q.i];
+    $("#sessPhase").innerHTML = `câu ${q.i + 1}/${q.qs.length} &nbsp;·&nbsp; <b id="examTimer" style="font-variant-numeric:tabular-nums"></b>`;
+    this.tickExam();
+    let body;
+    if (Q.type === "mc") {
+      body = `
+        <div class="centered qprompt">
+          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Chọn nghĩa đúng</div>
+          <div class="bigword jp" style="font-size:40px;margin-top:6px">${esc(Q.it.jp)}</div>
+          ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
+        </div>
+        <div class="opts">
+          ${Q.opts.map((o, oi) => `<button class="opt" onclick="App.answerExamMC(${oi})">${esc(o.text)}</button>`).join("")}
+        </div>`;
+    } else {
+      body = `
+        <div class="centered qprompt">
+          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Viết từ tiếng Nhật (kanji, kana hoặc romaji)</div>
+          <div class="vi-word" style="margin-top:8px">“${esc(Q.it.meanText)}”</div>
+          ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
+        </div>
+        <div class="typedrow">
+          <input id="typedInput" class="jp" autocomplete="off" placeholder="答え..."
+            onkeydown="if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229)App.answerExamTyped()">
+          <button class="btn ${this.btnClass()}" onclick="App.answerExamTyped()">Câu tiếp →</button>
+        </div>`;
+    }
+    $("#sessBody").innerHTML = `<div class="card stagecard">${body}</div>`;
+    const ti = $("#typedInput"); if (ti) ti.focus();
+  },
+  recordExamAnswer(given, ok) {
+    const q = this.S.quiz, Q = q.qs[q.i];
+    q.answers.push({ Q, given, ok });
+    if (ok) q.c++; else q.wrong.push(Q);
+    q.i++;
+    this.gotoPhase("exam-quiz");
+  },
+  answerExamMC(oi) {
+    const Q = this.S.quiz.qs[this.S.quiz.i], o = Q.opts[oi];
+    this.recordExamAnswer(o.text, o.ok);
+  },
+  answerExamTyped() {
+    const Q = this.S.quiz.qs[this.S.quiz.i];
+    const val = $("#typedInput").value;
+    this.recordExamAnswer(val.trim(), this.checkTyped(Q.it, val));
+  },
+  finishExam(timedOut) {
+    if (!this.S || !this.S.exam || this.S.finished) return;
+    this.S.finished = true;
+    clearInterval(this.S.timer); this.S.timer = null; this.S.deadline = null;
+    const q = this.S.quiz;
+    while (q.i < q.qs.length) { q.answers.push({ Q: q.qs[q.i], given: null, ok: false }); q.i++; }
+    this.S.examDur = Math.round((Date.now() - this.S.t0) / 1000);
+    this.S.timedOut = timedOut;
+    const st = this.state[this.S.mode];
+    (st.exams = st.exams || []).push({ date: new Date().toISOString(), dur: this.S.examDur,
+      c: q.c, t: q.qs.length, sids: this.S.sids });
+    this.save();
+    this.gotoPhase("exam-result");
+  },
+  rExamResult() {
+    const q = this.S.quiz, p = pct(q.c, q.qs.length);
+    $("#sessPhase").textContent = "Kết quả kiểm tra";
+    const rows = q.answers.map(a => {
+      const it = a.Q.it;
+      const prompt = a.Q.type === "mc"
+        ? `<span class="jp">${esc(it.jp)}</span> → chọn nghĩa`
+        : `“${esc(it.meanText)}” → viết tiếng Nhật`;
+      const given = a.given == null ? "<i>(chưa trả lời / hết giờ)</i>" : esc(a.given);
+      return `<div class="xrow ${a.ok ? "ok" : "no"}">
+        <div class="xq">${a.ok ? "✔" : "✘"} ${prompt}</div>
+        ${a.ok ? "" : `<div class="xa">Bạn trả lời: ${given}</div>`}
+        <div class="xm"><b class="jp" style="color:var(--ink)">${esc(it.jp)}</b>${it.reading && it.reading !== it.jp ? ` <span class="jp">（${esc(it.reading)}）</span>` : ""}${it.hanviet ? ` · ${esc(it.hanviet)}` : ""} — ${esc(it.meanings.join("; "))}${it.kref ? ` · <span class="jp">${esc(it.kref.kanji)}</span> ${esc(it.kref.hanviet)}` : ""}</div>
+      </div>`;
+    }).join("");
+    $("#sessBody").innerHTML = `
+      <div class="card stagecard centered" style="max-width:820px">
+        <div style="font-size:40px">${p >= 80 ? "🏆" : p >= 50 ? "📝" : "📖"}</div>
+        <h2 style="margin-top:6px">Kiểm tra ${this.S.mode === "vocab" ? "từ vựng" : "kanji"} · Session ${this.S.sids.join(", ")}</h2>
+        ${this.S.timedOut ? `<div class="banner" style="margin-top:10px">⏰ Hết giờ! Các câu chưa trả lời được tính là sai.</div>` : ""}
+        <div class="scorebig" style="color:${p >= 50 ? "var(--good)" : "var(--bad)"}">${p}%<small> · ${q.c}/${q.qs.length} câu · ⏱ ${this.fmtDur(this.S.examDur)} / ${this.fmtClock(this.S.totalTime)}</small></div>
+        <div class="xrows">${rows}</div>
+        <div class="choices" style="flex-direction:row;justify-content:center;max-width:none">
+          <button class="btn" onclick="App.S=null;App.renderExamHub()">Làm bài khác</button>
+          <button class="btn ${this.btnClass()}" onclick="App.S=null;App.renderDash()">Về trang chính</button>
+        </div>
+      </div>`;
   },
 
   /* ---------------- session flow ---------------- */
@@ -469,7 +1104,7 @@ const App = {
     let items;
     if (mode === "vocab") {
       const n = this.learnedVocabCount();
-      const take = Math.min(VOCAB_PER_SESSION, this.data.vocab.length - n);
+      const take = Math.min(this.cfg().vocabPerSession, this.data.vocab.length - n);
       if (take <= 0) return;
       items = Array.from({ length: take }, (_, i) => n + i);
     } else {
@@ -499,8 +1134,10 @@ const App = {
     this.show("scr-session");
     const chip = $("#sessChip");
     chip.className = "chip " + (this.S.mode === "vocab" ? "sec-v" : "sec-k");
-    chip.textContent = (this.S.mode === "vocab" ? "Từ vựng" : "Kanji") + " · Session " + this.S.id;
+    const label = this.S.mode === "vocab" ? "Từ vựng" : "Kanji";
+    chip.textContent = this.S.exam ? "Kiểm tra · " + label : label + " · Session " + this.S.id;
     document.getElementById("scr-session").style.setProperty("--accent", this.accent());
+    if (p === "study" && !this.S.t0) this.S.t0 = Date.now();
     const P = {
       "review-intro": () => this.rReviewIntro(),
       "review-quiz": () => this.rQuiz(true),
@@ -509,11 +1146,18 @@ const App = {
       "quiz": () => this.rQuiz(false),
       "results": () => this.rResults(),
       "wrong-study": () => this.rWrongStudy(),
+      "exam-quiz": () => this.rExamQuiz(),
+      "exam-result": () => this.rExamResult(),
     };
     P[p](arg);
   },
-  quitSession() {
-    if (this.S && !confirm("Rời session? Tiến trình session hiện tại sẽ không được lưu.")) return;
+  async quitSession() {
+    if (this.S && this.S.exam) {
+      if (this.S.phase !== "exam-result" &&
+          !(await this.askConfirm("Rời bài kiểm tra?\nBài làm hiện tại sẽ không được chấm.", "Rời bài", true))) return;
+      if (this.S && this.S.timer) clearInterval(this.S.timer);
+    } else if (this.S &&
+        !(await this.askConfirm("Rời session?\nTiến trình session hiện tại sẽ không được lưu.", "Rời session", true))) return;
     this.S = null; this.renderDash();
   },
 
@@ -534,12 +1178,14 @@ const App = {
       </div>`;
   },
   startReviewQuiz() {
+    this.S.reviewT0 = Date.now();
     this.S.quiz = { qs: this.buildQuiz(this.sessionItems(this.S.review.items)), i: 0, c: 0, wrong: [], isReview: true };
     this.gotoPhase("review-quiz");
   },
   rReviewResult() {
     const q = this.S.quiz, p = pct(q.c, q.qs.length);
-    this.state[this.S.mode].reviews.push({ sid: this.S.review.sid, c: q.c, t: q.qs.length, date: new Date().toISOString() });
+    this.state[this.S.mode].reviews.push({ sid: this.S.review.sid, c: q.c, t: q.qs.length,
+      date: new Date().toISOString(), dur: Math.round((Date.now() - (this.S.reviewT0 || Date.now())) / 1000) });
     this.save();
     $("#sessPhase").textContent = "Kết quả bài cũ";
     $("#sessBody").innerHTML = `
@@ -650,12 +1296,13 @@ const App = {
     } else {
       body = `
         <div class="centered qprompt">
-          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Viết từ tiếng Nhật (kanji hoặc kana)</div>
+          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Viết từ tiếng Nhật (kanji, kana hoặc romaji)</div>
           <div class="vi-word" style="margin-top:8px">“${esc(Q.it.meanText)}”</div>
           ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
         </div>
         <div class="typedrow">
-          <input id="typedInput" class="jp" autocomplete="off" placeholder="答え..." onkeydown="if(event.key==='Enter')App.answerTyped()">
+          <input id="typedInput" class="jp" autocomplete="off" placeholder="答え..."
+            onkeydown="if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229)App.answerTyped()">
           <button class="btn ${this.btnClass()}" id="typedBtn" onclick="App.answerTyped()">Trả lời</button>
         </div>
         <div id="fb"></div>`;
@@ -704,10 +1351,15 @@ const App = {
               ${it.kref.story ? `<div style="margin-top:4px">💡 ${esc(it.kref.story)}</div>` : ""}</div>` : ""}
         </div>
         <div class="centered" style="margin-top:14px">
-          <button class="btn ${this.btnClass()}" id="contBtn" onclick="App.nextQuestion()">Tiếp tục →</button>
+          <button class="btn ${this.btnClass()}" id="contBtn" onclick="App.nextQuestion()" disabled>Tiếp tục →</button>
         </div>
       </div>`;
-    $("#contBtn").focus();
+    // brief lock so a stray extra Enter (e.g. from IME commit) can't skip the feedback
+    setTimeout(() => {
+      const b = $("#contBtn");
+      if (b) { b.disabled = false; b.focus(); }
+    }, 350);
+    $("#fb").scrollIntoView({ behavior: "smooth", block: "nearest" });
   },
   nextQuestion() {
     const q = this.S.quiz; q.i++;
@@ -748,7 +1400,8 @@ const App = {
   endSession() {
     const st = this.state[this.S.mode];
     st.sessions.push({ id: this.S.id, date: new Date().toISOString(),
-      items: this.S.items, first: this.S.first });
+      items: this.S.items, first: this.S.first,
+      dur: this.S.t0 ? Math.round((Date.now() - this.S.t0) / 1000) : null });
     this.save();
     this.S = null;
     this.renderDash();

@@ -13,7 +13,10 @@ Chạy file `dist\GunGunN3Trainer.exe` (không cần cài đặt gì thêm — c
 - **Quiz**: Nhật → Việt là trắc nghiệm 4 đáp án; Việt → Nhật là tự luận (chấp nhận kanji hoặc kana). Chấm ngay từng câu kèm giải thích chi tiết.
 - Sau quiz: ôn lại các từ sai / làm lại quiz / kết thúc session.
 - **Kiểm tra bài cũ**: từ session thứ 2, trước khi vào bài mới sẽ có quiz ôn một session ngẫu nhiên trong quá khứ.
-- **Dashboard**: số session, số từ/kanji đã học, tỷ lệ đúng quiz, tỷ lệ thuộc bài cũ, biểu đồ kết quả theo session.
+- **Dashboard**: số session, số từ/kanji đã học, tỷ lệ đúng quiz, tỷ lệ thuộc bài cũ, biểu đồ kết quả theo session, checkpoint mục tiêu ngày (7 ngày gần nhất), lịch sử ôn tập (ngày giờ, thời lượng, điểm), đồng hồ trực tiếp.
+- **Kiểm tra tổng hợp** (sidebar → Kiểm tra): gom tối đa N session ngẫu nhiên đã học thành bài kiểm tra có đếm giờ, không chấm từng câu — chấm điểm và giải thích toàn bộ ở cuối.
+- **Cài đặt** (sidebar): đổi tên, số từ/kanji mỗi session, số session mỗi bài kiểm tra, thời gian mỗi câu, mục tiêu session/ngày.
+- 5 theme: Sáng / Tối / 3 gradient động (Aurora đổi màu liên tục).
 - Tiến trình lưu cục bộ (localStorage của WebView2 + bản sao JSON tại `%LOCALAPPDATA%\GunGunN3Trainer\`).
 
 ## Cấu trúc
