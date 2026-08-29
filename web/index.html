@@ -722,34 +722,46 @@ const App = {
     }
     if (!runs.length) return word;                    // pure kana word
     if (!parts.length) return w.reading || "";
+    const kanjiChars = segs.reduce((n, s) => n + (s.kanji ? s.text.length : 0), 0);
     let map;
     if (runs.length === 1) map = [parts.join("")];
     else if (parts.length === runs.length) map = parts;
-    else return w.reading || "";
+    else if (parts.length === kanjiChars) {
+      // one furigana part per kanji character (e.g. 目覚まし時計 = め+ざ / ど+けい)
+      let pi = 0;
+      map = segs.filter(s => s.kanji).map(s => parts.slice(pi, pi += s.text.length).join(""));
+    } else return w.reading || "";
     let ri = 0;
     return segs.map(s => s.kanji ? map[ri++] : s.text).join("");
   },
 
   /* ---------------- quiz building ---------------- */
   buildQuiz(items) {
+    const mode = this.S.mode;
     const order = shuffle(items.map((_, i) => i));
     const half = Math.ceil(order.length / 2);
     const qs = order.map((itemIdx, pos) => {
       const it = items[itemIdx];
-      const type = pos < half ? "mc" : "typed";
-      return type === "mc" ? this.buildMC(it) : { type: "typed", it };
+      const mc = pos < half;
+      if (mode === "kanji") {
+        // kanji quiz: hiragana -> kanji (MC), kanji -> hiragana (typed)
+        const hasKana = it.reading && it.reading !== it.jp;
+        if (!hasKana) return this.buildMC(it);        // rare fallback: meaning MC
+        return mc ? this.buildKanjiMC(it) : { type: "typed", qkind: "k-read", it };
+      }
+      return mc ? this.buildMC(it) : { type: "typed", it };
     });
     return shuffle(qs);
   },
+  // MC distractors always drawn from the FULL word base, never just the session
   buildMC(it) {
-    const pool = this.S.mode === "vocab" ? this.data.vocab : null;
     const texts = new Set([it.meanText]);
     const opts = [{ text: it.meanText, ok: true }];
     let guard = 0;
     while (opts.length < 4 && guard++ < 400) {
       let cand;
-      if (pool) {
-        const e = pool[Math.floor(Math.random() * pool.length)];
+      if (this.S.mode === "vocab") {
+        const e = this.data.vocab[Math.floor(Math.random() * this.data.vocab.length)];
         cand = e.meanings.join("; ");
       } else {
         const ks = this.data.kanji;
@@ -760,6 +772,30 @@ const App = {
       texts.add(cand); opts.push({ text: cand, ok: false });
     }
     return { type: "mc", it, opts: shuffle(opts) };
+  },
+  kanjiWordPool() {
+    if (!this._kwPool) {
+      this._kwPool = [];
+      for (const k of this.data.kanji)
+        for (const w of k.words) this._kwPool.push({ word: w.word, kana: this.kanaForm(w) });
+    }
+    return this._kwPool;
+  },
+  buildKanjiMC(it) {
+    const pool = this.kanjiWordPool();
+    const key = this.foldKana(this.normJP(it.reading));
+    const texts = new Set([this.normJP(it.jp)]);
+    const opts = [{ text: it.jp, ok: true }];
+    let guard = 0;
+    while (opts.length < 4 && guard++ < 600) {
+      const c = pool[Math.floor(Math.random() * pool.length)];
+      const t = this.normJP(c.word);
+      if (!t || texts.has(t)) continue;
+      // skip homophones so only one option reads correctly
+      if (c.kana && this.foldKana(this.normJP(c.kana)) === key) continue;
+      texts.add(t); opts.push({ text: c.word, ok: false });
+    }
+    return { type: "mc", qkind: "k-word", it, opts: shuffle(opts) };
   },
   normJP(s) {
     return String(s || "").normalize("NFKC").replace(/\s+/g, "")
@@ -828,6 +864,27 @@ const App = {
     add(it.jp); it.kana.forEach(add); if (it.reading) add(it.reading);
     const inputs = [this.foldKana(raw)];
     if (/^[a-zA-Z-]+$/.test(raw)) {           // romaji typed on a normal keyboard
+      const k = this.romajiToKana(raw);
+      if (k) inputs.push(k);
+    }
+    return inputs.some(x => answers.has(x));
+  },
+  // kanji -> reading questions: only the kana reading counts, not the word itself
+  checkReading(it, input) {
+    const raw = this.normJP(input);
+    if (!raw) return false;
+    const answers = new Set();
+    const add = s => {
+      s = this.normJP(s);
+      if (!s) return;
+      for (const part of s.split(/[・/／、,;]/)) {
+        const p = part.trim();
+        if (p) answers.add(this.foldKana(p));
+      }
+    };
+    it.kana.forEach(add); if (it.reading) add(it.reading);
+    const inputs = [this.foldKana(raw)];
+    if (/^[a-zA-Z-]+$/.test(raw)) {
       const k = this.romajiToKana(raw);
       if (k) inputs.push(k);
     }
@@ -1015,21 +1072,14 @@ const App = {
     let body;
     if (Q.type === "mc") {
       body = `
-        <div class="centered qprompt">
-          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Chọn nghĩa đúng</div>
-          <div class="bigword jp" style="font-size:40px;margin-top:6px">${esc(Q.it.jp)}</div>
-          ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
-        </div>
+        ${this.qPromptHTML(Q)}
         <div class="opts">
-          ${Q.opts.map((o, oi) => `<button class="opt" onclick="App.answerExamMC(${oi})">${esc(o.text)}</button>`).join("")}
+          ${Q.opts.map((o, oi) => `<button class="opt${Q.qkind === "k-word" ? " jp" : ""}"
+            ${Q.qkind === "k-word" ? 'style="font-size:19px"' : ""} onclick="App.answerExamMC(${oi})">${esc(o.text)}</button>`).join("")}
         </div>`;
     } else {
       body = `
-        <div class="centered qprompt">
-          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Viết từ tiếng Nhật (kanji, kana hoặc romaji)</div>
-          <div class="vi-word" style="margin-top:8px">“${esc(Q.it.meanText)}”</div>
-          ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
-        </div>
+        ${this.qPromptHTML(Q)}
         <div class="typedrow">
           <input id="typedInput" class="jp" autocomplete="off" placeholder="答え..."
             onkeydown="if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229)App.answerExamTyped()">
@@ -1053,7 +1103,7 @@ const App = {
   answerExamTyped() {
     const Q = this.S.quiz.qs[this.S.quiz.i];
     const val = $("#typedInput").value;
-    this.recordExamAnswer(val.trim(), this.checkTyped(Q.it, val));
+    this.recordExamAnswer(val.trim(), this.checkAnswerFor(Q, val));
   },
   finishExam(timedOut) {
     if (!this.S || !this.S.exam || this.S.finished) return;
@@ -1074,7 +1124,11 @@ const App = {
     $("#sessPhase").textContent = "Kết quả kiểm tra";
     const rows = q.answers.map(a => {
       const it = a.Q.it;
-      const prompt = a.Q.type === "mc"
+      const prompt = a.Q.qkind === "k-word"
+        ? `<span class="jp">${esc(it.reading)}</span> → chọn cách viết`
+        : a.Q.qkind === "k-read"
+        ? `<span class="jp">${esc(it.jp)}</span> → viết cách đọc`
+        : a.Q.type === "mc"
         ? `<span class="jp">${esc(it.jp)}</span> → chọn nghĩa`
         : `“${esc(it.meanText)}” → viết tiếng Nhật`;
       const given = a.given == null ? "<i>(chưa trả lời / hết giờ)</i>" : esc(a.given);
@@ -1272,6 +1326,38 @@ const App = {
     </div>`;
   },
 
+  qPromptHTML(Q) {
+    const lab = t => `<div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">${t}</div>`;
+    if (Q.type === "mc" && Q.qkind === "k-word") {
+      return `<div class="centered qprompt">
+        ${lab("Chọn cách viết đúng")}
+        <div class="bigword jp" style="font-size:38px;margin-top:6px">${esc(Q.it.reading)}</div>
+        <div class="sub" style="margin-top:4px">“${esc(Q.it.meanText)}”</div>
+      </div>`;
+    }
+    if (Q.type === "mc") {
+      return `<div class="centered qprompt">
+        ${lab("Chọn nghĩa đúng")}
+        <div class="bigword jp" style="font-size:40px;margin-top:6px">${esc(Q.it.jp)}</div>
+        ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
+      </div>`;
+    }
+    if (Q.qkind === "k-read") {
+      return `<div class="centered qprompt">
+        ${lab("Viết cách đọc bằng hiragana (hoặc romaji)")}
+        <div class="bigword jp" style="font-size:44px;margin-top:6px">${esc(Q.it.jp)}</div>
+        <div class="sub" style="margin-top:4px">“${esc(Q.it.meanText)}”</div>
+      </div>`;
+    }
+    return `<div class="centered qprompt">
+      ${lab("Viết từ tiếng Nhật (kanji, kana hoặc romaji)")}
+      <div class="vi-word" style="margin-top:8px">“${esc(Q.it.meanText)}”</div>
+      ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
+    </div>`;
+  },
+  checkAnswerFor(Q, val) {
+    return Q.qkind === "k-read" ? this.checkReading(Q.it, val) : this.checkTyped(Q.it, val);
+  },
   startMainQuiz() {
     this.S.quiz = { qs: this.buildQuiz(this.sessionItems(this.S.items)), i: 0, c: 0, wrong: [], isReview: false };
     this.gotoPhase("quiz");
@@ -1284,22 +1370,15 @@ const App = {
     let body;
     if (Q.type === "mc") {
       body = `
-        <div class="centered qprompt">
-          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Chọn nghĩa đúng</div>
-          <div class="bigword jp" style="font-size:40px;margin-top:6px">${esc(Q.it.jp)}</div>
-          ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
-        </div>
+        ${this.qPromptHTML(Q)}
         <div class="opts">
-          ${Q.opts.map((o, oi) => `<button class="opt" id="opt${oi}" onclick="App.answerMC(${oi})">${esc(o.text)}</button>`).join("")}
+          ${Q.opts.map((o, oi) => `<button class="opt${Q.qkind === "k-word" ? " jp" : ""}" id="opt${oi}"
+            ${Q.qkind === "k-word" ? 'style="font-size:19px"' : ""} onclick="App.answerMC(${oi})">${esc(o.text)}</button>`).join("")}
         </div>
         <div id="fb"></div>`;
     } else {
       body = `
-        <div class="centered qprompt">
-          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Viết từ tiếng Nhật (kanji, kana hoặc romaji)</div>
-          <div class="vi-word" style="margin-top:8px">“${esc(Q.it.meanText)}”</div>
-          ${Q.it.pos ? `<div style="margin-top:6px"><span class="chip pos">${esc(Q.it.pos)}</span></div>` : ""}
-        </div>
+        ${this.qPromptHTML(Q)}
         <div class="typedrow">
           <input id="typedInput" class="jp" autocomplete="off" placeholder="答え..."
             onkeydown="if(event.key==='Enter'&&!event.isComposing&&event.keyCode!==229)App.answerTyped()">
@@ -1327,14 +1406,15 @@ const App = {
     if (!val.trim()) { $("#typedInput").focus(); return; }
     Q.answered = true;
     $("#typedInput").disabled = true; $("#typedBtn").disabled = true;
-    this.finishAnswer(this.checkTyped(Q.it, val), val);
+    this.finishAnswer(this.checkAnswerFor(Q, val), val);
   },
   finishAnswer(ok, typedVal) {
     const q = this.S.quiz, Q = q.qs[q.i];
     if (ok) q.c++; else q.wrong.push(Q);
     const it = Q.it;
-    const answerLine = Q.type === "typed"
-      ? `<div style="margin-top:6px">Đáp án đúng: <b class="jp" style="font-size:17px">${esc(it.jp)}</b>${it.kana[0] && it.kana[0] !== it.jp ? ` <span class="jp sub">（${esc(it.kana[0])}）</span>` : ""}</div>` : "";
+    const answerLine = Q.type !== "typed" ? "" : Q.qkind === "k-read"
+      ? `<div style="margin-top:6px">Đáp án đúng: <b class="jp" style="font-size:17px">${esc(it.reading)}</b> <span class="jp sub">（${esc(it.jp)}）</span></div>`
+      : `<div style="margin-top:6px">Đáp án đúng: <b class="jp" style="font-size:17px">${esc(it.jp)}</b>${it.kana[0] && it.kana[0] !== it.jp ? ` <span class="jp sub">（${esc(it.kana[0])}）</span>` : ""}</div>`;
     $("#fb").innerHTML = `
       <div class="feedback ${ok ? "ok" : "no"}">
         <div class="verdict">${ok ? "✔ Chính xác!" : "✘ Chưa đúng"}${typedVal && !ok ? ` <span class="jp" style="font-weight:400">— bạn viết: ${esc(typedVal)}</span>` : ""}</div>
