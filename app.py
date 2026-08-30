@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """GunGun N3 Trainer - desktop host (pywebview + WebView2)."""
+import ctypes
 import json
 import os
 import sys
@@ -26,13 +27,16 @@ class Api:
         return {"vocab": vocab, "kanji": kanji}
 
     # Mirror of localStorage state, so progress survives a WebView2 profile wipe.
+    # Written atomically: a crash mid-write can never corrupt the existing backup.
     def save_backup(self, text):
         try:
             os.makedirs(STORAGE_DIR, exist_ok=True)
-            with open(
-                os.path.join(STORAGE_DIR, "state-backup.json"), "w", encoding="utf-8"
-            ) as f:
+            tmp = os.path.join(STORAGE_DIR, "state-backup.json.tmp")
+            with open(tmp, "w", encoding="utf-8") as f:
                 f.write(text)
+                f.flush()
+                os.fsync(f.fileno())
+            os.replace(tmp, os.path.join(STORAGE_DIR, "state-backup.json"))
             return True
         except OSError:
             return False
@@ -48,6 +52,11 @@ class Api:
 
 
 if __name__ == "__main__":
+    # single instance only: two WebView2 processes sharing one profile folder
+    # fight over the storage lock and progress can silently stop being saved
+    ctypes.windll.kernel32.CreateMutexW(None, False, "GunGunN3Trainer_SingleInstance")
+    if ctypes.windll.kernel32.GetLastError() == 183:  # ERROR_ALREADY_EXISTS
+        sys.exit(0)
     os.makedirs(STORAGE_DIR, exist_ok=True)
     webview.create_window(
         APP_NAME,

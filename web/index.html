@@ -291,7 +291,8 @@ body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:
       <div class="logo jp">語</div>
       <div><b>GunGun N3</b><div class="sub">Từ vựng &amp; Kanji</div></div>
     </div>
-    <button class="navitem on" id="nav-dash" onclick="App.navDash()">🏠&ensp;Học</button>
+    <button class="navitem on" id="nav-dash" onclick="App.navDash()">🏠&ensp;Trang chính</button>
+    <button class="navitem" id="nav-learn" onclick="App.navLearn()">📖&ensp;Học</button>
     <button class="navitem" id="nav-exam" onclick="App.navExam()">📝&ensp;Kiểm tra</button>
     <button class="navitem" id="nav-history" onclick="App.navHistory()">🕘&ensp;Lịch sử</button>
     <button class="navitem" id="nav-settings" onclick="App.openSettings()">⚙️&ensp;Cài đặt</button>
@@ -335,8 +336,19 @@ body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:
         <div class="chart" id="chartKanji"></div>
       </div>
     </div>
-    <div class="sechead"><span>✦ Bắt đầu học hôm nay</span></div>
-    <div class="startrow" id="startrow" style="margin:0 0 14px"></div>
+    <div class="sechead"><span>✦ Bạn muốn làm gì hôm nay?</span></div>
+    <div class="startrow" id="homeCards" style="margin:0"></div>
+  </section>
+
+  <!-- ===== learn ===== -->
+  <section id="scr-learn" class="screen">
+    <div class="topbar">
+      <div class="hello">
+        <h1>Học</h1>
+        <div class="sub" style="margin-top:2px">Bắt đầu một session mới — học từ mới, ôn tập rồi làm quiz. Từ session thứ 2 sẽ có kiểm tra bài cũ trước khi vào bài.</div>
+      </div>
+    </div>
+    <div class="startrow" id="startrow" style="margin-top:22px"></div>
   </section>
 
   <!-- ===== history ===== -->
@@ -445,12 +457,14 @@ const App = {
   /* ---------------- boot ---------------- */
   async boot() {
     this.data = await this.loadData();
-    this.state = this.loadState();
-    if (!this.state) {
-      // try file backup (profile may have been wiped)
-      const bak = await this.apiCall("load_backup");
-      if (bak) { try { this.state = JSON.parse(bak); localStorage.setItem(STORE_KEY, bak); } catch (e) {} }
-    }
+    // read BOTH stores and keep whichever is better — localStorage can silently
+    // roll back if WebView2 is killed before flushing, the JSON file cannot
+    const ls = this.loadState();
+    let bak = null;
+    const bakText = await this.apiCall("load_backup");
+    if (bakText) { try { bak = JSON.parse(bakText); } catch (e) {} }
+    this.state = this.pickState(ls, bak);
+    if (this.state) this.save();          // resync both stores to the winner
     if (!this.state) {
       this.state = { name: null,
         vocab: { sessions: [], reviews: [] },
@@ -494,7 +508,18 @@ const App = {
   loadState() {
     try { const t = localStorage.getItem(STORE_KEY); return t ? JSON.parse(t) : null; } catch (e) { return null; }
   },
+  pickState(a, b) {
+    if (!a) return b;
+    if (!b) return a;
+    // both written together on every save, so a fresh timestamp means fresher data
+    if (a.savedAt && b.savedAt && a.savedAt !== b.savedAt) return a.savedAt > b.savedAt ? a : b;
+    // old format without timestamps: keep the one with more learning history
+    const score = s => (((s.vocab || {}).sessions) || []).length + (((s.kanji || {}).sessions) || []).length
+      + (((s.vocab || {}).reviews) || []).length + (((s.kanji || {}).reviews) || []).length;
+    return score(b) > score(a) ? b : a;
+  },
   save() {
+    this.state.savedAt = Date.now();
     const t = JSON.stringify(this.state);
     try { localStorage.setItem(STORE_KEY, t); } catch (e) {}
     this.apiCall("save_backup", t);
@@ -504,11 +529,13 @@ const App = {
     $("#" + id).classList.add("on");
     document.body.classList.toggle("nosb", id === "scr-name" || id === "scr-session");
     $("#nav-dash").classList.toggle("on", id === "scr-dash");
+    $("#nav-learn").classList.toggle("on", id === "scr-learn");
     $("#nav-exam").classList.toggle("on", id === "scr-exam");
     $("#nav-history").classList.toggle("on", id === "scr-history");
     window.scrollTo(0, 0);
   },
   navDash() { if (this.S) return; this.renderDash(); },
+  navLearn() { if (this.S) return; this.renderLearn(); },
   navExam() { if (this.S) return; this.renderExamHub(); },
   navHistory() { if (this.S) return; this.show("scr-history"); this.renderHistory(); },
   askConfirm(msg, okLabel, danger) {
@@ -556,12 +583,39 @@ const App = {
   },
   agg(list) { let c = 0, t = 0; for (const s of list) { if (s.first) { c += s.first.c; t += s.first.t; } else if (s.t != null) { c += s.c; t += s.t; } } return { c, t }; },
 
-  renderDash() {
+  renderDash() { // welcome / home screen
     this.show("scr-dash");
     const st = this.state, d = this.data;
     this.renderThemeRow();
     $("#helloLine").textContent = `Xin chào, ${st.name}!`;
-
+    const nSess = st.vocab.sessions.length + st.kanji.sessions.length;
+    const nV = this.learnedVocabCount(), nK = this.learnedKanjiCount();
+    const vLeft = d.vocab.length - nV, kLeft = d.kanji.length - nK;
+    const q = this.agg([...st.vocab.sessions, ...st.kanji.sessions]);
+    const nHist = nSess + st.vocab.reviews.length + st.kanji.reviews.length
+      + (st.vocab.exams || []).length + (st.kanji.exams || []).length;
+    const card = (cls, ico, title, desc, onclick) => `
+      <div class="card startcard ${cls}" onclick="${onclick}">
+        <div class="ico">${ico}</div>
+        <div><b>${title}</b><div class="det">${desc}</div></div>
+      </div>`;
+    $("#homeCards").innerHTML =
+      card("v", "📖", "Học",
+        vLeft || kLeft ? `Session mới đang chờ: ${vLeft ? `${Math.min(this.cfg().vocabPerSession, vLeft)} từ vựng` : ""}${vLeft && kLeft ? " · " : ""}${kLeft ? `${this.nextKanjiSlice().length} kanji` : ""}` : "Đã học hết toàn bộ giáo trình 🎉",
+        "App.navLearn()") +
+      card("k", "📝", "Kiểm tra",
+        nSess ? "Bài kiểm tra tổng hợp có tính giờ từ các session ngẫu nhiên đã học" : "Mở khóa sau khi bạn hoàn thành session đầu tiên",
+        "App.navExam()") +
+      card("k", "🕘", "Lịch sử",
+        nHist ? `${nHist} hoạt động đã ghi lại — ngày giờ, thời lượng, điểm số` : "Nhật ký các buổi học và kiểm tra sẽ hiện ở đây",
+        "App.navHistory()") +
+      card("v", "⚙️", "Cài đặt",
+        "Tên hiển thị, giao diện, cấu hình session, bài kiểm tra và mục tiêu ngày",
+        "App.openSettings()");
+    this.renderStatsInto();
+  },
+  renderStatsInto() {
+    const st = this.state, d = this.data;
     const nSess = st.vocab.sessions.length + st.kanji.sessions.length;
     const nV = this.learnedVocabCount(), nK = this.learnedKanjiCount(), nKW = this.learnedKanjiWordCount();
     const q = this.agg([...st.vocab.sessions, ...st.kanji.sessions]);
@@ -579,7 +633,14 @@ const App = {
         <div class="det">${t.det}</div>
         ${t.bar ? `<div class="pbar"><i style="width:${pct(t.bar[0], t.bar[1])}%;background:${t.bar[2]}"></i></div>` : ""}
       </div>`).join("");
-
+    this.renderChart($("#chartVocab"), st.vocab.sessions, "var(--vocab)");
+    this.renderChart($("#chartKanji"), st.kanji.sessions, "var(--kanji)");
+    this.renderGoals();
+  },
+  renderLearn() {
+    this.show("scr-learn");
+    const d = this.data;
+    const nV = this.learnedVocabCount(), nK = this.learnedKanjiCount();
     const vLeft = d.vocab.length - nV, kLeft = d.kanji.length - nK;
     $("#startrow").innerHTML = `
       <div class="card startcard v" onclick="${vLeft ? "App.startSession('vocab')" : ""}" ${vLeft ? "" : 'style="opacity:.55;cursor:default"'}>
@@ -592,10 +653,6 @@ const App = {
         <div><b>Session kanji mới</b>
           <div class="det">${kLeft ? `${this.nextKanjiSlice().length} chữ kanji cùng từ vựng đi kèm` : "Bạn đã học hết toàn bộ kanji 🎉"}</div></div>
       </div>`;
-
-    this.renderChart($("#chartVocab"), st.vocab.sessions, "var(--vocab)");
-    this.renderChart($("#chartKanji"), st.kanji.sessions, "var(--kanji)");
-    this.renderGoals();
   },
   fmtDur(sec) {
     if (sec == null) return "—";
@@ -913,8 +970,9 @@ const App = {
     // refresh hub screens so name/config changes show up right away
     if (!this.S) {
       const cur = document.querySelector(".screen.on");
-      if (cur && cur.id === "scr-dash") this.renderDash();
-      else if (cur && cur.id === "scr-exam") this.renderExamHub();
+      const r = { "scr-dash": "renderDash", "scr-exam": "renderExamHub",
+                  "scr-learn": "renderLearn" }[cur && cur.id];
+      if (r) this[r]();
     }
   },
   saveSettings() {
