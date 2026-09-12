@@ -142,6 +142,7 @@ body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[dat
 .flagbtn:hover{border-color:var(--flag);color:var(--flag)}
 .flagbtn.on{background:var(--flag-soft);border-color:var(--flag);color:var(--flag)}
 .pqtext{font-size:18px;line-height:1.85}
+.qaudio{width:100%;margin-bottom:12px}
 .paperq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.7;white-space:normal}
 .paperq .opt.picked{border-color:var(--exam);background:var(--exam-soft);font-weight:600}
 .pqnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
@@ -1812,7 +1813,8 @@ const App = {
           <button class="flagbtn${flagged ? " on" : ""}" onclick="App.toggleFlag()">
             ${flagged ? "★ Đang phân vân" : "☆ Đánh dấu phân vân"}</button>
         </div>
-        ${noAnswer ? `<div class="banner" style="margin:0 0 12px">🎧 Phần nghe: đề PDF không kèm file audio nên câu này chỉ để xem cấu trúc, không chấm điểm.</div>` : ""}
+        ${q.audio ? `<audio class="qaudio" controls preload="none" src="${esc(q.audio)}"></audio>` : ""}
+        ${noAnswer && !q.audio ? `<div class="banner" style="margin:0 0 12px">🎧 Phần nghe: đề PDF không kèm file audio nên câu này chỉ để xem cấu trúc, không chấm điểm.</div>` : ""}
         <div class="jp pqtext">${esc(q.q) || "(Xem đoạn văn phía trên)"}</div>
         <div class="opts" style="max-width:none;margin-top:14px">
           ${q.opts.map((o, i) => `<button class="opt jp${picked === i + 1 ? " picked" : ""}"
