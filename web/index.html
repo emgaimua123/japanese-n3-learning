@@ -1172,9 +1172,12 @@ const App = {
     if (!ok) return;
     this.closeSettings();
     localStorage.removeItem(STORE_KEY);
+    // every branch boot() guarantees must be here too: the screens read them
+    // directly, and after a reset the app is not restarted
     this.state = { name: null, theme: this.state.theme,
       vocab: { sessions: [], reviews: [] }, kanji: { sessions: [], reviews: [] },
-      grammar: { sessions: [], reviews: [] }, reading: { done: [] } };
+      grammar: { sessions: [], reviews: [] }, reading: { done: [] },
+      exams: { done: [] } };
     this.save(); this.show("scr-name");
   },
 

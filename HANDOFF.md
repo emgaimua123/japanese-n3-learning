@@ -198,8 +198,7 @@ Tổng đang dùng được: **140 câu có đáp án** (đã kiểm lại bằn
 3. **Hai đề scan (7/2021, 12/2023)**: đọc ảnh → nhập JSON theo đúng schema ở §7.
 4. **Khôi phục các bài đọc là ảnh** (問題3, 問題4(1), 問題7) cho 3 đề đã có.
 5. **Đối chiếu lại 140 đáp án** với đáp án chính thức (nhớ quy ước key ở §5.3e).
-6. **Sửa lỗi `resetAll()`** — xem §10.
-7. Cân nhắc: cho phép nộp sớm và xem lại bài trước khi hết giờ từng phần (hiện chỉ nộp rồi mới xem).
+6. Cân nhắc: cho phép nộp sớm và xem lại bài trước khi hết giờ từng phần (hiện chỉ nộp rồi mới xem).
 
 Việc 1–4 đều đụng `exams.json` → đọc **§8 cảnh báo ghi đè** trước.
 
@@ -305,7 +304,7 @@ Sau khi sửa `app.py` — phải build exe hoặc chạy `python app.py` trên 
 
 ## 10. Lỗi đã biết / nợ kỹ thuật
 
-- **`App.resetAll()` (`index.html:1167`) dựng lại state thiếu khoá `exams`** → sau khi "Đặt lại toàn bộ dữ liệu", nếu người dùng vào màn Kiểm tra mà chưa khởi động lại app thì `this.state.exams.done` là `undefined` → crash (`index.html:2203` và `:1738`). Sửa: thêm `exams: { done: [] }` (và `grammar`/`reading` cho đủ bộ) vào object ở dòng 1176. Đúng kiểu bẫy mô tả ở §11.
+- ~~`App.resetAll()` dựng lại state thiếu khoá `exams` → crash màn Kiểm tra sau khi "Đặt lại toàn bộ dữ liệu" nếu chưa khởi động lại app.~~ **Đã sửa** (13/09/2026): object trong `resetAll()` giờ có đủ mọi nhánh mà `boot()` bảo đảm. Nếu sau này thêm nhánh mới vào `boot()`, nhớ thêm cả ở đây — đúng kiểu bẫy mô tả ở §11.
 - `README.md` mô tả tính năng đã cũ hơn thực tế ở vài chỗ (không nhắc đề thi JLPT trong bảng cấu trúc file).
 - Exe 35 MB commit thẳng vào git, repo sẽ phình theo số lần build.
 
