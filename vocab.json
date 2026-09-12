@@ -183,7 +183,7 @@
  {
   "word": "調子",
   "reading": "ちょうし",
-  "hanviet": "ĐIỀU TỬ (của việc,...)",
+  "hanviet": "ĐIỀU TỬ",
   "pos": "N",
   "meanings": [
    "tình trạng, trạng thái cơ thể, máy móc, công"
@@ -355,7 +355,7 @@
   "hanviet": "BI",
   "pos": "N",
   "meanings": [
-   "nỗi buồn TỪ VỰNG ❷"
+   "nỗi buồn"
   ],
   "chapter": 1,
   "bai": 1,
@@ -450,10 +450,10 @@
  {
   "word": "固い",
   "reading": "かたい",
-  "hanviet": "CỐ mở)",
+  "hanviet": "CỐ",
   "pos": "Aい",
   "meanings": [
-   "cứng, chặt (không dễ",
+   "cứng, chặt (không dễ)",
    "(ý chí) quả quyết, không lay chuyển",
    "bảo thủ"
   ],
@@ -717,7 +717,7 @@
  {
   "word": "亡くなる",
   "reading": "なくなる",
-  "hanviet": "VONG nói",
+  "hanviet": "VONG",
   "pos": "V",
   "meanings": [
    "qua đời, mất (cách trang trọng hơn của 死ぬ)"
@@ -918,7 +918,6 @@
   "hanviet": "VIỄN HỒI",
   "pos": "する/Aな",
   "meanings": [
-   "(N/N",
    "đi đường vòng",
    "vòng vo"
   ],
@@ -956,7 +955,6 @@
   "hanviet": "HI VỌNG",
   "pos": "する",
   "meanings": [
-   "(N/N",
    "mong muốn, nguyện vọng"
   ],
   "chapter": 1,
@@ -969,7 +967,6 @@
   "hanviet": "HẬU HỐI",
   "pos": "する",
   "meanings": [
-   "(N/N",
    "hối hận, ăn năn"
   ],
   "chapter": 1,
@@ -982,7 +979,6 @@
   "hanviet": "TẨM PHƯỜNG",
   "pos": "する",
   "meanings": [
-   "(N/N",
    "ngủ quên, ngủ nướng"
   ],
   "chapter": 1,
@@ -995,7 +991,6 @@
   "hanviet": "TRÌ KHẮC",
   "pos": "する",
   "meanings": [
-   "(N/N",
    "trễ giờ, muộn giờ"
   ],
   "chapter": 1,
@@ -1008,7 +1003,6 @@
   "hanviet": "TRỮ KIM",
   "pos": "する",
   "meanings": [
-   "(N/N",
    "tiền tiết kiệm",
    "tiết kiệm tiền"
   ],
@@ -1022,7 +1016,6 @@
   "hanviet": "THAM GIA",
   "pos": "する",
   "meanings": [
-   "(N/N",
    "tham gia"
   ],
   "chapter": 1,
@@ -1035,7 +1028,6 @@
   "hanviet": "KIỂM TRA",
   "pos": "する",
   "meanings": [
-   "(N/N",
    "kiểm tra, xét nghiệm, kiểm định"
   ],
   "chapter": 1,
@@ -1105,10 +1097,10 @@
  {
   "word": "法則",
   "reading": "ほうそく",
-  "hanviet": "PHÁP TẮC hoặc vật lý)",
+  "hanviet": "PHÁP TẮC",
   "pos": "N",
   "meanings": [
-   "quy luật, định luật (quy tắc mang tính tự nhiên khoa học như định luật"
+   "quy luật, định luật (quy tắc mang tính tự nhiên khoa học như định luật)"
   ],
   "chapter": 1,
   "bai": 2,
@@ -1117,7 +1109,7 @@
  {
   "word": "規則",
   "reading": "きそく",
-  "hanviet": "QUY TẮC định",
+  "hanviet": "QUY TẮC",
   "pos": "N",
   "meanings": [
    "quy tắc, nội quy (quy do con người đặt ra)"
@@ -1337,7 +1329,7 @@
   "hanviet": "THỂ LỰC",
   "pos": "N",
   "meanings": [
-   "thể lực TỪ VỰNG ❷"
+   "thể lực"
   ],
   "chapter": 1,
   "bai": 2,
@@ -1480,7 +1472,7 @@
  {
   "word": "積極的",
   "reading": "せっきょくてき",
-  "hanviet": "T Í C H CỰC Đ Í C H",
+  "hanviet": "",
   "pos": "Aな",
   "meanings": [
    "một cách tích cực"
@@ -1644,7 +1636,7 @@
   "meanings": [
    "rơi, rớt",
    "trượt (kỳ thi)",
-   "giảm xuống TỪ VỰNG ❸"
+   "giảm xuống"
   ],
   "chapter": 1,
   "bai": 2,
@@ -1706,7 +1698,7 @@
  {
   "word": "測る",
   "reading": "はかる",
-  "hanviet": "TRẮC độ sâu,",
+  "hanviet": "TRẮC",
   "pos": "V",
   "meanings": [
    "đo, đo lường (chiều dài, nhiệt độ, ...)"
@@ -1839,7 +1831,7 @@
  {
   "word": "行動",
   "reading": "こうどう",
-  "hanviet": "H À N H Đ Ộ N G",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "hành động"
@@ -1899,7 +1891,7 @@
  {
   "word": "測定",
   "reading": "そくてい",
-  "hanviet": "TRẮC ĐỊNH tính",
+  "hanviet": "TRẮC ĐỊNH",
   "pos": "N/Nする",
   "meanings": [
    "đo đạc, đo lường (mang chính xác, khoa học)"
@@ -1923,7 +1915,7 @@
  {
   "word": "ダイエット",
   "reading": "ダイエット",
-  "hanviet": "(diet)",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "ăn kiêng, giảm cân"
@@ -2071,7 +2063,7 @@
  {
   "word": "平日",
   "reading": "へいじつ",
-  "hanviet": "BÌNH NHẬT phải",
+  "hanviet": "BÌNH NHẬT",
   "pos": "N",
   "meanings": [
    "ngày thường (không cuối tuần hay ngày lễ)"
@@ -2251,7 +2243,7 @@
  {
   "word": "汚れ",
   "reading": "よごれ",
-  "hanviet": "Ô",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "vết bẩn, vết dơ, vết nhơ"
@@ -2299,10 +2291,10 @@
  {
   "word": "温度",
   "reading": "おんど",
-  "hanviet": "ÔN ĐỘ v.v.)",
+  "hanviet": "ÔN ĐỘ",
   "pos": "N",
   "meanings": [
-   "nhiệt độ (của vật, môi trường, nước"
+   "nhiệt độ (của vật, môi trường, nước)"
   ],
   "chapter": 1,
   "bai": 3,
@@ -2314,7 +2306,7 @@
   "hanviet": "HIỆN ĐẠI",
   "pos": "N",
   "meanings": [
-   "hiện đại, thời nay TỪ VỰNG ❷"
+   "hiện đại, thời nay"
   ],
   "chapter": 1,
   "bai": 3,
@@ -2323,10 +2315,10 @@
  {
   "word": "浅い",
   "reading": "あさい",
-  "hanviet": "THIỂN hệ,...)",
+  "hanviet": "THIỂN",
   "pos": "Aい",
   "meanings": [
-   "nông, cạn, nông cạn (dùng cho nước, suy nghĩ, kinh nghiệm, mối quan"
+   "nông, cạn, nông cạn (dùng cho nước, suy nghĩ, kinh nghiệm, mối quan)"
   ],
   "chapter": 1,
   "bai": 3,
@@ -2335,10 +2327,10 @@
  {
   "word": "深い",
   "reading": "ふかい",
-  "hanviet": "THÂM nước, quan hệ…)",
+  "hanviet": "THÂM",
   "pos": "Aい",
   "meanings": [
-   "sâu, sâu sắc (dùng cho suy nghĩ, cảm xúc, mối"
+   "sâu, sâu sắc (dùng cho suy nghĩ, cảm xúc, mối)"
   ],
   "chapter": 1,
   "bai": 3,
@@ -2371,7 +2363,7 @@
  {
   "word": "汚い",
   "reading": "きたない",
-  "hanviet": "Ô",
+  "hanviet": "",
   "pos": "Aい",
   "meanings": [
    "bẩn, dơ, bừa bộn",
@@ -2493,7 +2485,7 @@
  {
   "word": "おしゃべり",
   "reading": "おしゃべり",
-  "hanviet": "する )",
+  "hanviet": "",
   "pos": "N/Aな/N",
   "meanings": [
    "nói chuyện, tám chuyện; lắm lời, hay chuyện"
@@ -2591,7 +2583,7 @@
  {
   "word": "抱く・抱く",
   "reading": "いだく",
-  "hanviet": "BÃO (cái gì đó)",
+  "hanviet": "BÃO",
   "pos": "V",
   "meanings": [
    "だく／",
@@ -2656,7 +2648,7 @@
   "hanviet": "TỤC",
   "pos": "V",
   "meanings": [
-   "(cái gì đó) tiếp diễn, kéo dài TỪ VỰNG ❸"
+   "(cái gì đó) tiếp diễn, kéo dài"
   ],
   "chapter": 1,
   "bai": 3,
@@ -2679,10 +2671,10 @@
  {
   "word": "消す",
   "reading": "けす",
-  "hanviet": "TIÊU cho ...)",
+  "hanviet": "TIÊU",
   "pos": "V",
   "meanings": [
-   "tắt, xóa, dập tắt (dùng đèn, lửa, chữ viết, ký ức"
+   "tắt, xóa, dập tắt (dùng đèn, lửa, chữ viết, ký ức)"
   ],
   "chapter": 1,
   "bai": 3,
@@ -2727,7 +2719,7 @@
  {
   "word": "汚れる",
   "reading": "よごれる",
-  "hanviet": "Ô",
+  "hanviet": "",
   "pos": "V",
   "meanings": [
    "bị bẩn, bị dơ, vấy bẩn"
@@ -2739,7 +2731,7 @@
  {
   "word": "汚す",
   "reading": "よごす",
-  "hanviet": "Ô",
+  "hanviet": "",
   "pos": "V",
   "meanings": [
    "làm bẩn, làm dơ"
@@ -2919,10 +2911,10 @@
  {
   "word": "進学",
   "reading": "しんがく",
-  "hanviet": "TIẾN HỌC hơn)",
+  "hanviet": "TIẾN HỌC",
   "pos": "N/Nする",
   "meanings": [
-   "học lên (học cấp cao"
+   "học lên (học cấp cao)"
   ],
   "chapter": 1,
   "bai": 3,
@@ -3296,7 +3288,7 @@
   "hanviet": "THIỆT",
   "pos": "N",
   "meanings": [
-   "lưỡi TỪ VỰNG ❷"
+   "lưỡi"
   ],
   "chapter": 2,
   "bai": 1,
@@ -3317,10 +3309,10 @@
  {
   "word": "量",
   "reading": "りょう",
-  "hanviet": "LƯỢNG tích,...)",
+  "hanviet": "LƯỢNG",
   "pos": "N",
   "meanings": [
-   "lượng (khối lượng, số lượng, thể"
+   "lượng (khối lượng, số lượng, thể)"
   ],
   "chapter": 2,
   "bai": 1,
@@ -3365,7 +3357,7 @@
  {
   "word": "アンケート",
   "reading": "アンケート",
-  "hanviet": "(enquête)",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "bản điều tra, khảo sát"
@@ -3425,7 +3417,7 @@
  {
   "word": "平凡",
   "reading": "へいぼん",
-  "hanviet": "B ÌN H PH À M",
+  "hanviet": "",
   "pos": "Aな",
   "meanings": [
    "bình thường, tầm thường"
@@ -3437,7 +3429,7 @@
  {
   "word": "適当",
   "reading": "てきとう",
-  "hanviet": "T H Í C H Đ Ư Ơ N G",
+  "hanviet": "",
   "pos": "Aな",
   "meanings": [
    "phù hợp, thích hợp",
@@ -3573,12 +3565,12 @@
  {
   "word": "払う",
   "reading": "はらう",
-  "hanviet": "PHẤT kính trọng)",
+  "hanviet": "PHẤT",
   "pos": "V",
   "meanings": [
    "trả (tiền)",
    "phủi, xua tan, xua đi",
-   "dành (sự chú ý, quan tâm), thể hiện (sự lễ phép"
+   "dành (sự chú ý, quan tâm), thể hiện (sự lễ phép)"
   ],
   "chapter": 2,
   "bai": 1,
@@ -3779,10 +3771,10 @@
  {
   "word": "出場",
   "reading": "しゅつじょう",
-  "hanviet": "XUẤT TRƯỜNG diễn)",
+  "hanviet": "XUẤT TRƯỜNG",
   "pos": "N/Nする",
   "meanings": [
-   "tham gia (thi đấu, trình"
+   "tham gia (thi đấu, trình)"
   ],
   "chapter": 2,
   "bai": 1,
@@ -3935,7 +3927,7 @@
  {
   "word": "意志",
   "reading": "いし",
-  "hanviet": "Ý CHÍ",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "ý chí, quyết tâm"
@@ -4091,10 +4083,10 @@
  {
   "word": "孫",
   "reading": "まご",
-  "hanviet": "TÔN mình)",
+  "hanviet": "TÔN",
   "pos": "N",
   "meanings": [
-   "cháu (con của con cái"
+   "cháu (con của con cái)"
   ],
   "chapter": 2,
   "bai": 2,
@@ -4103,10 +4095,10 @@
  {
   "word": "姪",
   "reading": "めい",
-  "hanviet": "ĐIỆT chị/ em mình)",
+  "hanviet": "ĐIỆT",
   "pos": "N",
   "meanings": [
-   "cháu gái (con của anh/"
+   "cháu gái (con của anh/)"
   ],
   "chapter": 2,
   "bai": 2,
@@ -4248,7 +4240,7 @@
  {
   "word": "意外",
   "reading": "いがい",
-  "hanviet": "Ý NGOẠI",
+  "hanviet": "",
   "pos": "Aな/PT",
   "meanings": [
    "ngoài dự kiến, bất ngờ"
@@ -4284,10 +4276,10 @@
  {
   "word": "得意",
   "reading": "とくい",
-  "hanviet": "ĐẮC Ý nào đó)",
+  "hanviet": "ĐẮC",
   "pos": "Aな",
   "meanings": [
-   "giỏi, tự tin (về lĩnh vực"
+   "giỏi, tự tin (về lĩnh vực)"
   ],
   "chapter": 2,
   "bai": 2,
@@ -4491,7 +4483,7 @@
   "hanviet": "NHIỆM",
   "pos": "V",
   "meanings": [
-   "giao phó, ủy thác TỪ VỰNG ❸"
+   "giao phó, ủy thác"
   ],
   "chapter": 2,
   "bai": 2,
@@ -4536,7 +4528,7 @@
  {
   "word": "仲直り",
   "reading": "なかなおり",
-  "hanviet": "T R Ọ NG T R ỰC",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "làm lành, hòa giải"
@@ -4548,7 +4540,7 @@
  {
   "word": "見直し",
   "reading": "みなおし",
-  "hanviet": "K IẾ N TR Ự C",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "xem lại, đánh giá lại"
@@ -4584,7 +4576,7 @@
  {
   "word": "値上がり",
   "reading": "ねあがり",
-  "hanviet": "T R Ị T H Ư ỢNG",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "giá, phí tăng"
@@ -4645,7 +4637,7 @@
  {
   "word": "発展",
   "reading": "はってん",
-  "hanviet": "P H Á T TR I Ể N",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "phát triển"
@@ -4705,7 +4697,7 @@
  {
   "word": "意識",
   "reading": "いしき",
-  "hanviet": "Ý THỨC",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "ý thức, nhận thức"
@@ -5068,7 +5060,7 @@
   "hanviet": "HẢO",
   "pos": "N",
   "meanings": [
-   "ý thích, gu, thị hiếu TỪ VỰNG ❷"
+   "ý thích, gu, thị hiếu"
   ],
   "chapter": 2,
   "bai": 3,
@@ -5125,7 +5117,7 @@
  {
   "word": "メッセージ",
   "reading": "メッセージ",
-  "hanviet": "(message)",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "tin nhắn, thông điệp"
@@ -5221,7 +5213,7 @@
  {
   "word": "不思議",
   "reading": "ふしぎ",
-  "hanviet": "B Ấ T T Ư N G H Ị",
+  "hanviet": "",
   "pos": "N/Aな",
   "meanings": [
    "khó hiểu, kỳ lạ"
@@ -5236,7 +5228,7 @@
   "hanviet": "",
   "pos": "N/A な ) thành プロ",
   "meanings": [
-   "chuyên nghiệp (professional) (thường được viết rút gọn"
+   "chuyên nghiệp (professional) (thường được viết rút gọn)"
   ],
   "chapter": 2,
   "bai": 3,
@@ -5420,7 +5412,7 @@
   "hanviet": "NHU",
   "pos": "V",
   "meanings": [
-   "bị ướt TỪ VỰNG ❸"
+   "bị ướt"
   ],
   "chapter": 2,
   "bai": 3,
@@ -5480,7 +5472,7 @@
   "hanviet": "THỤ TÍN",
   "pos": "N/Nする",
   "meanings": [
-   "nhận tín hiệu (vệ tinh,..), nhận tin nhắn, email,..."
+   "nhận tín hiệu (vệ tinh,..), nhận tin nhắn, email"
   ],
   "chapter": 2,
   "bai": 3,
@@ -5525,7 +5517,7 @@
  {
   "word": "通訳",
   "reading": "つうやく",
-  "hanviet": "T H Ô NG D ỊC H",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "thông dịch, phiên dịch"
@@ -5537,7 +5529,7 @@
  {
   "word": "翻訳",
   "reading": "ほんやく",
-  "hanviet": "P H IÊ N D ỊC H",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "biên dịch, dịch văn bản"
@@ -5561,7 +5553,7 @@
  {
   "word": "調整",
   "reading": "ちょうせい",
-  "hanviet": "Đ IỀ U CH Ỉ N H",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "điều chỉnh, sắp xếp (để cho phù hợp)"
@@ -5573,7 +5565,7 @@
  {
   "word": "選択",
   "reading": "せんたく",
-  "hanviet": "T U Y ỂN T RẠ C H",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "lựa chọn"
@@ -5622,7 +5614,7 @@
  {
   "word": "広告",
   "reading": "こうこく",
-  "hanviet": "Q U ẢNG CÁ O",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "quảng cáo"
@@ -6278,7 +6270,7 @@
  {
   "word": "引き出す",
   "reading": "ひきだす",
-  "hanviet": "DẪN XUẤT điều",
+  "hanviet": "DẪN XUẤT",
   "pos": "V",
   "meanings": [
    "kéo ra, rút (tiền, những ẩn giấu,...)"
@@ -6365,7 +6357,7 @@
   "hanviet": "ĐỘC LẬP",
   "pos": "N/Nする",
   "meanings": [
-   "độc lập TỪ VỰNG ❸"
+   "độc lập"
   ],
   "chapter": 3,
   "bai": 1,
@@ -6579,7 +6571,7 @@
  {
   "word": "はきはき",
   "reading": "はきはき",
-  "hanviet": "する )",
+  "hanviet": "",
   "pos": "PT/N",
   "meanings": [
    "rõ ràng, tự tin, dứt khoát"
@@ -6591,7 +6583,7 @@
  {
   "word": "はっきり",
   "reading": "はっきり",
-  "hanviet": "する )",
+  "hanviet": "",
   "pos": "PT/N",
   "meanings": [
    "rõ ràng, minh bạch"
@@ -6918,7 +6910,7 @@
   "hanviet": "TẢO TRỪ CƠ",
   "pos": "N",
   "meanings": [
-   "máy hút bụi TỪ VỰNG ❷"
+   "máy hút bụi"
   ],
   "chapter": 3,
   "bai": 2,
@@ -7052,7 +7044,7 @@
   "pos": "V",
   "meanings": [
    "hướng về",
-   "phù hợp, dành cho..."
+   "phù hợp, dành cho"
   ],
   "chapter": 3,
   "bai": 2,
@@ -7253,7 +7245,7 @@
   "hanviet": "VI",
   "pos": "V",
   "meanings": [
-   "vây quanh, bao quanh TỪ VỰNG ❸"
+   "vây quanh, bao quanh"
   ],
   "chapter": 3,
   "bai": 2,
@@ -7348,7 +7340,7 @@
  {
   "word": "いじわる",
   "reading": "いじわる",
-  "hanviet": "する /A な )",
+  "hanviet": "",
   "pos": "N/N",
   "meanings": [
    "xấu tính",
@@ -7532,7 +7524,7 @@
   "hanviet": "",
   "pos": "PT) lực",
   "meanings": [
-   "cuối cùng thì (sau nhiều khó khăn, nỗ"
+   "cuối cùng thì (sau nhiều khó khăn, nỗ)"
   ],
   "chapter": 3,
   "bai": 2,
@@ -7698,10 +7690,10 @@
  {
   "word": "家庭",
   "reading": "かてい",
-  "hanviet": "GIA ĐÌNH sống)",
+  "hanviet": "GIA ĐÌNH",
   "pos": "N",
   "meanings": [
-   "gia đình (nhấn mạnh môi trường"
+   "gia đình (nhấn mạnh môi trường)"
   ],
   "chapter": 3,
   "bai": 3,
@@ -7845,7 +7837,7 @@
   "hanviet": "HỌC GIẢ",
   "pos": "N",
   "meanings": [
-   "học giả TỪ VỰNG ❷"
+   "học giả"
   ],
   "chapter": 3,
   "bai": 3,
@@ -8134,7 +8126,7 @@
   "hanviet": "BIỂU",
   "pos": "V",
   "meanings": [
-   "xuất hiện, lộ ra TỪ VỰNG ❸"
+   "xuất hiện, lộ ra"
   ],
   "chapter": 3,
   "bai": 3,
@@ -8745,7 +8737,7 @@
  {
   "word": "ホームページ",
   "reading": "ホームページ",
-  "hanviet": "(homepage)",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "trang web, trang chủ"
@@ -8963,10 +8955,10 @@
  {
   "word": "受かる",
   "reading": "うかる",
-  "hanviet": "THỤ vấn)",
+  "hanviet": "THỤ",
   "pos": "V",
   "meanings": [
-   "đỗ, đậu (kỳ thi, phỏng"
+   "đỗ, đậu (kỳ thi, phỏng)"
   ],
   "chapter": 4,
   "bai": 1,
@@ -8987,10 +8979,10 @@
  {
   "word": "受け付ける",
   "reading": "うけつける",
-  "hanviet": "THỤ PHÓ cầu)",
+  "hanviet": "THỤ PHÓ",
   "pos": "V",
   "meanings": [
-   "tiếp nhận (đơn từ, yêu"
+   "tiếp nhận (đơn từ, yêu)"
   ],
   "chapter": 4,
   "bai": 1,
@@ -9014,7 +9006,7 @@
   "hanviet": "GIÁO",
   "pos": "V",
   "meanings": [
-   "được dạy dỗ, được chỉ bảo TỪ VỰNG ❸"
+   "được dạy dỗ, được chỉ bảo"
   ],
   "chapter": 4,
   "bai": 1,
@@ -9186,7 +9178,7 @@
  {
   "word": "依頼",
   "reading": "いらい",
-  "hanviet": "Ỷ LẠI",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "yêu cầu, đề nghị, nhờ vả"
@@ -9270,7 +9262,7 @@
  {
   "word": "いたずら",
   "reading": "いたずら",
-  "hanviet": "な )",
+  "hanviet": "",
   "pos": "N/NするA",
   "meanings": [
    "nghịch ngợm, phá phách"
@@ -9306,7 +9298,7 @@
  {
   "word": "司会",
   "reading": "しかい",
-  "hanviet": "TI HỘI (MC)",
+  "hanviet": "TI HỘI",
   "pos": "N/Nする",
   "meanings": [
    "chủ trì, điều hành, người dẫn chương trình"
@@ -9354,10 +9346,10 @@
  {
   "word": "生",
   "reading": "なま",
-  "hanviet": "SINH biến)",
+  "hanviet": "SINH",
   "pos": "N",
   "meanings": [
-   "sống, tươi (chưa chế"
+   "sống, tươi (chưa chế)"
   ],
   "chapter": 4,
   "bai": 2,
@@ -9851,7 +9843,7 @@
   "hanviet": "HỖN TẠP",
   "pos": "N/Nする",
   "meanings": [
-   "đông đúc, hỗn loạn TỪ VỰNG ❸"
+   "đông đúc, hỗn loạn"
   ],
   "chapter": 4,
   "bai": 2,
@@ -9956,7 +9948,7 @@
  {
   "word": "専攻",
   "reading": "せんこう",
-  "hanviet": "C H U Y ÊN C Ô N G",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "chuyên ngành, chuyên môn"
@@ -10055,11 +10047,11 @@
  {
   "word": "そっと",
   "reading": "そっと",
-  "hanviet": "ý)",
+  "hanviet": "",
   "pos": "PT",
   "meanings": [
    "nhẹ nhàng",
-   "rón rén, khẽ khàng (tránh bị người khác chú",
+   "rón rén, khẽ khàng (tránh bị người khác chú)",
    "そっとしておく: để yên, không can dự"
   ],
   "chapter": 4,
@@ -10430,10 +10422,10 @@
  {
   "word": "タオル",
   "reading": "タオル",
-  "hanviet": "(towel)",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
-   "khăn tắm, khăn lau TỪ VỰNG ❷"
+   "khăn tắm, khăn lau"
   ],
   "chapter": 4,
   "bai": 3,
@@ -10466,7 +10458,7 @@
  {
   "word": "でこぼこ",
   "reading": "でこぼこ",
-  "hanviet": "する )",
+  "hanviet": "",
   "pos": "N/Aな/N",
   "meanings": [
    "gập ghềnh, lồi lõm"
@@ -10502,7 +10494,7 @@
  {
   "word": "不注意",
   "reading": "ふちゅうい",
-  "hanviet": "BẤT CHÚ Ý",
+  "hanviet": "BẤT CHÚ",
   "pos": "Aな",
   "meanings": [
    "không chú ý, vô ý"
@@ -10733,12 +10725,12 @@
  {
   "word": "落ち着く",
   "reading": "おちつく",
-  "hanviet": "LẠC TRỨ tâm trạng) thái) khí)",
+  "hanviet": "LẠC TRỨ",
   "pos": "V",
   "meanings": [
-   "bình tĩnh lại (cảm xúc",
-   "ổn định, không còn biến động (tình hình, trạng",
-   "cảm giác dễ chịu, thoải mái (không gian, bầu không"
+   "bình tĩnh lại (cảm xúc)",
+   "ổn định, không còn biến động (tình hình, trạng)",
+   "cảm giác dễ chịu, thoải mái (không gian, bầu không)"
   ],
   "chapter": 4,
   "bai": 3,
@@ -10834,7 +10826,7 @@
  {
   "word": "合格",
   "reading": "ごうかく",
-  "hanviet": "H Ợ P CÁ C H",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "đỗ, thi đậu"
@@ -10907,7 +10899,7 @@
  {
   "word": "化粧",
   "reading": "けしょう",
-  "hanviet": "H Ó A TR A N G",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "trang điểm"
@@ -11233,7 +11225,7 @@
  {
   "word": "遠足",
   "reading": "えんそく",
-  "hanviet": "VIỄN TÚC trường",
+  "hanviet": "VIỄN TÚC",
   "pos": "N",
   "meanings": [
    "chuyến đi chơi xa, dã ngoại (thường do học tổ chức)"
@@ -11246,10 +11238,9 @@
   "word": "好物",
   "reading": "こうぶつ",
   "hanviet": "HẢO VẬT",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
-   "món khoái khẩu TỪ VỰNG ❷"
+   "món khoái khẩu"
   ],
   "chapter": 5,
   "bai": 1,
@@ -11259,9 +11250,8 @@
   "word": "特徴",
   "reading": "とくちょう",
   "hanviet": "ĐẶC TRƯNG",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "đặc trưng"
   ],
   "chapter": 5,
@@ -11272,9 +11262,8 @@
   "word": "学期",
   "reading": "がっき",
   "hanviet": "HỌC KÌ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "học kỳ"
   ],
   "chapter": 5,
@@ -11285,9 +11274,8 @@
   "word": "来学期",
   "reading": "らいがっき",
   "hanviet": "LAI HỌC KÌ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "học kỳ tới"
   ],
   "chapter": 5,
@@ -11298,9 +11286,8 @@
   "word": "続き",
   "reading": "つづき",
   "hanviet": "TỤC",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "sự tiếp tục, phần tiếp theo"
   ],
   "chapter": 5,
@@ -11311,9 +11298,8 @@
   "word": "梅雨",
   "reading": "つゆ",
   "hanviet": "MAI VŨ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "mùa mưa"
   ],
   "chapter": 5,
@@ -11324,9 +11310,8 @@
   "word": "上旬",
   "reading": "じょうじゅん",
   "hanviet": "THƯỢNG TUẦN",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "thượng tuần, 10 ngày đầu tiên của tháng"
   ],
   "chapter": 5,
@@ -11337,9 +11322,8 @@
   "word": "食後",
   "reading": "しょくご",
   "hanviet": "THỰC HẬU",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "sau bữa ăn"
   ],
   "chapter": 5,
@@ -11350,9 +11334,8 @@
   "word": "私立",
   "reading": "しりつ",
   "hanviet": "TƯ LẬP",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "tư thục, tư lập"
   ],
   "chapter": 5,
@@ -11363,9 +11346,8 @@
   "word": "心理",
   "reading": "しんり",
   "hanviet": "TÂM LÝ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "tâm lý"
   ],
   "chapter": 5,
@@ -11447,7 +11429,7 @@
  {
   "word": "消費期限",
   "reading": "しょうひきげん",
-  "hanviet": "TIÊU PHÍ KÌ HẠN sử",
+  "hanviet": "TIÊU PHÍ KÌ HẠN",
   "pos": "N",
   "meanings": [
    "hạn sử dụng (thời hạn dụng an toàn)"
@@ -11471,7 +11453,7 @@
  {
   "word": "キャンパス",
   "reading": "キャンパス",
-  "hanviet": "(N) học,",
+  "hanviet": "",
   "pos": "",
   "meanings": [
    "khuôn viên (trường đại trường chuyên môn) (campus)"
@@ -11546,7 +11528,7 @@
   "hanviet": "",
   "pos": "N) lens",
   "meanings": [
-   "kính áp tròng (contact"
+   "kính áp tròng (contact)"
   ],
   "chapter": 5,
   "bai": 1,
@@ -11558,7 +11540,6 @@
   "hanviet": "HẢO BÌNH",
   "pos": "な",
   "meanings": [
-   "(N/A )",
    "đánh giá tốt"
   ],
   "chapter": 5,
@@ -11571,7 +11552,6 @@
   "hanviet": "CAO CẤP",
   "pos": "な",
   "meanings": [
-   "(A )",
    "cao cấp"
   ],
   "chapter": 5,
@@ -11584,7 +11564,7 @@
   "hanviet": "ĐỊNH KÌ ĐÍCH",
   "pos": "Aな",
   "meanings": [
-   "một cách định kỳ, theo định kỳ TỪ VỰNG ❸"
+   "một cách định kỳ, theo định kỳ"
   ],
   "chapter": 5,
   "bai": 1,
@@ -12155,7 +12135,7 @@
   "hanviet": "MINH",
   "pos": "V",
   "meanings": [
-   "reo, kêu TỪ VỰNG ❷"
+   "reo, kêu"
   ],
   "chapter": 5,
   "bai": 2,
@@ -12224,11 +12204,11 @@
  {
   "word": "描く",
   "reading": "かく",
-  "hanviet": "MIÊU động vẽ) vẽ hay thứ trừu",
+  "hanviet": "MIÊU",
   "pos": "V",
   "meanings": [
    "/えがく",
-   "かく: vẽ (nhấn mạnh hành",
+   "かく: vẽ (nhấn mạnh hành)",
    "えがく: vẽ, miêu tả, khắc họa (nhấn mạnh nội dung được khắc họa, thường là những tượng, không cụ thể)"
   ],
   "chapter": 5,
@@ -12382,10 +12362,10 @@
  {
   "word": "ちっとも",
   "reading": "ちっとも",
-  "hanviet": "định)",
+  "hanviet": "",
   "pos": "PT",
   "meanings": [
-   "hoàn toàn...không, không.. một chút gì (thường đi cùng thể phủ"
+   "hoàn toàn...không, không.. một chút gì (thường đi cùng thể phủ)"
   ],
   "chapter": 5,
   "bai": 2,
@@ -12469,7 +12449,7 @@
   "hanviet": "ĐỒ TRUNG",
   "pos": "PT",
   "meanings": [
-   "giữa chừng TỪ VỰNG ❸"
+   "giữa chừng"
   ],
   "chapter": 5,
   "bai": 2,
@@ -12527,7 +12507,7 @@
  {
   "word": "ずきずき",
   "reading": "ずきずき",
-  "hanviet": "tả cơn",
+  "hanviet": "",
   "pos": "PT",
   "meanings": [
    "đau giật từng cơn, đau theo nhịp mạch đập (miêu đau đầu, răng, vết thương)"
@@ -12802,7 +12782,7 @@
  {
   "word": "〜代",
   "reading": "だい",
-  "hanviet": "ĐẠI trả cho",
+  "hanviet": "ĐẠI",
   "pos": "",
   "meanings": [
    "phí, chi phí (thường là số tiền phải hàng hóa, dịch vụ)"
@@ -13106,7 +13086,7 @@
   "hanviet": "",
   "pos": "N",
   "meanings": [
-   "quầy thu ngân, máy tính tiền (register) TỪ VỰNG ❷"
+   "quầy thu ngân, máy tính tiền (register)"
   ],
   "chapter": 5,
   "bai": 3,
@@ -13476,7 +13456,7 @@
   "pos": "N/Nする",
   "meanings": [
    "kỷ lục",
-   "ghi lại, chép lại TỪ VỰNG ❸"
+   "ghi lại, chép lại"
   ],
   "chapter": 5,
   "bai": 3,
@@ -13630,7 +13610,7 @@
  {
   "word": "一体",
   "reading": "いったい",
-  "hanviet": "NHẤT THỂ khó hiểu,",
+  "hanviet": "NHẤT THỂ",
   "pos": "PT",
   "meanings": [
    "rốt cuộc... (thể hiện sự sốt ruột, bối rối)"
@@ -13966,7 +13946,7 @@
  {
   "word": "歯医者",
   "reading": "はいしゃ",
-  "hanviet": "XỈ Y GIẢ",
+  "hanviet": "XỈ",
   "pos": "N",
   "meanings": [
    "nha sĩ"
@@ -13978,7 +13958,7 @@
  {
   "word": "医療",
   "reading": "いりょう",
-  "hanviet": "Y LIỆU",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "y tế"
@@ -14113,7 +14093,7 @@
   "hanviet": "ĐỐI SÁCH",
   "pos": "N",
   "meanings": [
-   "biện pháp, đối sách TỪ VỰNG ❷"
+   "biện pháp, đối sách"
   ],
   "chapter": 6,
   "bai": 1,
@@ -15359,7 +15339,7 @@
   "hanviet": "CHẤN",
   "pos": "V",
   "meanings": [
-   "chuyển khoản TỪ VỰNG ❸"
+   "chuyển khoản"
   ],
   "chapter": 6,
   "bai": 2,
@@ -15889,7 +15869,7 @@
   "hanviet": "HỆ THỐNG",
   "pos": "N",
   "meanings": [
-   "hệ thống, huyết thống, cùng tông, kiểu...."
+   "hệ thống, huyết thống, cùng tông, kiểu"
   ],
   "chapter": 6,
   "bai": 3,
@@ -15898,10 +15878,10 @@
  {
   "word": "下旬",
   "reading": "げじゅん",
-  "hanviet": "HẠ TUẦN tháng)",
+  "hanviet": "HẠ TUẦN",
   "pos": "N",
   "meanings": [
-   "cuối tháng (10 ngày cuối"
+   "cuối tháng (10 ngày cuối)"
   ],
   "chapter": 6,
   "bai": 3,
@@ -15986,7 +15966,7 @@
   "hanviet": "QUỐC HỘI",
   "pos": "N",
   "meanings": [
-   "quốc hội TỪ VỰNG ❷"
+   "quốc hội"
   ],
   "chapter": 6,
   "bai": 3,
@@ -16103,10 +16083,10 @@
  {
   "word": "始発",
   "reading": "しはつ",
-  "hanviet": "THỦY PHÁT xe,...)",
+  "hanviet": "THỦY PHÁT",
   "pos": "N",
   "meanings": [
-   "chuyến đầu tiên (tàu"
+   "chuyến đầu tiên (tàu)"
   ],
   "chapter": 6,
   "bai": 3,
@@ -16163,11 +16143,11 @@
  {
   "word": "厚い",
   "reading": "あつい",
-  "hanviet": "HẬU tưởng,...)",
+  "hanviet": "HẬU",
   "pos": "Aい",
   "meanings": [
    "dày",
-   "sâu, nhiều, nồng hậu (tình cảm, đãi ngộ, sự tin"
+   "sâu, nhiều, nồng hậu (tình cảm, đãi ngộ, sự tin)"
   ],
   "chapter": 6,
   "bai": 3,
@@ -16261,10 +16241,10 @@
  {
   "word": "追い込む",
   "reading": "おいこむ",
-  "hanviet": "TRUY cùng)",
+  "hanviet": "TRUY",
   "pos": "V",
   "meanings": [
-   "dồn vào (thế bí, đường"
+   "dồn vào (thế bí, đường)"
   ],
   "chapter": 6,
   "bai": 3,
@@ -16605,7 +16585,7 @@
  {
   "word": "下書き",
   "reading": "したがき",
-  "hanviet": "HẠ THƯ viết,",
+  "hanviet": "HẠ THƯ",
   "pos": "N/Nする",
   "meanings": [
    "bản nháp (thư từ, bài email, văn bản)"
@@ -16629,11 +16609,11 @@
  {
   "word": "御中",
   "reading": "おんちゅう",
-  "hanviet": "NGỰ TRUNG khi gửi thư, tổ chức.)",
+  "hanviet": "NGỰ TRUNG",
   "pos": "",
   "meanings": [
    "(hậu tố)",
-   "kính gửi (Được dùng tài liệu cho một công ty"
+   "kính gửi (Được dùng tài liệu cho một công ty)"
   ],
   "chapter": 6,
   "bai": 3,
@@ -16798,10 +16778,10 @@
  {
   "word": "定期券",
   "reading": "ていきけん",
-  "hanviet": "ĐỊNH KÌ KHOÁN buýt,...)",
+  "hanviet": "ĐỊNH KÌ KHOÁN",
   "pos": "N",
   "meanings": [
-   "vé định kỳ (vé tàu, xe"
+   "vé định kỳ (vé tàu, xe)"
   ],
   "chapter": 7,
   "bai": 1,
@@ -16871,7 +16851,7 @@
  {
   "word": "ロビー",
   "reading": "ロビー",
-  "hanviet": "(lobby)",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "sảnh chờ, đại sảnh"
@@ -16923,7 +16903,7 @@
   "hanviet": "",
   "pos": "N",
   "meanings": [
-   "danh sách (list) TỪ VỰNG ❷"
+   "danh sách (list)"
   ],
   "chapter": 7,
   "bai": 1,
@@ -17019,13 +16999,12 @@
  {
   "word": "曇る",
   "reading": "くもる",
-  "hanviet": "(Hôm まど (Kính ゆうじん (Nét",
-  "pos": "",
+  "hanviet": "ĐÀM",
+  "pos": "V",
   "meanings": [
-   "(V) ĐÀM ・今日は朝からずっと曇っていて、すっきりしない天気だね。",
-   "âm u ・窓ガラスが曇っていて、向こうがよく見えない。",
+   "âm u",
    "bị mờ",
-   "u ám, u sầu ・友人の言葉を聞いて、彼の顔が曇った。"
+   "u ám, u sầu"
   ],
   "chapter": 7,
   "bai": 1,
@@ -17034,12 +17013,11 @@
  {
   "word": "削る",
   "reading": "けずる",
-  "hanviet": "(Em さいきんきゅうりょう (Gần ぶんしょう (Vì",
-  "pos": "",
+  "hanviet": "TƯỚC",
+  "pos": "V",
   "meanings": [
-   "(V) TƯỚC ・弟は、いつもナイフで鉛筆を削っている。 ・最近給料が減ってしまったので、食費を削らなければいけない。",
    "gọt",
-   "cắt giảm, rút gọn ・文章が長すぎるので、少し削りました。"
+   "cắt giảm, rút gọn"
   ],
   "chapter": 7,
   "bai": 1,
@@ -17048,10 +17026,9 @@
  {
   "word": "焦げる",
   "reading": "こげる",
-  "hanviet": "ひ (Lửa",
-  "pos": "",
+  "hanviet": "TIÊU",
+  "pos": "V",
   "meanings": [
-   "(V) TIÊU ・火が強すぎて、野菜が焦げてしまった。",
    "bị cháy, bị khê"
   ],
   "chapter": 7,
@@ -17061,10 +17038,9 @@
  {
   "word": "こぼす",
   "reading": "こぼす",
-  "hanviet": "(Tôi",
-  "pos": "",
+  "hanviet": "",
+  "pos": "V",
   "meanings": [
-   "(V) ・コップを倒して、パソコンにコーヒーをこぼしてしまった。",
    "làm đổ, đánh đổ"
   ],
   "chapter": 7,
@@ -17074,10 +17050,9 @@
  {
   "word": "転がす",
   "reading": "ころがす",
-  "hanviet": "(Con",
-  "pos": "",
+  "hanviet": "CHUYỂN",
+  "pos": "V",
   "meanings": [
-   "(V) CHUYỂN ・犬がボールを転がして遊んでいる。",
    "lăn (vật gì đó)"
   ],
   "chapter": 7,
@@ -17087,11 +17062,10 @@
  {
   "word": "転がる",
   "reading": "ころがる",
-  "hanviet": "ふくろ (Quả しばふ (Tôi",
-  "pos": "",
+  "hanviet": "CHUYỂN",
+  "pos": "V",
   "meanings": [
-   "(V) CHUYỂN ・袋からりんごが落ちて、坂を転がって行った。",
-   "lăn ・芝生に転がってのんびりするのが好きだ。",
+   "lăn",
    "nằm, ngả lưng"
   ],
   "chapter": 7,
@@ -17101,10 +17075,9 @@
  {
   "word": "怖がる",
   "reading": "こわがる",
-  "hanviet": "(Chó",
-  "pos": "",
+  "hanviet": "BỐ",
+  "pos": "V",
   "meanings": [
-   "(V) BỐ ・うちの犬は、雷が鳴ると怖がって毛布から出てこない。",
    "sợ hãi"
   ],
   "chapter": 7,
@@ -17256,7 +17229,7 @@
   "hanviet": "TẦM",
   "pos": "V",
   "meanings": [
-   "hỏi TỪ VỰNG ❸"
+   "hỏi"
   ],
   "chapter": 7,
   "bai": 1,
@@ -17448,10 +17421,10 @@
  {
   "word": "応答",
   "reading": "おうとう",
-  "hanviet": "ỨNG ĐÁP hiệu,...)",
+  "hanviet": "ỨNG ĐÁP",
   "pos": "N/Nする",
   "meanings": [
-   "đáp lại, phản hồi (máy móc, mệnh lệnh, tín"
+   "đáp lại, phản hồi (máy móc, mệnh lệnh, tín)"
   ],
   "chapter": 7,
   "bai": 1,
@@ -17520,11 +17493,11 @@
  {
   "word": "アップ",
   "reading": "アップ",
-  "hanviet": "(N / N する ) lược",
+  "hanviet": "",
   "pos": "",
   "meanings": [
-   "đăng lên, tải lên (giản của アップロード・upload)",
-   "cận cảnh (giản lược của クローズアップ・close-up)"
+   "đăng lên, tải lên (giản của アップロード)",
+   "cận cảnh (giản lược của クローズアップ)"
   ],
   "chapter": 7,
   "bai": 1,
@@ -17582,7 +17555,7 @@
  {
   "word": "どんなに",
   "reading": "どんなに",
-  "hanviet": "kết kèm với",
+  "hanviet": "",
   "pos": "PT",
   "meanings": [
    "(dù ~) bao nhiêu đi nữa, đến mấy đi nữa (thường hợp với 〜ても／でも)",
@@ -17608,9 +17581,8 @@
   "word": "神",
   "reading": "かみ",
   "hanviet": "THẦN",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "thần, thần linh"
   ],
   "chapter": 7,
@@ -17621,9 +17593,8 @@
   "word": "質",
   "reading": "しつ",
   "hanviet": "CHẤT",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "chất lượng"
   ],
   "chapter": 7,
@@ -17634,9 +17605,8 @@
   "word": "線",
   "reading": "せん",
   "hanviet": "TUYẾN",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "đường kẻ, đường thẳng"
   ],
   "chapter": 7,
@@ -17647,9 +17617,8 @@
   "word": "下線",
   "reading": "かせん",
   "hanviet": "HẠ TUYẾN",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "gạch chân"
   ],
   "chapter": 7,
@@ -17660,9 +17629,8 @@
   "word": "富",
   "reading": "とみ",
   "hanviet": "PHÚ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "sự giàu có, tài sản"
   ],
   "chapter": 7,
@@ -17673,9 +17641,8 @@
   "word": "書留",
   "reading": "かきとめ",
   "hanviet": "THƯ LƯU",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "gửi đảm bảo, bưu phẩm đảm bảo"
   ],
   "chapter": 7,
@@ -17686,9 +17653,8 @@
   "word": "胃",
   "reading": "い",
   "hanviet": "VỊ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "dạ dày"
   ],
   "chapter": 7,
@@ -17699,9 +17665,8 @@
   "word": "費用",
   "reading": "ひよう",
   "hanviet": "PHÍ DỤNG",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "chi phí"
   ],
   "chapter": 7,
@@ -17712,9 +17677,8 @@
   "word": "用途",
   "reading": "ようと",
   "hanviet": "DỤNG ĐỒ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "công dụng, mục đích sử dụng"
   ],
   "chapter": 7,
@@ -17725,9 +17689,8 @@
   "word": "用紙",
   "reading": "ようし",
   "hanviet": "DỤNG CHỈ",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "giấy in, giấy dùng cho mục đích cụ thể"
   ],
   "chapter": 7,
@@ -17738,9 +17701,8 @@
   "word": "使用料",
   "reading": "しようりょう",
   "hanviet": "SỬ DỤNG LIỆU",
-  "pos": "",
+  "pos": "N",
   "meanings": [
-   "(N)",
    "phí sử dụng"
   ],
   "chapter": 7,
@@ -17910,7 +17872,7 @@
   "hanviet": "",
   "pos": "N) family",
   "meanings": [
-   "gia đình bản xứ (host TỪ VỰNG ❷"
+   "gia đình bản xứ (host)"
   ],
   "chapter": 7,
   "bai": 2,
@@ -18063,11 +18025,11 @@
  {
   "word": "伸ばす",
   "reading": "のばす",
-  "hanviet": "THÂN kỹ năng)",
+  "hanviet": "THÂN",
   "pos": "V",
   "meanings": [
    "làm dài ra, kéo dài, duỗi ra",
-   "phát triển (năng lực"
+   "phát triển (năng lực)"
   ],
   "chapter": 7,
   "bai": 2,
@@ -18129,13 +18091,13 @@
  {
   "word": "潰れる",
   "reading": "つぶれる",
-  "hanviet": "HỘI gian)",
+  "hanviet": "HỘI",
   "pos": "V",
   "meanings": [
    "bị nghiền nát, bị bẹp",
    "phá sản, sụp đổ, đổ bể",
    "mất đi chức năng (cơ thể, đồ vật)",
-   "bị lãng phí, bị mất (thời"
+   "bị lãng phí, bị mất (thời)"
   ],
   "chapter": 7,
   "bai": 2,
@@ -18144,7 +18106,7 @@
  {
   "word": "詰まる",
   "reading": "つまる",
-  "hanviet": "CẬT còn (cảm xúc)",
+  "hanviet": "CẬT",
   "pos": "V",
   "meanings": [
    "bị đầy, bị chật (không chỗ trống)",
@@ -18201,7 +18163,7 @@
    "cho đi qua, xuyên qua",
    "thông qua",
    "suốt～",
-   "cho vào, dẫn vào trong TỪ VỰNG ❸"
+   "cho vào, dẫn vào trong"
   ],
   "chapter": 7,
   "bai": 2,
@@ -18246,10 +18208,10 @@
  {
   "word": "捕る",
   "reading": "とる",
-  "hanviet": "BỔ cá,...)",
+  "hanviet": "BỔ",
   "pos": "V",
   "meanings": [
-   "bắt, bắt giữ (động vật"
+   "bắt, bắt giữ (động vật)"
   ],
   "chapter": 7,
   "bai": 2,
@@ -18429,7 +18391,7 @@
  {
   "word": "弾む",
   "reading": "はずむ",
-  "hanviet": "ĐÀN / ĐẠN",
+  "hanviet": "ĐÀN",
   "pos": "V",
   "meanings": [
    "nảy (bóng)",
@@ -18812,7 +18774,7 @@
   "hanviet": "CHỨNG MINH THƯ",
   "pos": "N",
   "meanings": [
-   "giấy chứng nhận TỪ VỰNG ❷"
+   "giấy chứng nhận"
   ],
   "chapter": 7,
   "bai": 3,
@@ -19208,10 +19170,10 @@
  {
   "word": "越える",
   "reading": "こえる",
-  "hanviet": "VIỆT hạn,...)",
+  "hanviet": "VIỆT",
   "pos": "V",
   "meanings": [
-   "vượt qua (ngọn núi, giới"
+   "vượt qua (ngọn núi, giới)"
   ],
   "chapter": 7,
   "bai": 3,
@@ -19232,10 +19194,10 @@
  {
   "word": "締める",
   "reading": "しめる",
-  "hanviet": "ĐẾ an toàn)",
+  "hanviet": "ĐẾ",
   "pos": "V",
   "meanings": [
-   "thắt, siết chặt (cà vạt, dây",
+   "thắt, siết chặt (cà vạt, dây)",
    "đóng (chặt)"
   ],
   "chapter": 7,
@@ -19323,11 +19285,11 @@
  {
   "word": "響く",
   "reading": "ひびく",
-  "hanviet": "HƯỞNG xúc) trạng,",
+  "hanviet": "HƯỞNG",
   "pos": "V",
   "meanings": [
    "vang, vọng",
-   "chạm đến (trái tim, cảm",
+   "chạm đến (trái tim, cảm)",
    "ảnh hưởng (đến tình kết quả)"
   ],
   "chapter": 7,
@@ -19960,7 +19922,7 @@
   "pos": "N",
   "meanings": [
    "たい： đối (tỉ số, đội)",
-   "つい：cặp, đôi TỪ VỰNG ❷"
+   "つい：cặp, đôi"
   ],
   "chapter": 8,
   "bai": 1,
@@ -20199,10 +20161,10 @@
  {
   "word": "仕方がない",
   "reading": "しかたがない",
-  "hanviet": "SĨ PHƯƠNG mái:",
+  "hanviet": "SĨ PHƯƠNG",
   "pos": "Aい",
   "meanings": [
-   "bó tay, không còn cách nào (cách nói thân mật, thoải しょうがない）"
+   "bó tay, không còn cách nào (cách nói thân mật, thoải しょうがない）)"
   ],
   "chapter": 8,
   "bai": 1,
@@ -20313,7 +20275,7 @@
   "hanviet": "MẠI THIẾT",
   "pos": "V",
   "meanings": [
-   "bán hết sạch TỪ VỰNG ❸"
+   "bán hết sạch"
   ],
   "chapter": 8,
   "bai": 1,
@@ -20423,7 +20385,7 @@
  {
   "word": "交ざる",
   "reading": "まざる",
-  "hanviet": "GIAO biệt",
+  "hanviet": "GIAO",
   "pos": "V",
   "meanings": [
    "bị trộn lẫn, xen kẽ (lẫn vào nhưng vẫn phân được thành phần)"
@@ -20447,10 +20409,10 @@
  {
   "word": "混ざる",
   "reading": "まざる",
-  "hanviet": "HỖN vào nhau, phần)",
+  "hanviet": "HỖN",
   "pos": "V",
   "meanings": [
-   "bị trộn lẫn (hòa quyện khó phân biệt được thành"
+   "bị trộn lẫn (hòa quyện khó phân biệt được thành)"
   ],
   "chapter": 8,
   "bai": 1,
@@ -20837,7 +20799,7 @@
  {
   "word": "医師",
   "reading": "いし",
-  "hanviet": "Y SƯ",
+  "hanviet": "",
   "pos": "N",
   "meanings": [
    "bác sĩ"
@@ -20961,7 +20923,7 @@
   "hanviet": "",
   "pos": "N) (bench",
   "meanings": [
-   "ghế dài, băng ghế TỪ VỰNG ❷"
+   "ghế dài, băng ghế"
   ],
   "chapter": 8,
   "bai": 2,
@@ -21496,12 +21458,12 @@
  {
   "word": "当てる",
   "reading": "あてる",
-  "hanviet": "ĐƯƠNG nắng) nào đó)",
+  "hanviet": "ĐƯƠNG",
   "pos": "V",
   "meanings": [
    "trúng (mục tiêu, thưởng), (đoán, trả lời) đúng",
-   "tiếp xúc (với ánh sáng",
-   "đặt, áp chặt (vào vị trí",
+   "tiếp xúc (với ánh sáng)",
+   "đặt, áp chặt (vào vị trí)",
    "gọi, chỉ định"
   ],
   "chapter": 8,
@@ -21523,7 +21485,7 @@
  {
   "word": "ラップ",
   "reading": "ラップ",
-  "hanviet": "(wrap)",
+  "hanviet": "",
   "pos": "N/Nする",
   "meanings": [
    "màng bọc thực phẩm"
@@ -21571,10 +21533,10 @@
  {
   "word": "通勤",
   "reading": "つうきん",
-  "hanviet": "THÔNG CẦN việc)",
+  "hanviet": "THÔNG CẦN",
   "pos": "N/Nする",
   "meanings": [
-   "đi làm (di chuyển đến nơi làm"
+   "đi làm (di chuyển đến nơi làm)"
   ],
   "chapter": 8,
   "bai": 2,
@@ -21727,10 +21689,10 @@
  {
   "word": "番地",
   "reading": "ばんち",
-  "hanviet": "PHIÊN ĐỊA Nhật Bản)",
+  "hanviet": "PHIÊN ĐỊA",
   "pos": "N",
   "meanings": [
-   "số lô đất (trong địa chỉ của"
+   "số lô đất (trong địa chỉ của)"
   ],
   "chapter": 8,
   "bai": 3,
@@ -21984,7 +21946,7 @@
   "hanviet": "QUAN TÂM",
   "pos": "N",
   "meanings": [
-   "quan tâm TỪ VỰNG ❷"
+   "quan tâm"
   ],
   "chapter": 8,
   "bai": 3,
@@ -22309,7 +22271,7 @@
   "hanviet": "",
   "pos": "N",
   "meanings": [
-   "robot (robot) TỪ VỰNG ❸"
+   "robot (robot)"
   ],
   "chapter": 8,
   "bai": 3,
@@ -22415,13 +22377,13 @@
  {
   "word": "流す",
   "reading": "ながす",
-  "hanviet": "LƯU lỏng) tin,",
+  "hanviet": "LƯU",
   "pos": "V",
   "meanings": [
-   "làm chảy, xả (nước, chất",
+   "làm chảy, xả (nước, chất)",
    "đổ (mồ hôi), rơi (nước mắt), chảy (máu)",
    "cuốn theo dòng nước",
-   "lan truyền (tin đồn, thông phát (nhạc)"
+   "lan truyền (tin đồn, thông phát (nhạc))"
   ],
   "chapter": 8,
   "bai": 3,
@@ -22701,7 +22663,7 @@
  {
   "word": "〜師",
   "reading": "〜し",
-  "hanviet": "～SƯ",
+  "hanviet": "",
   "pos": "",
   "meanings": [
    "(Hậu tố)",
@@ -23019,7 +22981,7 @@
   "hanviet": "VŨ ĐÀI",
   "pos": "N",
   "meanings": [
-   "sân khấu TỪ VỰNG ❷"
+   "sân khấu"
   ],
   "chapter": 9,
   "bai": 1,
@@ -23357,11 +23319,11 @@
  {
   "word": "〜者",
   "reading": "〜しゃ",
-  "hanviet": "GIẢ năng)",
+  "hanviet": "GIẢ",
   "pos": "",
   "meanings": [
    "(hậu tố)",
-   "người (đặc điểm, vai trò, chức"
+   "người (đặc điểm, vai trò, chức)"
   ],
   "chapter": 9,
   "bai": 1,
@@ -23501,11 +23463,11 @@
  {
   "word": "曲げる",
   "reading": "まげる",
-  "hanviet": "KHÚC nghĩ,...)",
+  "hanviet": "KHÚC",
   "pos": "V",
   "meanings": [
    "bẻ cong, uốn",
-   "thay đổi (nguyên tắc, suy",
+   "thay đổi (nguyên tắc, suy)",
    "bóp méo (sự thật)"
   ],
   "chapter": 9,
@@ -23963,7 +23925,7 @@
   "hanviet": "DẠ MINH",
   "pos": "N",
   "meanings": [
-   "bình minh, rạng sáng TỪ VỰNG ❷"
+   "bình minh, rạng sáng"
   ],
   "chapter": 9,
   "bai": 2,
@@ -24225,7 +24187,7 @@
   "pos": "Aい",
   "meanings": [
    "đậm, đặc (mùi, vị)",
-   "dày (tóc, sương, nội dung,...) TỪ VỰNG ❸"
+   "dày (tóc, sương, nội dung,...)"
   ],
   "chapter": 9,
   "bai": 2,

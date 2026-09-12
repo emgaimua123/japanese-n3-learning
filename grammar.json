@@ -1,0 +1,6408 @@
+[
+ {
+  "chapter": 1,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～ば～ほど",
+  "meaning": "Càng ～ càng～",
+  "forms": [
+   "Vば Vるほど",
+   "Aい ければ Aい ほど",
+   "Aな /Nなら Aな /Nほど",
+   "Aな であれば （Aな で）あるほど",
+   "Nであれば （Nで）あるほど"
+  ],
+  "notes": [
+   "Diễn tả việc cùng với sự thay đổi của một hành vi hay trạng thái nào đó, một điều khác cũng thay đổi theo.",
+   "Hành vi đứng trước 「～ば」 càng tiến triển hoặc trạng thái càng trở nên mạnh hơn, thì sự việc phía sau cũng tiến triển hơn(hoặc mức độ tăng lên tương ứng)."
+  ],
+  "examples": [
+   {
+    "jp": "男性は背が高ければ高いほど人気がある。"
+   },
+   {
+    "jp": "あの人のことを知れば知るほど好きになる。"
+   },
+   {
+    "jp": "日本語が上手であればあるほど、日本の会社で働きやすくなる。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tiếng Nhật thì càng học càng thú vị",
+    "jp": "日本語は勉強すればするほど面白くなる。"
+   },
+   {
+    "vi": "Tôi có tính cách là: càng khó khăn thì càng cố gắng",
+    "jp": "私は、困難なら困難なほど、頑張ろうと思う性格だ。"
+   },
+   {
+    "vi": "Càng cố gắng, bạn sẽ càng tiến gần đến ước mơ",
+    "jp": "「努力すればするほど、夢に近づけます。」"
+   }
+  ],
+  "page": 2,
+  "id": "c1b1p1"
+ },
+ {
+  "chapter": 1,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～ようなら",
+  "meaning": "Nếu như...",
+  "forms": [
+   "Thể thường なら",
+   "A ＋よう",
+   "な であれば"
+  ],
+  "notes": [
+   "Dùng để giả định tình huống có thể xảy ra trong tương lai, và từ đó đưa ra hướng xử lý, hành động hoặc lời khuyên ở vế sau.",
+   "Mẫu này được dùng khi giao phó quyết định cho người nghe ➡“Nếu bạn cảm thấy như thế thì…”, “Tuỳ tình hình của bạn mà…”",
+   "Vì vậy, sắc thái của 「～ようなら」 mềm mại, lịch sự, tạo cảm giác tôn trọng quyết định của người nghe."
+  ],
+  "examples": [
+   {
+    "jp": "遅れるようなら、連絡してください。"
+   },
+   {
+    "jp": "この問題が解けないようなら、大学に行くのは無理だよ。"
+   },
+   {
+    "jp": "その荷物、一人で運ぶのが無理なようなら、手伝いますよ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nếu bạn bận thì không cần miễn cưỡng tham gia đâu",
+    "jp": "忙しいようなら、無理に参加しなくてもいいですよ。"
+   },
+   {
+    "vi": "Nếu công việc xong sớm thì cậu nhất định phải tham gia tiệc tất niên đấy nhé!",
+    "jp": "仕事が早く終わるようなら、ぜひ忘年会に参加してください。"
+   },
+   {
+    "vi": "Nếu ngày mai thời tiết đẹp thì chúng mình chơi bóng đá nhé!",
+    "jp": "明日天気がいいようなら、サッカーをしましょう。"
+   }
+  ],
+  "page": 3,
+  "id": "c1b1p2"
+ },
+ {
+  "chapter": 1,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～ように",
+  "meaning": "Để V/ Để không V",
+  "forms": [],
+  "notes": [
+   "Mẫu câu dùng để nói về việc thực hiện hành động vế sau để đạt được hay có được một trạng thái, kết quả mong muốn nào đó ở vế trước. *Trước 「ように」 thường là động từ không có tính ý chí, biểu thị trạng thái kết quả. Sau 「ように」 là những hành động được thực hiện vì mục đích phía trước. *Chủ ngữ ở vế trước và vế sau có thể khác nhau."
+  ],
+  "examples": [
+   {
+    "jp": "この薬は子供でも飲めるように甘い味がついています。"
+   },
+   {
+    "jp": "この病院は、忙しい人でも来られるように、夜も開いています。"
+   },
+   {
+    "jp": "子供がゲームをやりすぎないように、2時間を超えて続けていたら、ゲームの機械を取り上げています。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi cầu chúc bạn sớm khỏi bệnh",
+    "jp": "早く病気が治るように祈っています。"
+   },
+   {
+    "vi": "Hãy cẩn thận để không bị nhầm đường nhé",
+    "jp": "道を間違えないように気を付けてね。"
+   },
+   {
+    "vi": "Để có thể làm việc trong các công ty Nhật Bản thì tôi đang học tiếng Nhật",
+    "jp": "日本の会社で働けるように、日本語を勉強しています。"
+   }
+  ],
+  "page": 4,
+  "id": "c1b1p3"
+ },
+ {
+  "chapter": 1,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～ようにする",
+  "meaning": "(Sẽ) Cố gắng V/ không V",
+  "forms": [],
+  "notes": [
+   "Mẫu câu dùng để diễn tả những việc người nói từ giờ/từ thời điểm nói, hoặc từ 1 thời điểm nào đó trở đi sẽ ý thức thực hiện thường xuyên vì mục đích nào đó.",
+   "Nếu cách nói này đi cùng động từ vô ý chí thì câu văn sẽ mang nghĩa“cố gắng để tạo ra trạng thái nào đó”.",
+   "Cách nói này có thể kết hợp cùng những cấu trúc Ngữ pháp khác như: Vるようにしてください。((Xin)hãy cố gắng V) Vるようにしましょう。(Hãy cùng cố gắng V) Vるようにしなきゃ。(Phải cố gắng V)"
+  ],
+  "examples": [
+   {
+    "jp": "もう大人なんですから、遅刻しないようにしましょう。"
+   },
+   {
+    "jp": "目に悪いから、寝る前にスマートフォンやパソコンを使わないようにしましょう。"
+   },
+   {
+    "jp": "赤ちゃんが口の中に入る大きさのものを持っていたら、すぐに取り上げるようにしてください。危ないですから。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi sẽ cố gắng gửi mail trước khi gọi điện",
+    "jp": "電話の前にメールをするようにします。"
+   },
+   {
+    "vi": "Vì kết quả bài test trước không tốt lắm, nên từ giờ tôi phải cố gắng học mỗi ngày",
+    "jp": "この前のテストの結果があまりよくなかったから、これから毎日勉強するようにしなきゃ。"
+   }
+  ],
+  "page": 5,
+  "id": "c1b1p4"
+ },
+ {
+  "chapter": 1,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～ようにしている",
+  "meaning": "Cố làm/gắng không(duy làm trì V thói quen)",
+  "forms": [
+   "Vる/Vない＋ようにしている"
+  ],
+  "notes": [
+   "Mẫu câu dùng để thể hiện việc người nói đang cố gắng duy trì làm/không làm việc nào đó như một thói quen."
+  ],
+  "examples": [
+   {
+    "jp": "健康のために、毎日野菜を食べるようにしています。"
+   },
+   {
+    "jp": "日本語が上手になりたいから、毎日日本語で話すようにしています。"
+   },
+   {
+    "jp": "無駄なものを買わないようにしています。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi cố gắng ngủ trên 7 tiếng mỗi ngày",
+    "jp": "毎日7時間以上、寝るようにしています。"
+   },
+   {
+    "vi": "Vì tôi muốn mua nhà nên hàng tháng tôi đều cố gắng dành dụm tiền",
+    "jp": "家を買いたいから、毎月貯金するようにしています。"
+   },
+   {
+    "vi": "Dù ở hoàn cảnh nào, tôi cũng luôn cố gắng duy trì thói quen suy nghĩ tích cực",
+    "jp": "どんなときでも前向きに考えるようにしている。"
+   }
+  ],
+  "page": 6,
+  "id": "c1b1p5"
+ },
+ {
+  "chapter": 1,
+  "lesson": 1,
+  "index": 6,
+  "pattern": "～ところだ",
+  "meaning": "❶❷V Vるている＋ところだ＋ところだ",
+  "forms": [
+   "(Sắp sửa/chuẩn bị V)",
+   "(Đúng vào lúc đang V)",
+   "(Vừa mới V)",
+   "V)",
+   "đang V)"
+  ],
+  "notes": [
+   "Mẫu câu dùng để diễn tả thời điểm ngay trước khi 1 hành động nào đó xảy ra.",
+   "Cách nói này thường đi cùng các từ như 「:ちょうど」「今から」「これから」",
+   "Mẫu câu diễn tả thời điểm đang xảy ra hành động nào đó.",
+   "Cách nói này thường đi cùng các từ như 「:ちょうど」「今」 *Không dùng 「Vている＋ところ」 để nói về một việc kéo dài trong thời gian dài: ✕ 今、日本語の勉強をしているところです。 〇 今、日本語の勉強をしています。 *Khi muốn nói đến một giai đoạn, thời điểm trong quá trình, có thể dùng 「Vている＋ところ」: 〇 今、日本語の「て形」を勉強しているところです。",
+   "Mẫu câu diễn tả thời điểm ngay sau khi một hành động nào đó hoàn thành.",
+   "Cách nói này thường đi cùng các từ như: 「たった今」「今」「ちょうど」「さっき」「ついさっき」",
+   "Mẫu câu được coi như 1 danh từ trong câu, nên khi đứng cuối câu →có thể kết hợp với だ/です/だったんです...",
+   "Đứng giữa câu: có thể kết hợp vớiので、のに、から... Vる/Vている/Vた＋ところ＋なので/だから"
+  ],
+  "examples": [
+   {
+    "jp": "A：電球、取り替えた？B：これから取り替えるところ。"
+   },
+   {
+    "jp": "寝坊して急いでゴミを出しに行ったら、ちょうどゴミを回収しているところでした。"
+   },
+   {
+    "jp": "A：荷物、届きましたか。B：はい。ちょうど今、受け取ったところです。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi chuẩn bị ăn cơm bây giờ",
+    "jp": "これからご飯を食べるところです。"
+   },
+   {
+    "vi": "Tôi chuẩn bị ra ngoài bây giờ",
+    "jp": "これから出かけるところです。"
+   },
+   {
+    "vi": "Đúng lúc tôi đang ăn cơm",
+    "jp": "ちょうど今ご飯を食べているところです。"
+   },
+   {
+    "vi": "Bây giờ tôi đang đến chỗ bạn nên hãy đợi một chút nhé",
+    "jp": "今そっちに向かっているところだから、ちょっと待ってね。"
+   },
+   {
+    "vi": "Bây giờ tôi vừa mới về",
+    "jp": "（たった）今帰ったところです。"
+   },
+   {
+    "vi": "Tôi vừa mới đi đón con ở nhà ga",
+    "jp": "たった今子供を駅に迎えに行ったところです。"
+   }
+  ],
+  "page": 7,
+  "id": "c1b1p6"
+ },
+ {
+  "chapter": 1,
+  "lesson": 1,
+  "index": 7,
+  "pattern": "～たばかりだ",
+  "meaning": "Vừa mới V",
+  "forms": [],
+  "notes": [
+   "Diễn tả hành động vừa mới xảy ra, người nói cảm thấy thời gian trôi qua kể từ lúc hành động kết thúc là ngắn, chưa được bao lâu.",
+   "Thể hiện cảm giác chủ quan của người nói.",
+   "Đứng ở cuối câu thường có dạng 「: Vたばかりだ/Vたばかりです/Vたばかりである」",
+   "Đứng ở giữa câu 「Vたばかり」 đóng vai trò như một danh từ, và thường có các cách kết hợp như: Vたばかり＋で/だから/ですが/なんだけど/なのに *Có thể dùng cho hành động, sự việc xảy ra: +Ngay trước thời điểm nói +Vào tuần trước, tháng trước, năm trước…nhưng người nói cảm thấy mới xảy ra gần đây."
+  ],
+  "examples": [
+   {
+    "jp": "さっき帰ってきたばかりなので、まだメールをチェックしていないんです。"
+   },
+   {
+    "jp": "さっき聞いたばかりのことを、もう忘れちゃったの。"
+   },
+   {
+    "jp": "父を亡くしたばかりで、まだ悲しみから抜け出せない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi vừa mới ăn kẹo xong Tôi vừa bắt đầu công việc vào tháng trước Tôi mới kết hôn vào năm ngoái Cái máy tính này mới mua mà đã hỏng rồi Vì vừa mới bắt đầu thôi, nên nếu chuyện không suôn sẻ thì cũng không sao đâu",
+    "jp": "さっきお菓子を食べたばかりだ。"
+   }
+  ],
+  "page": 9,
+  "id": "c1b1p7"
+ },
+ {
+  "chapter": 1,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～って",
+  "meaning": "",
+  "forms": [],
+  "notes": [
+   "Đứng sau chủ đề của câu.",
+   "Dùng thay choは.",
+   "Dùng trong văn nói."
+  ],
+  "examples": [
+   {
+    "jp": "あなたの恋人ってどんな人ですか。"
+   },
+   {
+    "jp": "日本語ってどうすれば上手になりますか。"
+   },
+   {
+    "jp": "すみません、会社のパーティーっていつですか。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nghe nói núi Phú Sĩ là ngọn núi cao nhất Nhật Bản",
+    "jp": "富士山って日本で一番高い山らしいです。"
+   },
+   {
+    "vi": "Tiếng Nhật có khó không?",
+    "jp": "日本語って難しい？"
+   },
+   {
+    "vi": "Nhật Bản là nước như thế nào?",
+    "jp": "日本ってどんな国？"
+   }
+  ],
+  "page": 12,
+  "id": "c1b2p1"
+ },
+ {
+  "chapter": 1,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "～って",
+  "meaning": "Nghe Thấy bảo nói là.../là...",
+  "forms": [
+   "V （普） （＋んだ）",
+   "Aい （＋んだ）",
+   "N/Aな （＋なん）だ"
+  ],
+  "notes": [
+   "Trích dẫn lại lời người khác, thông tin nghe từ nơi khác.",
+   "Cách nói thường nghe khác:んだって."
+  ],
+  "examples": [
+   {
+    "jp": "今週はずっと晴れだって。"
+   },
+   {
+    "jp": "彼は今日、ちこくして先生におこられたって。"
+   },
+   {
+    "jp": "その荷物は小さいけど結構重いって。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thấy bảo hai người đấy đang hẹn hò với nhau Nghe nói cô Thanh có em bé rồi Nghe nói cô ấy đỗ N3 rồi",
+    "jp": "ベトナムという国"
+   }
+  ],
+  "page": 13,
+  "id": "c1b2p2"
+ },
+ {
+  "chapter": 1,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "～って",
+  "meaning": "Là... Mệnh",
+  "forms": [],
+  "notes": [
+   "Dùng thay choとtrong:と思う/と言う/と書いてある(nghĩ là/nói là/viết là～)",
+   "Với câu hỏi: dùng何て, không dùng何って"
+  ],
+  "examples": [
+   {
+    "jp": "彼と初めて話したけど、いい人だなって思った。"
+   },
+   {
+    "jp": "彼は来月から日本に留学するってみんなに言っていた。"
+   },
+   {
+    "jp": "子供のとき、父にご飯は残さず全部食べろってよく言われ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "(Trên tấm biển)Có viết là cấm vào",
+    "jp": "あの二人は付き合ってるって。"
+   },
+   {
+    "vi": "Tôi đã được khen là“Con đã làm rất tốt”đấy!",
+    "jp": "Thanh先生は子供ができたって。"
+   }
+  ],
+  "page": 14,
+  "id": "c1b2p3"
+ },
+ {
+  "chapter": 1,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "～って / という",
+  "meaning": "N2 gọi là N1",
+  "forms": [
+   "1 2"
+  ],
+  "notes": [
+   "N1 là tên riêng hoặc 1 danh từ cụ thể. N2 là danh từ cùng loại nhưng có phạm vi nghĩa rộng hơn N1.",
+   "Văn nói:っていう/って. ⓵Đất nước mang tên là Việt Nam Món ăn mà gọi là sushi Người mà tên là Thanh"
+  ],
+  "examples": [
+   {
+    "jp": "私は日本という国から来ました。"
+   },
+   {
+    "jp": "これはフォーという料理でベトナムではとても有名です。"
+   },
+   {
+    "jp": "私はズンモリって日本語センターで、N5からN2まで勉強した。DịchnhữngcâusausangtiếngNhật:.................................................................................................................................................⓶.................................................................................................................................................⓷................................................................................................................................................."
+   }
+  ],
+  "drills": [],
+  "page": 15,
+  "id": "c1b2p4"
+ },
+ {
+  "chapter": 1,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "～らしい",
+  "meaning": "Ra dáng/ đậm chất/ chuẩn...",
+  "forms": [
+   "1 2"
+  ],
+  "notes": [
+   "Mang tính chất điển hình của 1 sự việc/sự vật/đối tượng nào đó.",
+   "Nらしい dùng như 1 tính từ đuôiい.",
+   "Có thể kết hợp được với danh từ đứng sau 「: N らしいN 」. ⓵Hôm nay là một ngày đúng kiểu mùa hè. Cô Yuka có khuôn mặt đậm chất người Nhật. Nếu không có pháo hoa thì đâu còn là mùa hè nữa."
+  ],
+  "examples": [
+   {
+    "jp": "息子は高校生になり、だんだん大人らしい顔になってきた。"
+   },
+   {
+    "jp": "あの子は遊ばないで勉強ばかりしていて、子供らしくない。DịchnhữngcâusausangtiếngNhật:.................................................................................................................................................⓶.................................................................................................................................................⓷Nếukhôngcópháohoathìđâucònlàmùahènữa.................................................................................................................................................."
+   }
+  ],
+  "drills": [],
+  "page": 16,
+  "id": "c1b2p5"
+ },
+ {
+  "chapter": 1,
+  "lesson": 2,
+  "index": 6,
+  "pattern": "～を中心",
+  "meaning": "Mà trọng chủ tâm yếu là...là.../ N ＋",
+  "forms": [
+   "を中心に/と（して）",
+   "1 を中心にした/とした＋N 2",
+   "を中心にする/とする＋N 2"
+  ],
+  "notes": [
+   "Mẫu câu được dùng khi muốn nhấn mạnh đến cái trọng tâm của hành động hay sự vật sự việc nào đó. ⓶Tôi đang nghiên cứu tiếng Nhật mà trọng tâm là phát âm. ⓷Buổi nghiên cứu tuần này đã nói chuyện về vấn đề mà trọng tâm là mức sinh giảm."
+  ],
+  "examples": [
+   {
+    "jp": "私はダイエットのため、野菜を中心とした食事をしている。"
+   },
+   {
+    "jp": "私の授業では、文法ではなく会話を中心に教えている。"
+   },
+   {
+    "jp": "この店は、パスタを中心とするイタリア料理の店だ。DịchnhữngcâusausangtiếngNhật:⓵ThànhphốnàycórấtnhiềudukháchmàchủyếulàdukháchViệtNam...................................................................................................................................................................................................................................................................................................................................................................................................................................................."
+   }
+  ],
+  "drills": [],
+  "page": 17,
+  "id": "c1b2p6"
+ },
+ {
+  "chapter": 1,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "～について",
+  "meaning": "Về N1",
+  "forms": [
+   "N 1 ＋について(は/も/のN 2 )"
+  ],
+  "notes": [
+   "Dùng khi muốn nói （話す）・nghe （聞く）・nghĩ （考える）・viết （書く）・ tìm hiểu （調べる）…về điều gì đó."
+  ],
+  "examples": [
+   {
+    "jp": "私の教授は30年間物理学について研究している。"
+   },
+   {
+    "jp": "私は将来についてはあまり考えない性格だ。"
+   },
+   {
+    "jp": "先生は日本だけでなく、ベトナムの歴史についてもよく知っている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mặc dù đã hẹn hò được nửa năm rồi thế nhưng mà tôi chẳng biết gì về anh ấy cả",
+    "jp": "もう半年ぐらい付き合っていたのに、彼について何もわかんない。"
+   },
+   {
+    "vi": "Hiện tại ở cao học mình đang nghiên cứu về giáo dục tiếng Nhật",
+    "jp": "今大学院で日本語教育について研究しています。"
+   },
+   {
+    "vi": "Bài văn về ước mơ của mình",
+    "jp": "自分の夢についての作文"
+   }
+  ],
+  "page": 20,
+  "id": "c1b3p1"
+ },
+ {
+  "chapter": 1,
+  "lesson": 3,
+  "index": 2,
+  "pattern": "～において / ～における",
+  "meaning": "Ở, tại, trong, trên N1",
+  "forms": [
+   "において(は/も)、...",
+   "N 1 ＋ においての＋N 2",
+   "における＋N 2"
+  ],
+  "notes": [
+   "N: địa điểm, hoàn cảnh, trạng thái, phương diện, lĩnh vực…",
+   "Văn viết nên không dùng với những hành động thường ngày, đơn giản."
+  ],
+  "examples": [
+   {
+    "jp": "彼女は何事においてもまじめにやる性格だ。"
+   },
+   {
+    "jp": "今の日本において、タバコを吸える店はほとんどない。"
+   },
+   {
+    "jp": "勉強することにおいて、一番大事なのは続けることだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Buổi hòa nhạc tuần này được dự kiến tổ chức ở tòa nhà Tokyo Dome",
+    "jp": "今週のコンサートは東京ドームにおいて行われる予定です。"
+   },
+   {
+    "vi": "Trong cuộc đời của tôi thì đã có rất nhiều lần tôi thất bại",
+    "jp": "私の人生において、失敗したことはたくさんあります。"
+   },
+   {
+    "vi": "Giáo dục ở trong trường học",
+    "jp": "学校における教育"
+   }
+  ],
+  "page": 21,
+  "id": "c1b3p2"
+ },
+ {
+  "chapter": 1,
+  "lesson": 3,
+  "index": 3,
+  "pattern": "～にとって",
+  "meaning": "Đối với N1 thì...",
+  "forms": [
+   "N 1 ＋にとって(は/も/のN 2 )"
+  ],
+  "notes": [
+   "Danh từ đứng trước thường là người/chủ thể.",
+   "Vế sau: đưa ra ý kiến, đánh giá, phán đoán, nhận xét."
+  ],
+  "examples": [
+   {
+    "jp": "私にとって、彼は家族みたいな存在だ。"
+   },
+   {
+    "jp": "日本人にとっても、漢字はとても難しい。"
+   },
+   {
+    "jp": "私にとって、一番大事なものは家族です。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Đối với đất nước, những người trẻ là tài sản quý giá",
+    "jp": "彼は女に対していつも優しいです。"
+   },
+   {
+    "vi": "Có thể nói rằng tiền là máu đối với công ty",
+    "jp": "私の意見に対して、父はいつも反対している。"
+   },
+   {
+    "vi": "Đối với anh thì em là bạn hay người yêu, anh hãy nói một lần cho rõ xem nào",
+    "jp": "もう子供じゃないから、自分の行動に対して、責任を持たなきゃいけない。"
+   }
+  ],
+  "page": 22,
+  "id": "c1b3p3"
+ },
+ {
+  "chapter": 1,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "～に対して",
+  "meaning": "Đối Cho với, đối với/tượng nào đó",
+  "forms": [
+   "に対し(は/も/のN 2 )",
+   "N 1 ＋ に対して(は/も/のN 2 )",
+   "に対する＋N 2"
+  ],
+  "notes": [
+   "Vế sau là hành động, cảm xúc hướng tới đối tượng N đứng trướcに対して."
+  ],
+  "examples": [
+   {
+    "jp": "年上の人に対しては、ていねいな言葉を使った方がいい。"
+   },
+   {
+    "jp": "先生は私の質問に対して答えてくれなかった。"
+   },
+   {
+    "jp": "社長に対する社員たちからの信頼は大きい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Anh ấy lúc nào cũng tốt với phụ nữ",
+    "jp": "発音が難しいベトナム語に対して、日本語は発音が簡単だが、漢字が多いです。"
+   },
+   {
+    "vi": "Bố tôi lúc nào cũng phản đối những ý kiến của tôi",
+    "jp": "こっちの店は列が長いのに対して。向こうの店は一人もいない。"
+   },
+   {
+    "vi": "Vì không còn là trẻ con nữa, nên tôi phải có trách nhiệm với hành động của mình"
+   }
+  ],
+  "page": 23,
+  "id": "c1b3p4"
+ },
+ {
+  "chapter": 1,
+  "lesson": 3,
+  "index": 5,
+  "pattern": "～に対して",
+  "meaning": "Trái So với...với/ thì...",
+  "forms": [
+   "N ＋に対して",
+   "普通形",
+   "な /Aな である ＋のに対し（て）",
+   "な/Nである"
+  ],
+  "notes": [
+   "Vế trước và vế sau được đặt cạnh nhau để so sánh",
+   "Có thể mang nghĩa trái ngược/hoặc diễn tả 2 tính chất không liên quan đến nhau."
+  ],
+  "examples": [
+   {
+    "jp": "兄は背が高いのに対して、私は背が低い。"
+   },
+   {
+    "jp": "今、ベトナムは夏なのに対してオーストラリアは冬だ。"
+   },
+   {
+    "jp": "みんなが遊んでいるのに対し、彼は一人で勉強している。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Trái với tiếng Việt phát âm khó, tiếng Nhật phát âm dễ nhưng lại nhiều chữ Hán",
+    "jp": "国にとって若者は貴重な財産である。"
+   },
+   {
+    "vi": "Trái với cửa hàng bên này người xếp hàng dài, thì cửa hàng bên kia chẳng có một ai cả",
+    "jp": "お金は会社にとって血ともいえる。"
+   }
+  ],
+  "page": 24,
+  "id": "c1b3p5"
+ },
+ {
+  "chapter": 1,
+  "lesson": 3,
+  "index": 6,
+  "pattern": "～に従って",
+  "meaning": "Tuân theo, theo đúng như...",
+  "forms": [
+   "したが"
+  ],
+  "notes": [
+   "Thực hiện hành động theo chỉ thị, hướng dẫn, quy tắc, nội dung, lời chỉ dạy...đã có sẵn. ・指示: chỉ thị ・命令: mệnh lệnh ・ルール、規則、教え..."
+  ],
+  "examples": [
+   {
+    "jp": "私は親の希望に従って、医者になった。"
+   },
+   {
+    "jp": "私が考えたこの方法に従ってダイエットすれば、1か月で5キロ痩せられます。"
+   },
+   {
+    "jp": "この洗剤は、説明に従って正しく使用してください。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nếu sống ở nước ngoài thì phải hành động tuân theo luật pháp ở nước đấy",
+    "jp": "外国に住めば、その国の法律に従って、行動しなければならない。"
+   },
+   {
+    "vi": "Cả ô tô lẫn người đi bộ đều tuân theo luật giao thông để tham gia giao thông",
+    "jp": "交通ルールに従って、車も歩行者も通行する。"
+   },
+   {
+    "vi": "Từ nhỏ, tôi đã sống theo những lời mẹ dặn",
+    "jp": "子どもの頃から、母の言葉に従って生きてきた。"
+   }
+  ],
+  "page": 25,
+  "id": "c1b3p6"
+ },
+ {
+  "chapter": 1,
+  "lesson": 3,
+  "index": 7,
+  "pattern": "～に従って",
+  "meaning": "Cùng thì (chủ với…thể thì…/2) cũng(Chủ càng…thể 1) càng…",
+  "forms": [
+   "N",
+   "＋ に従って",
+   "Vる"
+  ],
+  "notes": [
+   "Cả hai vế diễn tả sự biến đổi theo thời gian, tình huống, hoàn cảnh...",
+   "Vế sau theo đổi do chịu ảnh hưởng, tác động của vế trước.",
+   "Thường dùng trong văn viết, phân tích."
+  ],
+  "examples": [
+   {
+    "jp": "時間が経つに従って、頭が痛くなってきた。"
+   },
+   {
+    "jp": "日本語の勉強が進むに従って、日本語が面白くなってきた。"
+   },
+   {
+    "jp": "時代の流れに従って、刀を作れる人は減ってきている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mặt trời càng lên cao thì nhiệt độ càng nóng lên",
+    "jp": "太陽が昇るに従って、気温も高くなる。"
+   },
+   {
+    "vi": "Càng tích luỹ được nhiều kinh nghiệm thì chúng ta càng thấy tự tin hơn",
+    "jp": "経験が積み重なるに従って、自信がついてくる。"
+   },
+   {
+    "vi": "Càng lớn tuổi, ta càng nhận ra điều gì là thực sự quan trọng",
+    "jp": "歳を重ねるに従って、本当に大切なものが見えてくる。"
+   }
+  ],
+  "page": 26,
+  "id": "c1b3p7"
+ },
+ {
+  "chapter": 2,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～によって",
+  "meaning": "Bằng…/ Thông qua...",
+  "forms": [
+   "N 1 よって/より",
+   "＋に よる＋N",
+   "Vること 2"
+  ],
+  "notes": [
+   "Danh từ(N)chỉ công cụ, phương thức.",
+   "Không dùng với những công cụ thân quen.",
+   "により: cách nói cứng, lịch sự hơn, thường dùng trong văn viết."
+  ],
+  "examples": [
+   {
+    "jp": "毎日日本語を練習することによって、日本語が上達します。"
+   },
+   {
+    "jp": "この薬を飲むことによって、かぜがなおるかもしれない。"
+   },
+   {
+    "jp": "スマートフォンによって、多くの情報が簡単に手に入るようになった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thông qua mạng internet, chúng ta có thể thu thập được rất nhiều thông tin",
+    "jp": "インターネットによって、さまざまな情報を得ることができる。"
+   },
+   {
+    "vi": "Thông qua việc thường hay giao lưu với người Nhật, tiếng Nhật cũng giỏi lên",
+    "jp": "日本人とよく交流することによって/により、日本語も上達しました。"
+   },
+   {
+    "vi": "・Cuộc điều tra bằng phiếu điều tra ・Môi trường học tập thông qua internet",
+    "jp": "・アンケートによる調査・インターネットによる学習環境"
+   }
+  ],
+  "page": 29,
+  "id": "c2b1p1"
+ },
+ {
+  "chapter": 2,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～によって",
+  "meaning": "Vì…/ Do...",
+  "forms": [
+   "N 1 よって",
+   "Vること ＋に",
+   "よる＋N 2"
+  ],
+  "notes": [
+   "Nguyên nhân, lí do→dẫn đến sự việc nào đó.",
+   "Thường dùng trong văn viết, báo chí, văn bản, thông báo…"
+  ],
+  "examples": [
+   {
+    "jp": "今日は台風によって、学校が休みになった。"
+   },
+   {
+    "jp": "今朝の大雨によって、会社に着くのが遅れた。"
+   },
+   {
+    "jp": "彼はたくさんタバコを吸ったことによって、病気になった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Vì tuyết lớn nên tàu bị dừng lại",
+    "jp": "大雪によって、電車が止まりました。"
+   },
+   {
+    "vi": "Công ty nơi tôi làm việc bị phá sản nên là tôi mất việc",
+    "jp": "働いている会社が倒産されたことによって、仕事がなくなりました。"
+   },
+   {
+    "vi": "Người chết vì động đất",
+    "jp": "地震による死者"
+   }
+  ],
+  "page": 30,
+  "id": "c2b1p2"
+ },
+ {
+  "chapter": 2,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～によって",
+  "meaning": "Tùy vào N/ Tùy theo N",
+  "forms": [],
+  "notes": [
+   "Tùy vào N, mà(vế sau)sẽ khác/thay đổi.",
+   "Vế sau hay đi với những từ thể hiện sự không nhất định như:いろいろある、違う、 さまざまだ、異なる…"
+  ],
+  "examples": [
+   {
+    "jp": "この店は時間によってメニューが変わる。"
+   },
+   {
+    "jp": "行く場所によって、着て行く洋服を考えた方がいい。"
+   },
+   {
+    "jp": "言葉や文化は国によって違うので、とても面白い。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tùy vào mỗi người mà cách suy nghĩ sẽ khác nhau",
+    "jp": "人によって考え方も違います。/考え方は人によって様々です。"
+   },
+   {
+    "vi": "Từ vị trí này, tùy vào thời tiết mà có thể nhìn thấy núi Phú Sĩ hoặc là không",
+    "jp": "ここからは天候/天気によって、富士山は見えたり、見えなかったりします。"
+   },
+   {
+    "vi": "Tùy vào những cái đã nỗ lực mà kết quả cũng sẽ khác",
+    "jp": "努力した分によって、結果も異なります。"
+   }
+  ],
+  "page": 31,
+  "id": "c2b1p3"
+ },
+ {
+  "chapter": 2,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～ことで",
+  "meaning": "Bằng Thông Nhờ việc...việc...qua việc.../ /",
+  "forms": [],
+  "notes": [
+   "Diễn tả phương pháp, cách thức, hành động cụ thể dẫn đến kết quả nào đó.",
+   "Có thể hiểu là: “Thông qua A→đạt được B”"
+  ],
+  "examples": [
+   {
+    "jp": "食事の量を減らすことで、1か月に3キロくらい痩せられるはずだ。"
+   },
+   {
+    "jp": "毎日お弁当を持って来ることで、生活費を少なくすることができる。"
+   },
+   {
+    "jp": "2か所でアルバイトをすることで、大学のお金を払っている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nghe nói rằng bằng cách làm ấm cơ thể thì sẽ khó bị cảm lạnh hơn",
+    "jp": "体を温めることで、風邪を引きにくくなるそうです。"
+   },
+   {
+    "vi": "Thông qua việc tham gia hoạt động tình nguyện mà có thể thu được nhiều kinh nghiệm khác nhau",
+    "jp": "ボランティア活動に参加することで、さまざまな経験を得ることができます。"
+   },
+   {
+    "vi": "Bằng cách lắng nghe người khác, đôi khi suy nghĩ của bản thân sẽ trở nên sâu sắc hơn",
+    "jp": "人の話を聞くことで、自分の考えが深まることもある。"
+   }
+  ],
+  "page": 32,
+  "id": "c2b1p4"
+ },
+ {
+  "chapter": 2,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～おかげ",
+  "meaning": "Nhờ có...",
+  "forms": [
+   "普通形",
+   "Aな /Aな である ＋おかげ",
+   "Nの/Nである"
+  ],
+  "notes": [
+   "Nhờ có….mà có được kết quả tốt.",
+   "Chứa cảm xúc cảm ơn, cảm kích.",
+   "Cụm từ:おかげさまでdùng nhiều trong giao tiếp. *おかげか: Không biết có phải nhờ... mà có kết quả tốt xảy ra *おかげで: Nhờ…mà có kết quả tốt(Chắc chắn)"
+  ],
+  "examples": [
+   {
+    "jp": "私が高校を卒業できたのは、先生達のおかげです。"
+   },
+   {
+    "jp": "会社が家から近いおかげで、休憩の時帰ることができる。"
+   },
+   {
+    "jp": "いつもより早く寝たおかげか、今日はとても調子がいい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nhờ có cô Thanh giảng giải một cách cẩn thận cho tôi, mà tôi đã hiểu chi tiết ngữ pháp N3",
+    "jp": "Thanh先生が丁寧に教えてくれたおかげで、N3の文法について詳しく理解できました。"
+   },
+   {
+    "vi": "Nhờ có anh ấy động viên tôi, mà tôi đã phấn chấn hơn",
+    "jp": "彼が励ましてくれたおかげで、元気が出た。"
+   },
+   {
+    "vi": "Không biết có phải là nhờ thuốc mà mình đã khỏi bệnh cảm hay không",
+    "jp": "薬のおかげか風邪が治りました。"
+   }
+  ],
+  "page": 33,
+  "id": "c2b1p5"
+ },
+ {
+  "chapter": 2,
+  "lesson": 1,
+  "index": 6,
+  "pattern": "～せい",
+  "meaning": "Chỉ tại…/ Tại vì...",
+  "forms": [
+   "普通形",
+   "Aな /Aな である ＋せい",
+   "Nの/Nである"
+  ],
+  "notes": [
+   "Đưa ra nguyên nhân…",
+   "Thường dẫn tới kết quả xấu, không tích cực."
+  ],
+  "examples": [
+   {
+    "jp": "暑くなってきたせいでよく喉が乾き、水ばかりを飲んでいる。"
+   },
+   {
+    "jp": "今日の試合で負けたのはみんなのせいじゃなくて、全部私のせいだ。"
+   },
+   {
+    "jp": "この村は不便なせいか、最近は住む人が全然いなくなった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Chỉ tại virus Corona mà mình không thể đi Nhật được",
+    "jp": "新型コロナウイルスのせいで、日本に行けなくなった。"
+   },
+   {
+    "vi": "Không biết có phải là vì uống trà sữa không mà bây giờ mình bị mất ngủ",
+    "jp": "タピオカを飲んだせいか、夜眠れなかった。"
+   },
+   {
+    "vi": "Không biết có phải do cảm giác hay không mà bánh mỳ hôm nay nhỏ hơn mọi khi",
+    "jp": "気のせいか、今日のパンはいつもより小さい。"
+   }
+  ],
+  "page": 34,
+  "id": "c2b1p6"
+ },
+ {
+  "chapter": 2,
+  "lesson": 1,
+  "index": 7,
+  "pattern": "～ことから",
+  "meaning": "Xuất Vì lý do...phát từ.../",
+  "forms": [
+   "普通形",
+   "Aな /A である ＋ ことから",
+   "Nである"
+  ],
+  "notes": [
+   "Mẫu câu dùng để: +Diễn đạt nguồn gốc tên gọi của một sự vật, sự việc nào đó. +Đưa ra cơ sở của một phán đoán, hoặc đưa ra lý do cho một việc nào đó."
+  ],
+  "examples": [
+   {
+    "jp": "安全な人生を送ってほしいことから、子供に「AN」と名付けました。"
+   },
+   {
+    "jp": "道が濡れていることから、昨晩雨が降ったことが分かる。"
+   },
+   {
+    "jp": "彼女は時間があっても勉強しなかったことから、今回の試験の点数が悪くなったそうです。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Vì chú cún nhà tôi được sinh ra vào mùa xuân nên nó được đặt tên là\"Haru (Mùa xuân)\"",
+    "jp": "うちの犬は、春に生まれたことから「春」という名前になった。"
+   },
+   {
+    "vi": "Vì cô ấy rất thông minh và xinh đẹp nên thu hút được sự chú ý của mọi người",
+    "jp": "彼女はとても賢く美しいことから、皆の注目を集めている。"
+   },
+   {
+    "vi": "Vì cậu bé đó có khuôn mặt giống hệt cô ấy nên tôi biết được rằng đó là em trai của cô ấy",
+    "jp": "その男の子は、彼女に顔がそっくりだったことから、彼女の弟だとわかった。"
+   }
+  ],
+  "page": 35,
+  "id": "c2b1p7"
+ },
+ {
+  "chapter": 2,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～そうにない / ～そうもない",
+  "meaning": "Khó Chẳng mà có V/vẻ gì sẽ V",
+  "forms": [
+   "そうにない",
+   "Vます ＋ そうもない",
+   "そうにもない"
+  ],
+  "notes": [
+   "Dạng phủ định của 「Vます＋そうです」(sắp V đến nơi).",
+   "Dùng để nói về 1 sự việc ít hoặc gần như không có khả năng sẽ xảy ra.",
+   "Thường đi với động từ chỉ khả năng, trạng thái hoàn thành, cử động, thay đổi..."
+  ],
+  "examples": [
+   {
+    "jp": "あんなに高価なかばんは、とても買えそうにない。"
+   },
+   {
+    "jp": "またお金を使ってしまった。このままでは、年末までに100万円貯金できそうにない。"
+   },
+   {
+    "jp": "彼は学校の成績も悪かったし、真面目じゃないし、いい会社には就職できそうにないね。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cuốn sách này có nhiều từ ngữ khó nên có vẻ tôi khó mà đọc được",
+    "jp": "この本は出てくる言葉が難しくて読めそうもない。"
+   },
+   {
+    "vi": "Trong trận đấu ngày mai, tôi khó có thể thắng được",
+    "jp": "明日の試合で、勝てそうに(も)ありません。"
+   },
+   {
+    "vi": "Vì trời chẳng có vẻ gì là sẽ tạnh ngay, thế nên thong thả nghỉ ngơi ở nhà thôi",
+    "jp": "しばらく雨が止みそうにないから、家でゆっくりしていよう。"
+   }
+  ],
+  "page": 38,
+  "id": "c2b2p1"
+ },
+ {
+  "chapter": 2,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "～がる",
+  "meaning": "",
+  "forms": [
+   "い な"
+  ],
+  "notes": [
+   "Miêu tả trạng thái cơ thể, nguyện vọng, mong muốn, cảm xúc của người khác, không phải của mình.",
+   "Thường dùng ở dạng～がっている."
+  ],
+  "examples": [
+   {
+    "jp": "彼女が寒がっていたので、僕のコートを貸してあげた。"
+   },
+   {
+    "jp": "彼女は仕事中に話しかけられるのをとても嫌がっている。"
+   },
+   {
+    "jp": "私がどこへ行くときも、息子は一緒に行きたがる。"
+   },
+   {
+    "jp": "私は20歳の時から、タバコを吸い始めました。"
+   },
+   {
+    "jp": "先週から、日本へ留学するために日本語センターに通い始めました。"
+   },
+   {
+    "jp": "息子は夕方になって、やっと勉強をし始めた。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Người bà sống ở quê đang muốn gặp cháu của mình",
+    "jp": "田舎に住む祖母が、久しぶりに孫に会いたがっている。"
+   },
+   {
+    "vi": "Con mèo đang muốn ngủ",
+    "jp": "猫は眠たがっている。"
+   },
+   {
+    "vi": "Sau khi xem phim kinh dị thì em gái tôi sợ rằng em ấy không thể ngủ một mình ❖Bắt đầu làm.../Bắt đầu diễn ra hiện tượng gì đó ❖Thường dùng cho hành động, động tác, thói quen, hiện tượng tự nhiên→diễn ra liên tục",
+    "jp": "ホラー映画を観て、妹は一人で眠れないと怖がっている。"
+   },
+   {
+    "vi": "Sang đến cuối tháng 3, hoa anh đào bắt đầu nở"
+   },
+   {
+    "vi": "・Trời bắt đầu mưa ・Tuyết bắt đầu rơi"
+   },
+   {
+    "vi": "Tôi bắt đầu học tiếng Nhật từ 2 năm trước ❖Kết thúc/Làm xong 1 hành động gì đó đã diễn ra liên tục trước đó"
+   },
+   {
+    "vi": "Viết xong"
+   },
+   {
+    "vi": "Uống xong"
+   },
+   {
+    "vi": "Đọc xong sách"
+   }
+  ],
+  "page": 39,
+  "id": "c2b2p2"
+ },
+ {
+  "chapter": 2,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "～続ける",
+  "meaning": "Duy trì/ liên tục/ tiếp tục…",
+  "forms": [
+   "Vます ＋続ける"
+  ],
+  "notes": [
+   "Tiếp tục/duy trì thực hiện hành động gì đó/thói quen nào đó."
+  ],
+  "examples": [
+   {
+    "jp": "この財布は10年前に母からもらい、その時からずっと使い続けている。"
+   },
+   {
+    "jp": "N4のクラスが終わった後も、自分で日本語を勉強し続けるつもりです。"
+   },
+   {
+    "jp": "彼は休憩時間が終わった後も、ゲームをし続けている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Dù có trở về nước sau khi đi du học thì tôi vẫn sẽ tiếp tục việc học tiếng Nhật",
+    "jp": "留学から帰っても、日本語の勉強をし続けたいと思います。"
+   },
+   {
+    "vi": "Chuyện gì thì chuyện, bằng việc chúng ta duy trì làm thì chắc hẳn sẽ nhìn thấy thành quả",
+    "jp": "何事も、やり続けることで成果が見えてくるだろう。"
+   },
+   {
+    "vi": "Trong lúc leo núi, tôi cứ liên tục đi bộ mà không nghỉ nên rất mệt",
+    "jp": "登山で休みなく歩き続けたので、とても疲れてしまった。"
+   }
+  ],
+  "page": 41,
+  "id": "c2b2p5"
+ },
+ {
+  "chapter": 2,
+  "lesson": 2,
+  "index": 6,
+  "pattern": "～直す",
+  "meaning": "Làm lại...",
+  "forms": [
+   "Vます ＋直す"
+  ],
+  "notes": [
+   "Dùng để diễn tả hành động làm lại từ đầu sau khi đã thử–thất bại–sai–chưa tốt."
+  ],
+  "examples": [
+   {
+    "jp": "家が古くなってきたので、建て直すことにしました。"
+   },
+   {
+    "jp": "本当に仕事を辞めるかどうか、もう一度考え直してみなさい？"
+   },
+   {
+    "jp": "今年に入って母の病気は進んでいたが、最近少し持ち直した。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Vì bản báo cáo này nhiều lỗi sai nên bạn hãy viết lại đi!",
+    "jp": "このレポートは間違いが多いので、書き直してください。"
+   },
+   {
+    "vi": "Quần áo phơi mà bị ẩm vì mưa thì hãy giặt lại nhé!",
+    "jp": "雨に濡れてしまった洗濯物は、洗い直してください。"
+   },
+   {
+    "vi": "Dù thất bại, chỉ cần làm lại bao nhiêu lần cũng được",
+    "jp": "失敗しても、何度でもやり直せばいいのだ。"
+   }
+  ],
+  "page": 42,
+  "id": "c2b2p6"
+ },
+ {
+  "chapter": 2,
+  "lesson": 2,
+  "index": 7,
+  "pattern": "～として",
+  "meaning": "➋➊Như Với tư là...cách, vai trò",
+  "forms": [
+   "として",
+   "N 1 ＋",
+   "として＋のN 2"
+  ],
+  "notes": [
+   "N1: tư cách, vai trò, chức danh, nghề nghiệp, danh nghĩa.",
+   "N1 chỉ sở thích...➡nét nghĩa\"như là...\".",
+   "Mẫu câu có cả dạng:"
+  ],
+  "examples": [
+   {
+    "jp": "私はベトナムが好きで、趣味としてベトナム語を勉強している。"
+   },
+   {
+    "jp": "私は今ベトナムで、日本語の教師として働いている。"
+   },
+   {
+    "jp": "私は子供に、勉強について親としての考えを言った。"
+   },
+   {
+    "jp": "彼は俳優だが、歌手としても有名だ。"
+   },
+   {
+    "jp": "その男は一流の作家だが、映画監督としてはまだまだだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi đang làm việc với tư cách là một giáo viên tiếng Nhật",
+    "jp": "日本語の先生として働いています。"
+   },
+   {
+    "vi": "Tôi đến Nhật với tư cách là một du học sinh",
+    "jp": "留学生として日本に来ました。"
+   },
+   {
+    "vi": "・Vị trí với tư cách là một giám đốc ・Suy nghĩ trong vai trò là bố mẹ",
+    "jp": "・社長としての立場・親としての考え"
+   },
+   {
+    "vi": "Tôi đang học piano như là sở thích của mình",
+    "jp": "趣味としてピアノ習っています。"
+   },
+   {
+    "vi": "Thầy Dũng đã bắt đầu làm clip bài giảng như là một sở thích",
+    "jp": "ズン先生は趣味としてレッスンの動画を作り始めました。"
+   },
+   {
+    "vi": "Kyoto được biết đến như là một địa điểm tham quan du lịch",
+    "jp": "京都は観光地として知られています。"
+   }
+  ],
+  "page": 43,
+  "id": "c2b2p7"
+ },
+ {
+  "chapter": 2,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "～てもおかしくない",
+  "meaning": "Dù không có V có thì gì cũng bất ngờ không lạ/",
+  "forms": [
+   "Vても おかしくない",
+   "Aい くても ＋",
+   "A /Nでも 不思議じゃない",
+   "な"
+  ],
+  "notes": [
+   "Mẫu câu được sử dụng khi nói về một điều\"đương nhiên có thể nghĩ đến\"hoặc \"có khả năng cao xảy ra\".",
+   "Khi vế trước có những từ để hỏi như 「いつ/だれ/どこ」, cách nói này mang ý nghĩa\"việc xảy ra hành động đó là dễ hiểu/có khả năng cao xảy ra vào bất cứ lúc nào/bất cứ ai/bất cứ nơi nào\"."
+  ],
+  "examples": [
+   {
+    "jp": "この映画はとても面白かったから、これからもっと人気が出ても不思議ではない。"
+   },
+   {
+    "jp": "日本は地震がたくさん起こる国なので、いつ、どこで大きな地震があっても不思議ではない。"
+   },
+   {
+    "jp": "この交差点は周りが見えにくいのに車の量が多くて、いつ事故がおきてもおかしくない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Bị nói như thế thì anh ấy nổi giận cũng chẳng có gì là lạ",
+    "jp": "そう言われたら、彼が怒ってもおかしくない。"
+   },
+   {
+    "vi": "Bố cô ấy là người Philippines nên tên cô ấy viết bằng katakana cũng không có gì lạ",
+    "jp": "彼女のお父さんはフィリピン人だから、彼女の名前がカタカナでも不思議ではない。"
+   },
+   {
+    "vi": "Vì đã cố gắng đến thế, nên đỗ cũng là điều dễ hiểu",
+    "jp": "あれだけ努力してきたから、合格してもおかしくない。"
+   }
+  ],
+  "page": 46,
+  "id": "c2b3p1"
+ },
+ {
+  "chapter": 2,
+  "lesson": 3,
+  "index": 2,
+  "pattern": "～ことか",
+  "meaning": "Vô cùng…/ Rất…",
+  "forms": [
+   "普通形",
+   "A ＋ことか",
+   "な"
+  ],
+  "notes": [
+   "Nhấn mạnh vào mức độ: Vô cùng…đến mức khó có thể diễn tả nổi.",
+   "Thường hay đi với từ để hỏi trong câu:どんなに～ことか、どれほど～ことか hoặcなんと...ことか"
+  ],
+  "examples": [
+   {
+    "jp": "彼の行動によって、どれだけの命が救われたことか。"
+   },
+   {
+    "jp": "上司との飲み会は、気を使うだけだが、友人との飲み会はなんて楽しいことか。"
+   },
+   {
+    "jp": "あの子とのおしゃべりで私の心はどれほど癒されたことか。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mình đã lo lắng biết bao nhiêu!",
+    "jp": "どれだけ心配したことか。"
+   },
+   {
+    "vi": "Nếu mà đỗ được N1 thì vui sướng biết bao nhiêu",
+    "jp": "N1に合格できたらどんなにうれしいことか。"
+   },
+   {
+    "vi": "Việc trượt kỳ thi chỉ vì thiếu 1 điểm là vô cùng đáng tiếc",
+    "jp": "1点足りなく試験に落ちたのは何と残念なことか。"
+   }
+  ],
+  "page": 47,
+  "id": "c2b3p2"
+ },
+ {
+  "chapter": 2,
+  "lesson": 3,
+  "index": 3,
+  "pattern": "～だろう",
+  "meaning": "Có lẽ.../ Chắc hẳn là...",
+  "forms": [
+   "普通形",
+   "A /N ＋だろう",
+   "な"
+  ],
+  "notes": [
+   "Mẫu câu được sử dụng khi người nói dự đoán, suy đoán một điều có thể xảy ra với xác suất cao.",
+   "Thường được dùng kèm với các phó từ như 「たぶん」、「きっと」...",
+   "Trong văn nói, có thể đi kèm với 「ね」「な」 ở cuối câu nhưng trong văn viết thì không sử dụng những từ này. *「だろう」 là thể thường của 「でしょう」, và nếu dùng nguyên dạng như vậy thì câu văn sẽ có cảm giác suồng sã và thô lỗ nên không được dùng phổ biến, và thường chỉ được nam giới sử dụng trong nhóm bạn bè. *Nếu thêm trợ từ cuối câu như 「ね」 hoặc 「な」 thì bất kỳ ai dùng cũng không mang ấn tượng thô lỗ. *「だろう」 không thích hợp khi nói về hành động có chủ ý của bản thân trong tương lai."
+  ],
+  "examples": [
+   {
+    "jp": "ベトナム語を話しているから、あの人たちはきっとベトナム人だろう。"
+   },
+   {
+    "jp": "プレゼントを渡したら、両親はきっと喜ぶだろうな。"
+   },
+   {
+    "jp": "彼女はあまり絵が上手いとは言えないから、美術大学に入るのは無理だろうな。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Ăn kiêng chắc là vất vả/cực lắm nhỉ!",
+    "jp": "ダイエットは大変だろうな。"
+   },
+   {
+    "vi": "Ngày mai, khu vui chơi chắc là phải đông lắm nhỉ!",
+    "jp": "明日、遊園地は混んでいるだろうね。"
+   },
+   {
+    "vi": "Kỳ thi JLPT N1 chắc là khó lắm nhỉ",
+    "jp": "JLPTのN1はきっととても難しいだろう。"
+   }
+  ],
+  "page": 48,
+  "id": "c2b3p3"
+ },
+ {
+  "chapter": 2,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "～だろうか",
+  "meaning": "Không không nhỉ?biết/ Liệu có...",
+  "forms": [
+   "普通形",
+   "A /N ＋だろうか",
+   "な"
+  ],
+  "notes": [
+   "Mẫu câu dùng để diễn đạt cảm giác hoài nghi hoặc lo lắng, không biết sự việc có trở thành như vậy hay không, hoặc có đúng như vậy hay không.",
+   "Dạng kết hợp trong câu: Đứng cuối câu"
+  ],
+  "examples": [
+   {
+    "jp": "山下さんは最近顔色が悪い。病気だろうか。"
+   },
+   {
+    "jp": "どんな言葉を使えば、こちらの気持ちが伝わるだろうか。"
+   },
+   {
+    "jp": "彼、忙しそうにしているけど、何か手伝ったほうがいいだろうか。"
+   },
+   {
+    "jp": "車を運転するには、免許を取らなければならない。"
+   },
+   {
+    "jp": "外国語を勉強するには辞書が不可欠です。"
+   },
+   {
+    "jp": "この部屋は二人で住むには狭すぎると思う。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Không biết anh ấy có làm được không nhỉ?",
+    "jp": "彼にできるだろうか。"
+   },
+   {
+    "vi": "Không biết cô ấy có vui với món quà này không nhỉ?",
+    "jp": "彼女はこのプレゼントを喜んでくれるだろうか。"
+   },
+   {
+    "vi": "Liệu lựa chọn này có thực sự đúng không nhỉ? ❖Để đáp ứng được điều gì đó thì cần… ❖Đưa ra đánh giá thế nào đó cho việc",
+    "jp": "本当にこの選択は正しいだろうか。"
+   },
+   {
+    "vi": "Để đi nước ngoài thì cần phải có hộ chiếu"
+   },
+   {
+    "vi": "Căn phòng này quá là chật để cho 2 người sống"
+   },
+   {
+    "vi": "Quyển từ điển này rất là tốt cho việc học tiếng Nhật ❖Mẫu câu dùng để nêu ra 1 sự việc, tình huống xấu có khả năng xảy ra, từ đó đưa ra biện pháp, cách thức để tránh điều đó xảy ra ở vế sau"
+   },
+   {
+    "vi": "Để không lạc đường thì mang theo bản đồ đi nhé!"
+   },
+   {
+    "vi": "Vì không được đến muộn nên tôi sẽ rời khỏi nhà sớm"
+   }
+  ],
+  "page": 49,
+  "id": "c2b3p4"
+ },
+ {
+  "chapter": 3,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～など / ～なんか / ～なんて",
+  "meaning": "Như là N.../ kiểu như N",
+  "forms": [
+   "など",
+   "N＋ なんか",
+   "なんて"
+  ],
+  "notes": [
+   "Mẫu câu dùng để đưa ra đề xuất hoặc ví dụ cho 1 vấn đề, sự việc nào đó.",
+   "Trong đó 「,など」 là văn viết, còn 「なんか」 và 「なんて」 là văn nói. * Phía sau 「N+など/なんか/なんて」 thường sẽ đi kèm với trợ từ. * Tuy nhiên, trong văn nói, đặc biệt là với cách nói 「なんか/なんて」 thì trợ từ thường có thể được lược bỏ."
+  ],
+  "examples": [
+   {
+    "jp": "プレゼントはハンカチなんかどうかな。"
+   },
+   {
+    "jp": "土日はいつも暇だけど、年末なんかは土日でも忙しくなる。"
+   },
+   {
+    "jp": "皆さんのご感想、ご意見などをお待ちしています。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tối nay(ăn)đồ Nhật thì thế nào?",
+    "jp": "今晩、日本料理なんてどう？"
+   },
+   {
+    "vi": "Hôm nay tớ muốn ăn món gì như mỳ ra-men quá!",
+    "jp": "今日、ラーメンなんかが食べたいなー。"
+   },
+   {
+    "vi": "A: Chủ nhật tới mình đi đâu nhỉ? B: Khu vui chơi(chẳng hạn)thì thế nào?",
+    "jp": "A：今度の日曜日、どこに行く？B：遊園地なんかどう？"
+   }
+  ],
+  "page": 53,
+  "id": "c3b1p1"
+ },
+ {
+  "chapter": 3,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～など～なんか～なんて",
+  "meaning": "(Cái(xem thứ nhẹ/như)khiêm N tốn)thì...",
+  "forms": [
+   "など",
+   "N＋ なんか",
+   "なんて"
+  ],
+  "notes": [
+   "Mẫu câu được sử dụng khi nêu ra những sự vật, sự việc mà người nói có cảm giác xem nhẹ, coi thường, khó chịu...",
+   "Phía sau 「～など/～なんか/～なんて」 thường xuất hiện từ ngữ mang nghĩa phủ định.",
+   "Khi sử dụng 「～など/～なんか/～なんて」 để nói về bản thân, câu văn sẽ mang ý nghĩa khiêm tốn."
+  ],
+  "examples": [
+   {
+    "jp": "結婚なんかしなくても一人で生きていける。"
+   },
+   {
+    "jp": "マッサージなんて、本当に効果があるんですか。"
+   },
+   {
+    "jp": "未来のことなど、だれも予想できない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thời sinh viên, tôi đã nghĩ rằng chẳng cần học hành gì đấy cũng được",
+    "jp": "学生時代は勉強なんかしなくてもいいと思っていた。"
+   },
+   {
+    "vi": "Lời của người đó ấy mà, chẳng thể nào tin nổi!",
+    "jp": "あの人の言葉など、信じられない。"
+   },
+   {
+    "vi": "Điện thoại rẻ tiền ấy mà, dù có mua thì kiểu gì cũng hỏng ngay thôi!",
+    "jp": "安いスマホなんか買っても、どうせすぐに壊れるよ。"
+   }
+  ],
+  "page": 54,
+  "id": "c3b1p2"
+ },
+ {
+  "chapter": 3,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～なんて",
+  "meaning": "",
+  "forms": [
+   "普通形",
+   "Aな だ/Aな だった ＋なんて",
+   "Nだ/Nだった"
+  ],
+  "notes": [
+   "Mẫu câu dùng để bày tỏ cảm xúc ngạc nhiên, kinh ngạc trước một sự việc nào đó nằm ngoài dự đoán.",
+   "Trước 「なんて」 là nội dung sự việc. Vế sau là phần thể hiện cảm xúc ngạc nhiên, đặc biệt xúc động.... Cũng có trường hợp: * Vế thể hiện cảm xúc được đảo lên trước rồi mới đến vế 「〜なんて」 *Phần phía sau bị lược bỏ"
+  ],
+  "examples": [
+   {
+    "jp": "安全な日本でこんな事件が起こるなんて...信じられません。"
+   },
+   {
+    "jp": "ベトナム料理がこんなにおいしかったなんて!"
+   },
+   {
+    "jp": "もう一度検査が必要だなんて...変な病気だったら嫌だな…。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Trễ giờ hẹn á, thật chẳng giống anh ấy gì cả!",
+    "jp": "約束の時間に遅れるなんて、彼らしくない。"
+   },
+   {
+    "vi": "Vào tháng Tư mà lại có tuyết rơi ở Tokyo, quả là bất thường!",
+    "jp": "４月に東京で雪が降るなんて異常だ。"
+   },
+   {
+    "vi": "Trúng xổ số thì ngay cả trong mơ tôi cũng không hề nghĩ tới!",
+    "jp": "宝くじ当たるなんて、夢にも思わなかったよ。"
+   }
+  ],
+  "page": 55,
+  "id": "c3b1p3"
+ },
+ {
+  "chapter": 3,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "V たらどう",
+  "meaning": "Nếu V xem V thì sao?thế nào?/",
+  "forms": [],
+  "notes": [
+   "Mẫu câu dùng để đưa ra phương án, đề nghị cho một vấn đề, dự định nào đó của đối phương, có thể coi như 1 lời khuyên nhẹ nhàng dành cho đối phương được đưa ra dưới dạng gợi ý.",
+   "Cách nói lịch sự 「: Vたらどうですか」 Cách nói suồng sã, thân mật 「: Vたら？」"
+  ],
+  "examples": [
+   {
+    "jp": "給料を上げてほしいなら社長に相談したらどう？"
+   },
+   {
+    "jp": "そんなに恋人が欲しいなら、ゲームをしていないでパーティーに行ったらどう？"
+   },
+   {
+    "jp": "お母さんに感謝の気持ちを伝えたいなら、花と一緒に手紙を渡したらどうですか。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nếu không hiểu thì cậu thử hỏi giáo viên xem sao?",
+    "jp": "わからないなら、先生に聞いてみたらどう?"
+   },
+   {
+    "vi": "Nếu muốn giảm cân thì cậu thử bỏ đồ ngọt đi thì thế nào?",
+    "jp": "痩せたいなら、甘い物をやめたらどう?"
+   },
+   {
+    "vi": "Cậu thử suy nghĩ 1 lần về điều mình thật sự muốn làm xem sao? 「Vたらどう?」 「～ほうがいい」 Cả 2 mẫu câu đều có thể dùng để đưa ra lời khuyên Đưa ra lời khuyên một cách khiêm tốn Có ý muốn người nghe làm theo lời dưới dạng lời gợi ý. khuyên mình đưa ra",
+    "jp": "自分が本当にやりたいことを、一度考えてみたらどう?"
+   }
+  ],
+  "page": 56,
+  "id": "c3b1p4"
+ },
+ {
+  "chapter": 3,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～ことだ",
+  "meaning": "Nên/ Không nên V",
+  "forms": [],
+  "notes": [
+   "Đưa ra lời khuyên, ý kiến, cảnh báo của người nói về việc nên/không nên làm gì.",
+   "Thường người trên nói với người dưới."
+  ],
+  "examples": [
+   {
+    "jp": "身体の健康を気遣うのであれば、野菜を食べることだ。"
+   },
+   {
+    "jp": "N2に合格したければ、毎日欠かさず勉強することだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Các bạn nếu muốn đỗ N2 thì từ bây giờ nên học hành thật cẩn thận",
+    "jp": "皆さん、N2に合格したいのなら、今からちゃんと勉強することだ。"
+   },
+   {
+    "vi": "Dù có chuyện gì đi chăng nữa thì cũng nên xử lý một cách bình tĩnh",
+    "jp": "どんなことがあっても、冷静に対応することだ。"
+   },
+   {
+    "vi": "Khi bạn muốn khóc thì đừng chịu đựng mà hãy cứ khóc đi",
+    "jp": "泣きたいときに我慢せずに泣くことだよ。"
+   }
+  ],
+  "page": 57,
+  "id": "c3b1p5"
+ },
+ {
+  "chapter": 3,
+  "lesson": 1,
+  "index": 6,
+  "pattern": "～ことにする / ～ことにした",
+  "meaning": "Quyết định V/ không V",
+  "forms": [
+   "Vる する",
+   "＋ことに",
+   "Vない した"
+  ],
+  "notes": [
+   "Mẫu câu được dùng để diễn tả những việc người nói quyết định dựa trên ý chí của bản thân.",
+   "「ことにする」: biểu thị những việc mình quyết định tại thời điểm nói, ngay trong cuộc hội thoại-“Quyết định sẽ～”",
+   "「ことにした」: biểu thị những việc mình đã quyết định từ trước cuộc hội thoại- “Đã quyết định là～”."
+  ],
+  "examples": [
+   {
+    "jp": "旅行のためにお金を貯めることにします。"
+   },
+   {
+    "jp": "もうすぐ子供が生まれるから、禁煙することにしました。"
+   },
+   {
+    "jp": "今日は天気が悪いから、出かけないで家にいることにする。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tớ quyết định rồi!Từ tháng 4, tớ sẽ học tiếng Nhật",
+    "jp": "決めた！4月から日本語を勉強することにします。"
+   },
+   {
+    "vi": "Gần đây thiếu vận động nên tớ đã quyết định sẽ đi bộ hàng tối",
+    "jp": "最近、運動不足だから、毎晩歩くことにしました。"
+   },
+   {
+    "vi": "Để khoẻ mạnh, tôi quyết định hàng ngày sẽ tập thể dục",
+    "jp": "健康のために、毎日運動することにした。"
+   }
+  ],
+  "page": 58,
+  "id": "c3b1p6"
+ },
+ {
+  "chapter": 3,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～ということだ",
+  "meaning": "Có nghĩa là...",
+  "forms": [
+   "ふ Vる/Vつう けい ない＋ことだ"
+  ],
+  "notes": [
+   "Mẫu câu dùng để giải thích, diễn giải ý nghĩa của một từ ngữ hoặc cách hiểu về một sự việc được nêu ra ở trước đó.",
+   "Khi nêu tình huống ở phía trước và trình bày cách hiểu ở phía sau, ta sẽ sử dụng cấu trúc 「: Aということは Bということだ」",
+   "Thường dùng trong văn viết hoặc hoàn cảnh trang trọng, lịch sự.",
+   "Trong hội thoại suồng sã thì cấu trúc sẽ có dạng:「～って（いう）こと」"
+  ],
+  "examples": [
+   {
+    "jp": "A：部長、これ以上、頑張れません。B：それは、仕事を辞めたいということですか。"
+   },
+   {
+    "jp": "A：私たち、もう会わないほうがいいかも。B：それって、別れるってこと？"
+   },
+   {
+    "jp": "食べるということは、命をいただくということだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Với tôi, hạnh phúc chính là làm cho mọi người hạnh phúc",
+    "jp": "私にとって幸せとは、人を幸せにするということだ。"
+   },
+   {
+    "vi": "Trưởng thành chính là việc bản thân chịu trách nhiệm của mình",
+    "jp": "大人になるということは、自分の責任は自分で取るということです。"
+   },
+   {
+    "vi": "Hạnh phúc có nghĩa là nhận ra những điều mình đang có",
+    "jp": "幸せになるということは「あるものに気づくこと」ということだ。"
+   }
+  ],
+  "page": 61,
+  "id": "c3b2p1"
+ },
+ {
+  "chapter": 3,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "～という点で",
+  "meaning": "Ở Ở điểm khía cạnh là.../ là...",
+  "forms": [
+   "普通形",
+   "N ＋ という点で",
+   "な"
+  ],
+  "notes": [
+   "Mẫu câu dùng để lấy một trong nhiều yếu tố của một sự vật hoặc sự việc để đem ra so sánh, đánh giá hoặc nêu bật đặc điểm.",
+   "Trừ trường hợp trước 「という点」 là danh từ/A , còn những trường hợp khác có thể lược 「という」 đi cũng không sao.",
+   "「～という点」 được dùng như 1 cụm danh từ ở trong câu, thường thấy xuất hiện theo sau là các trợ từ như:で、が"
+  ],
+  "examples": [
+   {
+    "jp": "エアコンは、消し忘れても火事になる心配がない点で、お年寄りにも安心だ。"
+   },
+   {
+    "jp": "山登りは楽しいですが、自然を相手にするという点で、危険もあります。"
+   },
+   {
+    "jp": "この映画は、悪い人が登場にしないのに面白いという点が評価されている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "So với laptop công ty A thì laptop công ty B được đánh giá cao hơn về mặt bền",
+    "jp": "A社のパソコンより、B社のパソコンのほうが丈夫だという点で評価が高い。"
+   },
+   {
+    "vi": "Về điểm cửa sổ hướng về phía Tây mà tôi đang phân vân việc thuê căn phòng này",
+    "jp": "窓が西向きという点で、この部屋を借りるのを迷っている。"
+   },
+   {
+    "vi": "Về mặt con người thân thiện thì tôi yêu nơi này hơn bất kỳ đâu",
+    "jp": "この町は人が優しいという点で、他のどこよりも好きだ。"
+   }
+  ],
+  "page": 62,
+  "id": "c3b2p2"
+ },
+ {
+  "chapter": 3,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "～としたら",
+  "meaning": "Giả Giả sử dụ nếu như…mà…/",
+  "forms": [
+   "ふ つう けい"
+  ],
+  "notes": [
+   "Là cách nói đưa ra 1 trường hợp giả định nào đó.",
+   "Thường là giả định cho những điều khó xảy ra trong thực tế."
+  ],
+  "examples": [
+   {
+    "jp": "その本の内容が全て正しいとしたら、彼の説明が間違っているということになるわね。"
+   },
+   {
+    "jp": "その事柄が事実だとしたら、事実確認を急ぐべきだ。"
+   },
+   {
+    "jp": "宝くじが当たったとしたら、家族に海外旅行をプレゼントしたい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Giả sử cậu được sinh ra lại lần nữa, cậu muốn trở thành gì?",
+    "jp": "もしも生まれ変わるとしたら、何になりたいですか。"
+   },
+   {
+    "vi": "Giả sử tớ mà là cậu, thì tớ trượt luôn rồi",
+    "jp": "もし私があなただったとしたら、試験に落ちたと思いますけどね。"
+   },
+   {
+    "vi": "Giả sử nếu như ngày mai thế giới kết thúc thì hôm nay các bạn muốn làm gì?",
+    "jp": "明日地球が終わるとしたら、今日は何をしたいですか。"
+   }
+  ],
+  "page": 63,
+  "id": "c3b2p3"
+ },
+ {
+  "chapter": 3,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "～としても",
+  "meaning": "Cho Thậm dù chí là…/nếu là…",
+  "forms": [
+   "ふ つう けい"
+  ],
+  "notes": [
+   "Đưa ra trường hợp giả định để nêu ra ý kiến, quan điểm của người nói.",
+   "Thường hay đi cùng: たとえ、仮に、もし、もしも",
+   "Văn nói:としたって"
+  ],
+  "examples": [
+   {
+    "jp": "たとえ冗談だとしても、女性にそんなことは言ってはいけない。"
+   },
+   {
+    "jp": "たとえきれいだとしても、性格が悪ければ付き合おうとは思わない。"
+   },
+   {
+    "jp": "N1を持っていたとしても、会話が上手だとは限らない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Chỉ còn 5 phút nữa thôi.Bây giờ cho dù có chạy thì cũng không thể kịp được",
+    "jp": "後5分しかない。今走るとしても間に合わないかもしれない。"
+   },
+   {
+    "vi": "Cho dù có bao nhiêu tiền đi chăng nữa thì có những thứ không thể nào mua được",
+    "jp": "たとえどんなにお金があるとしても買えないものがある。"
+   },
+   {
+    "vi": "Cho dù là bố mẹ thì cũng không được đọc nhật kí của con khi chưa được sự cho phép",
+    "jp": "親だとしても許可なしに子どもの日記を読んではいけないです。"
+   }
+  ],
+  "page": 64,
+  "id": "c3b2p4"
+ },
+ {
+  "chapter": 3,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "～ようとする",
+  "meaning": "❶❷ Sắp Định sửa V, cố V gắng làm V",
+  "forms": [],
+  "notes": [
+   "Khi kết hợp cùng động từ có ý chí: Mẫu câu thể hiện 1 hành động, động tác sắp sửa xảy ra, hoặc 1 hành động mà chủ thể đang cố gắng, nỗ lực để thực hiện.",
+   "Khi kết hợp cùng động từ không ý chí: mẫu câu thể hiện một hành động, sự việc nào đó sắp sửa xảy ra."
+  ],
+  "examples": [
+   {
+    "jp": "テレビを見ようとしたら、父が帰ってきて見れなかった。"
+   },
+   {
+    "jp": "寝ようとした時に、宿題をやっていない事に気づいた。"
+   },
+   {
+    "jp": "もうすぐ授業が始まろうとしているとき、先生から今日の授業は休みだと連絡が来た。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Đúng lúc tôi định ra ngoài thì có điện thoại",
+    "jp": "出かけようとしたとき、電話がかかってきた。"
+   },
+   {
+    "vi": "Khi tôi xong việc và định về nhà thì lại được anh Murakami rủ đi ăn cơm",
+    "jp": "仕事が終わり、家に帰ろうとした時、村上さんにご飯に行こうと誘われた。"
+   },
+   {
+    "vi": "Chỉ tại bị bệnh mà dù tôi có cố hít thở mạnh, cũng không làm được",
+    "jp": "病気のせいで、大きく呼吸をしようとしても、うまくできない。"
+   },
+   {
+    "vi": "Khi tôi nhận ra thì kỳ nghỉ hè đã sắp sửa kết thúc",
+    "jp": "気が付くと夏休みが終わろうとしている。"
+   }
+  ],
+  "page": 65,
+  "id": "c3b2p5"
+ },
+ {
+  "chapter": 3,
+  "lesson": 2,
+  "index": 6,
+  "pattern": "～ようとしない",
+  "meaning": "Quyết không không chịu V V/",
+  "forms": [],
+  "notes": [
+   "Vようlà Động từ thể ý chí.",
+   "Dùng để diễn tả việc một người(không phải người nói)kiên quyết từ chối hoặc hoàn toàn không có ý định thực hiện một hành động nào đó.",
+   "Ngoài ra, ta còn cách nó 「i～Vようともしない」 và 「～ようとさえしない」 là cách nói có tính nhấn mạnh hơn. * Mẫu câu này không dùng cho bản thân."
+  ],
+  "examples": [
+   {
+    "jp": "山本さんはとても頑固で、自分のやり方を変えようとしない。"
+   },
+   {
+    "jp": "あの人は、いくら言っても、自分のミスを認めようとしない。"
+   },
+   {
+    "jp": "父は家事を手伝うことが嫌いで、食べた後の食器を片付けようともしない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi đã khuyên bố đi bệnh viện, nhưng ông ấy nhất quyết không chịu đi",
+    "jp": "父に病院に行くことをすすめているが、父は行こうとしない。"
+   },
+   {
+    "vi": "Dù đã bị bệnh, anh ấy vẫn không chịu bỏ thuốc lá",
+    "jp": "彼は病気になっても、たばこを吸うのをやめようとしなかった。"
+   },
+   {
+    "vi": "Dù cơ hội đang ở ngay trước mắt, anh ấy vẫn không chịu bước tới",
+    "jp": "チャンスが目の前にあるのに、彼は一歩踏み出そうとしない。"
+   }
+  ],
+  "page": 66,
+  "id": "c3b2p6"
+ },
+ {
+  "chapter": 3,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "～のほかに",
+  "meaning": "Ngoài...Ngoại trừ...thì...ra thì.../",
+  "forms": [
+   "ほか",
+   "普通形 ＋ ほかに",
+   "Nの/Aな ほかは"
+  ],
+  "notes": [
+   "ほか/ほかに：Diễn tả ý nghĩa“ngoài điều đó ra(thì)...”, bổ sung thêm đặc điểm, lựa chọn, sự vật, sự việc...bên cạnh nội dung được đề cập đến ở trước đó.",
+   "ほかは：Mang ý nghĩa đối chiếu hai vấn đề được đề cập trước và sauほかは.",
+   "Ngoài yếu tố, khía cạnh ở trước 「ほかは」 thì những yếu tố, khía cạnh khác sẽ có tính chất khác biệt hoặc ngược lại."
+  ],
+  "examples": [
+   {
+    "jp": "この町は、交通が少し不便なほかは、自然も多くて静かないい町です。"
+   },
+   {
+    "jp": "会場では、日本料理や雑誌などの販売のほか、浴衣のレンタルも行っている。"
+   },
+   {
+    "jp": "今の仕事は、残業が多いほかは特に不満な点はない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Ngoài quản lí sức khoẻ, việc loại bỏ căng thẳng cũng rất quan trọng",
+    "jp": "健康管理のほかに、ストレス解消も大切です。"
+   },
+   {
+    "vi": "Tớ muốn làm nem rán, ngoài thịt xay ra thì mua gì nữa thì được nhỉ?",
+    "jp": "揚げ春巻きを作りたいんですが、挽肉のほかに何を買ったらいい？"
+   },
+   {
+    "vi": "Trong lớp học, ngoài tôi ra thì không có thêm ai cả",
+    "jp": "教室には私のほかに、だれもいません。"
+   },
+   {
+    "vi": "Thầy Yamamoto, ngoài việc nói hơi dài thì là một giáo viên rất tốt",
+    "jp": "山本先生は、話がちょっと長いほかは、とてもいい先生だ。"
+   },
+   {
+    "vi": "Anh ấy, ngoài việc không có tiền tiết kiệm thì là một người hoàn hảo",
+    "jp": "彼は、貯金がないほかは完璧な人間だ。"
+   }
+  ],
+  "page": 69,
+  "id": "c3b3p1"
+ },
+ {
+  "chapter": 3,
+  "lesson": 3,
+  "index": 2,
+  "pattern": "～一方で",
+  "meaning": "",
+  "forms": [
+   "普通形",
+   "Aな /Aな である ＋一方で",
+   "Nの/Nである"
+  ],
+  "notes": [
+   "So sánh và đối chiếu hai khía cạnh của một hoặc 2 chủ đề hoặc sự vật nào đó.",
+   "Chủ ngữ của 2 vế có thể giống hoặc khác nhau.",
+   "「で」 trong 「一方で」 có thể được lược bỏ.",
+   "Diễn tả việc khi một hành động nào đó được thực hiện thì đồng thời một hành động khác cũng diễn ra. * Khi 2 sự vật, sự việc diễn ra song song có tính tương phản thì sẽ được hiểu sang nét nghĩa đối chiếu."
+  ],
+  "examples": [
+   {
+    "jp": "この病院は、待たされる時間がとても長い一方で、診察の時間はとても短い。"
+   },
+   {
+    "jp": "一人暮らしは、気楽な一方で、けがや病気をしたときに大変な面がある。"
+   },
+   {
+    "jp": "彼女は犬や猫などの動物を守る活動をする一方で、女優としても活躍している。"
+   },
+   {
+    "jp": "ホテルで正社員として働いている一方で、夜はアルバイトもしています。"
+   },
+   {
+    "jp": "この選手は、試合で負けが続く一方で、後輩の選手は最近試合で勝ち続けている。"
+   }
+  ],
+  "drills": [],
+  "page": 70,
+  "id": "c3b3p2"
+ },
+ {
+  "chapter": 3,
+  "lesson": 3,
+  "index": 3,
+  "pattern": "～だけでなく",
+  "meaning": "Không chỉ... mà còn...",
+  "forms": [
+   "普通形 ＋だけでなく",
+   "Aな /N"
+  ],
+  "notes": [
+   "Mẫu câu diễn đạt ý nghĩa: Không chỉ riêng sự vật, sự việc đó mà cái khác cũng....",
+   "Sau đối tượng khác sẽ đi cùng trợ từ 「も」.",
+   "Trong văn nói, cách nói này cũng có thể dùng dạng 「だけじゃなく」."
+  ],
+  "examples": [
+   {
+    "jp": "子どもを甘やかすだけでなく時には厳しく接するのも親の役目というものだ。"
+   },
+   {
+    "jp": "この動物園では、動物を見るだけでなく、触ることもできる。"
+   },
+   {
+    "jp": "山田さんが最近甘い物をよく食べているのは、禁煙したからだけでなく、ストレスもたまっているからだろう。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cây này không chỉ có ở Nhật Bản mà còn có ở Trung Quốc và Hàn Quốc",
+    "jp": "この木は、日本にだけでなく、中国や韓国にもある。"
+   },
+   {
+    "vi": "Anh ấy không chỉ làm việc nhanh mà còn rất tỉ mỉ",
+    "jp": "彼は仕事が早いだけでなく、丁寧だ。"
+   },
+   {
+    "vi": "Tôi không chỉ thua trận đấu mà còn bị chấn thương nữa",
+    "jp": "試合に負けただけでなく、けがもしてしまった。"
+   }
+  ],
+  "page": 71,
+  "id": "c3b3p3"
+ },
+ {
+  "chapter": 3,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "～ばかりでなく",
+  "meaning": "Không chỉ... mà còn...",
+  "forms": [
+   "普通形",
+   "な /Aな である) ＋ばかりで(は)なく",
+   "である)"
+  ],
+  "notes": [
+   "Tương tương với だけで（は）なく",
+   "Vế sau thường dùng:も、まで、さえ"
+  ],
+  "examples": [
+   {
+    "jp": "グエンさんは日本語ばかりでなく、英語も話せる。"
+   },
+   {
+    "jp": "彼女の部屋はきれいなばかりでなく、いいにおいがする。"
+   },
+   {
+    "jp": "このレストランは料理ばかりでなく、お酒もおいしい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cô ấy không những nói được tiếng Anh, mà còn cả tiếng Nhật nữa",
+    "jp": "彼女は英語ばかりでなく日本語も話せます。"
+   },
+   {
+    "vi": "Cô ấy không chỉ có ngoại hình xinh đẹp, mà tâm hồn cũng vô cùng nhân hậu",
+    "jp": "彼女は外見が綺麗なばかりでなく、心もとても優しいです。"
+   },
+   {
+    "vi": "Anh ấy không những đãi tôi bữa ăn, mà còn chở về tận nhà nữa",
+    "jp": "彼はおごってくれたばかりでなく、家まで送ってくれました。"
+   }
+  ],
+  "page": 72,
+  "id": "c3b3p4"
+ },
+ {
+  "chapter": 3,
+  "lesson": 3,
+  "index": 5,
+  "pattern": "～はずだ",
+  "meaning": "Chắc Đương chắn nhiên là.../là...",
+  "forms": [
+   "普通形",
+   "A /A である ＋はずだ",
+   "な な",
+   "Nの/Nである"
+  ],
+  "notes": [
+   "Đưa ra suy đoán mang tính chắc chắn.",
+   "Đưa ra kết luận, phỏng đoán mang tính đương nhiên từ dữ kiện nào đó.",
+   "Lưu ý khác biệt với:「にちがいない」."
+  ],
+  "examples": [
+   {
+    "jp": "彼なら約束は絶対に守るはずだ。"
+   },
+   {
+    "jp": "彼はアメリカに10年住んでいたので、英語が上手なはずだ。"
+   },
+   {
+    "jp": "キッチンからカレーのにおいがするから、今日の晩ご飯は絶対カレーのはずだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Sáng nay gọi bao nhiêu lần cũng không bắt máy, chắc là cô ấy đang đi vắng rồi",
+    "jp": "朝から何回電話しても出ないから、彼女は今出かけているはずだ。"
+   },
+   {
+    "vi": "Đã muộn thế này rồi, chắc cô ấy ngủ rồi",
+    "jp": "こんな時間になったから、彼女はもう寝ているはずだ。"
+   },
+   {
+    "vi": "Vì cô ấy là người Hà Nội gốc, nên chắc chắn phải hiểu rõ về Hà Nội",
+    "jp": "彼女はハノイ出身だから、ハノイに詳しいはずだ。"
+   }
+  ],
+  "page": 73,
+  "id": "c3b3p5"
+ },
+ {
+  "chapter": 3,
+  "lesson": 3,
+  "index": 6,
+  "pattern": "～はずがない / 〜わけがない",
+  "meaning": "Làm Không Chắc sao chắn lẽ có nào là thể.../không.../mà...",
+  "forms": [
+   "普通形 はずがない",
+   "Aな /Aな である ＋",
+   "Nの/Nである わけがない"
+  ],
+  "notes": [
+   "Nhấn mạnh vào ý: không có lí gì mà lại…, không thể nào…",
+   "Đưa ra ý kiến chủ quan của người nói."
+  ],
+  "examples": [
+   {
+    "jp": "全然勉強していない彼が、N3に合格できるはずがない。"
+   },
+   {
+    "jp": "彼女は恋人と別れたばかりなので、元気なわけがない。"
+   },
+   {
+    "jp": "あんなに日本語が上手な人が、外国人のはずがない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Bé Thanh vốn hiền lành như thế, sao có thể nói lời độc ác như vậy được",
+    "jp": "とても優しいタインちゃんだから、そんなひどいことを言ったわけがない／はずがない。"
+   },
+   {
+    "vi": "Một người chưa từng đụng tay vào việc nhà như anh ấy thì làm sao có thể nấu ăn được",
+    "jp": "家事に手を出したことがない彼は、料理ができるはずがない。"
+   },
+   {
+    "vi": "Anh Tanaka có năng lực xuất sắc như thế, làm sao có thể trượt kỳ thi được",
+    "jp": "あんなに実力がある田中さんは、試験に落ちるはずがない。"
+   }
+  ],
+  "page": 74,
+  "id": "c3b3p6"
+ },
+ {
+  "chapter": 4,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～に関して",
+  "meaning": "Về/ liên quan đến...",
+  "forms": [
+   "に関して（は）～",
+   "N 1 ＋ に関しての+N 2",
+   "に関する+N 2"
+  ],
+  "notes": [
+   "Cách dùng tương đối giốngについて, nhưng là cách nói cứng nhắc hơn."
+  ],
+  "examples": [
+   {
+    "jp": "12月に行われるJLPTに関しての情報を調べる。"
+   },
+   {
+    "jp": "全社員に睡眠時間に関してのアンケートを取った。"
+   },
+   {
+    "jp": "彼のこの問題に関しての考えは、私の考えに似ている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Hiện tại chúng tôi đang điều tra về vụ án lần này",
+    "jp": "今回の事件に関しては現在調査しております。"
+   },
+   {
+    "vi": "Nếu bạn có ý kiến gì về bài học, xin hãy ghi vào phần bình luận",
+    "jp": "授業に関する意見がございましたら、コメント欄に書き込んでください。"
+   }
+  ],
+  "page": 77,
+  "id": "c4b1p1"
+ },
+ {
+  "chapter": 4,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～にわたって",
+  "meaning": "Trong Trên toàn/suốt...",
+  "forms": [
+   "にわたって/にわたり、～",
+   "1 ＋",
+   "にわたる＋N 2 ～"
+  ],
+  "notes": [
+   "N1 thường là danh từ chỉ thời gian/không gian.",
+   "Trên toàn bộ 1 phạm vi(không gian/thời gian),1 trạng thái nào đó được duy trì liên tục."
+  ],
+  "examples": [
+   {
+    "jp": "三日間にわたった試験が昨日終わった。"
+   },
+   {
+    "jp": "先週から一週間にわたり、晴れの日が続いている。"
+   },
+   {
+    "jp": "この道の渋滞は10キロにわたって続いている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nhóm nhạc thần tượng này đã được yêu mến trong suốt 20 năm",
+    "jp": "このアイドルグループは20年間にわたって愛されている。"
+   },
+   {
+    "vi": "Virus Corona đang lây lan trên toàn thế giới",
+    "jp": "新型コロナウイルスは全世界にわたって流行っている。"
+   },
+   {
+    "vi": "Buổi biểu diễn trong suốt 1 tuần đã kết thúc suôn sẻ",
+    "jp": "1週間にわたったコンサートは無事に終わりました。"
+   }
+  ],
+  "page": 78,
+  "id": "c4b1p2"
+ },
+ {
+  "chapter": 4,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～を通して / ～を通",
+  "meaning": "Thông qua...",
+  "forms": [
+   "を通して/～を通じて",
+   "N 1 ＋",
+   "を通してのN 2"
+  ],
+  "notes": [
+   "N thường là 1 phương thức, trung gian nào đó.",
+   "Trong đa số trường hợp,を通して、を通じてcó thể dùng thay thế cho nhau được."
+  ],
+  "examples": [
+   {
+    "jp": "私は学生生活を通して、色々なことを学んだ。"
+   },
+   {
+    "jp": "このような交流会を通じて、国と国との理解が深まって行くことを願っています。"
+   },
+   {
+    "jp": "電話を通しての声は少し聞きづらい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thông qua câu chuyện của cô ấy, tôi đã biết người yêu mình ngoại tình",
+    "jp": "彼女の話を通して、彼氏が今浮気していることを知りました。"
+   },
+   {
+    "vi": "Thông qua cô ấy, tôi đã quen biết anh ấy",
+    "jp": "彼女を通して、私は彼と知り合いました。"
+   },
+   {
+    "vi": "Thông qua cái app này tôi đã có nhiều người bạn là người Nhật",
+    "jp": "このアプリを通じて、日本人の友達がたくさんできました。"
+   }
+  ],
+  "page": 79,
+  "id": "c4b1p3"
+ },
+ {
+  "chapter": 4,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～を通して / ～を通",
+  "meaning": "Trong suốt N",
+  "forms": [
+   "を通じて",
+   "N ＋",
+   "を通して"
+  ],
+  "notes": [
+   "Dùng để diễn đạt 1 trạng thái, sự việc được kéo dài trong suốt khoảng thời gian, thời kỳ nào đó.",
+   "Danh từ trước通じて/通してlà từ chỉ khoảng thời gian."
+  ],
+  "examples": [
+   {
+    "jp": "私の部屋はこの3カ月を通じてずっと暖房が付いている。"
+   },
+   {
+    "jp": "夏休みを通して息子に英語を教えてあげた。"
+   },
+   {
+    "jp": "このホテルでは、年間を通じていつも結婚式が行われている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Đất nước này lạnh suốt cả năm",
+    "jp": "この国は、1年を通してずっと寒い。"
+   },
+   {
+    "vi": "Để đỗ N3, tôi đã học hành chăm chỉ suốt 3 tháng",
+    "jp": "N3に合格するのに、3ヶ月を通して一生懸命勉強する。"
+   },
+   {
+    "vi": "Ở công viên này, suốt cả năm lúc nào cũng có thể thưởng thức hoa",
+    "jp": "この公園は、1年を通していつでも花が楽しめる。"
+   }
+  ],
+  "page": 80,
+  "id": "c4b1p4"
+ },
+ {
+  "chapter": 4,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～を込めて",
+  "meaning": "Chất Dồn cả…chứa…/",
+  "forms": [
+   "を込めて",
+   "N 1 ＋",
+   "を込めた＋N 2"
+  ],
+  "notes": [
+   "Bao gồm, chứa đựng cảm xúc, suy nghĩ, tâm tư, tình cảm.",
+   "N：心、思い、力、願い、感謝、愛、気持ち、恨み、怒り…"
+  ],
+  "examples": [
+   {
+    "jp": "愛を込めて作ったチョコレートを彼に渡した。"
+   },
+   {
+    "jp": "母に感謝の思いを込めて手紙を書いた。"
+   },
+   {
+    "jp": "当店のお菓子は、真心を込めて、一つ一つ手作りです。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi đã tặng món quà bằng tất cả lòng biết ơn vào ngày của mẹ",
+    "jp": "母の日に感謝の気持ちを込めてプレゼントをした。"
+   },
+   {
+    "vi": "Tôi đã sáng tác bài hát với tất cả tấm lòng hướng đến người yêu",
+    "jp": "恋人への気持ちを込めた曲を制作した。"
+   },
+   {
+    "vi": "Tôi đang làm việc bằng tất cả tấm lòng",
+    "jp": "心を込めて仕事をしています。"
+   }
+  ],
+  "page": 81,
+  "id": "c4b1p5"
+ },
+ {
+  "chapter": 4,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～こと",
+  "meaning": "Không Hãy, phải được V/V",
+  "forms": [],
+  "notes": [
+   "Là văn viết của:Ｖなさい、Ｖてはいけない, thể hiện những quy tắc, chỉ thị…",
+   "Thường được thấy ở những thông báo quy định, chỉ thị ở công ty, trường học, tờ hướng dẫn…"
+  ],
+  "examples": [
+   {
+    "jp": "そのイベントに参加を希望する者は、はがきに必要事項を書いて本社あてに送ること。"
+   },
+   {
+    "jp": "目上の人には常に敬意を持って接すること。"
+   },
+   {
+    "jp": "怪しい勧誘には耳を貸さないこと。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Hãy nộp bài báo cáo trước thời hạn là cuối tháng này",
+    "jp": "レポートは今月末までに提出すること。"
+   },
+   {
+    "vi": "Khi đi thi thì không được sử dụng từ điển",
+    "jp": "試験中に辞書を使わないこと。"
+   },
+   {
+    "vi": "Không được quên phiếu dự thi",
+    "jp": "受験票を忘れないこと。"
+   }
+  ],
+  "page": 84,
+  "id": "c4b2p1"
+ },
+ {
+  "chapter": 4,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "～ことはない",
+  "meaning": "Không cần phải V",
+  "forms": [],
+  "notes": [
+   "Giống với 必要がない.",
+   "Thường dùng để khuyên, khích lệ đối phương."
+  ],
+  "examples": [
+   {
+    "jp": "失恋したって落ち込むことはない。"
+   },
+   {
+    "jp": "安全に運転するから、心配することはない。"
+   },
+   {
+    "jp": "この問題については、あなた一人で責任を感じることはない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mới thất bại 1 lần thôi, cậu không cần phải suy sụp, buồn bã như vậy đâu Làm lại là được mà",
+    "jp": "一回失敗したくらい、落ち込むことはない。やり直せばいい。"
+   },
+   {
+    "vi": "Vì có thể gọi đồ ở nhà nên không cần phải đi ra ngoài mua làm gì",
+    "jp": "家で注文できるから、わざわざ買いに行くことはない。"
+   },
+   {
+    "vi": "Cũng đâu phải chuyện gì to tát, cậu đâu cần phải cáu đến mức như vậy",
+    "jp": "大したことでもないから、そんなに怒ることはないじゃん。"
+   }
+  ],
+  "page": 85,
+  "id": "c4b2p2"
+ },
+ {
+  "chapter": 4,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "～（より）ほかない",
+  "meaning": "Chỉ còn cách V",
+  "forms": [
+   "（より）ほかない",
+   "Vる＋",
+   "しかない"
+  ],
+  "notes": [
+   "Diễn đạt một hành động, sự việc nào đó không phải là điều người nói mong muốn, ưa thích nhưng không còn cách nào khác nên đành phải thực hiện.",
+   "しかない: vốn thường được sử dụng trong những câu có nét nghĩa tiêu cực.Tuy nhiên, gần đây cách nói này còn được sử dụng trong những câu không có ý tiêu cực. 例できることはやった。あとは実験が成功するのを祈るしかない。"
+  ],
+  "examples": [
+   {
+    "jp": "つまらなそうな映画だが、チケットを買ってしまったから見に行くほかない。"
+   },
+   {
+    "jp": "勉強を続けたかったが、子どもを育てるために、一度勉強をやめるほかなかった。"
+   },
+   {
+    "jp": "コンサートに行きたかったが、仕事が入ってしまったので、あきらめるしかない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi muốn vào đại học, nhưng vì không có tiền nên đành phải từ bỏ",
+    "jp": "大学に行きたいが、お金がないのであきらめる（より）ほかない。"
+   },
+   {
+    "vi": "Nếu muốn nói tiếng Nhật giỏi, thì chỉ còn cách luyện tập mỗi ngày",
+    "jp": "日本語を上手に話せるようになりたいなら、毎日練習する（より）ほかない。"
+   },
+   {
+    "vi": "Nếu muốn đậu kỳ thi thì chỉ còn cách học như chết đi sống lại thôi",
+    "jp": "試験に合格したいなら死ぬ気で勉強するよりほかないよ。"
+   },
+   {
+    "vi": "Đã đến tận đây rồi thì không thể quay lại được nữa.Chỉ còn cách tiến lên trước thôi!",
+    "jp": "ここまで来たら、後戻りはできない。もう前に進むしかない。"
+   },
+   {
+    "vi": "Bạn đã nhiệt tình nhờ như thế thì tôi cũng chỉ còn cách chỉ cho bạn vậy",
+    "jp": "あんなに熱心に頼まれたら、こちらも教えるしかない。"
+   }
+  ],
+  "page": 86,
+  "id": "c4b2p3"
+ },
+ {
+  "chapter": 4,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "～ほうがいい",
+  "meaning": "Nên/ không nên V",
+  "forms": [
+   "Vた",
+   "Vない ほうがいい"
+  ],
+  "notes": [
+   "Dùng để đưa ra lời khuyên về một dự định hoặc kế hoạch nào đó của đối phương, sao cho không nảy sinh vấn đề, hoặc vấn đề không bị xấu đi.",
+   "Trong câu thường hàm chứa ý cảnh báo: Nếu không làm như thế thì tình hình sẽ tệ đi.",
+   "Ngoài ra, cách nói này cũng có thể dùng với mục đích đơn thuần đưa ra phương án lựa chọn cho đối phương, không có sắc thái tiêu cực.",
+   "Trừ trường hợp muốn nhấn mạnh, chủ ngữ chỉ người thường sẽ được lược đi.",
+   "Khi muốn đưa ra lời khuyên một cách chừng mực, người Nhật thường thêm 「～と思う」 hoặc 「～かもしれません」 ở cuối câu. 例 食べすぎないほうがいいと思うよ。"
+  ],
+  "examples": [
+   {
+    "jp": "一生懸命なのはいいけど、無理しないほうがいいですよ。"
+   },
+   {
+    "jp": "この辺は、夜、危ないですから、女性は1人で歩かないほうがいいですよ。"
+   },
+   {
+    "jp": "小さな問題でも放っておくと膨れてしまうので、早く解決したほうがいい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Không nên gắng sức quá đâu nhé!",
+    "jp": "無理しないほうがいいよ。"
+   },
+   {
+    "vi": "Điện tử chỉ nên chơi mỗi ngày tối đa 1 tiếng thôi",
+    "jp": "ゲームは1日1時間までにしたほうがいい。"
+   },
+   {
+    "vi": "Thiếu vận động có hại cho sức khoẻ, do đó hàng ngày bạn nên tập thể dục sẽ tốt hơn đấy",
+    "jp": "運動不足は体に悪いから、毎日運動したほうがいいですよ。"
+   }
+  ],
+  "page": 87,
+  "id": "c4b2p4"
+ },
+ {
+  "chapter": 4,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "～べきだ",
+  "meaning": "Nên…",
+  "forms": [
+   "Vる",
+   "N/Aな ＋である ＋べきだ",
+   "Aい くある"
+  ],
+  "notes": [
+   "Đưa ra lời khuyên nên hoặc cần làm gì đó dựa trên lẽ thường tình, các vấn đề thường thức, với ý nghĩa“làm∼là điều đương nhiên”hoặc“làm∼là đúng đắn”.",
+   "Khi nói với đối phương➡sẽ mang nghĩa là lời khuyên, mệnh lệnh hoặc gợi ý.",
+   "Khi đi với động từ 「する」➡sẽ ở dạng 「すべき」 hoặc 「〜するべき」.",
+   "べきđược sử dụng như 1 danh từ nên sẽ kết thúc làだ/です.",
+   "Kết hợp cùng với 1 số ngữ pháp khác như:べきだと思う",
+   "Phủ định:「〜べきではない」/「べきじゃない」"
+  ],
+  "examples": [
+   {
+    "jp": "誰でも教育が受けられるように、高校や大学に払うお金は高くあるべきではない。"
+   },
+   {
+    "jp": "難しい文法を学ぶ前に、基礎的な文法をしっかり学ぶべきだ。"
+   },
+   {
+    "jp": "ゲームに熱中するのはいいけど、勉強を忘れるべきじゃない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cậu nên biết ơn bố mẹ mình hơn",
+    "jp": "君はもっと両親に感謝するべきだ。"
+   },
+   {
+    "vi": "Bố mẹ không nên mắng con cái ở trước mặt người khác",
+    "jp": "親は人の前で子供を叱るべきではない。"
+   },
+   {
+    "vi": "Giáo viên thì nên nhiệt tình với việc giáo dục trẻ em",
+    "jp": "先生は、子どもの教育に熱心であるべきだ。"
+   }
+  ],
+  "page": 88,
+  "id": "c4b2p5"
+ },
+ {
+  "chapter": 4,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "～かける / ～かけの",
+  "meaning": "Đang V dở/ Đang dần V",
+  "forms": [
+   "かける",
+   "Vます ＋ かけのN",
+   "かけ（だ）"
+  ],
+  "notes": [
+   "Khi kết hợp với Động từ có ý chí: diễn tả 1 hành động nào đó đã bắt đầu nhưng vẫn chưa kết thúc, hãy còn dang dở.",
+   "Khi kết hợp với Động từ vô ý chí: diễn tả 1 sự vật, sự việc mới thay đổi được 1 phần nào đó trạng thái chứ chưa hoàn toàn bước sang trạng thái mới.",
+   "Có thể dùng như động từ ở dạng 「～かける」 và như danh từ ở dạng 「～かけ」 ➞khi phía sau là 1 danh từ thì cần thêmの 例 食べかけのパン"
+  ],
+  "examples": [
+   {
+    "jp": "ケーキを食べかけて、ダイエット中なのを思い出してやめた。"
+   },
+   {
+    "jp": "さっき買ったばかりのアイスがもう溶けかけている。"
+   },
+   {
+    "jp": "若い学生たちと話をして、忘れかけていた自分の夢を思い出した。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi định hoàn thành bản báo cáo đang làm dở rồi đi chơi",
+    "jp": "やりかけのレポートを終わらせてから、遊びに行くつもりだ。"
+   },
+   {
+    "vi": "Quả xoài này đang thối rồi!",
+    "jp": "このマンゴは腐りかけだ。"
+   },
+   {
+    "vi": "Hoa đang héo rồi, nên thay đi thôi",
+    "jp": "花が枯れかけているから、替えよう。"
+   }
+  ],
+  "page": 91,
+  "id": "c4b3p1"
+ },
+ {
+  "chapter": 4,
+  "lesson": 3,
+  "index": 2,
+  "pattern": "～かける / ～かけの",
+  "meaning": "Suýt V/ Sắp sửa V",
+  "forms": [
+   "かける",
+   "Vます ＋ かけのN",
+   "かけ（だ）"
+  ],
+  "notes": [
+   "Dùng để diễn tả 1 hành động, trạng thái sắp sửa hoặc suýt nữa xảy ra, nhưng trong thực tế không hề xảy ra.",
+   "Cách nói này thường đi cùng những động từ tức thì như:死ぬ、倒れる、落ちる…"
+  ],
+  "examples": [
+   {
+    "jp": "日本に旅行に行ったとき、財布を落としてしまって、あきらめかけていたんですが、誰かが交番に届けてくれていました。"
+   },
+   {
+    "jp": "A：この前、駅のホームで他の人とぶつかって、線路に落ちかけたんです。B：うわあ、危なかったですね。線路のそばは、歩かないほうがいいですね。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi từng có 1 lần suýt chết vì bệnh tật",
+    "jp": "一度、病気で死にかけたことがあります。"
+   },
+   {
+    "vi": "Hồi bé, bố đã cứu tôi khỏi suýt chết đuối ở bể bơi",
+    "jp": "子供の頃、プールで溺れかけた私を父が助けてくれた。"
+   },
+   {
+    "vi": "Hôm qua, tôi suýt thì bị ô tô cán ở ngoài đường",
+    "jp": "昨日、道で車にひかれかけた。"
+   }
+  ],
+  "page": 92,
+  "id": "c4b3p2"
+ },
+ {
+  "chapter": 4,
+  "lesson": 3,
+  "index": 3,
+  "pattern": "～きる",
+  "meaning": "V hết",
+  "forms": [],
+  "notes": [
+   "Diễn tả một hành động nào đó được diễn ra, thực hiện một cách trọn vẹn.",
+   "Có thể dùng ở thể khả năng dưới dạng Vきれる/Vきれない."
+  ],
+  "examples": [
+   {
+    "jp": "一人暮らしなので、調味料を買ってもいつも使いきれないで捨ててしまう。"
+   },
+   {
+    "jp": "A店のいちごケーキは大人気で、いつも開店してすぐに売りきれてしまう。"
+   },
+   {
+    "jp": "先生から面白い小説を借りたけど、長すぎて読みきれなかった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Trong kỳ nghỉ hè, tôi đã nhớ hết từ vựng cho đến trình độ N2",
+    "jp": "夏休みの間に、N2までの単語を全て覚えきった。"
+   },
+   {
+    "vi": "Với lượng cơm như thế này thì tôi không thể ăn hết nổi 1 mình",
+    "jp": "こんな量のご飯一人では食べきれない。"
+   },
+   {
+    "vi": "Dù là việc gì đi nữa, điều quan trọng là không bỏ cuộc giữa chừng mà phải cố gắng làm đến cùng",
+    "jp": "どんなことでも、最後まであきらめないで、やりきることが大切だ。"
+   }
+  ],
+  "page": 93,
+  "id": "c4b3p3"
+ },
+ {
+  "chapter": 4,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "～きる",
+  "meaning": "Rất.../ hoàn toàn...",
+  "forms": [],
+  "notes": [
+   "Mẫu câu này khi đi cùng những động từ diễn tả cảm xúc như:信じる、頼る、困る... sẽ diễn tả sự cực hạn, cực điểm của trạng thái, cảm xúc đó."
+  ],
+  "examples": [
+   {
+    "jp": "彼女は仕事が終わり、疲れきっていたはずなのに、少しもそんな様子を見せなかった。"
+   },
+   {
+    "jp": "信頼しきっていた人に利用されていたことを知って、ショックで涙も出ない。"
+   },
+   {
+    "jp": "A：漢字って難しい？B：難しいよ。どうしてそんなわかりきったことを聞くの？"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mẹ tôi mỗi ngày đều bận rộn với việc nhà và chăm con, đến mức hoàn toàn kiệt sức",
+    "jp": "母親は毎日、家事や子育てが忙しく、疲れきってる。"
+   },
+   {
+    "vi": "Tôi nghĩ mình nhất định sẽ đỗ và hoàn toàn yên tâm, nhưng không ngờ lại trượt",
+    "jp": "きっと合格していると思って安心しきっていたら、不合格だった。"
+   }
+  ],
+  "page": 94,
+  "id": "c4b3p4"
+ },
+ {
+  "chapter": 4,
+  "lesson": 3,
+  "index": 5,
+  "pattern": "～まま",
+  "meaning": "❶(Cứ để nguyên.../ Vẫn... như vậy)",
+  "forms": [
+   "Vた/Vない",
+   "Aい /Aな ＋まま（で/だ）",
+   "Nの"
+  ],
+  "notes": [
+   "Diễn tả trạng thái cứ để nguyên như vậy mà làm việc gì đó, hoặc 1 trạng thái không hề thay đổi so với trước đây.",
+   "Động từ thường chia ở thể bị động."
+  ],
+  "examples": [],
+  "drills": [
+   {
+    "vi": "Gặp lại cô gái tình đầu trong buổi họp lớp, cô ấy vẫn xinh đẹp như vậy",
+    "jp": "同窓会で久しぶりに初恋の彼女に会ったら、相変わらずきれいなままだった。"
+   },
+   {
+    "vi": "Đi ra ngoài mà không trang điểm thì không tự tin",
+    "jp": "化粧をしないまま外に出るのは、自信がありません。"
+   },
+   {
+    "vi": "Chồng tôi có cái tật ngủ há miệng",
+    "jp": "うちの旦那は口を開けたまま寝る癖がある。"
+   },
+   {
+    "vi": "Tôi đã làm thêm đến tận đêm khuya theo đúng chỉ thị của giám đốc",
+    "jp": "社長に指示されるまま、夜遅くまで残業しました。"
+   },
+   {
+    "vi": "Chồng tôi cái gì cũng mua theo đúng như những gì con gái tôi đòi nên tôi khổ tâm vô cùng",
+    "jp": "うちの旦那は娘に言われるままに、なんでも買ってあげてしまうので、本当に困っていますよ。"
+   }
+  ],
+  "page": 95,
+  "id": "c4b3p5"
+ },
+ {
+  "chapter": 4,
+  "lesson": 3,
+  "index": 6,
+  "pattern": "～っぱなし",
+  "meaning": "❷❶…suốt Cứ để nguyên…",
+  "forms": [
+   "っぱなし(だ/で)",
+   "＋ っぱなしに＋する/なる",
+   "っぱなしのＮ"
+  ],
+  "notes": [
+   "❶Cứ để nguyên…(để nguyên trạng thái–thường là do vô ý, mà làm gì khác). ❷…suốt(miêu tả việc cứ làm gì đó suốt).",
+   "Là cách nói mang tính tiêu cực."
+  ],
+  "examples": [
+   {
+    "jp": "彼からお金を借りっぱなしだったことを今思い出した。"
+   },
+   {
+    "jp": "人手が足りなくて先週からずっと働きっぱなしだ。"
+   },
+   {
+    "jp": "夫は何度注意してもテレビをつけっぱなしで寝てしまう。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi đi ra ngoài mà vẫn để điều hòa bật nên đã bị mẹ mắng",
+    "jp": "エアコンを入れっぱなしで外出したら、母に怒られた。"
+   },
+   {
+    "vi": "Tôi bị mẹ nói suốt về vấn đề kết hôn",
+    "jp": "母に結婚のことを言われっぱなしです。"
+   },
+   {
+    "vi": "Cái tên đó lúc nào cũng thắng suốt thôi thế nên rất là ghét",
+    "jp": "あいつは勝ちっぱなしで嫌だ。"
+   }
+  ],
+  "page": 96,
+  "id": "c4b3p6"
+ },
+ {
+  "chapter": 5,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～てからでなければ",
+  "meaning": "Nếu Phải không V1 rồi mới V1 thì V2/không V2 được",
+  "forms": [
+   "からでないと V 2",
+   "V 1 て+",
+   "からでなければ V 2 ない"
+  ],
+  "notes": [
+   "Dùng để diễn tả hành động, sự việc ở vế sau chỉ có thể xảy ra khi hành động, sự việc ở vế trước đã xảy ra/kết thúc.",
+   "Ngoài ra, cách nói này còn diễn tả một sự việc, tình huống xấu ở vế sau có thể xảy ra nếu hành động, sự việc ở vế trước không xảy ra."
+  ],
+  "examples": [
+   {
+    "jp": "私は子供たちが学校に行ってからでないと、自由に過ごせない。"
+   },
+   {
+    "jp": "私の家では、お祈りをしてからでないと、食事を始めることができない。"
+   },
+   {
+    "jp": "このことは課長に聞いてからでないと、決められない。"
+   },
+   {
+    "jp": "勉強してからでないと、試験に落ちるよ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Chuyện của ngày mai thì phải đến mai mới biết được",
+    "jp": "明日のことは、明日になってからでなければわからない。"
+   },
+   {
+    "vi": "Tuy trông có vẻ không ngon nhưng phải ăn rồi thì mới biết được mùi vị",
+    "jp": "美味しくなさそうでも、食べてからでないと味はわからない。"
+   },
+   {
+    "vi": "Nếu không làm bài về nhà thì sẽ bị giáo viên mắng",
+    "jp": "宿題をしてからでないと、先生に怒られます。"
+   }
+  ],
+  "page": 99,
+  "id": "c5b1p1"
+ },
+ {
+  "chapter": 5,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～てはじめて",
+  "meaning": "Kể Chỉ từ sau sau khi…khi…mới thì mới/",
+  "forms": [],
+  "notes": [
+   "Kể từ sau khi làm 1 việc(mà trước đó chưa bao giờ làm), thì mới hiểu ra/làm được 1 điều gì đó",
+   "Vế sau thường đi với những từ thể hiện nhận thức:わかる、知る、気が付く、 理解する…"
+  ],
+  "examples": [
+   {
+    "jp": "この本を3回読んではじめて、内容を理解することができた。"
+   },
+   {
+    "jp": "失ってはじめて、彼女の大切さが身に染みて分かった。"
+   },
+   {
+    "jp": "会社員になってはじめてお金を稼ぐ大切さを学んだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Chỉ khi bắt đầu cuộc sống một mình thì tôi mới cảm nhận được công ơn của bố mẹ",
+    "jp": "一人暮らしをしてはじめて、親のありがたみを感じました。"
+   },
+   {
+    "vi": "Chỉ khi bị thương mới hiểu ra được tầm quan trọng của sức khỏe",
+    "jp": "怪我をしてはじめて、健康であることの大切さがわかりました。"
+   },
+   {
+    "vi": "Từ sau khi chia tay với người yêu đây là lần đầu tiên tao cảm xúc thế này đấy mày ạ, đau khổ kinh khủng",
+    "jp": "彼と別れてはじめてこんな気持ちになった、辛いよ。"
+   }
+  ],
+  "page": 100,
+  "id": "c5b1p2"
+ },
+ {
+  "chapter": 5,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～てもらってもいいですか",
+  "meaning": "V Bạn không?giúp có tôi thể được V giúp không?/tôi V て",
+  "forms": [],
+  "notes": [
+   "Mẫu câu dùng để nhờ vả người khác làm điều gì đó cho mình.",
+   "Mức độ lịch sự tương đương vớ 「i Vてもらえますか」 hoặc 「Vてくれますか」.",
+   "Nếu dùng với cấp trên hay người bề trên thì có thể gây cảm giác thất lễ.",
+   "Có thể thay bằng cách nói lịch sự hơn là: 「Vていただいてもよろしいですか/でしょうか」. *Trong 1 số trường hợp, cách nói này cũng có thể tạo cảm giác vòng vo, rườm rà. ➡Khi thúc giục, yêu cầu đối phương làm 1 điều gì đó cần thiết thì sử dụng cấu trúc 「～てください」 hoặc 「お～ください」 sẽ phù hợp hơn."
+  ],
+  "examples": [
+   {
+    "jp": "母親：今日、私のかわりに、犬の散歩に行ってもらってもいい？腰が痛くて…息子：わかった。行っておくよ。"
+   },
+   {
+    "jp": "A：どうしたの？B：コンタクトを落としちゃって…。悪いんだけど、一緒に探してもらってもいい？"
+   },
+   {
+    "jp": "（スーパーで）客：すみません。このパン、交換してもらってもいいですか。賞味期限が切れていたんです。店員：申し訳ありません。新しいものに交換いたします。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Xin lỗi.Bạn có thể nói lại 1 lần nữa cho mình được không?",
+    "jp": "すみません。もう一度言ってもらってもいいですか。"
+   },
+   {
+    "vi": "Tớ đã viết 1 bài văn bằng tiếng Nhật...Cậu có thể xem nó giúp tớ không?",
+    "jp": "日本語で作文を書いたんですが、見てもらってもいいですか。"
+   },
+   {
+    "vi": "Bạn có thể biên dịch giúp mình cái này sang tiếng Việt không?",
+    "jp": "これをベトナム語に翻訳してもらってもいいですか。"
+   }
+  ],
+  "page": 101,
+  "id": "c5b1p3"
+ },
+ {
+  "chapter": 5,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～てよかった",
+  "meaning": "May mà đã...",
+  "forms": [
+   "Vて",
+   "Aい くて ＋よかった",
+   "Nで/Aな で"
+  ],
+  "notes": [
+   "Mẫu câu được dùng khi mà người nói cảm thấy thật tốt hoặc may mắn khi đã thực hiện một điều nào đó, hoặc khi một trạng thái, điều nào đó đã xảy ra.",
+   "Thể lịch sự của cách nói này là 「:〜てよかったです」"
+  ],
+  "examples": [
+   {
+    "jp": "今日は晴れてよかったね。これで安心してハイキングに行けるね。"
+   },
+   {
+    "jp": "映画館で安く映画を見られたときは、学生でよかったと思いました。"
+   },
+   {
+    "jp": "日本に来て、日本文化への理解が深まりました。日本に来てよかったです。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "May mà thiệt hại ít",
+    "jp": "被害が少なくてよかった。"
+   },
+   {
+    "vi": "Thật may vì tìm thấy thứ đang tìm kiếm",
+    "jp": "探していたものが見つかってよかった。"
+   },
+   {
+    "vi": "Thật may là dự án của anh ấy đã thu hút được sự chú ý",
+    "jp": "彼の企画は目立ってよかった。"
+   }
+  ],
+  "page": 102,
+  "id": "c5b1p4"
+ },
+ {
+  "chapter": 5,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～てしかたがない",
+  "meaning": "Rất…/Vô cùng…",
+  "forms": [
+   "Vて/Vたくて",
+   "Ａ くて しかたがない",
+   "い ＋",
+   "Ａ で しょうがない",
+   "な"
+  ],
+  "notes": [
+   "Diễn tả trạng thái cơ thể/cảm xúc cực kì, rất, vô cùng…của người nói.",
+   "「Vてしょうがない」 mang tính văn nói hơn 「Vてしかたがない」."
+  ],
+  "examples": [
+   {
+    "jp": "友達の誕生日パーティーに来たが、つまらないので帰りたくてしょうがない。"
+   },
+   {
+    "jp": "彼女に会えると思うと、嬉しくてしかたがない。"
+   },
+   {
+    "jp": "最近はあまり寝れなくて、会社に行くのが嫌でしかたがない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mình rất muốn gặp gia đình",
+    "jp": "家族に会いたくてしょうがない/しかたがない。"
+   },
+   {
+    "vi": "Tôi rất là mong chờ việc đi Nhật",
+    "jp": "日本に行くことが楽しみでしかたがない/しょうがない。"
+   },
+   {
+    "vi": "Rất mệt",
+    "jp": "疲れてしょうがない/しかたがない。"
+   }
+  ],
+  "page": 103,
+  "id": "c5b1p5"
+ },
+ {
+  "chapter": 5,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～こともある / ～ことがある",
+  "meaning": "Thỉnh thoảng…",
+  "forms": [
+   "Vる ことがある",
+   "Vない こともある"
+  ],
+  "notes": [
+   "Thỉnh thoảng, đôi khi cũng làm/không làm gì đó."
+  ],
+  "examples": [
+   {
+    "jp": "海外での生活に不満はないが、時々国に帰りたいと思うことがある。"
+   },
+   {
+    "jp": "普段は妻がご飯を作るが、たまには私が作ることもある。"
+   },
+   {
+    "jp": "教師でも生徒の質問に答えられないことがある。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Dù là người làm tốt công việc đến như thế nào thì cũng có lúc mắc lỗi",
+    "jp": "どんなに仕事ができる人でも、失敗してしまうこともある。"
+   },
+   {
+    "vi": "Thỉnh thoảng tôi thức dậy khi đang ngủ",
+    "jp": "寝ている時、起きてしまうことがある。"
+   },
+   {
+    "vi": "Thỉnh thoảng tôi cũng nhớ đến cái thời khổ cực",
+    "jp": "あの時の辛い経験を思い出すことがある。"
+   }
+  ],
+  "page": 106,
+  "id": "c5b2p1"
+ },
+ {
+  "chapter": 5,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "～たびに",
+  "meaning": "Cứ mỗi lần...",
+  "forms": [
+   "Ｖる",
+   "＋たびに",
+   "Ｎの"
+  ],
+  "notes": [
+   "Cứ mỗi lần…thì lại lặp lại 1 hành động nào đó."
+  ],
+  "examples": [
+   {
+    "jp": "あの学生は会うたびに日本語が上手になっている。"
+   },
+   {
+    "jp": "父は出張へ行くたびに、お土産を買ってきてくれる。"
+   },
+   {
+    "jp": "彼は授業のたびに寝ていて、先生の話を全然聞いていない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cứ mỗi lần nhìn bức ảnh người mẹ đã khuất là tôi lại bật khóc",
+    "jp": "亡くなったお母さんの写真を見るたびに、泣き出してくる。"
+   },
+   {
+    "vi": "Cứ mỗi lần về Kyoto thì tôi lại nhớ anh chàng mà tôi từng yêu đơn phương",
+    "jp": "京都に来るたびに、片思いの彼のことを思い出している。"
+   },
+   {
+    "vi": "Cứ mỗi lần gặp sempai mà tôi thích ở chỗ làm thêm là tôi lại cảm thấy hồi hộp",
+    "jp": "バイト先で好きな先輩に会うたびに、いつもワクワクしている。"
+   }
+  ],
+  "page": 107,
+  "id": "c5b2p2"
+ },
+ {
+  "chapter": 5,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "～ごとに",
+  "meaning": "Cứ Cứ mỗi mỗi...N thì.../",
+  "forms": [
+   "N",
+   "＋ごとに",
+   "Vる"
+  ],
+  "notes": [
+   "N＋ごとに: Cứ mỗi đơn vị N thì lại xảy ra 1 hành động, sự việc nào đó.",
+   "Những danh từ thường thấy là:〜秒、〜時間、〜センチ、メートル、キロ...",
+   "Vる＋ごとに: Cứ mỗi lần lặp lại hành động, sự việc nào đó thì lại thấy sự thay đổi."
+  ],
+  "examples": [
+   {
+    "jp": "借りているマンションは１年ごとに、契約を更新する。"
+   },
+   {
+    "jp": "グループごとに、話し合った結果を発表してください。"
+   },
+   {
+    "jp": "この店では、100円買い物するごとに、1ポイントもらえます。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Xe buýt thì cứ mỗi 10 phút lại có 1 chuyến",
+    "jp": "10分ごとにバスが来る。"
+   },
+   {
+    "vi": "Chuông điện thoại cứ 1 tiếng lại kêu lên 1 lần",
+    "jp": "1時間ごとに携帯のアラームが鳴る。"
+   },
+   {
+    "vi": "Cứ mỗi 1 nhóm sẽ tiến hành phát biểu sau khi thảo luận",
+    "jp": "グループごとにディスカッションの発表をする。"
+   },
+   {
+    "vi": "Cứ mỗi lần gặp cô ấy lại thấy tiếng Nhật của cô ấy giỏi lên",
+    "jp": "彼女は会うごとに日本語が上手になっている。"
+   }
+  ],
+  "page": 108,
+  "id": "c5b2p3"
+ },
+ {
+  "chapter": 5,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "～最中に",
+  "meaning": "Đang lúc... thì...",
+  "forms": [
+   "Nの",
+   "＋最中（に）",
+   "Vている"
+  ],
+  "notes": [
+   "Mẫu này thường dùng để diễn tả việc trong khi một hành động hay hiện tượng nào đó đang diễn ra thì một việc khác đột ngột xảy ra.",
+   "Hành động xen vào thường là những hành động gây phiền toái, ảnh hưởng hoặc có thể làm cản trở đến hành động đang diễn ra.",
+   "Có thể dùng 「最中に」 như một trạng từ đứng giữa câu theo dạng 「～の最中に...」 hoặc đứng ở cuối câu dưới dạng:「〜最中だ（った）」."
+  ],
+  "examples": [
+   {
+    "jp": "子供の頃、よく父から食事の最中に勉強するなと注意されていた。"
+   },
+   {
+    "jp": "勉強している最中に、友達がゲームをしようと誘ってくる。"
+   },
+   {
+    "jp": "映画を見ている最中に、感動して泣いてしまった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi đang nói chuyện với mẹ thì bố tôi chen ngang vào câu chuyện",
+    "jp": "母と話している最中に、父が話に割り込んできた。"
+   },
+   {
+    "vi": "Tôi đã bị mẹ mắng rằng: đang trong bữa ăn thì không được xem điện thoại",
+    "jp": "食事の最中に、携帯を見てはいけないと、母に叱られた。"
+   },
+   {
+    "vi": "Khi xảy ra động đất thì vừa hay lúc tôi đang tắm",
+    "jp": "地震があったとき、ちょうどシャワーの最中だった。"
+   }
+  ],
+  "page": 109,
+  "id": "c5b2p4"
+ },
+ {
+  "chapter": 5,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "～ところに / ～ところへ",
+  "meaning": "Lúc/ khi…",
+  "forms": [
+   "Vる",
+   "Vている ＋ところに",
+   "Vた (へ/を/で)"
+  ],
+  "notes": [
+   "ところに(Vào thời điểm…): Vào đúng thời điểm xảy ra hành động gì đó(vế trước), thì 1 hành động khác xảy ra, dừng lại đúng vào thời điểm đó. ・Động từ vế sau thường là động từ thể hiện kết quả hiện tại của hướng di chuyển, thay đổi/xuất hiện của 1 trạng thái.",
+   "ところへ(Tới…): Động từ vế sau thường là động từ thể hiện hướng di chuyển, hướng đến địa điểm/thời điểm(vế trước).",
+   "ところを(Vào lúc...): Động từ vế sau thường là động từ thể hiện hành động hướng tới chủ thể được đề cập ở vế trước.",
+   "ところで(Sau khi...): Sau khi đạt tới 1 mức độ/giới hạn nào đó(ở vế trước), thì hành động ở vế sau diễn ra."
+  ],
+  "examples": [
+   {
+    "jp": "ぐっすり寝ているところに、友達から電話がかかってきた。"
+   },
+   {
+    "jp": "道が分からなくて困っているところを、知らない人に助けてもらった。"
+   },
+   {
+    "jp": "家に帰ったところで、卵を買い忘れたことに気づいた。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Vào thời điểm đang ngủ, con chó đánh thức tôi dậy",
+    "jp": "寝ているところに、犬が起こして来た。"
+   },
+   {
+    "vi": "Vào thời điểm tôi đang ngắm hoa thì trời đổ mưa",
+    "jp": "お花見をしているところに、雨が降ってきた。"
+   },
+   {
+    "vi": "Điện thoại từ phía người bạn gọi đến chỗ tôi vào thời điểm tôi định ăn cơm",
+    "jp": "ご飯を食べようとしているところへ、友達から電話がかかってきた。"
+   },
+   {
+    "vi": "Tôi bị mẹ bắt gặp vào lúc đang ở với anh người yêu",
+    "jp": "彼といるところを母に見られてしまった。"
+   },
+   {
+    "vi": "Cảnh sát đã bắt đúng lúc tên tội phạm đi ra khỏi nhà",
+    "jp": "犯人が家から出てきたところを警察が逮捕した。"
+   },
+   {
+    "vi": "Cô ấy sau khi uống hết một bình rượu Nhật thì đã gục",
+    "jp": "彼女は、日本酒を１合飲んだところで倒れてしまった。"
+   },
+   {
+    "vi": "Sau khi dạy xong ngữ pháp N3 thì chuông giờ học reo lên",
+    "jp": "N3の文法を教え終わったところで、授業のチャイムが鳴りました。"
+   }
+  ],
+  "page": 110,
+  "id": "c5b2p5"
+ },
+ {
+  "chapter": 5,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "～というと / といえば",
+  "meaning": "Nếu nói tới…",
+  "forms": [
+   "というと",
+   "Ｎ＋ といえば",
+   "といったら"
+  ],
+  "notes": [
+   "Nếu nói tới N đứng trước, thì sẽ nghĩ ngay đến 1 hình ảnh gì đó mang tính tiêu biểu, đại diện.",
+   "Trường hợp nghĩa này thì có thể dùng thay thế cho nhau."
+  ],
+  "examples": [
+   {
+    "jp": "夏といえば、すぐにかき氷が頭に浮かんでくる。"
+   },
+   {
+    "jp": "便利なものというと、やはりスマートフォンだろう。"
+   },
+   {
+    "jp": "日本語といったら、やはり漢字が一番難しい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nếu nói đến hoa của Nhật Bản thì hẳn là phải nói đến hoa anh đào",
+    "jp": "日本の花といえば、桜の花でしょう。"
+   },
+   {
+    "vi": "Nếu nói đến phim hoạt hình của Nhật Bản thì phải nói đến phim Doraemon",
+    "jp": "日本のアニメといったら、ドラえもんです。"
+   },
+   {
+    "vi": "Nếu nói đến đồ ăn của Việt Nam thì phải nói đến phở",
+    "jp": "ベトナム料理といえば、フォーが有名です。"
+   }
+  ],
+  "page": 113,
+  "id": "c5b3p1"
+ },
+ {
+  "chapter": 5,
+  "lesson": 3,
+  "index": 2,
+  "pattern": "～というより ( も",
+  "meaning": "Đúng... thì đúng hơn là.../hơn",
+  "forms": [
+   "普通形 ＋というより（も）",
+   "N/Aな /Aい"
+  ],
+  "notes": [
+   "Mẫu 「〜というより（も）」 đ ược dùng khi muốn nói rằng, đối với một việc nào đó, cách diễn đạt ở vế sau thì phù hợp hơn cách diễn đạt phía trước.",
+   "Cách nói này thường đi kèm 「むしろ」."
+  ],
+  "examples": [
+   {
+    "jp": "あれは、走っているというより、歩いているといったほうがいい速さだ。"
+   },
+   {
+    "jp": "刺身が好きじゃないというより食べられないんです。"
+   },
+   {
+    "jp": "日本に行く目的は日本の生活を経験することというよりも、お金を稼ぐことです。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Không hẳn là không muốn đi làm, mà là không muốn gặp cấp trên thì đúng hơn",
+    "jp": "会社に行きたくないというより、上司に会いたくない。"
+   },
+   {
+    "vi": "Không hẳn là muốn kết hôn, mà là tôi muốn có con thì đúng hơn",
+    "jp": "結婚したいというより、子供が欲しい。"
+   },
+   {
+    "vi": "Không hẳn là tôi thích anh A, mà là tôi kính trọng anh ấy thì đúng hơn",
+    "jp": "私はAさんが好きというより、尊敬しています。"
+   }
+  ],
+  "page": 114,
+  "id": "c5b3p2"
+ },
+ {
+  "chapter": 5,
+  "lesson": 3,
+  "index": 3,
+  "pattern": "～といっても",
+  "meaning": "Dù nói là…",
+  "forms": [
+   "普通形",
+   "N/A （＋だ） ＋といっても",
+   "な"
+  ],
+  "notes": [
+   "Dù nói là…nhưng thực ra thì…",
+   "Trên thực tế khác với hình dung của điều đang được đề cập đến."
+  ],
+  "examples": [
+   {
+    "jp": "ベトナム語が話せるといっても、少しだけです。"
+   },
+   {
+    "jp": "iPhoneが高いといっても、買えない値段ではない。"
+   },
+   {
+    "jp": "先生といっても、生徒の質問に全部答えられるわけではない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Dù nói là đã đỗ N1 nhưng mà tôi không tự tin trong hội thoại thường ngày đâu",
+    "jp": "N1に合格したといっても、日常会話は自信がありません。"
+   },
+   {
+    "vi": "Mặc dù là giám đốc nhưng mà công ty cũng nhỏ nên là chẳng có gì to tát đâu",
+    "jp": "社長といっても、小さな会社なので、大したことはありません。"
+   },
+   {
+    "vi": "Dù nói là đã ở Nhật 3 năm rồi nhưng mà tôi cũng chỉ nói chuyện được một chút tiếng Nhật thôi.Vì lúc nào tôi cũng sử dụng tiếng Anh",
+    "jp": "日本に3年間いたといっても、日本語が少ししか喋れません。いつも英語を使っていたから。"
+   }
+  ],
+  "page": 115,
+  "id": "c5b3p3"
+ },
+ {
+  "chapter": 5,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "～と言われている",
+  "meaning": "Người Được nói ta nói rằng...rằng.../",
+  "forms": [
+   "普通形 ＋と言われている",
+   "N/Aな （＋だ）"
+  ],
+  "notes": [
+   "Đưa ra những ý kiến, đánh giá, giả thuyết...mà nhiều người cùng đưa ra. ➡Đây là một cách nói đưa ra một thông tin, đánh giá mang tính khách quan, thông tin được nhiều người khác tin và nói rằng như vậy."
+  ],
+  "examples": [
+   {
+    "jp": "日本語を勉強するベトナム人は、これからも増えると言われている。"
+   },
+   {
+    "jp": "現代はみんな運動不足だと言われている。"
+   },
+   {
+    "jp": "この作業は、人間の手で細かい調整をする必要があり、それは機械ではできないと言われている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nói chung, người ta nói rằng Nhật Bản rất an toàn",
+    "jp": "一般的に、日本は安全だと言われています。"
+   },
+   {
+    "vi": "Người ta nói rằng phát âm tiếng Việt rất khó đối với người Nhật",
+    "jp": "日本人にとって、ベトナム語の発音は難しいと言われている。"
+   },
+   {
+    "vi": "Người Nhật thường được nói là khiêm tốn",
+    "jp": "日本人はよく謙遜すると言われている。"
+   }
+  ],
+  "page": 116,
+  "id": "c5b3p4"
+ },
+ {
+  "chapter": 5,
+  "lesson": 3,
+  "index": 5,
+  "pattern": "～ということだ",
+  "meaning": "Nghe nói là…",
+  "forms": [
+   "ふ つう けい"
+  ],
+  "notes": [
+   "Cách nói truyền đạt lại thông tin mình nghe được cho người khác, lịch sự hơn 「そうだ」."
+  ],
+  "examples": [
+   {
+    "jp": "先生によると、次の試験は前回よりも難しいということだ。"
+   },
+   {
+    "jp": "今も寒いが、午後はもっと寒くなるということだ。"
+   },
+   {
+    "jp": "来月から、この店は全席禁煙になるということだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Theo như dự báo thời tiết thì tối nay trời mưa",
+    "jp": "天気予報によると、今日の夜は雨が降るということだ。"
+   },
+   {
+    "vi": "Theo như tin tức thì tên tội phạm đã bị bắt",
+    "jp": "ニュースによると、犯人が捕まったということだ。"
+   },
+   {
+    "vi": "Nghe nói cô Thanh rất là hiền",
+    "jp": "Thanh先生は優しいということだ。"
+   }
+  ],
+  "page": 117,
+  "id": "c5b3p5"
+ },
+ {
+  "chapter": 5,
+  "lesson": 3,
+  "index": 6,
+  "pattern": "～とは / ～というのは",
+  "meaning": "N",
+  "forms": [],
+  "notes": [
+   "Dùng khi muốn đưa ra định nghĩa, giải thích cho N đứng trước.",
+   "Đuôi câu thường là:～ことだ、のことだ、という意味だ、の略だ．"
+  ],
+  "examples": [
+   {
+    "jp": "私にとって幸せとは、人を幸せにすることだ。"
+   },
+   {
+    "jp": "言葉とは、相手に自分の気持ちを伝えるもののことだ。"
+   },
+   {
+    "jp": "氷とは、水が固体に変わった状態のことである。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "ボールペン(bút bi)là cách viết tắt củaボールポイントペン",
+    "jp": "ボールペンとは、ボールポイントペンの略だ。"
+   },
+   {
+    "vi": "Đối với tôi, sự quan tâm chu đáo là một thứ không thể thiếu trong cuộc sống",
+    "jp": "私にとって思いやりとは、生きていく上で欠かせないことだ。"
+   },
+   {
+    "vi": "Todai chính là trường Đại học Tokyo rất nổi tiếng",
+    "jp": "東大とは、あの有名な東京大学のことだ。"
+   }
+  ],
+  "page": 118,
+  "id": "c5b3p6"
+ },
+ {
+  "chapter": 6,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～でしかない",
+  "meaning": "Chỉ là...",
+  "forms": [
+   "＋でしかない"
+  ],
+  "notes": [
+   "Thể hiện sự khinh thường, xem nhẹ:",
+   "Dùng để chỉ sự vật, sự việc nào đó không có giá trị hay ý nghĩa gì hơn mức độ người nói nêu ra.",
+   "Cách nói mang hàm ý khinh thường hoặc phủ định từ người nói. 例 彼はただの学生でしかない。 ❷Nêu lên bản chất đơn thuần của 1 sự vật, sự việc nào đó:",
+   "Dùng để chỉ sự vật, sự việc chỉ đơn giản có 1 ý nghĩa/bản chất nào đó, ngoài ra không có cách giải thích hay khả năng nào khác.",
+   "Thường dùng để chỉ 1 sự thật khách quan hoặc 1 tình huống rõ ràng. 例 それは言い訳でしかない。"
+  ],
+  "examples": [
+   {
+    "jp": "あいつは全然勉強ができないから、今回試験に合格したのは偶然でしかないと思う。"
+   },
+   {
+    "jp": "自分は会社の中で特別な立場ではなく、たくさんいる社員の一人でしかない。"
+   },
+   {
+    "jp": "あの先生はいつも難しいテストを出すから、次のテストも不安でしかない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Vắng mặt vì mệt mỏi chỉ là cái cớ mà thôi",
+    "jp": "疲れていたから欠席したというのは、言い訳でしかない。"
+   },
+   {
+    "vi": "Tôi đã chia tay cô ấy từ tuần trước nên giờ cô ấy chỉ còn là người dưng mà thôi",
+    "jp": "彼女とは先週別れたから、今はもう他人でしかない。"
+   },
+   {
+    "vi": "Đối với tôi, anh ấy chỉ là bạn bè thôi",
+    "jp": "私にとって、彼は友達でしかない。"
+   }
+  ],
+  "page": 121,
+  "id": "c6b1p1"
+ },
+ {
+  "chapter": 6,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～はもちろん",
+  "meaning": "N là đương nhiên, nhưng...",
+  "forms": [],
+  "notes": [
+   "(Danh từ)là đương nhiên rồi, nhưng~cũng.",
+   "Lưu ý: sắc thái nghĩa khác 1 chút so vớiだけではなく",
+   "Vế sau thường cóも"
+  ],
+  "examples": [
+   {
+    "jp": "彼は日本語はもちろん、フランス語も話せる。"
+   },
+   {
+    "jp": "日本のアニメは、日本人にはもちろん世界中の人から人気だ。"
+   },
+   {
+    "jp": "彼女は平日はもちろん、休日も働いてる。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Phở thì người Việt Nam là đương nhiên rồi, nhưng nó cũng được yêu thích bởi người nước ngoài",
+    "jp": "フォーはベトナム人はもちろん、外国人にも愛されている。"
+   },
+   {
+    "vi": "Vì là giáo viên tiếng Nhật nên tiếng Nhật là đương nhiên rồi, nhưng mà cách dạy cũng phải giỏi nữa",
+    "jp": "日本語の先生だから、日本語はもちろん、教え方も上手じゃなくてはいけません。"
+   },
+   {
+    "vi": "Chồng của tôi thì công việc là đương nhiên rồi, việc chăm sóc con anh cũng rất tích cực giúp đỡ tôi",
+    "jp": "私の旦那は仕事はもちろん、子供の面倒も積極的に手伝ってくれる。"
+   }
+  ],
+  "page": 122,
+  "id": "c6b1p2"
+ },
+ {
+  "chapter": 6,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～くらい / ほど～はない",
+  "meaning": "Chẳng có… bằng…",
+  "forms": [
+   "Vる くらい～はない",
+   "＋",
+   "N ほど ～はない"
+  ],
+  "notes": [
+   "Khẳng định(cái gì đó)là số 1, vì chẳng có gì bằng.",
+   "Chỉ dùng để nói về suy nghĩ, đánh giá chủ quan của bản thân."
+  ],
+  "examples": [
+   {
+    "jp": "サッカーをするくらい楽しいことはないと思う。"
+   },
+   {
+    "jp": "彼はいつも「勉強するほどつまらないものはない」と言っている。"
+   },
+   {
+    "jp": "彼と一緒にいる時間くらい幸せな時間はない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Trên đời này chẳng có gì quan trọng bằng gia đình",
+    "jp": "家族ぐらい/ほど大切なものはない。"
+   },
+   {
+    "vi": "Chẳng có điều gì hạnh phúc bằng việc ở bên người mình yêu thương",
+    "jp": "好きな人と一緒にいるくらい/ほど幸せなことはない。"
+   },
+   {
+    "vi": "Chẳng điều gì hối hận bằng việc mình đã không cố gắng hết sức mình",
+    "jp": "全力で頑張らなかったことぐらい/ほど後悔することはない。"
+   }
+  ],
+  "page": 123,
+  "id": "c6b1p3"
+ },
+ {
+  "chapter": 6,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～ほど～ない",
+  "meaning": "Không... bằng N",
+  "forms": [
+   "ほど～ない",
+   "ほどではない"
+  ],
+  "notes": [
+   "Dùng để so sánh 2 sự vật với nhau."
+  ],
+  "examples": [
+   {
+    "jp": "東京の冬も寒いが、北海道ほど寒くないです。"
+   },
+   {
+    "jp": "このラーメンは美味しいが、あの店ほどではない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Con bé đấy cũng xinh đấy, thế nhưng không bằng tôi",
+    "jp": "あの子もきれいですが、私ほどではない。"
+   },
+   {
+    "vi": "Bố tôi thì cũng nghiêm khắc đấy, nhưng không nghiêm khắc bằng mẹ tôi đâu",
+    "jp": "お父さんも厳しいですが、お母さんほど厳しくないです。"
+   },
+   {
+    "vi": "Nhật thì cũng thích đấy, thế nhưng không thích bằng Việt Nam",
+    "jp": "日本も好きですが、ベトナムほどではないです。"
+   }
+  ],
+  "page": 124,
+  "id": "c6b1p4"
+ },
+ {
+  "chapter": 6,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～代わりに",
+  "meaning": "Thay vì, thay cho N/ V thì...",
+  "forms": [
+   "Nの",
+   "＋代わりに",
+   "V （辞書形）"
+  ],
+  "notes": [
+   "Diễn tả việc sử dụng một thứ khác thay vì một thứ đã có sẵn, hoặc thực hiện một hành động khác thay vì hành động đã định. *Khi dùng với Danh từ: Chỉ sử dụng danh từ chỉ sự vật, không dùng với con người."
+  ],
+  "examples": [
+   {
+    "jp": "ジュースを飲む代わりに、水を飲んだら1か月で4キロやせた。"
+   },
+   {
+    "jp": "土曜日の代わりに月曜日に休んでもいいですか。"
+   },
+   {
+    "jp": "今朝からずっと雨が降っていて、今日は外で運動するかわりに､家で本を読みました。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi thanh toán bằng thẻ tín dụng thay cho tiền mặt",
+    "jp": "現金の代わりに、クレジットカードで支払います。"
+   },
+   {
+    "vi": "Thay vì thịt bò thì tôi đã cho thịt gà vào món phở này",
+    "jp": "このフォーには、牛肉の代わりに鶏肉を入れました。"
+   },
+   {
+    "vi": "Thay vì mua nội thất mới thì tôi đã sửa lại các nội thất cũ",
+    "jp": "新しい家具を買う代わりに、古い家具を修理します。"
+   }
+  ],
+  "page": 125,
+  "id": "c6b1p5"
+ },
+ {
+  "chapter": 6,
+  "lesson": 1,
+  "index": 6,
+  "pattern": "～代わりに",
+  "meaning": "Thay (ai đó) ...",
+  "forms": [
+   "か"
+  ],
+  "notes": [
+   "Diễn tả việc một người thay thế người khác để thực hiện một hành động, sự việc nào đó. *Chỉ kết hợp với N chỉ người."
+  ],
+  "examples": [
+   {
+    "jp": "田中先生の代わりに、今日は私がこのクラスの授業をすることになった。"
+   },
+   {
+    "jp": "体調が悪い同僚の代わりに、私が仕事をしました。"
+   },
+   {
+    "jp": "病気の祖母の代わりに、私が毎日買い物に行く。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi sẽ thay trưởng ban đi họp",
+    "jp": "部長の代わりに、私が会議に出ます。"
+   },
+   {
+    "vi": "Tôi đã thay mẹ nấu cơm tối",
+    "jp": "母の代わりに、私が夕食を作りました。"
+   },
+   {
+    "vi": "Tôi đã nhận hành lý thay cho bạn mình",
+    "jp": "友達の代わりに、私が荷物を受け取った。"
+   }
+  ],
+  "page": 126,
+  "id": "c6b1p6"
+ },
+ {
+  "chapter": 6,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～わりに ( は )",
+  "meaning": "Mặc So với…dù…/thì…",
+  "forms": [
+   "V /Aい",
+   "＋わりに(は)",
+   "Aな /Nの"
+  ],
+  "notes": [
+   "So với(điều được đề cập đến ở vế trước), thì điều được nhắc đến ở vế sau thì thường ngược lại, không giống với những gì có thể tưởng tượng trước.",
+   "Lưu ý sự giống và khác đối vớiにしては."
+  ],
+  "examples": [
+   {
+    "jp": "この仕事は大変なわりに給料が安いので、辞めようか悩んでいる。"
+   },
+   {
+    "jp": "祖父は年齢のわりには、若い人の流行に詳しい。"
+   },
+   {
+    "jp": "足を骨折したわりには、まともに歩けている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cửa hàng này mặc dù rất đắt nhưng đồ lại không được tốt cho lắm",
+    "jp": "このお店は、高いわりに物が良くない。"
+   },
+   {
+    "vi": "Cái bánh này mặc dù rẻ nhưng bên trên lại có rất nhiều hoa quả, ăn rất ngon",
+    "jp": "このケーキは安いわりにフルーツもたくさんのってて美味しいね!"
+   },
+   {
+    "vi": "Mặc dù đã rất cố gắng học hành nhưng điểm thi lại không được tốt lắm",
+    "jp": "頑張って勉強したわりには、試験の点数があまり良くなかった。"
+   }
+  ],
+  "page": 129,
+  "id": "c6b2p1"
+ },
+ {
+  "chapter": 6,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "〜わけだ",
+  "meaning": "Thế nên là...",
+  "forms": [
+   "普通形",
+   "Aな /Aな である ＋ わけだ",
+   "Nの/Nである/Nな"
+  ],
+  "notes": [
+   "Đưa ra kết luận tất yếu từ 1 sự thật hay hoàn cảnh, tình huống nào đó."
+  ],
+  "examples": [
+   {
+    "jp": "A：先生結婚したんだって。B：あー、それで最近ずっと笑顔なわけだ。"
+   },
+   {
+    "jp": "A：近くでお祭りがあるんだって。B：あー、それでこんなに人が多いわけだ。"
+   },
+   {
+    "jp": "A：高橋さん、具合が悪いらしいですよ。B：あー、だから元気がないわけだ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nghe nói anh ấy đã sống ở Nhật mười năm rồi.Thế nên tiếng Nhật của anh ấy mới giỏi như vậy",
+    "jp": "彼は日本にもう10年間住んでいたらしいですよ。だから日本語がうまいわけだ。"
+   },
+   {
+    "vi": "Nghe nói hôm nay cô ấy có buổi hẹn hò đầu tiên.Thảo nào mà cô ấy cười suốt từ sáng",
+    "jp": "彼女は今日初デートに行くそうですよ。だから朝から嬉しそうな顔をしているわけだね。"
+   },
+   {
+    "vi": "A: Hình như ở con sông gần đây họ đang bắn pháo hoa đấy B: Thảo nào mà từ nãy đến giờ cứ nghe thấy tiếng“đùng đùng”",
+    "jp": "A：近くの川で花火をやっているみたい。B：だからさっきからドンドンって音しているわけだ。"
+   }
+  ],
+  "page": 130,
+  "id": "c6b2p2"
+ },
+ {
+  "chapter": 6,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "〜わけにはいかない",
+  "meaning": "Không Buộc phải…thể nào mà lại…/",
+  "forms": [
+   "Vる",
+   "＋わけにはいかない",
+   "Vない"
+  ],
+  "notes": [
+   "Vì có 1 lí do/sự tình xuất phát từ quan niệm, suy nghĩ, tiêu chuẩn xã hội ➞mà không thể/buộc phải làm gì đó.",
+   "Không dùng với lí do năng lực cá nhân."
+  ],
+  "examples": [
+   {
+    "jp": "祖父からの大事な形見なので、誰にも譲るわけにはいかない。"
+   },
+   {
+    "jp": "今日はバイクで出勤したので、帰りにお酒を飲むわけにはいかない。"
+   },
+   {
+    "jp": "テストが控えているから、勉強をしないわけにはいかない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi không thể nào mà bỏ việc được vì còn có gia đình nữa",
+    "jp": "家族のために仕事を辞めるわけにはいかない。"
+   },
+   {
+    "vi": "Vì ông giám đốc nhờ nên tôi buộc phải làm",
+    "jp": "社長に頼まれたので、やらないわけにはいかない。"
+   },
+   {
+    "vi": "Vì mình đã được rất nhiều người ủng hộ, thế nên trận đấu ngày mai mình tuyệt đối không thể thua được",
+    "jp": "多くの人が励ましてくれたので、明日の試合、負けるわけにはいかない。"
+   }
+  ],
+  "page": 131,
+  "id": "c6b2p3"
+ },
+ {
+  "chapter": 6,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "～わけではない",
+  "meaning": "Không có nghĩa là...",
+  "forms": [
+   "普通形",
+   "Aな /Aな である ＋わけではない"
+  ],
+  "notes": [
+   "Phủ định 1 phần.",
+   "Văn viết:とは限らない"
+  ],
+  "examples": [
+   {
+    "jp": "彼は病気であるわけではないが、いつも元気がない。"
+   },
+   {
+    "jp": "彼氏のことは好きだが、毎日会いたいわけではない。"
+   },
+   {
+    "jp": "結婚しても、全員が幸せになれるわけではない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Dù nói là sống ở Nhật nhưng không có nghĩa là sẽ giỏi tiếng Nhật",
+    "jp": "日本に住むからと言って、日本語も上手になれるわけではない。"
+   },
+   {
+    "vi": "Dù nói là thích natto nhưng không phải là ngày nào tôi cũng ăn",
+    "jp": "納豆が好きだからといって、毎日食べるわけではない。"
+   },
+   {
+    "vi": "Dù nói là không có người yêu nhưng không phải tôi sẽ cô đơn",
+    "jp": "恋人がいないからと言って、必ず寂しいわけではない。"
+   }
+  ],
+  "page": 132,
+  "id": "c6b2p4"
+ },
+ {
+  "chapter": 6,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "〜とは限らない",
+  "meaning": "Không Chưa chắc phải…/đã là…",
+  "forms": [
+   "普通形 ＋とはかぎらない",
+   "N/Aな （＋だ）"
+  ],
+  "notes": [
+   "Phủ định 1 phần điều gì đó: Dù là~, nhưng chưa hẳn đã là thế(có thể có ngoại lệ khác nữa).",
+   "Vế trước thường có:～からといって",
+   "Vế sau thường có:いつも、全部、だれでも、必ずしも..."
+  ],
+  "examples": [
+   {
+    "jp": "日本人でも、漢字がたくさん書けるとは限らない。"
+   },
+   {
+    "jp": "N1を持っていても、会話が上手だとは限らない。"
+   },
+   {
+    "jp": "結婚しても幸せだとは限らない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Dù là người Việt Nam nhưng không phải ai cũng thích ăn rau mùi",
+    "jp": "ベトナム人が誰でもパクチーが好きだとは限らない。"
+   },
+   {
+    "vi": "Dù giàu có đi chăng nữa thì cũng chưa chắc đã hạnh phúc đâu",
+    "jp": "お金持ちだからと言って、必ずしも幸せだとは限らない。"
+   },
+   {
+    "vi": "Không phải cứ sống với mẹ chồng là hay cãi nhau",
+    "jp": "義理のお母さんと一緒に住むと、喧嘩するとは限りません。"
+   }
+  ],
+  "page": 133,
+  "id": "c6b2p5"
+ },
+ {
+  "chapter": 6,
+  "lesson": 2,
+  "index": 6,
+  "pattern": "〜に比べて",
+  "meaning": "So với N",
+  "forms": [
+   "に比べて、～",
+   "N ＋",
+   "に比べ、～"
+  ],
+  "notes": [
+   "Dùng khi so sánh 2 sự vật, tính chất.",
+   "Có thể thay bằngより"
+  ],
+  "examples": [
+   {
+    "jp": "日本の物価に比べて、ベトナムの物価は安い。"
+   },
+   {
+    "jp": "私に比べて、彼は日本語が上手だ。"
+   },
+   {
+    "jp": "前会った時に比べ、彼女はとてもきれいになった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "So với thời còn ở Việt Nam thì mình đã ít bạn đi",
+    "jp": "ベトナムにいた時に比べて、友達が減った。"
+   },
+   {
+    "vi": "So với lớp học trực tiếp ở trên lớp thì lớp học online tiện lợi hơn",
+    "jp": "対面授業に比べてオンライン授業のほうが便利です。"
+   },
+   {
+    "vi": "Con phố này so với ngày xưa thì nó đã nhộn nhịp hơn",
+    "jp": "この通りは以前に比べて賑やかになった。"
+   }
+  ],
+  "page": 134,
+  "id": "c6b2p6"
+ },
+ {
+  "chapter": 6,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "～といい / ～ばいい",
+  "meaning": "Ước Giá mà...gì.../",
+  "forms": [
+   "Vる+といい",
+   "Vば+いい",
+   "Vた+らいい"
+  ],
+  "notes": [
+   "Thể hiện mong muốn, nguyện vọng của bản thân về việc gì đó.",
+   "Đuôi câu thêm:な、なあ、ね(cảm thán)、のに、けど、が(khi đó là điều khó thực hiện được)."
+  ],
+  "examples": [
+   {
+    "jp": "いとうさん、早く元気になるといいんだけどなあ。"
+   },
+   {
+    "jp": "一週間に休みが三日あればいいのになあ。"
+   },
+   {
+    "jp": "村上さんみたいなかわいい人と、結婚できたらいいなあ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cuối tuần mình dự định sẽ đi biển, ước gì thời tiết đẹp thì tốt nhỉ",
+    "jp": "週末海に行く予定だから、いい天気になったらいいね。"
+   },
+   {
+    "vi": "Ước gì mình có thể có nhiều bạn ở môi trường mới",
+    "jp": "新しい環境でたくさん友達ができるといいな。"
+   },
+   {
+    "vi": "Giá mà bây giờ có ai bóp vai cho mình thì tốt nhỉ",
+    "jp": "今誰か肩を揉んでくれたらいいな。"
+   }
+  ],
+  "page": 137,
+  "id": "c6b3p1"
+ },
+ {
+  "chapter": 6,
+  "lesson": 3,
+  "index": 2,
+  "pattern": "〜ばよかった",
+  "meaning": "Biết thế",
+  "forms": [],
+  "notes": [
+   "Thể hiện sự tiếc nuối của bản thân vì đã làm gì/hoặc không làm gì.",
+   "Lưu ý khi thêmのに➞Vばよかったのに"
+  ],
+  "examples": [
+   {
+    "jp": "子供の頃に、もっと勉強しておけばよかった。"
+   },
+   {
+    "jp": "昨日のパーティー、あなたも来ればよかったのに。"
+   },
+   {
+    "jp": "あんな男と結婚しなければよかった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Biết thế trước khi đi Nhật mình đã học tiếng Nhật chăm chỉ hơn",
+    "jp": "日本に来る前に日本語をもっと勉強すればよかった。"
+   },
+   {
+    "vi": "Biết thế ngày ấy mình đã tỏ tình với cô ấy rồi",
+    "jp": "あの時に彼女に告白すればよかった。"
+   },
+   {
+    "vi": "Biết thế hồi trẻ mình đã cố gắng hơn rồi",
+    "jp": "若い時にもっと頑張ればよかった。"
+   }
+  ],
+  "page": 138,
+  "id": "c6b3p2"
+ },
+ {
+  "chapter": 6,
+  "lesson": 3,
+  "index": 3,
+  "pattern": "〜さえ",
+  "meaning": "Ngay cả/Đến cả...",
+  "forms": [],
+  "notes": [
+   "Sau danh từ, có trường hợp giữ lại trợ từ đi kèm.",
+   "Thường dùng nói đến những thứ không tích cực.",
+   "Khi N chỉ người, động vật và là chủ thể hành động→「Nでさえ」"
+  ],
+  "examples": [
+   {
+    "jp": "この問題は先生でさえ分からないのだから、学生の私が分かるはずがない。"
+   },
+   {
+    "jp": "私は料理を全然したことがなく、簡単な料理さえ作ることができない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Ngay cả 100 yên còn chẳng có thì ô tô làm sao mà mua được",
+    "jp": "百円さえないのに車なんか買えないよ。"
+   },
+   {
+    "vi": "Chữ Hán này đến người Nhật còn không đọc được nên không sao đâu",
+    "jp": "この漢字は日本人でさえ読めないから、大丈夫だよ。"
+   }
+  ],
+  "page": 139,
+  "id": "c6b3p3"
+ },
+ {
+  "chapter": 6,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "〜さえ～ば",
+  "meaning": "Chỉ cần…",
+  "forms": [
+   "/しなければ",
+   "いれば",
+   "/なければ",
+   "Vば/Aい ければ/Aな なら/Nなら"
+  ],
+  "notes": [
+   "Nhấn mạnh vào một điều kiện tối thiểu nào đó… ➞Chỉ cần như vậy là được"
+  ],
+  "examples": [
+   {
+    "jp": "仕事さえなければ、1日ずっと好きなことができるのにな。"
+   },
+   {
+    "jp": "日本は家賃や物の値段などが高くさえなければ、暮らしやすい。"
+   },
+   {
+    "jp": "ちゃんと勉強してさえいれば、テストでこんな低い点は取らなかった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Chỉ cần có tiền tôi nghĩ cái gì cũng có thể làm được",
+    "jp": "お金さえあれば何でもできると思います。"
+   },
+   {
+    "vi": "Chỉ cần tính cách tốt thôi là có thể hẹn hò được",
+    "jp": "性格さえよければ、全然付き合ってもいいです。"
+   },
+   {
+    "vi": "Chỉ cần có anh bên cạnh thì ở đâu cũng được",
+    "jp": "あなたさえそばにいれば、どこにいてもかまわない。"
+   }
+  ],
+  "page": 140,
+  "id": "c6b3p4"
+ },
+ {
+  "chapter": 6,
+  "lesson": 3,
+  "index": 5,
+  "pattern": "～だって / ～たって",
+  "meaning": "Dù có/Cho dù...",
+  "forms": [
+   "N",
+   "＋だって",
+   "疑問詞",
+   "Vた ＋って",
+   "N＋だって~N＋だって"
+  ],
+  "notes": [
+   "Là cách nói suồng sã củaでも、ても"
+  ],
+  "examples": [
+   {
+    "jp": "もう誰だっていいから彼女が欲しい。"
+   },
+   {
+    "jp": "彼はいつだって笑顔で明るく、みんなを笑わせている。"
+   },
+   {
+    "jp": "いくら頑張ったって、上手くできないので、あきらめる。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Dù có chuyện gì xảy ra đi chăng nữa thì cũng sẽ cố gắng đến cuối cùng",
+    "jp": "どんなことが起きたって、最後まで頑張ります。"
+   },
+   {
+    "vi": "Dù có là giáo viên đi chăng nữa thì cũng có rất nhiều điều không biết",
+    "jp": "先生だって分からないことがたくさんあります。"
+   }
+  ],
+  "page": 141,
+  "id": "c6b3p5"
+ },
+ {
+  "chapter": 6,
+  "lesson": 3,
+  "index": 6,
+  "pattern": "〜に決まっている",
+  "meaning": "Chắc chắn là... 普通形",
+  "forms": [
+   "き"
+  ],
+  "notes": [
+   "Đưa ra phán đoán, suy luận mà người cảm thấy rất chắc chắn.Mức độ chắc chắn rất cao.",
+   "Trong hội thoại suồng sã, cách nói này thường ở dạng 「～に決まってる」."
+  ],
+  "examples": [
+   {
+    "jp": "毎日頑張って勉強したんだから、N3に合格するに決まっている。"
+   },
+   {
+    "jp": "こんなに天気が良いんだから、洗濯物はすぐに乾くに決まってる。"
+   },
+   {
+    "jp": "毎日外食するより、自炊したほうが安いに決まっている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Điều mà tên kia nói chắc chắn là nói dối",
+    "jp": "あいつが言うことなんか、うそに決まってる。"
+   },
+   {
+    "vi": "Đỗ vào Đại học Tokyo chắc chắn là điều viển vông",
+    "jp": "東大に合格するなんて、無理に決まっているよ。"
+   },
+   {
+    "vi": "Vì là quán mỳ nổi tiếng nên chắc chắn là ngon rồi",
+    "jp": "人気店のラーメンだから、美味しいに決まっている。"
+   }
+  ],
+  "page": 142,
+  "id": "c6b3p6"
+ },
+ {
+  "chapter": 7,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～がち",
+  "meaning": "Thường/Hay...",
+  "forms": [
+   "Vます",
+   "N ＋がち"
+  ],
+  "notes": [
+   "Có xu hướng rơi vào trạng thái gì, số lần như vậy nhiều.",
+   "Thường dùng cho những xu hướng mang tính tiêu cực.",
+   "忘れがち、遅れがち、病気がち、曇りがち、遠慮がち、..."
+  ],
+  "examples": [
+   {
+    "jp": "彼女は疲れると周りの人に文句を言いがちだ。"
+   },
+   {
+    "jp": "私は子供の頃から体が弱く病気がちで、あまり友達と遊んだことがない。"
+   },
+   {
+    "jp": "私は最近寝る前にお菓子を食べがちで、少し太ってきた。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thường hay quên bài tập",
+    "jp": "宿題を忘れがちです。"
+   },
+   {
+    "vi": "Những ngày đến tháng thường hay nóng giận",
+    "jp": "生理中のときは怒りがちです。"
+   },
+   {
+    "vi": "Dạo này trời thường hay mây",
+    "jp": "最近曇りがちです。"
+   }
+  ],
+  "page": 145,
+  "id": "c7b1p1"
+ },
+ {
+  "chapter": 7,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～っけ",
+  "meaning": "…ấy…à? nhỉ?/",
+  "forms": [
+   "Vた",
+   "Ａい かった",
+   "＋っけ",
+   "Ａな だ/Ａな だった",
+   "Nだ/Nだった"
+  ],
+  "notes": [
+   "Xác nhận với đối phương hoặc tự hỏi chính mình về điều mình không nhớ rõ lắm.",
+   "Lịch sự hơn: ました/でした…＋っけ"
+  ],
+  "examples": [
+   {
+    "jp": "さとうさん、トマトが食べれなかったっけ。"
+   },
+   {
+    "jp": "さっき課長は、何時に会議があるって言ってましたっけ。"
+   },
+   {
+    "jp": "このレポートはいつまでに出せばいいんでしたっけ。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cái người đó tên là gì ấy nhở",
+    "jp": "あの人の名前はなんだったっけ。"
+   },
+   {
+    "vi": "Buổi thi là ngày mai đúng không nhở",
+    "jp": "試験は明日だったっけ。"
+   },
+   {
+    "vi": "Anh ấy về nước rồi đúng không nhỉ",
+    "jp": "彼はもう帰国しましたっけ。"
+   }
+  ],
+  "page": 146,
+  "id": "c7b1p2"
+ },
+ {
+  "chapter": 7,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～かと思った",
+  "meaning": "Cứ tưởng là...",
+  "forms": [
+   "普通形",
+   "A だ/Nだ ＋かと思った",
+   "な"
+  ],
+  "notes": [
+   "1 kết quả, điều khác với những dự đoán, suy nghĩ của mình lúc đầu."
+  ],
+  "examples": [
+   {
+    "jp": "息子はやっと起きたかと思ったが、またすぐに寝てしまった。"
+   },
+   {
+    "jp": "このオレンジは甘いかと思ったが、食べたらとても苦かった。"
+   },
+   {
+    "jp": "彼はとても日本語が上手なので、最初日本人かと思った。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thấy anh mãi không trả lời, em cứ tưởng có chuyện gì",
+    "jp": "なかなか返事が来なかったから何かあったかと思った。"
+   },
+   {
+    "vi": "Nhìn từ đằng sau cứ tưởng là mỹ nhân cơ",
+    "jp": "後ろから見ると美人かと思った。"
+   },
+   {
+    "vi": "Cứ tưởng là đỗ N3 rồi nhưng hóa ra lại thiếu một điểm",
+    "jp": "N3に合格したかと思ったが、1点足りなかった。"
+   }
+  ],
+  "page": 147,
+  "id": "c7b1p3"
+ },
+ {
+  "chapter": 7,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～じゃない / ～じゃん",
+  "meaning": "Chẳng phải... hay sao?",
+  "forms": [
+   "普通形",
+   "＋じゃない/じゃん",
+   "Aな /Nだ"
+  ],
+  "notes": [
+   "❶Mẫu câu được sử dụng khi người nói cho rằng người nghe đã biết nội dung mình đang đề cập đến và mong đợi sự đồng tình từ người nghe. → Với cách dùng này, ta lên giọng ở cuối câu.",
+   "❷Được sử dụng khi người nói muốn truyền đạt cảm xúc như ngạc nhiên, chán nản hoặc trách móc đến người nghe. → Với cách dùng này, ta xuống giọng ở cuối câu. *Có thể dùng cả trong trường hợp tích cực lẫn tiêu cực. *Cách nói này giống với dạng phủ định của tính từ đuôiなvà danh từ, nên cần dựa vào bối cảnh, trọng âm, ngữ điệu để xác định ngữ nghĩa của câu. *Nếu trọng âm rơi vào chữ 「な」 trong 「じゃない」 cách nói mang nghĩa phủ định. 例 *Thường dùng trong mối quan hệ thân thiết, cách nói lịch sự hơn là 「～じゃないですか」 *Cũng có cách nó 「i～じゃないか/～じゃんか」 nhưng thường được nam giới sử dụng."
+  ],
+  "examples": [
+   {
+    "jp": "傘を持ってこなかったの？午後から雨が降るって言ったじゃない?"
+   },
+   {
+    "jp": "嫌いな仕事を続けていても苦しいじゃない?"
+   },
+   {
+    "jp": "あのお店、いつも混んでるじゃない？"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Đã 10 giờ rồi còn gì!Mau ngủ sớm đi!",
+    "jp": "もう10時じゃん。早く寝ようよ。"
+   },
+   {
+    "vi": "Đi một mình qua con đường tối vào buổi đêm không phải đáng sợ hay sao?",
+    "jp": "夜に一人で暗い道を歩くのって、怖いじゃない?"
+   },
+   {
+    "vi": "Thầy cô đã nói là nếu kỳ thi tới không đậu thì sẽ bị lưu ban còn gì?",
+    "jp": "次の試験で受からなかったら留年だって先生が言っていたじゃない?"
+   }
+  ],
+  "page": 148,
+  "id": "c7b1p4"
+ },
+ {
+  "chapter": 7,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～でしょうか",
+  "meaning": "",
+  "forms": [
+   "お＋Vます",
+   "Vます",
+   "A /A だ ＋でしょうか",
+   "い な",
+   "Nだ"
+  ],
+  "notes": [
+   "*",
+   "Cách nói lịch sự của 「～ですか/～ますか」.",
+   "Dùng để đưa ra câu hỏi một cách lịch sự."
+  ],
+  "examples": [
+   {
+    "jp": "こちらは見積書です。アィンさんに渡していただけますでしょうか？"
+   },
+   {
+    "jp": "部長、お忙しいところすみません、ちょっとよろしいでしょうか。"
+   },
+   {
+    "jp": "パスポートをお見せいただけますでしょうか。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Bạn có mang theo thẻ bảo hiểm không ạ?",
+    "jp": "保険証はお持ちでしょうか。"
+   },
+   {
+    "vi": "Anh Suzuki, ngày mai anh có rảnh không ạ?",
+    "jp": "鈴木さん、明日はお暇でしょうか。"
+   },
+   {
+    "vi": "Khoảng mấy giờ thì thầy/cô về nhà ạ?",
+    "jp": "先生は何時ごろご帰宅でしょうか。"
+   }
+  ],
+  "page": 149,
+  "id": "c7b1p5"
+ },
+ {
+  "chapter": 7,
+  "lesson": 1,
+  "index": 6,
+  "pattern": "～のでしょうか / ～んでしょうか",
+  "meaning": "",
+  "forms": [
+   "普通形",
+   "Aな /Nな"
+  ],
+  "notes": [
+   "❶Vì sao/tại sao...?",
+   "Dùng để hỏi nguyên nhân, lý do. 例 鈴木さんはどうして来ないのでしょうか。 ❷Có phải là...?/Liệu...có đúng không?",
+   "Dùng để đưa ra một suy đoán, hoặc nghi vấn nào đó của người nói. 例 あの人の言っていることは正しいのでしょうか。 ～でしょうか ～（な）のでしょうか Cách hỏi lịch sự. Muốn hỏi kỹ về nguyên nhân, lý do; Đưa ra câu hỏi một cách đơn thuần. hoặc đưa ra phán đoán, nghi vấn của bản thân."
+  ],
+  "examples": [
+   {
+    "jp": "この言葉の使い方は正しいのでしょうか。"
+   },
+   {
+    "jp": "「ガン」とはどのような病気なのでしょうか。"
+   },
+   {
+    "jp": "学校でのいじめはなぜ起こるのでしょうか。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thuốc này có tác dụng gì vậy ạ?",
+    "jp": "この薬は、どのような効果があるのでしょうか。"
+   },
+   {
+    "vi": "Rốt cuộc chuyện gì đã xảy ra vậy?",
+    "jp": "一体何が起こったのでしょうか。"
+   },
+   {
+    "vi": "Tại sao giáo dục giới tính lại cần thiết vậy ạ?",
+    "jp": "なぜ性教育は必要なのでしょうか。"
+   }
+  ],
+  "page": 150,
+  "id": "c7b1p6"
+ },
+ {
+  "chapter": 7,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～たとたん",
+  "meaning": "Ngay khi vừa mới V",
+  "forms": [],
+  "notes": [
+   "Ngay khi vừa mới～, thì 1 chuyện mình không mong muốn xảy ra, điều bất ngờ.",
+   "Vế sau: không dùng thểよう、つもり、mệnh lệnh, ý chí…"
+  ],
+  "examples": [
+   {
+    "jp": "さっきまで晴れていたのに、私が外に出たとたん雨が降ってきた。"
+   },
+   {
+    "jp": "私は長い間離れていた彼女に会ったとたん、嬉しくて泣いた。"
+   },
+   {
+    "jp": "夫は疲れていたせいか帰ってきたとたん、ベッドですぐに寝てしまった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Vừa mới đứng lên đã bị hoa mắt chóng mặt",
+    "jp": "立ち上がったとたん、めまいがした。"
+   },
+   {
+    "vi": "Vừa cho vào miệng một cái là đã nôn ra rồi",
+    "jp": "口に入れたとたん、吐き出した。"
+   },
+   {
+    "vi": "Hai người đó vừa mới kết hôn thì mối quan hệ đã trở nên mâu thuẫn",
+    "jp": "あの二人は結婚したとたんに、すぐ仲が悪くなってきました。"
+   }
+  ],
+  "page": 153,
+  "id": "c7b2p1"
+ },
+ {
+  "chapter": 7,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "〜ついでに",
+  "meaning": "Nhân tiện...",
+  "forms": [
+   "Nの",
+   "Vる/Vた"
+  ],
+  "notes": [
+   "Nhân cơ hội..., tiện thể...nên làm...",
+   "N là danh từ tính động(chỉ sự di chuyển, chỉ hành động,...)"
+  ],
+  "examples": [
+   {
+    "jp": "買い物のついでに、図書館に本を返しに行った。"
+   },
+   {
+    "jp": "自分の晩ごはんを作るついでに、妹の分も作ってあげた。"
+   },
+   {
+    "jp": "友達の家へ遊びに行ったついでに、旅行のお土産を渡した。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Chị xin lỗi nhưng nhà hết bột giặt rồi nên nhân tiện ra ngoài thì mua hộ chị nhé?",
+    "jp": "洗剤がなくなったけど、悪いけど、ちょっと外に出かけるついでに、買ってくれる？"
+   },
+   {
+    "vi": "Nhân tiện đi công tác ở Nhật Bản thì tôi định sẽ đến thăm bạn thân",
+    "jp": "出張で日本に行くついでに、親友を訪ねに行くつもりです。"
+   },
+   {
+    "vi": "Vì có nhiều điểm tương đồng, nhân tiện học tiếng Nhật thì tôi cũng bắt đầu học tiếng Trung",
+    "jp": "似ているところがたくさんあるから、日本語を学ぶついでに、中国語も勉強し始めた。"
+   }
+  ],
+  "page": 154,
+  "id": "c7b2p2"
+ },
+ {
+  "chapter": 7,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "〜途中で / 途中に",
+  "meaning": "",
+  "forms": [
+   "V",
+   "＋途中で/途中に",
+   "Nの"
+  ],
+  "notes": [
+   "Đang V giữa chừng thì...",
+   "Diễn tả 1 hành động, sự việc đang xảy ra dở thì 1 hành động, sự việc khác phát sinh, xen vào.",
+   "N: danh từ diễn tả không gian, thời gian hoặc mang tính quá trình. Trên đường...",
+   "Diễn tả hành động nào đó xảy ra hoặc nhắc đến sự tồn tại của một chủ thể nào đó trên quãng đường di chuyển từ điểm xuất phát đến điểm đích.",
+   "Nếu vế sau miêu tả hành động→「途中で」; miêu tả sự tồn tại→「途中に」 *Khi muốn nói: đang(làm)dở cái gì thì từ bỏ, dừng lại →「途中で〜やめる/諦める...」"
+  ],
+  "examples": [
+   {
+    "jp": "旅行の途中で足が痛くなって、思うように楽しめませんでした。"
+   },
+   {
+    "jp": "本を読んでいる途中で、眠ってしまいました。"
+   },
+   {
+    "jp": "そのレストランは河原へ行く途中にある。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Trên đường về nhà, tôi nhận ra mình đã quên đồ",
+    "jp": "家に帰る途中で、忘れ物に気づいた。"
+   },
+   {
+    "vi": "Trên đường đến công ty, tôi đã tìm thấy một cửa hàng rất đẹp",
+    "jp": "会社に行く途中ですごく素敵なお店を見つけた。"
+   },
+   {
+    "vi": "Đang làm việc dở thì tôi thấy đói bụng",
+    "jp": "仕事の途中で、おなかがすいた。"
+   }
+  ],
+  "page": 155,
+  "id": "c7b2p3"
+ },
+ {
+  "chapter": 7,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "～から～にかけて",
+  "meaning": "Từ… đến…",
+  "forms": [],
+  "notes": [
+   "1 sự việc liên tục diễn ra.",
+   "Thường hay nghe ở dự báo thời tiết.",
+   "2 thời điểm nối không rõ ràng bằng から～まで"
+  ],
+  "examples": [
+   {
+    "jp": "今晩から明日の朝にかけて、激しい雨が降るらしい。"
+   },
+   {
+    "jp": "今日は6時から9時にかけてお客さんが多く来店し、とても忙しかった。"
+   },
+   {
+    "jp": "関東から東北にかけて、桜が咲き始めました。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Từ 12 giờ đến 15 giờ",
+    "jp": "12時から15時にかけて..."
+   },
+   {
+    "vi": "Từ Hokkaidou đến Tokyo",
+    "jp": "北海道から東京にかけて..."
+   }
+  ],
+  "page": 156,
+  "id": "c7b2p4"
+ },
+ {
+  "chapter": 7,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "ちっとも～ない",
+  "meaning": "Một Không chút...hề...cũng không.../ ちっとも",
+  "forms": [
+   "ひ てい けい"
+  ],
+  "notes": [
+   "Có ý nghĩa tương tự như 「全然～ない」 và 「少しも～ない」",
+   "Dùng để phủ nhận sự việc nào đó một cách mạnh mẽ.",
+   "Vế sauちっともsẽ là thể phủ định.",
+   "Dùng trong hội thoại thông thường.",
+   "Trong các tình huống trang trọng, thường sử dụng 「少しも～ない」. 例 このカレーは少しも（✖ちっとも）辛くありませんよ。"
+  ],
+  "examples": [
+   {
+    "jp": "弟はゲームで遊んでばかりでちっとも勉強を始める気配がない。"
+   },
+   {
+    "jp": "彼が社長になったのは、ちっとも不思議じゃない。"
+   },
+   {
+    "jp": "部長が結婚しているなんて、ちっとも知らなかった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi không thích bóng đá chút nào",
+    "jp": "サッカーはちっとも好きではない。"
+   },
+   {
+    "vi": "Vợ tôi không hề nghe tôi nói",
+    "jp": "妻は私の話をちっとも聞いていない。"
+   },
+   {
+    "vi": "Tôi không hiểu chút gì những gì người đó đang nói",
+    "jp": "あの人の言っていることは、ちっとも理解できない。"
+   }
+  ],
+  "page": 157,
+  "id": "c7b2p5"
+ },
+ {
+  "chapter": 7,
+  "lesson": 2,
+  "index": 6,
+  "pattern": "～ずにいる",
+  "meaning": "Mãi không V/ vẫn chưa V",
+  "forms": [],
+  "notes": [
+   "「Vない＋ずに」: cách nói khác của 「～ないで」.Đây là hình thức cổ, thường được sử dụng trong văn viết như luận văn hay báo cáo.",
+   "「Vない＋ずにいる」: Dùng để diễn đạt trạng thái“không làm điều gì đó”vẫn được kéo dài, tiếp diễn."
+  ],
+  "examples": [
+   {
+    "jp": "二人は付き合っているのだが、親同士の仲が悪いばかりに、いまだに結婚出来ずにいる。"
+   },
+   {
+    "jp": "1週間友達のメッセージに気が付かずにいて、友達に怒られた。"
+   },
+   {
+    "jp": "飼っている犬が死んでしまって、彼は落ち込んでいるが、なぐさめる言葉が見つからず、声をかけられずにいる。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi vẫn chưa thể nói với anh tôi về việc đã làm hỏng cuốn sách quý của anh ấy",
+    "jp": "兄の大事な本を破ってしまったことを、まだ兄に言えずにいる。"
+   },
+   {
+    "vi": "Tôi vẫn chưa thể quyết định có nên đến thăm nhà cô ấy hay không",
+    "jp": "彼女の家を訪ねるかどうか、決められずにいる。"
+   },
+   {
+    "vi": "Tôi đã lo lắng biết bao về người bạn mà tôi đã không thể liên lạc trong nhiều năm",
+    "jp": "何年も連絡が取れずにいた友人をどれだけ心配したことか。"
+   }
+  ],
+  "page": 158,
+  "id": "c7b2p6"
+ },
+ {
+  "chapter": 7,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "～だらけ",
+  "meaning": "Chỉ toàn là N",
+  "forms": [
+   "向けの+N 2",
+   "N 1 +",
+   "向けに"
+  ],
+  "notes": [
+   "Toàn là, đầy những～",
+   "Dùng cho nhiều cái không tốt, dính nhiều…",
+   "Dành cho, hướng tới, phục vụ cho đối tượng nào đó.",
+   "Thường là danh từ chỉ người.",
+   "Ý nghĩa chỉ khác 1 chút so với 向き"
+  ],
+  "examples": [
+   {
+    "jp": "彼は掃除が嫌いで、部屋はごみだらけだ。"
+   },
+   {
+    "jp": "私のクラスは男だらけで、話をしてもつまらない。"
+   },
+   {
+    "jp": "この文は漢字だらけで、全然読むことができない。"
+   },
+   {
+    "jp": "彼女の声はアニメの女優向きです。"
+   },
+   {
+    "jp": "この小説はあなた向きだと思いますよ。読んでみてください。"
+   },
+   {
+    "jp": "この問題は、N5学習者向きの問題だ。"
+   },
+   {
+    "jp": "このお店には、子供向けの本が多く販売されている。"
+   },
+   {
+    "jp": "この店では、男性向けの化粧品が多数取り扱いされている。"
+   },
+   {
+    "jp": "学校近くに学生向けに建てられたアパートがいくつかある。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Căn phòng toàn là rác",
+    "jp": "部屋はいつもゴミだらけです。"
+   },
+   {
+    "vi": "Mặt đầy những nếp nhăn",
+    "jp": "しわだらけの顔。"
+   },
+   {
+    "vi": "Tôi đang sống những ngày đầy stress ❖Là thứ phù hợp với Danh từ đứng ở trước→ちょうど合うように",
+    "jp": "ストレスだらけの毎日を送っています。"
+   },
+   {
+    "vi": "Cuốn sách này được tạo ra hướng tới đối tượng là trẻ con"
+   },
+   {
+    "vi": "Những địa điểm du lịch có rất nhiều những hướng dẫn được viết bằng tiếng Anh phục vụ người nước ngoài"
+   },
+   {
+    "vi": "Bộ xếp hình này được tạo ra hướng tới đối tượng là những người trình độ cao nên rất khó"
+   }
+  ],
+  "page": 161,
+  "id": "c7b3p1"
+ },
+ {
+  "chapter": 7,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "〜をする",
+  "meaning": "Có",
+  "forms": [
+   "（〜は） N 1 ＋ をしている",
+   "をしているN 2",
+   "N 1 ＋",
+   "をしたN 2"
+  ],
+  "notes": [
+   "Dùng để chỉ những điều có thể nhận ra ngay qua bề ngoài như: hình dáng, biểu cảm, trạng thái, đặc điểm ngoại hình...",
+   "「〜をしている」、「〜をした」 có thể dùng thay cho nhau, nét nghĩa không thay đổi."
+  ],
+  "examples": [
+   {
+    "jp": "このクッキーは星の形をしています。"
+   },
+   {
+    "jp": "どうしてそんなに悲しそうな顔をしているの？"
+   },
+   {
+    "jp": "あそこにいる、赤い髪をした女の人はだれですか？"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tom có đôi mắt màu xanh",
+    "jp": "トムさんは青い目をしている。"
+   },
+   {
+    "vi": "Người có đôi mắt xanh kia là Tom",
+    "jp": "あの青い目をしている人は、トムさんです。"
+   },
+   {
+    "vi": "Quả quýt có hình tròn và có màu cam",
+    "jp": "みかんは丸い形をしていて、オレンジ色をしている。"
+   }
+  ],
+  "page": 163,
+  "id": "c7b3p4"
+ },
+ {
+  "chapter": 7,
+  "lesson": 3,
+  "index": 5,
+  "pattern": "～か何か",
+  "meaning": "...hay gì đó",
+  "forms": [
+   "普通形",
+   "＋か何か",
+   "N"
+  ],
+  "notes": [
+   "Mẫu câu này được sử dụng khi người nói không muốn hoặc không thể chỉ ra, miêu tả về một sự vật, sự việc cụ thể nào đó, nên đưa ra ví dụ, gợi ý...về sự vật, sự việc tương tự.",
+   "Dùng trong những tình huống thông thường, không trang trọng.",
+   "Ngoài何, cách nói này còn có thể áp dụng với những nghi vấn từ khác như: 「～かどこか」(ở đâu đó)hoặc 「～かだれか」(a i đó)"
+  ],
+  "examples": [
+   {
+    "jp": "喉がかわいたので、ジュースか何かが飲みたい。"
+   },
+   {
+    "jp": "週末は、アニメを見るか何かして過ごしたいです。"
+   },
+   {
+    "jp": "佐藤さんは旅行の準備か何かで忙しいって。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cái này là bánh quy hay gì thế?",
+    "jp": "これはクッキーか何か？"
+   },
+   {
+    "vi": "Vì đã cất công đến đây du lịch nên sao bạn không ăn uống hay làm gì đó?",
+    "jp": "せっかく旅行に来たんだから、食べるか何かしたら？"
+   },
+   {
+    "vi": "Ngày hôm đó, tôi đã vắng mặt vì bị đau đầu hay gì đó",
+    "jp": "その日は、頭痛か何かで欠席した。"
+   }
+  ],
+  "page": 164,
+  "id": "c7b3p5"
+ },
+ {
+  "chapter": 7,
+  "lesson": 3,
+  "index": 6,
+  "pattern": "～させておく",
+  "meaning": "Cứ để cho.../Cứ để mặc...",
+  "forms": [],
+  "notes": [
+   "Diễn tả việc không can thiệp vào hành động của người khác mà để mặc cho hành động hay trạng thái đó được xảy ra.",
+   "Cách nói này còn được dùng để chỉ thị cho người khác tiếp tục làm một việc/hành động nào đó. 例 買い物している間、息子を車の中で待たせておいた。"
+  ],
+  "examples": [
+   {
+    "jp": "足を怪我した彼を、少し座らせておいた。"
+   },
+   {
+    "jp": "あの二人の邪魔をしたくないから、二人きりにさせておこう。"
+   },
+   {
+    "jp": "文句がある人には言わせておけばいいのです。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi đã để vợ làm theo sở thích của cô ấy",
+    "jp": "妻の好きなようにさせておいた。"
+   },
+   {
+    "vi": "Giáo viên đã để học sinh có vẻ mệt mỏi nghỉ ngơi một chút",
+    "jp": "先生は具合の悪そうな生徒を、少し休ませておいた。"
+   },
+   {
+    "vi": "Những thứ cần thiết cho chuyến du lịch gia đình thì tôi sẽ để vợ mua",
+    "jp": "家族旅行に必要なものを、妻に買わせておく。"
+   }
+  ],
+  "page": 165,
+  "id": "c7b3p6"
+ },
+ {
+  "chapter": 8,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "～につき",
+  "meaning": "Cứ mỗi N thì...",
+  "forms": [],
+  "notes": [
+   "Mẫu câu dùng để biểu thị chi phí, thời gian,...mất bao nhiêu đối với một đơn vị số lượng nào đó.",
+   "Những đơn vị số lượng thường gặp:１人、１つ、１時間..."
+  ],
+  "examples": [
+   {
+    "jp": "1日につき日本語の単語を２０個勉強することにする。"
+   },
+   {
+    "jp": "1ヶ月につき2万円（の）税金を納めないといけない。"
+   },
+   {
+    "jp": "作文の問題は字の間違い１つにつき、3点減点される。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Phí vào cổng là 1.000 yên cho mỗi người",
+    "jp": "入場料は一人につき千円です。"
+   },
+   {
+    "vi": "Số lượng người tham gia sự kiện này tối đa 100 người mỗi ngày",
+    "jp": "このイベントの定員は、一日につき100名までです。"
+   },
+   {
+    "vi": "Bãi đỗ xe này có phí 500 yên 1 giờ",
+    "jp": "この駐車場は、一時間につき500円です。"
+   }
+  ],
+  "page": 168,
+  "id": "c8b1p1"
+ },
+ {
+  "chapter": 8,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～につき",
+  "meaning": "Vì/ Do N nên...",
+  "forms": [],
+  "notes": [
+   "Dùng để diễn tả nguyên nhân, lý do cho 1 sự việc nào đó.",
+   "Tuy nhiên cách nói này không thường dùng trong hội thoại hàng ngày, mà chủ yếu được dùng trong bảng hiệu, bảng thông báo, hoặc các thông báo công cộng."
+  ],
+  "examples": [
+   {
+    "jp": "点検中につき、エレベーターを一時使用禁止する。"
+   },
+   {
+    "jp": "試合は大雨につき、中止となりました。"
+   },
+   {
+    "jp": "現在工事につき通行止めですが、明日からは通行可能になります。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Do đang thi công nên(con đường này)không thể lưu thông",
+    "jp": "工事中につき、通行できません。"
+   },
+   {
+    "vi": "Do bão đang đến gần, buổi học ngày mai sẽ học online",
+    "jp": "台風の接近につき、明日の授業はオンラインになります。"
+   },
+   {
+    "vi": "Do đang trong giờ họp nên xin hãy giữ yên lặng",
+    "jp": "会議中につき、静かにしてください。"
+   }
+  ],
+  "page": 169,
+  "id": "c8b1p2"
+ },
+ {
+  "chapter": 8,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～もの / ～もん",
+  "meaning": "Thì là bởi vì...",
+  "forms": [
+   "普通形 もの",
+   "A だ/Nだ ＋",
+   "な もん"
+  ],
+  "notes": [
+   "Trợ từ cuối câu biểu thị lý do.Được sử dụng trong các cuộc trò chuyện thân mật, suồng sã.",
+   "Cách nói này cũng thường được trẻ em sử dụng.",
+   "「～もの」 thường được phụ nữ sử dụng 「;～もん」 được cả nam và nữ sử dụng.",
+   "Cách nói này thường được kết hợp cùng 「～んだ」→「～んだもの/んだもん」.",
+   "Đầu câu thường đi cùng 「だって」 例 A：もう寝るの？ B：だって、眠いもん。"
+  ],
+  "examples": [
+   {
+    "jp": "A：もう食べないの？B：うん。だってもうお腹がいっぱいなんだもの。"
+   },
+   {
+    "jp": "彼とよく話し合った方がいいよ。だって君、彼のことを誤解しているもの。"
+   },
+   {
+    "jp": "A:足が痛そうだね。B:気にしないで、こんなケガは大したことないもの。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Xin lỗi cậu, tại vì tớ không biết ấy",
+    "jp": "ごめん、知らなかったんだもん。"
+   },
+   {
+    "vi": "Tớ có bất mãn gì đâu, vì bây giờ tớ đang hạnh phúc nhất đấy",
+    "jp": "不満なんてないよ、今が一番幸せだもの。"
+   },
+   {
+    "vi": "Cho tớ nghỉ một chút, tại chân tớ đau lắm ấy!",
+    "jp": "ちょっと休ませて、足がすごく痛いんだもの。"
+   }
+  ],
+  "page": 170,
+  "id": "c8b1p3"
+ },
+ {
+  "chapter": 8,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～ものだから / ～もので",
+  "meaning": "Vì lí do là…",
+  "forms": [
+   "普通形 ものだから",
+   "＋",
+   "Aな/Nな もので"
+  ],
+  "notes": [
+   "Dùng khi muốn đưa ra lí do mang tính cá nhân, vì không có cách nào khác hoặc không thể nào làm khác được nên….",
+   "Văn nói:もんで、もんだから"
+  ],
+  "examples": [
+   {
+    "jp": "日本語が下手なものだから、店員さんの言っている事が分からなかった。"
+   },
+   {
+    "jp": "まだ子供なもので、社会のことはよく分かりません。"
+   },
+   {
+    "jp": "宿題を忘れたもので、先生に怒られてしまった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Gần đây vì bận quá nên không gặp nhau được nhỉ",
+    "jp": "最近は忙しいもので、あまり会えませんでしたね。"
+   },
+   {
+    "vi": "Vì bị cảm nên không thể gặp bạn bè",
+    "jp": "風邪をひいてしまったもんで、友達に会うことができなかった。"
+   },
+   {
+    "vi": "Vì có việc đột xuất nên chiều nay tôi sẽ về sớm",
+    "jp": "急に予定が入ってしまったものですから、午後は早退します。"
+   }
+  ],
+  "page": 171,
+  "id": "c8b1p4"
+ },
+ {
+  "chapter": 8,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～をきっかけに / ～がきっかけで",
+  "meaning": "Nhân N là cơ dịp duyên N.../để...",
+  "forms": [
+   "をきっかけに",
+   "N＋",
+   "がきっかけで"
+  ],
+  "notes": [
+   "Diễn đạt tình huống, sự việc mà người nói coi đó là cơ hội/bước ngoặt để bắt đầu làm một điều nào đó.",
+   "Vế sau là nội dung thể hiện hành động mới được khởi đầu."
+  ],
+  "examples": [
+   {
+    "jp": "あの俳優は有名な映画に出たことがきっかけで、スターになった。"
+   },
+   {
+    "jp": "隣にベトナム人が引っ越してきたことをきっかけにして、ベトナム語の勉強を始めた。"
+   },
+   {
+    "jp": "同窓会で再会したことがきっかけで、彼と付き合うことになった。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nhân dịp kết hôn, tôi đã bỏ thuốc lá",
+    "jp": "結婚したのをきっかけにたばこをやめました。"
+   },
+   {
+    "vi": "Anime chính là cơ duyên khiến tôi bắt đầu quan tâm đến Nhật Bản",
+    "jp": "アニメがきっかけで日本に興味を持つようになりました。"
+   },
+   {
+    "vi": "Nhân dịp tổ chức Thế vận hội, thị trấn đã phát triển nhanh chóng",
+    "jp": "オリンピック開催をきっかけに、町は急速に発展した。"
+   }
+  ],
+  "page": 172,
+  "id": "c8b1p5"
+ },
+ {
+  "chapter": 8,
+  "lesson": 1,
+  "index": 6,
+  "pattern": "～ことになっている",
+  "meaning": "quy Được định quyết V/ không định/ V",
+  "forms": [
+   "Ⅴる",
+   "＋ことになっている",
+   "Vない"
+  ],
+  "notes": [
+   "Diễn tả hành động nào đó làm/không làm do các quy tắc, thói quen, hoặc kế hoạch.",
+   "Mở rộng: Khi quyết định điều gì đó dựa trên ý chí của chính mình →sử dụng mẫu câu:「～ことにしている」 例 Gần đây tôi tăng cân, nên tôi đã quyết định đi bộ mỗi sáng. 〇 最近太ったので、毎朝散歩することにしている。 X 最近太ったので、毎朝散歩することになっている。"
+  ],
+  "examples": [
+   {
+    "jp": "面接を受けるとき、履歴書を持っていかないといけないことになっている。"
+   },
+   {
+    "jp": "学校の規則で、授業中は携帯電話を使ってはいけないことになっている。"
+   },
+   {
+    "jp": "ベトナムでは、車は道の右側を走ることになっている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Thư viện này vào ngày nghỉ sẽ đóng cửa lúc 20 giờ/8 giờ tối",
+    "jp": "この図書館は休日は20時で閉館することになっている。"
+   },
+   {
+    "vi": "Nếu không nộp bài tập thì sẽ không được tính điểm danh đâu đấy!",
+    "jp": "宿題を提出しないと、出席していないことになってしまうよ。"
+   },
+   {
+    "vi": "Tuần sau tôi được quyết định sẽ đi công tác",
+    "jp": "来週出張することになっている。"
+   }
+  ],
+  "page": 173,
+  "id": "c8b1p6"
+ },
+ {
+  "chapter": 8,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～かねる / ～かねない",
+  "meaning": "Khó Có thể có V thể V/",
+  "forms": [],
+  "notes": [
+   "Vかねる：t hường dùng trong công việc, khi trình bày lí do khó có thể thực hiện được điều gì đó.",
+   "Vかねない: khả năng, nguy cơ xảy ra điều gì đó không tốt"
+  ],
+  "examples": [
+   {
+    "jp": "不況が続くと、会社が倒産しかねません。"
+   },
+   {
+    "jp": "運転しながら電話をすると、事故を起こしかねません。"
+   },
+   {
+    "jp": "申し訳ございません。お客様のご質問にお答えしかねます。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Khó có thể đồng ý với ý kiến lần này của sếp Việc thay đổi lịch hẹn vào ngày hôm đó thì khó có thể thực hiện được Việc hoàn trả những sản phẩm đã qua sử dụng thì chúng tôi rất khó thực hiện được Người đó vì không biết giữ mồm giữ miệng nên có khả năng là sẽ nói ra bí mật Lái xe trong tình trạng thiếu ngủ có thể dẫn đến tai nạn Nếu chỉ toàn ăn đồ ăn nhanh mà không chịu vận động thì sẽ có thể mắc nhiều bệnh",
+    "jp": "上司の今回の意見には同意しかねる。"
+   }
+  ],
+  "page": 176,
+  "id": "c8b2p1"
+ },
+ {
+  "chapter": 8,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "～がたい",
+  "meaning": "Khó V/ Không thể V",
+  "forms": [],
+  "notes": [
+   "Không thể nào mà.../Khó mà...",
+   "Là cách nói cứng, thường đi với những động từ thể hiện nhận thức như: 信じる、 許す、理解する、想像する、耐える、表す、言う…"
+  ],
+  "examples": [
+   {
+    "jp": "友人が難病に侵されてしまうなんて、受け入れがたい事で、動揺を隠せない。"
+   },
+   {
+    "jp": "この番組は、間違った情報を発信しているので信じがたい。"
+   },
+   {
+    "jp": "大勢の前で彼に馬鹿にされ、耐えがたい屈辱を受けた。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi không thể chịu được tiếng ồn của phòng bên cạnh khi hát karaoke",
+    "jp": "カラオケで隣の部屋の騒音に耐えがたい。"
+   },
+   {
+    "vi": "Anh ấy trông có vẻ không có hứng thú với tình yêu nên thật khó mà tin là anh ấy có người yêu",
+    "jp": "恋愛に興味がなさそうな彼に恋人ができるなんて信じがたいです。"
+   },
+   {
+    "vi": "Niềm hạnh phúc khi có con thì khó có thể diễn tả bằng lời",
+    "jp": "子供ができた嬉しさは言葉で表しがたいです。"
+   }
+  ],
+  "page": 177,
+  "id": "c8b2p2"
+ },
+ {
+  "chapter": 8,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "〜っこない",
+  "meaning": "Không thể nào mà V",
+  "forms": [],
+  "notes": [
+   "Phủ định mạnh mẽ, tuyệt đối không thể.",
+   "Thường dùng với động từ thể khả năng/thể hiện năng lực.",
+   "Văn nói, dùng với người thân thiết."
+  ],
+  "examples": [
+   {
+    "jp": "こんな大雨の日に、外で遊べっこない。"
+   },
+   {
+    "jp": "力が弱い私が、こんな重い荷物運べっこない。"
+   },
+   {
+    "jp": "彼女は私に料理を作ってくれたが、こんなにたくさん食べられっこない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Không thể nào đỗ được N1",
+    "jp": "N1に合格できっこない。"
+   },
+   {
+    "vi": "Tao nghĩ một đứa ngốc như mày thì sao có thể đỗ N1 được",
+    "jp": "バカなあなたなんかN1に合格できっこないと思うけどね。"
+   },
+   {
+    "vi": "Với câu hỏi khó như thế này thì làm sao mà tôi hiểu được",
+    "jp": "こんな難しい問題、分かりっこないよ。"
+   }
+  ],
+  "page": 178,
+  "id": "c8b2p3"
+ },
+ {
+  "chapter": 8,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "〜っぽい",
+  "meaning": "Có vẻ.../ cảm giác...",
+  "forms": [
+   "Aい",
+   "＋っぽい",
+   "N"
+  ],
+  "notes": [
+   "Diễn đạt ấn tượng chủ quan của người nói về một sự vật nào đó, với nghĩa: “Tuy không thực sự là sự vật đó, nhưng có cảm giác như vậy, giống như vậy”.",
+   "Câu nói thường mang sắc thái tiêu cực: 例 (Chiếc cặp này có vẻ rẻ tiền.)",
+   "Số tính từ đứng trước 「～っぽい」 rất giới hạn.Chủ yếu dùng với安いvà những tính từ chỉ màu sắc như:白い、黒い..."
+  ],
+  "examples": [
+   {
+    "jp": "彼氏はもう30歳なのに、性格が子供っぽい。"
+   },
+   {
+    "jp": "あの黒っぽい服を着た人が、私の弟です。"
+   },
+   {
+    "jp": "とり肉が白っぽくなるまで煮てください。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cô ấy có vẻ ngoài trông người lớn vậy thôi, chứ tính cách thì trẻ con lắm",
+    "jp": "彼女は見た目は大人っぽいが、性格は子供っぽい。"
+   },
+   {
+    "vi": "Anh ta nói hôm nay sức khỏe không tốt nên nghỉ, nhưng có vẻ như là nói dối",
+    "jp": "彼は今日は体調が悪く休むと言っていたが、どうも嘘っぽい。"
+   },
+   {
+    "vi": "Tôi vui vì được anh ấy tặng ví, nhưng nó trông hơi rẻ tiền",
+    "jp": "彼に財布をもらって嬉しいが、少し安っぽい。"
+   }
+  ],
+  "page": 179,
+  "id": "c8b2p4"
+ },
+ {
+  "chapter": 8,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "〜っぽい",
+  "meaning": "Nhiều/ Thiên về N",
+  "forms": [],
+  "notes": [
+   "Diễn tả một vật mà trong thành phần chứa nhiều một chất/thứ gì đó.",
+   "Thường mang sắc thái tiêu cực: 例",
+   "Vì số từ có thể kết hợp với 「～っぽい」 trong nét nghĩa này rất ít và gần như cố định, nên chúng ta chỉ cần nhớ những từ như 「:水、油、粉」 là đủ."
+  ],
+  "examples": [
+   {
+    "jp": "このカレーは水っぽいね。あんまりおいしくない。"
+   },
+   {
+    "jp": "油っぽいものを食べると、気持ち悪くなる。"
+   },
+   {
+    "jp": "このおかしは粉っぽいし、粉がこぼれて食べにくい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cái bánh quy này cứ bột bột",
+    "jp": "このクッキーは粉っぽいです。"
+   },
+   {
+    "vi": "Hình như món súp này bột mỳ chưa tan hết hay sao ấy mà nó cứ bột bột",
+    "jp": "このスープは小麦粉がうまく溶けていないのか、少し粉っぽい。"
+   },
+   {
+    "vi": "Nếu cứ ăn toàn những món dầu mỡ thì sẽ béo đấy!",
+    "jp": "油っぽい食べ物ばかり食べていると太るよ。"
+   }
+  ],
+  "page": 180,
+  "id": "c8b2p5"
+ },
+ {
+  "chapter": 8,
+  "lesson": 2,
+  "index": 6,
+  "pattern": "〜っぽい",
+  "meaning": "Hay V/ Dễ V",
+  "forms": [],
+  "notes": [
+   "Dùng khi nói về đặc điểm tính cách của một người, với nghĩa:“thường hay…”, “dễ…”.",
+   "Câu nói thường mang sắc thái tiêu cực: 例 あの人は怒りっぽい。",
+   "Đối với những điều tích cực, không dùng 「～っぽい」 mà dùng 「よく～する」 例 ✕あの人は笑いっぽい。 〇あの人はよく笑う。",
+   "Các từ đi trước 「～っぽい」 gần như cố định: 飽きる、怒る、忘れる..."
+  ],
+  "examples": [
+   {
+    "jp": "５０代になってから忘れっぽくなり、特に人の名前が全然出てこない。"
+   },
+   {
+    "jp": "私は飽きっぽい性格で、何をやっても長く続かない。"
+   },
+   {
+    "jp": "課長は怒りっぽいので、社員から嫌われいる。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Bố tôi nóng tính từ hồi xưa rồi",
+    "jp": "父は昔から怒りっぽい。"
+   },
+   {
+    "vi": "Trẻ con thường có xu hướng chóng chán",
+    "jp": "子供は一般的に飽きっぽい傾向がある。"
+   }
+  ],
+  "page": 181,
+  "id": "c8b2p6"
+ },
+ {
+  "chapter": 8,
+  "lesson": 3,
+  "index": 1,
+  "pattern": "V ていく",
+  "meaning": "",
+  "forms": [],
+  "notes": [
+   "❶Đang V giữa chừng thì...",
+   "Diễn tả trạng thái thay đổi từ bây giờ→về sau.",
+   "Diễn tả 1 hành động xảy ra liên tục, duy trì, kéo dài từ bây giờ→về sau, sau này →về sau. ➋Về không gian",
+   "Hành động có hướng di chuyển ra xa khỏi người nói hoặc rời xa khỏi vị trí hiện tại mà người nói đang đứng."
+  ],
+  "examples": [
+   {
+    "jp": "今日も寒いだが、明日からももっと寒くなっていくだろう。"
+   },
+   {
+    "jp": "具合が悪い息子を、病院へ連れていく。"
+   },
+   {
+    "jp": "私は運動のために、毎日会社まで歩いていく。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Từ giờ trở đi trời sẽ ngày càng nóng lên",
+    "jp": "これからますます暑くなっていく。"
+   },
+   {
+    "vi": "Tôi nghĩ rằng từ giờ trở đi công ty sẽ ngày càng phát triển",
+    "jp": "これから会社はどんどん大きくなっていくと思います。"
+   },
+   {
+    "vi": "Tôi nghĩ rằng ngay cả khi trở về Việt Nam, tôi cũng sẽ tiếp tục học tiếng Nhật",
+    "jp": "ベトナムに戻っても、日本語の勉強を続けていくと思います。"
+   },
+   {
+    "vi": "Bây giờ tôi sẽ đi bộ đến nhà ga",
+    "jp": "これから駅まで歩いていく。"
+   },
+   {
+    "vi": "Alo, bây giờ tôi sẽ đến chỗ bạn đây",
+    "jp": "もしもし、今からそちらへ向かっていきますよ。"
+   },
+   {
+    "vi": "Nghe nói hôm nay trời mưa nên mình mang ô đi nhỉ?",
+    "jp": "今日は雨が降るそうだから、傘を持って行こうか？"
+   }
+  ],
+  "page": 184,
+  "id": "c8b3p1"
+ },
+ {
+  "chapter": 8,
+  "lesson": 3,
+  "index": 2,
+  "pattern": "V てくる",
+  "meaning": "",
+  "forms": [],
+  "notes": [
+   "❶Về mặt thời gian",
+   "Diễn tả 1 trạng thái thay đổi từ quá khứ đến hiện tại.",
+   "Diễn tả 1 hành động xảy ra liên tục, duy trì, kéo dài từ quá khứ đến hiện tại. ➋Về không gian",
+   "Đi làm gì đó rồi quay trở về vị trí người nói đang đứng.",
+   "Hành động có hướng di chuyển hướng đến người nói hoặc hướng đến vị trí hiện tại mà người nói đang đứng."
+  ],
+  "examples": [
+   {
+    "jp": "ベトナムへ来て1か月が経ち、だんだん生活に慣れてきた。"
+   },
+   {
+    "jp": "私は小学生の時からずっと、サッカーをしてきた。"
+   },
+   {
+    "jp": "いきなり、どこから野良猫が飛び出してきて、びっくりしました。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Gần đây trời trở nên rất nóng",
+    "jp": "最近はとても暑くなってきた。"
+   },
+   {
+    "vi": "Tiếng Nhật của cô ấy đã giỏi hơn rất nhiều so với năm ngoái",
+    "jp": "彼女の日本語は去年よりとても上手になってきました。"
+   },
+   {
+    "vi": "Tính đến bây giờ thì tôi đã học tiếng Nhật được 3 năm",
+    "jp": "今まで3年間日本語を勉強してきました。"
+   },
+   {
+    "vi": "Tôi đi mua bia một chút rồi về nhé",
+    "jp": "ちょっとビールを買ってくるね。"
+   },
+   {
+    "vi": "Em lên ngó con gái đang ngủ trên tầng 2 một chút rồi quay lại",
+    "jp": "2階で寝ている娘の様子を見てきます。"
+   },
+   {
+    "vi": "A: Alo!Mai cậu có đến bữa tiệc không? B: Có, có đi.Tớ nên mang gì đi nhỉ? A: Thôi, không sao đâu.Cậu không cần mang gì đến đâu",
+    "jp": "A:もしもし?明日のパーティー来る?B:うん、行くよ。何を持って行こうかな。A:うん。大丈夫。何も持ってこなくてもいいよ。"
+   }
+  ],
+  "page": 185,
+  "id": "c8b3p2"
+ },
+ {
+  "chapter": 8,
+  "lesson": 3,
+  "index": 3,
+  "pattern": "～とともに",
+  "meaning": "Cùng.../ Cùng với...",
+  "forms": [],
+  "notes": [
+   "Diễn tả ý 2 sự vật, sự việc gì cùng với nhau; hoặc sự hợp tác, đồng hành với nhau giữa người với người.",
+   "Cách nói này ít dùng trong giao tiếp hàng ngày, mà thường được dùng trong các bài phát biểu, báo chí, luận văn,..."
+  ],
+  "examples": [
+   {
+    "jp": "妹とともに遊園地へ出かけた。"
+   },
+   {
+    "jp": "手紙とともに故郷への切符が送られてきた。"
+   },
+   {
+    "jp": "薬局で薬をもらうと、薬とともに薬の説明書がついてくる。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Tôi đã quyết định cùng vợ trở về quê hương",
+    "jp": "私は妻とともに国に帰ることにした。"
+   },
+   {
+    "vi": "Tôi muốn cùng cô ấy xây dựng một gia đình ấm áp",
+    "jp": "彼女とともに、暖かい家庭を築きたい。"
+   },
+   {
+    "vi": "Ở ngôi trường này, bên cạnh tiếng Nhật, còn dạy cả văn hóa Nhật Bản",
+    "jp": "この学校では、日本語とともに日本の文化も教えている。"
+   }
+  ],
+  "page": 186,
+  "id": "c8b3p3"
+ },
+ {
+  "chapter": 8,
+  "lesson": 3,
+  "index": 4,
+  "pattern": "〜とともに",
+  "meaning": "Đồng Vừa...thời.../vừa...",
+  "forms": [
+   "Vる/Aい",
+   "Aな である ＋とともに",
+   "N/Nである"
+  ],
+  "notes": [
+   "Diễn tả 2 hành động xảy ra đồng thời, cùng lúc với nhau.Nếu 2 vế trước và sau 「〜とともに」 là chỉ trạng thái thì câu nói diễn tả sự vật, sự việc vừa là trạng thái thứ 1, vừa là trạng thái thứ 2."
+  ],
+  "examples": [
+   {
+    "jp": "新しい仕事を始めるときは、いつもわくわくするとともに、不安でもある。"
+   },
+   {
+    "jp": "グループのリーダーとして皆をまとめるとともに、どんな苦労も乗り越えていきたいと思う。"
+   },
+   {
+    "jp": "子育てが終わって、安心するとともに寂しさも感じる。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Bầu trời sáng lên, đồng thời/cùng lúc đó có tiếng một thứ gì đó lớn rơi xuống",
+    "jp": "空が光るとともに、何か大きなものが落ちる音がした。"
+   },
+   {
+    "vi": "Người lớn vừa có tự do, vừa có trách nhiệm",
+    "jp": "大人は、自由であるとともに責任もある。"
+   },
+   {
+    "vi": "Lời giải thích của anh ấy vừa ngắn gọn, vừa dễ hiểu",
+    "jp": "彼の説明は簡潔であるとともに、わかりやすい。"
+   }
+  ],
+  "page": 187,
+  "id": "c8b3p4"
+ },
+ {
+  "chapter": 8,
+  "lesson": 3,
+  "index": 5,
+  "pattern": "〜とともに",
+  "meaning": "Càng...Cùng với...càng.../thì...",
+  "forms": [
+   "Ｖる",
+   "＋とともに",
+   "N"
+  ],
+  "notes": [
+   "Diễn tả một điều gì đó thay đổi thì một điều khác cũng thay đổi cùng theo.",
+   "Cả vế trước và sau của 「とともに」 là những danh từ có tính thay đổ （i時代、年齢、 時間、深まり、高まり） hoặc những từ ngữ thể hiện sự thay đổ （i深まる、高まる、 変化（する）、拡大（する））."
+  ],
+  "examples": [
+   {
+    "jp": "季節の変化とともに木の葉の色も変わる。"
+   },
+   {
+    "jp": "国際化とともに、この国でも英語を話せる人が増えてきた。"
+   },
+   {
+    "jp": "AIの発達とともに、人間の働き方も変わっていくだろう。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cảm giác đau buồn rồi cũng sẽ tan biến dần cùng thời gian",
+    "jp": "悲しい気持ちは、時間とともに無くなっていくものだ。"
+   },
+   {
+    "vi": "(Cùng với)thời gian trôi đi, cơn đau ở lưng cũng dần dịu đi",
+    "jp": "時間が経つとともに、腰の痛みがひいてきた。"
+   },
+   {
+    "vi": "Cùng với tuổi tác, sở thích về hương vị món ăn cũng thay đổi",
+    "jp": "年齢とともに、食べ物の味の好みも変わるものだ。"
+   }
+  ],
+  "page": 188,
+  "id": "c8b3p5"
+ },
+ {
+  "chapter": 8,
+  "lesson": 3,
+  "index": 6,
+  "pattern": "～につれて",
+  "meaning": "Cùng với... thì...",
+  "forms": [
+   "Vる",
+   "＋につれて",
+   "N"
+  ],
+  "notes": [
+   "Diễn tả khi một điều gì đó thay đổi thì một điều khác cũng thay đổi theo.",
+   "Dùng kèm với những từ chỉ sự thay đổi: 増える、進む、広がる、... *Tuy nhiên, không dùng với các từ chỉ sự thay đổi không theo một chiều nhất định. Ví dụ như 「:増減」 *Có thể lược 「て」 c hỉ còn 「～につれ」 nhưng 「～につれ」 là cách nói trang trọng hơn, thường dùng trong văn viết. *Không dùng với những biểu hiện mang ý chí của con người ở vế sau."
+  ],
+  "examples": [
+   {
+    "jp": "年を重ねていくにつれて、身体の衰えは早いものだと実感した。"
+   },
+   {
+    "jp": "甘いものを食べ続けるにつれて体重が増え続けてきた。"
+   },
+   {
+    "jp": "時代の変化につれて、人々の価値観も多様化してきた。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cô bé đó càng lớn lên thì càng trở nên xinh đẹp",
+    "jp": "その少女は成長するにつれて美しさを増しつつある。"
+   },
+   {
+    "vi": "Cùng với sự phát triển của kinh tế, mức sống của người dân cũng được nâng cao",
+    "jp": "経済の発展につれて、人々の生活水準も向上した。"
+   },
+   {
+    "vi": "Càng đến gần ngày thi thì cảm giác bất an càng gia tăng",
+    "jp": "試験日が近づくにつれて、不安が増してきた。"
+   }
+  ],
+  "page": 189,
+  "id": "c8b3p6"
+ },
+ {
+  "chapter": 8,
+  "lesson": 3,
+  "index": 7,
+  "pattern": "～も〜ば、〜も",
+  "meaning": "Cả N1, N2 đều…",
+  "forms": [
+   "Vば",
+   "N 1 も Aい ければ N 2 も",
+   "Aな /Nなら"
+  ],
+  "notes": [
+   "Liệt kê những tính chất song song, có xu hướng giống nhau(tốt cùng tốt, xấu cùng xấu)hoặc nhiều mặt/khía cạnh của 1 hiện tượng.",
+   "Văn nói còn có thể dùng～も～し、～も"
+  ],
+  "examples": [
+   {
+    "jp": "外で運動するのが好きな子もいれば、室内で静かに遊ぶのが好きな子もいる。"
+   },
+   {
+    "jp": "私は勉強も苦手なら、運動も苦手で自分のことが嫌になる。"
+   },
+   {
+    "jp": "この町には、コンビニもなければ、スーパーもない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cô ấy vừa có thể chơi được cả piano, vừa có thể chơi được đàn vĩ cầm",
+    "jp": "彼女は、ピアノもできればバイオリンもできる。"
+   },
+   {
+    "vi": "Có người thích chó thì cũng có người không thích",
+    "jp": "犬を好きな人もいれば、嫌いな人もいる。"
+   },
+   {
+    "vi": "Ngay cả người Nhật cũng có người ăn được natto, cũng có người không ăn được",
+    "jp": "日本人でも、納豆を食べれる人もいれば、食べれない人もいる。"
+   }
+  ],
+  "page": 190,
+  "id": "c8b3p7"
+ },
+ {
+  "chapter": 9,
+  "lesson": 1,
+  "index": 1,
+  "pattern": "V た上で",
+  "meaning": "Sau khi V/ N thì mới...",
+  "forms": [
+   "うえ"
+  ],
+  "notes": [
+   "Đưa ra hành động, sự việc được tiến hành trên cơ sở sau khi hoàn thành/thực hiện xong hành động ở vế trước."
+  ],
+  "examples": [
+   {
+    "jp": "父は失敗を覚悟の上で、新たに会社を立ち上げることにした。"
+   },
+   {
+    "jp": "写真ではわからないので、実際に商品を見た上で買うか考える。"
+   },
+   {
+    "jp": "18歳以下の人は、保護者の許可を取った上でこのイベントに参加してください。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Sau khi được giáo viên kiểm tra tiếng Nhật, tôi đã nộp hồ sơ xin việc Sau khi trao đổi nhiều lần qua mạng xã hội, tôi quyết định sẽ gặp anh ấy trực tiếp",
+    "jp": "先生に日本語をチェックしてもらった上で、履歴書を出した。"
+   },
+   {
+    "vi": "Sau khi kiểm tra hạn sử dụng rồi thì mới giao bánh kẹo cho khách",
+    "jp": "SNSで何度もやり取りをした上で、彼と実際に会うことに決めた。"
+   }
+  ],
+  "page": 194,
+  "id": "c9b1p1"
+ },
+ {
+  "chapter": 9,
+  "lesson": 1,
+  "index": 2,
+  "pattern": "～うえ（に）",
+  "meaning": "Thêm Hơn nữa.../vào đó...",
+  "forms": [
+   "い",
+   "な な"
+  ],
+  "notes": [
+   "Liệt kê 2 tính chất giống nhau (プラス・プラス、マイナス・マイナス）",
+   "Vế sau: không dùng những mẫu câu ra lệnh, cấm chỉ, nhờ vả, rủ rê…"
+  ],
+  "examples": [
+   {
+    "jp": "今回のテストは簡単であるうえに、量も少なかった。"
+   },
+   {
+    "jp": "あの人は嘘をつくうえに約束を守らない人だ。"
+   },
+   {
+    "jp": "この服は安いうえにデザインもいいので、とても売れている。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Công việc này vất vả, hơn nữa lương lại thấp, nên tôi muốn nghỉ đến nơi rồi",
+    "jp": "この仕事は大変なうえに、給料も安いし、もうそろそろやめたいです。"
+   },
+   {
+    "vi": "Con nhà tôi vừa bướng bỉnh, thêm vào đó lại hay nói dối nữa, nên tôi rất khổ",
+    "jp": "うちの子はわがままなうえに、よく嘘をつくから、困っています。"
+   },
+   {
+    "vi": "Ngày hôm qua rất đen, đã làm mất ví lại còn bị chó cắn nữa",
+    "jp": "昨日はさ、財布を落としたうえに、犬に噛まれて、ついていなかったよ。"
+   }
+  ],
+  "page": 195,
+  "id": "c9b1p2"
+ },
+ {
+  "chapter": 9,
+  "lesson": 1,
+  "index": 3,
+  "pattern": "～ないことは ( も",
+  "meaning": "Không Có lẽ/có phải thể là là…không…/",
+  "forms": [
+   "Vない",
+   "Aい く ＋ないことは(も)ない",
+   "な で/Nで"
+  ],
+  "notes": [
+   "Dùng 2 lần phủ định để tránh cách nói khẳng định rõ ràng, như 1 cách nói khéo."
+  ],
+  "examples": [
+   {
+    "jp": "それは私のせいでないことはないけど、上司に言われてやっただけだ。"
+   },
+   {
+    "jp": "A：このお菓子賞味期限切れてるけど、食べれるかな？B：過ぎてからまだそんなに経ってなければ、食べれないことはないんじゃない？"
+   },
+   {
+    "jp": "ここの牛丼は、美味しくないこともないけど、家の近くにあるお店の方が安くて美味しい。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Nếu như cố gắng thì không phải là không thể làm được",
+    "jp": "頑張ればできないことはないんだけど。"
+   },
+   {
+    "vi": "Không phải là không thể đi bộ đến trường, nhưng đi xe đạp thì sẽ nhanh và dễ dàng hơn",
+    "jp": "学校まで歩いて通えないこともないんだけど、自転車の方がもっと速く楽でいいですね。"
+   },
+   {
+    "vi": "Dù là bao nhiêu tuổi đi chăng nữa, chỉ cần có sự đam mê và lòng kiên trì, tôi nghĩ sẽ có thể làm được thôi(không gì là không làm được)",
+    "jp": "いくつになってもやる気や根性さえあれば、やれないことはないと思いますよ。"
+   }
+  ],
+  "page": 196,
+  "id": "c9b1p3"
+ },
+ {
+  "chapter": 9,
+  "lesson": 1,
+  "index": 4,
+  "pattern": "～に違いない",
+  "meaning": "Chắc Nhất định chắn là là/",
+  "forms": [
+   "普通形",
+   "Aな （である） ＋に違いない",
+   "N （である）"
+  ],
+  "notes": [
+   "Đưa ra suy đoán mang tính chắc chắn của người nói.",
+   "Chỉ dùng khi đặc biệt muốn nhấn mạnh vào sự chắc chắn trong suy đoán đó."
+  ],
+  "examples": [
+   {
+    "jp": "彼女は今日も、遅刻してくるに違いない。"
+   },
+   {
+    "jp": "田中さんは朝からずっとせきをしているので、かぜに違いない。"
+   },
+   {
+    "jp": "もし彼と一緒に暮らしたら、毎日楽しいに違いない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Cái cặp của cô ấy chắc chắn rất đắt",
+    "jp": "彼女のバッグはかなり高いに違いない。"
+   },
+   {
+    "vi": "Anh ấy vì tối hôm qua đã thức trắng đêm để làm việc nên chắc chắn đang rất mệt",
+    "jp": "彼は昨日徹夜して仕事をしていたから、疲れているに違いない。"
+   },
+   {
+    "vi": "Cô ấy thành công như vậy chắc chắn là từ trước đến giờ đã nỗ lực rất nhiều",
+    "jp": "こんなに成功できた彼女は今までとっても努力したに違いない。"
+   }
+  ],
+  "page": 197,
+  "id": "c9b1p4"
+ },
+ {
+  "chapter": 9,
+  "lesson": 1,
+  "index": 5,
+  "pattern": "～に相違ない",
+  "meaning": "Chắc chắn là...",
+  "forms": [
+   "普通形",
+   "Aな /Aな である ＋に相違ない",
+   "N/Nである"
+  ],
+  "notes": [
+   "Diễn tả hành động, sự việc mà người nói cho rằng chắc chắn sẽ xảy ra.",
+   "Cách diễn đạt cứng hơn so vớ 「i～に違いない」, chủ yếu được dùng trong văn viết."
+  ],
+  "examples": [
+   {
+    "jp": "この会社は辞める人が多いので、何か問題があるに相違ない。"
+   },
+   {
+    "jp": "返事がまだ来ないということは、何か問題が発生しているに相違ない。"
+   },
+   {
+    "jp": "あの男が犯人に相違ないが、まだ証拠が見つかっていない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Anh ấy chắc chắn là sẽ đỗ kỳ thi",
+    "jp": "彼は試験に合格するに相違ない。"
+   },
+   {
+    "vi": "Chiếc cặp này chắc chắn là của bạn đúng không?",
+    "jp": "このかばんはあなたのものに相違ないですか。"
+   },
+   {
+    "vi": "Chắc chắn anh ấy đã không báo cáo lỗi của mình cho trưởng ban",
+    "jp": "彼は自分のミスを部長に報告しなかったに相違ない。"
+   }
+  ],
+  "page": 198,
+  "id": "c9b1p5"
+ },
+ {
+  "chapter": 9,
+  "lesson": 1,
+  "index": 6,
+  "pattern": "～ぬき",
+  "meaning": "Mà không/bỏ...",
+  "forms": [],
+  "notes": [
+   "Danh từ N là cái bình thường lẽ ra sẽ có, nhưng giờ không/bỏ qua…",
+   "Thường dùng thànhぬきで"
+  ],
+  "examples": [
+   {
+    "jp": "今日はとても忙しかったので、休憩ぬきで働いた。"
+   },
+   {
+    "jp": "今日の会議は、私ぬきで先に始めてください。"
+   },
+   {
+    "jp": "一日中働いて給料ぬきなんて許せない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Chị bỏ đá giúp em",
+    "jp": "アイスぬきで、お願いします。"
+   },
+   {
+    "vi": "Mình đã đi học mà không ăn sáng",
+    "jp": "朝ごはんぬきで、学校に来ました。"
+   },
+   {
+    "vi": "Tớ không nói đùa đâu, thực sự là tớ muốn ở bên cạnh cậu mãi về sau đấy",
+    "jp": "冗談ぬきでほんまに君とずっと一緒にいたいよ。"
+   }
+  ],
+  "page": 199,
+  "id": "c9b1p6"
+ },
+ {
+  "chapter": 9,
+  "lesson": 2,
+  "index": 1,
+  "pattern": "～をもとに ( して",
+  "meaning": "Căn cứ, dựa vào...",
+  "forms": [],
+  "notes": [
+   "Đưa ra một điều làm nguồn tham khảo/nền tảng/tư liệu hoặc gợi ý để tạo ra một thứ gì mới.",
+   "Vế sau thường đi với những động từ mang ý nghĩa: viết ra, nói ra, tạo ra...",
+   "Khi kết hợp trực tiếp với 1 danh từ ngay phía sau thì cấu trúc kết hợp sẽ là: N1をもとにしたN2"
+  ],
+  "examples": [
+   {
+    "jp": "この新しいダイエットの方法について、実験の結果をもとに説明します。"
+   },
+   {
+    "jp": "2年間ホテルで働いた経験を基に、自分のホテルを開く予定だ。"
+   },
+   {
+    "jp": "今日の研修は実際の事例をもとにした研修で、大変勉強になりました。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Anh ấy đã viết sách dựa trên kinh nghiệm của mình",
+    "jp": "彼は自分の経験をもとに、本を書いた。"
+   },
+   {
+    "vi": "Nghe nói bộ phim truyền hình này được làm dựa trên một câu chuyện có thật",
+    "jp": "このドラマは本当の話をもとにして作られたそうだ。"
+   },
+   {
+    "vi": "Dựa trên kết quả thí nghiệm mới, tôi đã viết lại bản báo cáo",
+    "jp": "新しい実験の結果をもとにして、レポートを書き直した。"
+   }
+  ],
+  "page": 202,
+  "id": "c9b2p1"
+ },
+ {
+  "chapter": 9,
+  "lesson": 2,
+  "index": 2,
+  "pattern": "～からといって",
+  "meaning": "Dẫu nói là…",
+  "forms": [
+   "普通形",
+   "Aな だ/Aな である ＋からといって",
+   "Nだ/Nである"
+  ],
+  "notes": [
+   "Thường đi vớiとはかぎりません、わけではない、...",
+   "Vế đằng sau trái ngược với vế đằng trước.",
+   "Văn nói 「:からって」."
+  ],
+  "examples": [
+   {
+    "jp": "ほしいからといって、何でも買ったらお金が無くなってしまう。"
+   },
+   {
+    "jp": "大学生だからといって、頭がいいとは限らない。"
+   },
+   {
+    "jp": "アメリカに留学したからといって、英語が上手だとは限らない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Dù có tiền chưa chắc đã hạnh phúc",
+    "jp": "お金がたくさんあるからと言って、幸せとは限りません。"
+   },
+   {
+    "vi": "Dẫu có là người Việt Nam nhưng đâu phải có thể dễ dàng dạy tiếng Việt đâu",
+    "jp": "ベトナム人だからと言って、ベトナム語を簡単に教えられるわけではない。"
+   },
+   {
+    "vi": "Dù có là giáo viên nhưng đâu phải cái gì cũng biết được đâu",
+    "jp": "先生だからと言って、なんでも知っているわけではない。"
+   }
+  ],
+  "page": 203,
+  "id": "c9b2p2"
+ },
+ {
+  "chapter": 9,
+  "lesson": 2,
+  "index": 3,
+  "pattern": "〜以来",
+  "meaning": "Kể từ khi...",
+  "forms": [
+   "Ⅴて い らい",
+   "N"
+  ],
+  "notes": [
+   "Sau đó là 1 trạng thái diễn ra liên tục.",
+   "N là những danh từ mang tính động."
+  ],
+  "examples": [
+   {
+    "jp": "彼女に会って以来、ずっと彼女のことを考えている。"
+   },
+   {
+    "jp": "妻と結婚して以来、毎日とても幸せだ。"
+   },
+   {
+    "jp": "日本に来て以来、全然ベトナム料理を食べていない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Kể từ khi tốt nghiệp thì tôi không gặp anh ấy nữa",
+    "jp": "卒業して以来/卒業以来、初恋の彼に一度も会っていません。"
+   },
+   {
+    "vi": "Kể từ khi về nước tôi làm việc ở Hà Nội",
+    "jp": "帰国して以来、ハノイで働いています。"
+   }
+  ],
+  "page": 204,
+  "id": "c9b2p3"
+ },
+ {
+  "chapter": 9,
+  "lesson": 2,
+  "index": 4,
+  "pattern": "～に限る",
+  "meaning": "...là tốt nhất",
+  "forms": [
+   "Vる/Ⅴない",
+   "N ＋に限る"
+  ],
+  "notes": [
+   "Đưa ra đánh giá, ý kiến, ấn tượng của người nói cho rằng cái gì/làm điều gì là tốt nhất.",
+   "Cách nói lịch sự hơn của:～のが一番いい"
+  ],
+  "examples": [
+   {
+    "jp": "冬はこたつで温まるに限る。"
+   },
+   {
+    "jp": "暑い夏の仕事終わりには、キンキンに冷えたビールに限る。"
+   },
+   {
+    "jp": "ダイエットは食事制限をするより、運動に限る。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mùa hè thì bia là tuyệt nhất rồi"
+   },
+   {
+    "vi": "Nếu mà nói đến đồ ăn cay, thì chắc chắn đồ ăn Hàn Quốc là ngon nhất"
+   },
+   {
+    "vi": "Sau khi kết thúc giờ làm, thì đi uống bia với nhau là tuyệt nhất"
+   }
+  ],
+  "page": 205,
+  "id": "c9b2p4"
+ },
+ {
+  "chapter": 9,
+  "lesson": 2,
+  "index": 5,
+  "pattern": "～かのようだ / ～かのように",
+  "meaning": "Cứ như thể là...",
+  "forms": [
+   "普通形 かのような",
+   "Aな である ＋ かのように",
+   "N/Nである かのようだ"
+  ],
+  "notes": [
+   "Trên thực tế thì không phải vậy nhưng người nói cảm thấy cứ như là... →là cách nói ví von so sánh."
+  ],
+  "examples": [
+   {
+    "jp": "今日はとても寒く、風も強いので冬であるかのようだ。"
+   },
+   {
+    "jp": "彼女は私が解けなかった問題をまるで簡単であるかのように解いた。"
+   },
+   {
+    "jp": "まだ５月なのに、今日は夏になったかのように暑い。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Da của cô ấy trắng như tuyết",
+    "jp": "彼女の肌は、まるで/あたかも雪のように白い。"
+   },
+   {
+    "vi": "Hôm nay nóng như là đang ở lò xông hơi",
+    "jp": "今日はサウナの中にいるかのような暑さだ。"
+   },
+   {
+    "vi": "Anh ấy nói tiếng Nhật giỏi đến mức như người Nhật vậy",
+    "jp": "彼は日本語があまりにも上手で、日本人かのようだ。"
+   }
+  ],
+  "page": 206,
+  "id": "c9b2p5"
+ },
+ {
+  "chapter": 9,
+  "lesson": 2,
+  "index": 6,
+  "pattern": "～くせに",
+  "meaning": "Vậy mà/ Thế mà...",
+  "forms": [
+   "V(普)",
+   "Nの ＋くせに",
+   "Aな /Ａい"
+  ],
+  "notes": [
+   "Thể hiện cảm xúc phê phán, bất mãn, không ngờ tới trước những điểm không tốt của người khác.",
+   "2 vế cùng chủ ngữ.",
+   "Văn nói: くせして"
+  ],
+  "examples": [
+   {
+    "jp": "山田さんは彼女がいるくせに、よく他の女の人と遊んでいる。"
+   },
+   {
+    "jp": "彼は年下のくせに、私と話すときに敬語を使わない。"
+   },
+   {
+    "jp": "彼女は英語が上手なくせに、何回頼んでも私に教えてくれない。"
+   }
+  ],
+  "drills": [
+   {
+    "vi": "Mặc dù là người mới nhưng lúc nào cũng tinh vi",
+    "jp": "あいつは新人のくせに、いつも威張っている。"
+   },
+   {
+    "vi": "Nó chẳng được việc gì đâu, nhưng lúc nào cũng lắm mồm nên ghét thật đấy!",
+    "jp": "自分は何もしないくせに、そばでうるさくていやだな。"
+   },
+   {
+    "vi": "Trời, có một ngụm bia thôi mà đã say rồi á?Đàn ông con trai thế mà",
+    "jp": "ビール、一口で酔っ払っちゃったの？男のくせに。"
+   }
+  ],
+  "page": 207,
+  "id": "c9b2p6"
+ }
+]

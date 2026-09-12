@@ -13,6 +13,10 @@
   --line:#e6e9ef;
   --vocab:#4f46e5; --vocab-soft:#eef0fd; --vocab-dark:#3d37b8;
   --kanji:#0d9488; --kanji-soft:#e7f6f4; --kanji-dark:#0a7268;
+  --gram:#b45309; --gram-soft:#fdf1e3; --gram-dark:#92400e;
+  --read:#7c3aed; --read-soft:#f2ecfe; --read-dark:#6023d4;
+  --exam:#be123c; --exam-soft:#fdeaef; --exam-dark:#9f1239;
+  --flag:#d97706; --flag-soft:#fef3e2;
   --good:#15803d; --good-soft:#eaf7ee; --bad:#b91c1c; --bad-soft:#fdeeee;
   --radius:14px;
   --shadow:0 1px 2px rgba(26,34,51,.05),0 4px 16px rgba(26,34,51,.06);
@@ -23,6 +27,10 @@ body[data-theme="dark"]{
   --ink:#e9edf5; --ink2:#a8b1c3; --muted:#707a8e; --line:#2a3140;
   --vocab:#6c63ee; --vocab-soft:rgba(108,99,238,.16); --vocab-dark:#8981f2;
   --kanji:#17a99b; --kanji-soft:rgba(23,169,155,.15); --kanji-dark:#3fc4b6;
+  --gram:#d99441; --gram-soft:rgba(217,148,65,.16); --gram-dark:#e8b06a;
+  --read:#9b6df0; --read-soft:rgba(155,109,240,.16); --read-dark:#b18cf5;
+  --exam:#e8506f; --exam-soft:rgba(232,80,111,.16); --exam-dark:#f27a94;
+  --flag:#e0a044; --flag-soft:rgba(224,160,68,.18);
   --good:#4ade80; --good-soft:rgba(34,197,94,.12); --bad:#f87171; --bad-soft:rgba(239,68,68,.13);
   --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 22px rgba(0,0,0,.4);
 }
@@ -109,6 +117,109 @@ h2{font-size:18px;font-weight:650}
 .btn.primary:hover{background:var(--vocab-dark)}
 .btn.kanjiC{background:var(--kanji);border-color:var(--kanji);color:#fff}
 .btn.kanjiC:hover{background:var(--kanji-dark)}
+.btn.examC{background:var(--exam);border-color:var(--exam);color:#fff}
+.btn.examC:hover{background:var(--exam-dark)}
+.chip.sec-e{background:var(--exam-soft);color:var(--exam-dark)}
+.startcard.e .ico{background:var(--exam-soft);color:var(--exam)}
+/* ---------- exam runner ---------- */
+.paperbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:10px 0 14px;border-bottom:1px solid var(--line);margin-bottom:16px;position:sticky;top:0;
+  background:var(--bg);z-index:5}
+body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[data-theme="ocean"] .paperbar{background:transparent;backdrop-filter:blur(10px)}
+.pbleft{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ptimer{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  padding:4px 16px;border-radius:11px;background:var(--exam-soft);color:var(--exam-dark)}
+.ptimer.warn{background:var(--flag-soft);color:var(--flag)}
+.ptimer.danger{background:var(--bad-soft);color:var(--bad);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.55}}
+.paperwrap{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:16px;align-items:start}
+@media (max-width:1000px){.paperwrap{grid-template-columns:1fr}}
+.paperq{padding:22px 26px}
+.pqtop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.pqnum{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.flagbtn{border:1.5px solid var(--line);background:var(--elev);color:var(--ink2);font:inherit;
+  font-size:12.5px;font-weight:650;padding:6px 12px;border-radius:99px;cursor:pointer;transition:.12s}
+.flagbtn:hover{border-color:var(--flag);color:var(--flag)}
+.flagbtn.on{background:var(--flag-soft);border-color:var(--flag);color:var(--flag)}
+.pqtext{font-size:18px;line-height:1.85}
+.paperq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.7;white-space:normal}
+.paperq .opt.picked{border-color:var(--exam);background:var(--exam-soft);font-weight:600}
+.pqnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.navpanel{padding:16px;position:sticky;top:86px}
+.navhead{margin-bottom:10px}
+.navgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.navcell{aspect-ratio:1;border:1.5px solid var(--line);background:var(--elev);color:var(--ink2);
+  border-radius:8px;font:inherit;font-size:12.5px;font-weight:650;cursor:pointer;transition:.1s}
+.navcell:hover{border-color:var(--muted)}
+.navcell.done{background:var(--exam);border-color:var(--exam);color:#fff}
+.navcell.flag{background:var(--flag);border-color:var(--flag);color:#fff}
+.navcell.cur{outline:2px solid var(--ink);outline-offset:2px}
+.navstat{margin-top:12px;font-size:12.5px;color:var(--ink2);display:flex;flex-direction:column;gap:5px}
+.navstat .sw{width:12px;height:12px;border-radius:4px;display:inline-block;margin-right:6px;vertical-align:-1px}
+.navstat .sw.done{background:var(--exam)}
+.navstat .sw.flag{background:var(--flag)}
+.navstat .sw.todo{border:1.5px solid var(--line)}
+.btn.gramC{background:var(--gram);border-color:var(--gram);color:#fff}
+.btn.gramC:hover{background:var(--gram-dark)}
+.btn.readC{background:var(--read);border-color:var(--read);color:#fff}
+.btn.readC:hover{background:var(--read-dark)}
+.chip.sec-g{background:var(--gram-soft);color:var(--gram-dark)}
+.chip.sec-r{background:var(--read-soft);color:var(--read-dark)}
+.startcard.g .ico{background:var(--gram-soft);color:var(--gram)}
+.startcard.r .ico{background:var(--read-soft);color:var(--read)}
+/* ---------- grammar card ---------- */
+.gcard{text-align:left}
+.gtop{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:12px}
+.gpat{font-size:30px;font-weight:700;color:var(--gram-dark);line-height:1.3}
+.gmean{font-size:17px;font-weight:650;margin-top:4px}
+.gforms{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.gforms>div{background:var(--gram-soft);color:var(--gram-dark);border-radius:9px;padding:7px 13px;font-size:14.5px;font-weight:600}
+.gnotes{margin:0 0 4px 18px}
+.gnotes li{margin:6px 0;font-size:14.5px;line-height:1.6}
+.gex{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.gexlab{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.gex .jp{font-size:16.5px;margin:7px 0;line-height:1.7}
+.gdrill{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.gdrill:last-child{border-bottom:none}
+.gdrill b{font-size:15.5px;font-weight:600}
+.gnote{margin-top:10px;padding:9px 13px;border-radius:9px;background:var(--gram-soft);color:var(--gram-dark);font-size:13.5px}
+/* ---------- translation quiz ---------- */
+.transsent{font-size:26px;font-weight:600;line-height:1.75;margin-top:10px}
+.transbox{max-width:640px;margin:0 auto}
+.transbox textarea{width:100%;padding:13px 16px;font:inherit;font-size:15.5px;border:1.5px solid var(--line);
+  border-radius:11px;outline:none;background:var(--elev);color:var(--ink);resize:vertical;line-height:1.6}
+.transbox textarea:focus{border-color:var(--accent)}
+.transrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
+.grading{max-width:640px;margin:18px auto 0;padding:14px;text-align:center;color:var(--ink2);
+  border:1.5px dashed var(--line);border-radius:11px;font-size:14px}
+.srcbadge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.03em}
+.srcbadge.ai{background:var(--vocab-soft);color:var(--vocab-dark)}
+.srcbadge.off{background:var(--line);color:var(--ink2);cursor:help}
+.scorebar{height:7px;background:var(--line);border-radius:99px;margin-top:10px;overflow:hidden}
+.scorebar>i{display:block;height:100%;border-radius:99px}
+.suggest{margin-top:8px;font-size:14px;color:var(--ink2)}
+/* ---------- reading ---------- */
+.readwrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:1100px){.readwrap{grid-template-columns:1fr}}
+.readpassage{padding:22px 26px;position:sticky;top:18px;max-height:78vh;overflow-y:auto}
+.rplab{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+.rptext{font-size:16.5px;line-height:2.1;text-align:justify}
+.readq{padding:22px 26px}
+.rqhead{font-size:17px;font-weight:650;line-height:1.7;margin-bottom:14px}
+.readq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.65;white-space:normal}
+.rnum{flex:none;font-weight:700;color:var(--read-dark)}
+.evid{margin-top:12px;padding:11px 15px;border-radius:10px;background:var(--read-soft);color:var(--ink)}
+.evlab{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--read-dark);margin-bottom:5px}
+.evid .jp{font-size:15px;line-height:1.8}
+.whyt{font-size:14.5px;line-height:1.7}
+.wrongwhy{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--ink2)}
+.wrongwhy ul{margin:6px 0 0 18px}
+.wrongwhy li{margin:4px 0;line-height:1.6}
+.tips{margin:18px auto 0;max-width:680px;text-align:left;padding:16px 20px;border-radius:12px;
+  background:var(--read-soft);border:1px solid var(--line)}
+.tipslab{font-weight:700;color:var(--read-dark);margin-bottom:8px}
+.tips ul{margin:0 0 0 18px}
+.tips li{margin:6px 0;font-size:14px;line-height:1.65}
 .btn.danger{background:var(--bad);border-color:var(--bad);color:#fff}
 .btn.danger:hover{background:#991717;border-color:#991717}
 .btn.ghost{background:transparent;border-color:transparent;color:var(--ink2)}
@@ -135,14 +246,14 @@ h2{font-size:18px;font-weight:650}
 /* ---------- dashboard ---------- */
 .hello{margin-bottom:20px}
 .hello .jp-greet{font-family:var(--font-jp);color:var(--ink2);font-size:14px;margin-top:2px}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:14px}
 .tile{padding:18px 20px}
 .tile .lab{font-size:12.5px;font-weight:650;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em}
 .tile .val{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:4px}
 .tile .det{font-size:12.5px;color:var(--muted);margin-top:2px}
 .pbar{height:6px;background:var(--line);border-radius:99px;margin-top:10px;overflow:hidden}
 .pbar>i{display:block;height:100%;border-radius:99px}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
 .panel{padding:20px 22px}
 .panel h2{margin-bottom:2px}
 .panel .sub{font-size:13px}
@@ -170,6 +281,7 @@ h2{font-size:18px;font-weight:650}
 .clock .time{font-size:27px;font-weight:700;letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1.2;
   background:linear-gradient(100deg,var(--vocab),var(--kanji));-webkit-background-clip:text;background-clip:text;color:transparent}
 .clock .date{font-size:12.5px;color:var(--ink2);margin-top:2px}
+.clock .jlpt{font-size:12px;font-weight:700;color:var(--vocab-dark);margin-top:7px;padding-top:7px;border-top:1px dashed var(--line)}
 .xrows{max-height:420px;overflow-y:auto;margin-top:16px;text-align:left}
 .xrow{border-left:3px solid;padding:10px 14px;margin:8px 0;background:var(--elev);border:1px solid var(--line);
   border-left-width:3px;border-radius:9px;font-size:13.5px}
@@ -205,6 +317,52 @@ body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:
 .gchip.met{background:var(--gacc);color:#fff}
 .gchip.today{outline:2px solid var(--gacc);outline-offset:2px}
 .goalrow .gtoday{font-size:13.5px;font-weight:650;color:var(--ink2)}
+.gchip{position:relative}
+.gchip.makeup{background:var(--gacc);color:#fff;box-shadow:inset 0 0 0 2px var(--card),0 0 0 2px var(--gacc)}
+.gchip.miss{background:transparent;border:1.5px dashed var(--muted);color:var(--muted)}
+.gchip .mk{position:absolute;top:-5px;right:-5px;font-size:10px;font-style:normal;line-height:1;
+  background:var(--card);color:var(--gdark);border-radius:99px;padding:1px 2px}
+.goalrow .gtoday .debt{color:var(--bad);font-weight:650}
+.autonote{margin:12px 0 2px;padding:10px 14px;border-radius:10px;font-size:13px;
+  background:var(--vocab-soft);color:var(--vocab-dark);border:1px solid var(--line)}
+.makeupbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0 4px;
+  padding:12px 16px;border-radius:11px;font-size:13.5px;background:#fdf3e7;color:#8a5210;border:1px solid #f3e2c8}
+body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color:#4a3d26}
+.closeopts{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.closeopt{flex-direction:column;align-items:flex-start;text-align:left;padding:13px 16px;gap:3px;width:100%}
+.closeopt b{font-size:14.5px}
+.closeopt span{font-size:12.5px;font-weight:500;opacity:.85;white-space:normal;line-height:1.45}
+.rememberrow{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:13px;color:var(--ink2);cursor:pointer}
+.rememberrow input{width:16px;height:16px;accent-color:var(--vocab);cursor:pointer}
+.calsw{display:flex;gap:6px;margin:14px 0 4px}
+.calswb{flex:1;padding:8px 12px;border:1.5px solid var(--line);background:var(--elev);color:var(--ink2);
+  font:inherit;font-weight:650;font-size:13.5px;border-radius:9px;cursor:pointer;transition:.12s}
+.calswb:hover{border-color:var(--muted)}
+.calswb.on{background:var(--vocab-soft);border-color:var(--vocab);color:var(--vocab-dark)}
+.calhead{display:flex;align-items:center;justify-content:space-between;margin:16px 0 10px;font-size:15px}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.calgrid.dow{margin-bottom:6px}
+.cdow{text-align:center;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.cday{position:relative;aspect-ratio:1;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-size:13.5px;font-weight:650;background:var(--line);color:var(--muted)}
+.cday.empty{background:transparent}
+.cday.met,.cday.makeup{background:var(--gacc);color:#fff}
+.cday.makeup{box-shadow:inset 0 0 0 2px var(--card),0 0 0 2px var(--gacc)}
+.cday.part{background:var(--gsoft);color:var(--gdark)}
+.cday.miss{background:transparent;border:1.5px dashed var(--bad);color:var(--bad)}
+.cday.future{background:transparent;color:var(--muted);opacity:.5}
+.cday.today{outline:2px solid var(--ink);outline-offset:2px}
+.cday .dc{position:absolute;bottom:2px;right:5px;font-size:9.5px;font-weight:700;opacity:.85}
+.cday .mk{position:absolute;top:-4px;right:-4px;font-size:10px;font-style:normal;line-height:1;
+  background:var(--card);color:var(--gdark);border-radius:99px;padding:1px 3px}
+.calstat{margin-top:14px;font-size:13px;color:var(--ink2)}
+.callegend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12px;color:var(--ink2)}
+.callegend span{display:flex;align-items:center;gap:6px}
+.callegend .sw{width:14px;height:14px;border-radius:5px;display:inline-block}
+.callegend .sw.met{background:var(--gacc)}
+.callegend .sw.makeup{background:var(--gacc);box-shadow:inset 0 0 0 2px var(--card),0 0 0 2px var(--gacc)}
+.callegend .sw.part{background:var(--gsoft)}
+.callegend .sw.miss{border:1.5px dashed var(--bad)}
 .goalrow .gtoday b{color:var(--ink)}
 .history{margin-top:12px;max-height:320px;overflow-y:auto}
 .history.full{margin-top:0;max-height:none}
@@ -332,6 +490,7 @@ body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:
       <div class="clock card">
         <div class="time" id="clockTime">--:--:--</div>
         <div class="date" id="clockDate"></div>
+        <div class="jlpt" id="jlptLine"></div>
       </div>
     </div>
     <div class="tiles" id="tiles"></div>
@@ -346,6 +505,16 @@ body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:
         <h2>Quiz kanji theo session</h2>
         <div class="sub">Tỷ lệ đúng ở lần làm đầu tiên</div>
         <div class="chart" id="chartKanji"></div>
+      </div>
+      <div class="card panel">
+        <h2>Quiz ngữ pháp theo session</h2>
+        <div class="sub">Tỷ lệ đạt khi dịch câu ví dụ</div>
+        <div class="chart" id="chartGrammar"></div>
+      </div>
+      <div class="card panel">
+        <h2>Đọc hiểu theo bài</h2>
+        <div class="sub">Tỷ lệ câu đúng của mỗi bài đọc đã làm</div>
+        <div class="chart" id="chartReading"></div>
       </div>
     </div>
     <div class="sechead"><span>✦ Bạn muốn làm gì hôm nay?</span></div>
@@ -383,6 +552,48 @@ body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:
       </div>
     </div>
     <div id="reviewBody" style="margin-top:6px"></div>
+  </section>
+
+  <!-- ===== reading list ===== -->
+  <section id="scr-reading" class="screen">
+    <div class="topbar">
+      <div class="hello">
+        <h1>Luyện đọc hiểu</h1>
+        <div class="sub" style="margin-top:2px">Các bài đọc luyện tập từ chương 5 trở đi. Làm xong có giải thích chi tiết, chỉ rõ câu chứa đáp án và tip làm dạng bài đó.</div>
+      </div>
+      <button class="btn ghost" onclick="App.navLearn()">← Quay lại Học</button>
+    </div>
+    <div id="readingList" style="margin-top:6px"></div>
+  </section>
+
+  <!-- ===== exam papers ===== -->
+  <section id="scr-papers" class="screen">
+    <div class="topbar">
+      <div class="hello">
+        <h1>Đề thi JLPT N3</h1>
+        <div class="sub" style="margin-top:2px">Thi thử theo đúng cấu trúc và thời gian chuẩn: Từ vựng–Chữ Hán 30 phút · Ngữ pháp–Đọc hiểu 70 phút · Nghe hiểu 40 phút. Hết giờ mỗi phần sẽ tự chuyển sang phần tiếp theo.</div>
+      </div>
+      <button class="btn ghost" onclick="App.navExam()">← Quay lại Kiểm tra</button>
+    </div>
+    <div id="paperList" style="margin-top:6px"></div>
+  </section>
+
+  <!-- ===== exam runner ===== -->
+  <section id="scr-paper" class="screen">
+    <div class="paperbar">
+      <div class="pbleft">
+        <button class="btn ghost" onclick="App.quitPaper()">← Thoát</button>
+        <span class="chip sec-e" id="paperChip"></span>
+        <span class="sub" id="paperSecName"></span>
+      </div>
+      <div class="pbright">
+        <div class="ptimer" id="paperTimer">--:--</div>
+      </div>
+    </div>
+    <div class="paperwrap">
+      <div id="paperBody"></div>
+      <aside class="navpanel card" id="paperNav"></aside>
+    </div>
   </section>
 
   <!-- ===== history ===== -->
@@ -449,8 +660,45 @@ body[data-theme="dark"] .locknote{background:#3a2f1d;color:#e0b46a;border-color:
     <div class="setrow"><label>Giây cho mỗi câu trắc nghiệm</label><input id="setMcS" type="number" min="5" max="60"><span class="shint">5–60 · mặc định 15</span></div>
     <div class="setrow"><label>Giây cho mỗi câu tự luận</label><input id="setTyS" type="number" min="5" max="90"><span class="shint">5–90 · mặc định 25</span></div>
     <h2 style="margin-top:22px">Mục tiêu mỗi ngày</h2>
+    <div class="setrow" style="grid-template-columns:230px auto 1fr"><label>Cách đặt mục tiêu</label>
+      <select id="setGMode" class="sortsel" onchange="App.onGoalModeChange()">
+        <option value="auto">Tự động theo lịch thi JLPT</option>
+        <option value="manual">Tự đặt</option>
+      </select>
+      <span class="shint" id="setGHint"></span></div>
     <div class="setrow"><label>Session từ vựng / ngày</label><input id="setGV" type="number" min="0" max="20"><span class="shint">0 = tắt mục tiêu</span></div>
     <div class="setrow"><label>Session kanji / ngày</label><input id="setGK" type="number" min="0" max="20"><span class="shint">0 = tắt mục tiêu</span></div>
+    <h2 style="margin-top:22px">AI chấm bài dịch</h2>
+    <div class="setrow" style="grid-template-columns:230px 1fr auto">
+      <label>Claude API key</label>
+      <input id="setKey" type="password" placeholder="sk-ant-..." autocomplete="off">
+      <button class="btn" style="padding:7px 14px" onclick="App.saveApiKey()">Lưu key</button>
+    </div>
+    <div class="setrow" style="grid-template-columns:230px 1fr">
+      <span></span>
+      <span class="shint" id="keyStatus"></span>
+    </div>
+    <h2 style="margin-top:22px">Hệ thống &amp; nhắc học</h2>
+    <div class="setrow"><label>Khởi động cùng Windows</label>
+      <input type="checkbox" id="setAuto" style="width:18px;height:18px;justify-self:start;accent-color:var(--vocab);cursor:pointer">
+      <span class="shint">tự mở app khi bạn đăng nhập máy</span></div>
+    <div class="setrow" style="grid-template-columns:230px auto 1fr">
+      <label>Giờ nhắc học mỗi ngày</label>
+      <div style="display:flex;gap:8px">
+        <input type="time" id="setRT1" style="padding:8px 10px;font:inherit;border:1.5px solid var(--line);border-radius:9px;background:var(--elev);color:var(--ink)">
+        <input type="time" id="setRT2" style="padding:8px 10px;font:inherit;border:1.5px solid var(--line);border-radius:9px;background:var(--elev);color:var(--ink)">
+      </div>
+      <span class="shint">để trống = tắt · thông báo Windows khi app đang chạy · <a style="cursor:pointer;text-decoration:underline" onclick="App.testToast()">thử thông báo</a></span></div>
+    <div class="setrow"><label>Khởi động ẩn (chỉ hiện ở khay)</label>
+      <input type="checkbox" id="setAutoHidden" style="width:18px;height:18px;justify-self:start;accent-color:var(--vocab);cursor:pointer">
+      <span class="shint">khi bật cùng Windows thì chạy ngầm, không mở cửa sổ</span></div>
+    <div class="setrow" style="grid-template-columns:230px auto 1fr"><label>Khi bấm nút đóng cửa sổ</label>
+      <select id="setClose" class="sortsel">
+        <option value="ask">Hỏi mỗi lần</option>
+        <option value="tray">Chạy ngầm ở khay</option>
+        <option value="quit">Thoát hẳn</option>
+      </select>
+      <span class="shint">chạy ngầm giúp app vẫn nhắc học khi đã đóng cửa sổ</span></div>
     <div style="margin-top:24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
       <button class="btn primary" onclick="App.saveSettings()">Lưu cài đặt</button>
       <button class="btn" id="btnResetDefaults" onclick="App.resetSettings()">↺ Về mặc định</button>
@@ -473,8 +721,8 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 const pct = (c, t) => t ? Math.round(100 * c / t) : 0;
 
 const STORE_KEY = "gungun_n3_state_v1";
-const CFG_DEFAULTS = { vocabPerSession: 10, kanjiPerSession: 4, examSessions: 5, mcSec: 15, typedSec: 25 };
-const GOAL_DEFAULTS = { vocabPerDay: 1, kanjiPerDay: 1 };
+const CFG_DEFAULTS = { vocabPerSession: 10, kanjiPerSession: 4, examSessions: 5, mcSec: 15, typedSec: 25, remindTimes: [], closeAction: "ask" };
+const GOAL_DEFAULTS = { mode: "auto", vocabPerDay: 1, kanjiPerDay: 1 };
 const THEMES = [
   { id: "light",  name: "Sáng" },
   { id: "dark",   name: "Tối" },
@@ -502,11 +750,27 @@ const App = {
     if (!this.state) {
       this.state = { name: null,
         vocab: { sessions: [], reviews: [] },
+        grammar: { sessions: [], reviews: [] },
+        reading: { done: [] },
+        exams: { done: [] },
         kanji: { sessions: [], reviews: [] } };
     }
+    // a save from an older version has no grammar / reading sections yet
+    for (const m of ["vocab", "kanji", "grammar"]) {
+      this.state[m] = this.state[m] || {};
+      this.state[m].sessions = this.state[m].sessions || [];
+      this.state[m].reviews = this.state[m].reviews || [];
+    }
+    this.state.reading = this.state.reading || {};
+    this.state.reading.done = this.state.reading.done || [];
+    this.state.exams = this.state.exams || {};
+    this.state.exams.done = this.state.exams.done || [];
+    if (this.state.goals && !this.state.goals.mode) this.state.goals.mode = "manual";
     this.applyTheme();
     this.startClock();
     this.renderThemeRow();
+    this.apiCall("set_reminders", this.cfg().remindTimes || []);
+    this.apiCall("set_close_pref", this.cfg().closeAction || "ask");
     if (!this.state.name) this.show("scr-name");
     else this.renderDash();
   },
@@ -530,10 +794,13 @@ const App = {
       }
       await new Promise(r => setTimeout(r, 100));
     }
-    const [v, k] = await Promise.all([
+    const v = await Promise.all([
       fetch("../vocab.json").then(r => r.json()),
-      fetch("../kanji.json").then(r => r.json())]);
-    return { vocab: v, kanji: k };
+      fetch("../kanji.json").then(r => r.json()),
+      fetch("../grammar.json").then(r => r.json()),
+      fetch("../reading.json").then(r => r.json()),
+      fetch("../exams.json").then(r => r.json())]);
+    return { vocab: v[0], kanji: v[1], grammar: v[2], reading: v[3], exams: v[4] };
   },
   async apiCall(fn, ...args) {
     try { if (window.pywebview && window.pywebview.api) return await window.pywebview.api[fn](...args); } catch (e) {}
@@ -561,7 +828,8 @@ const App = {
   show(id) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("on"));
     $("#" + id).classList.add("on");
-    document.body.classList.toggle("nosb", id === "scr-name" || id === "scr-session");
+    document.body.classList.toggle("nosb",
+      id === "scr-name" || id === "scr-session" || id === "scr-paper");
     $("#nav-dash").classList.toggle("on", id === "scr-dash");
     $("#nav-learn").classList.toggle("on", id === "scr-learn");
     $("#nav-review").classList.toggle("on", id === "scr-review");
@@ -574,6 +842,7 @@ const App = {
   navExam() { if (this.S) return; this.renderExamHub(); },
   navHistory() { if (this.S) return; this.show("scr-history"); this.renderHistory(); },
   navReview() { if (this.S) return; this.renderReview(); },
+  navReading() { if (this.S) return; this.renderReadingList(); },
   setReviewSort(v) { this.reviewSort = v; this.renderReview(); },
   renderReview() {
     this.show("scr-review");
@@ -600,7 +869,8 @@ const App = {
             <div class="sc-go">Xem lại &amp; ôn tập ›</div>
           </div>`).join("")}</div>`;
     };
-    const html = sec("vocab", "Từ vựng", "sec-v", "từ") + sec("kanji", "Kanji", "sec-k", "kanji");
+    const html = sec("vocab", "Từ vựng", "sec-v", "từ") + sec("kanji", "Kanji", "sec-k", "kanji")
+      + sec("grammar", "Ngữ pháp", "sec-g", "mẫu");
     $("#reviewBody").innerHTML = html || `<div class="card panel centered" style="padding:40px">
       <div style="font-size:36px">📚</div>
       <p class="sub" style="margin-top:10px">Chưa có session nào — hoàn thành session đầu tiên ở tab <b>Học</b> rồi quay lại đây để ôn tập nhé!</p></div>`;
@@ -625,14 +895,69 @@ const App = {
     });
   },
   cfg() { return Object.assign({}, CFG_DEFAULTS, this.state && this.state.settings); },
-  goalsCfg() { return Object.assign({}, GOAL_DEFAULTS, this.state && this.state.goals); },
+  goalsCfg() {
+    const g = Object.assign({}, GOAL_DEFAULTS, this.state && this.state.goals);
+    if (g.mode !== "auto" || !this.data) return g;
+    const a = this.autoGoal();
+    return a ? Object.assign(g, { vocabPerDay: a.vocabPerDay, kanjiPerDay: a.kanjiPerDay }) : g;
+  },
+  // Pace needed to finish the whole textbook before the next JLPT sitting.
+  // Recomputed once a day and then frozen, so finishing a session mid-day
+  // never lowers the target you are being measured against.
+  autoGoal(force) {
+    if (!this.data) return null;
+    const today = this.dayKey(new Date());
+    const c = this.state.autoGoal;
+    if (!force && c && c.day === today) return c;
+    const cfg = this.cfg();
+    const days = Math.max(1, this.nextJLPT().days);
+    const vLeft = this.data.vocab.length - this.learnedVocabCount();
+    const kLeft = this.data.kanji.length - this.learnedKanjiCount();
+    const vSess = Math.ceil(vLeft / cfg.vocabPerSession);
+    const kSess = Math.ceil(kLeft / cfg.kanjiPerSession);
+    const res = { day: today, days, vSess, kSess,
+      vocabPerDay: vSess > 0 ? Math.max(1, Math.ceil(vSess / days)) : 0,
+      kanjiPerDay: kSess > 0 ? Math.max(1, Math.ceil(kSess / days)) : 0 };
+    this.state.autoGoal = res;
+    this.save();
+    return res;
+  },
+  nextJLPT() {
+    // JLPT: first Sunday of July and of December
+    const firstSunday = (y, m) => { const d = new Date(y, m, 1); return new Date(y, m, 1 + (7 - d.getDay()) % 7); };
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const cands = [];
+    for (const y of [now.getFullYear(), now.getFullYear() + 1])
+      cands.push(firstSunday(y, 6), firstSunday(y, 11));
+    const next = cands.filter(d => d >= today).sort((a, b) => a - b)[0];
+    return { date: next, days: Math.round((next - today) / 86400000) };
+  },
   startClock() {
     const tick = () => {
-      const n = new Date(), t = $("#clockTime"), d = $("#clockDate");
+      const n = new Date(), t = $("#clockTime"), d = $("#clockDate"), j = $("#jlptLine");
       if (t) t.textContent = n.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
       if (d) d.textContent = n.toLocaleDateString("vi-VN", { weekday: "long", day: "numeric", month: "numeric", year: "numeric" });
+      if (j) {
+        const x = this.nextJLPT();
+        j.textContent = x.days === 0 ? "🎌 Hôm nay là ngày thi JLPT! 頑張って！"
+          : `🎌 JLPT còn ${x.days} ngày · ${x.date.toLocaleDateString("vi-VN")}`;
+      }
     };
-    tick(); setInterval(tick, 1000);
+    tick();
+    this._dayKey = this.dayKey(new Date());
+    setInterval(() => {
+      tick();
+      const k = this.dayKey(new Date());
+      if (k !== this._dayKey) {          // new day: re-plan and refresh
+        this._dayKey = k;
+        if (this.state && this.state.name) {
+          this.autoGoal(true);
+          if (!this.S && document.querySelector(".screen.on") === $("#scr-dash")) this.renderDash();
+          else this.pushMakeupToHost();
+        }
+      }
+    }, 1000);
   },
 
   /* ---------------- name ---------------- */
@@ -686,14 +1011,24 @@ const App = {
   },
   renderStatsInto() {
     const st = this.state, d = this.data;
-    const nSess = st.vocab.sessions.length + st.kanji.sessions.length;
+    const nSess = st.vocab.sessions.length + st.kanji.sessions.length + st.grammar.sessions.length;
     const nV = this.learnedVocabCount(), nK = this.learnedKanjiCount(), nKW = this.learnedKanjiWordCount();
-    const q = this.agg([...st.vocab.sessions, ...st.kanji.sessions]);
-    const r = this.agg([...st.vocab.reviews, ...st.kanji.reviews]);
+    const q = this.agg([...st.vocab.sessions, ...st.kanji.sessions, ...st.grammar.sessions]);
+    const r = this.agg([...st.vocab.reviews, ...st.kanji.reviews, ...st.grammar.reviews]);
+    const nG = st.grammar.sessions.reduce((n, x) => n + x.items.length, 0);
+    const nR = st.reading.done.length;
+    const rq = st.reading.done.reduce((a, x) => ({ c: a.c + x.c, t: a.t + x.t }), { c: 0, t: 0 });
     const tiles = [
-      { lab: "Session hoàn thành", val: nSess, det: `${st.vocab.sessions.length} từ vựng · ${st.kanji.sessions.length} kanji` },
+      { lab: "Session hoàn thành", val: nSess, det: `${st.vocab.sessions.length} từ vựng · ${st.kanji.sessions.length} kanji · ${st.grammar.sessions.length} ngữ pháp` },
       { lab: "Từ vựng đã học", val: nV, det: `trên ${d.vocab.length} từ`, bar: [nV, d.vocab.length, "var(--vocab)"] },
       { lab: "Kanji đã học", val: nK, det: `trên ${d.kanji.length} chữ · kèm ${nKW} từ`, bar: [nK, d.kanji.length, "var(--kanji)"] },
+      { lab: "Ngữ pháp đã học", val: nG,
+        det: `trên ${d.grammar.length} mẫu · ${st.grammar.sessions.length}/${this.grammarLessons().length} bài`,
+        bar: [nG, d.grammar.length, "var(--gram)"] },
+      { lab: "Đọc hiểu đã làm", val: nR,
+        det: rq.t ? `trên ${d.reading.length} bài · đúng ${pct(rq.c, rq.t)}% (${rq.c}/${rq.t} câu)`
+                  : `trên ${d.reading.length} bài đọc`,
+        bar: [nR, d.reading.length, "var(--read)"] },
       { lab: "Đúng quiz / thuộc bài cũ", val: (q.t ? pct(q.c, q.t) + "%" : "–"), det: r.t ? `bài cũ: ${pct(r.c, r.t)}% (${r.c}/${r.t})` : "chưa có dữ liệu bài cũ" },
     ];
     $("#tiles").innerHTML = tiles.map(t => `
@@ -705,6 +1040,10 @@ const App = {
       </div>`).join("");
     this.renderChart($("#chartVocab"), st.vocab.sessions, "var(--vocab)");
     this.renderChart($("#chartKanji"), st.kanji.sessions, "var(--kanji)");
+    this.renderChart($("#chartGrammar"), st.grammar.sessions, "var(--gram)");
+    this.renderChart($("#chartReading"),
+      st.reading.done.map((x, i) => ({ id: i + 1, first: { c: x.c, t: x.t } })),
+      "var(--read)", "Bài đọc");
     this.renderGoals();
   },
   renderLearn() {
@@ -712,6 +1051,9 @@ const App = {
     const d = this.data;
     const nV = this.learnedVocabCount(), nK = this.learnedKanjiCount();
     const vLeft = d.vocab.length - nV, kLeft = d.kanji.length - nK;
+    const gLes = this.grammarLessons(), gDone = this.state.grammar.sessions.length;
+    const gLeft = gLes.length - gDone;
+    const rDone = this.state.reading.done.length, rLeft = d.reading.length - rDone;
     $("#startrow").innerHTML = `
       <div class="card startcard v" onclick="${vLeft ? "App.startSession('vocab')" : ""}" ${vLeft ? "" : 'style="opacity:.55;cursor:default"'}>
         <div class="ico">あ</div>
@@ -722,7 +1064,31 @@ const App = {
         <div class="ico">漢</div>
         <div><b>Session kanji mới</b>
           <div class="det">${kLeft ? `${this.nextKanjiSlice().length} chữ kanji cùng từ vựng đi kèm` : "Bạn đã học hết toàn bộ kanji 🎉"}</div></div>
+      </div>
+      <div class="card startcard g" onclick="${gLeft ? "App.startSession('grammar')" : ""}" ${gLeft ? "" : 'style="opacity:.55;cursor:default"'}>
+        <div class="ico">文</div>
+        <div><b>Session ngữ pháp mới</b>
+          <div class="det">${gLeft ? `Bài ${gLes[gDone].label} · ${gLes[gDone].items.length} mẫu ngữ pháp` : "Bạn đã học hết toàn bộ ngữ pháp 🎉"}</div></div>
+      </div>
+      <div class="card startcard r" onclick="App.navReading()">
+        <div class="ico">読</div>
+        <div><b>Luyện đọc hiểu</b>
+          <div class="det">${rLeft ? `${d.reading.length} bài đọc · đã làm ${rDone}` : "Bạn đã làm hết " + d.reading.length + " bài đọc 🎉"}</div></div>
       </div>`;
+  },
+  // one lesson of the book = one grammar session
+  grammarLessons() {
+    if (!this._gLes) {
+      const by = new Map();
+      this.data.grammar.forEach((g, i) => {
+        const k = g.chapter + "-" + g.lesson;
+        if (!by.has(k)) by.set(k, { chapter: g.chapter, lesson: g.lesson,
+          label: `Chương ${g.chapter} · Bài ${g.lesson}`, items: [] });
+        by.get(k).items.push(i);
+      });
+      this._gLes = [...by.values()];
+    }
+    return this._gLes;
   },
   fmtDur(sec) {
     if (sec == null) return "—";
@@ -736,10 +1102,11 @@ const App = {
   },
   renderHistory() {
     const rows = [];
-    for (const mode of ["vocab", "kanji"]) {
-      const chip = mode === "vocab" ? `<span class="chip sec-v">Từ vựng</span>` : `<span class="chip sec-k">Kanji</span>`;
+    for (const mode of ["vocab", "kanji", "grammar"]) {
+      const chip = `<span class="chip ${{ vocab: "sec-v", kanji: "sec-k", grammar: "sec-g" }[mode]}">${this.modeLabel(mode)}</span>`;
       for (const s of this.state[mode].sessions) {
-        const what = mode === "vocab" ? `${s.items.length} từ mới` : `${s.items.length} kanji mới`;
+        const what = { vocab: `${s.items.length} từ mới`, kanji: `${s.items.length} kanji mới`,
+                       grammar: `${s.items.length} mẫu ngữ pháp` }[mode];
         rows.push({ date: s.date, html: `<div class="hrow">${chip}
           <div class="ht"><b>Session ${s.id}</b> <span class="sub">· học ${what}</span></div>
           <div class="hd">${this.fmtDate(s.date)}</div>
@@ -752,6 +1119,14 @@ const App = {
           <div class="hd">${this.fmtDate(r.date)}</div>
           <div class="hdur">⏱ ${this.fmtDur(r.dur)}</div>
           <div class="hscore">${pct(r.c, r.t)}% <span class="sub">(${r.c}/${r.t})</span></div></div>` });
+      }
+      if (mode === "vocab") for (const e of this.state.reading.done) {
+        const r = this.data.reading.find(x => x.id === e.id);
+        rows.push({ date: e.date, html: `<div class="hrow"><span class="chip sec-r">Đọc hiểu</span>
+          <div class="ht"><b>${esc(r ? r.type : e.id)}</b> <span class="sub">· bài ${e.id}</span></div>
+          <div class="hd">${this.fmtDate(e.date)}</div>
+          <div class="hdur">⏱ ${this.fmtDur(e.dur)}</div>
+          <div class="hscore">${pct(e.c, e.t)}% <span class="sub">(${e.c}/${e.t})</span></div></div>` });
       }
       for (const e of (this.state[mode].exams || [])) {
         rows.push({ date: e.date, html: `<div class="hrow">${chip}
@@ -766,15 +1141,16 @@ const App = {
       : `<div class="hempty">Chưa có session nào — lịch sử sẽ hiện ở đây sau khi bạn hoàn thành session đầu tiên.</div>`;
   },
 
-  renderChart(el, sessions, color) {
+  renderChart(el, sessions, color, unit) {
+    unit = unit || "Session";
     const data = sessions.filter(s => s.first).slice(-12);
-    if (!data.length) { el.innerHTML = `<div class="empty">Chưa có session nào — bắt đầu học để xem tiến bộ nhé!</div>`; return; }
+    if (!data.length) { el.innerHTML = `<div class="empty">Chưa có dữ liệu — bắt đầu học để xem tiến bộ nhé!</div>`; return; }
     const grid = [0, 50, 100].map(v =>
       `<div class="gline" style="bottom:${v}%"><span class="glab">${v}</span></div>`).join("");
     const bars = data.map(s => {
       const p = pct(s.first.c, s.first.t);
       return `<div class="bar" style="height:${Math.max(p, 2)}%;background:${color}"
-        data-tip="Session ${s.id} · ${p}% (${s.first.c}/${s.first.t})"></div>`;
+        data-tip="${unit} ${s.id} · ${p}% (${s.first.c}/${s.first.t})"></div>`;
     }).join("");
     const labs = data.map(s => `<span>${s.id}</span>`).join("");
     el.innerHTML = `<div class="grid">${grid}</div><div class="bars">${bars}</div><div class="xlab">${labs}</div>`;
@@ -797,7 +1173,8 @@ const App = {
     this.closeSettings();
     localStorage.removeItem(STORE_KEY);
     this.state = { name: null, theme: this.state.theme,
-      vocab: { sessions: [], reviews: [] }, kanji: { sessions: [], reviews: [] } };
+      vocab: { sessions: [], reviews: [] }, kanji: { sessions: [], reviews: [] },
+      grammar: { sessions: [], reviews: [] }, reading: { done: [] } };
     this.save(); this.show("scr-name");
   },
 
@@ -870,6 +1247,7 @@ const App = {
     const qs = order.map((itemIdx, pos) => {
       const it = items[itemIdx];
       const mc = pos < half;
+      if (mode === "grammar") return { type: "translate", it };
       if (mode === "kanji") {
         // kanji quiz: hiragana -> kanji (MC), kanji -> hiragana (typed)
         const hasKana = it.reading && it.reading !== it.jp;
@@ -1019,19 +1397,29 @@ const App = {
   },
 
   /* ---------------- settings (modal) ---------------- */
-  openSettings() {
+  async openSettings() {
     const c = this.cfg(), g = this.goalsCfg();
     $("#setName").value = this.state.name || "";
     $("#setVps").value = c.vocabPerSession; $("#setKps").value = c.kanjiPerSession;
     $("#setExS").value = c.examSessions; $("#setMcS").value = c.mcSec; $("#setTyS").value = c.typedSec;
     $("#setGV").value = g.vocabPerDay; $("#setGK").value = g.kanjiPerDay;
+    $("#setGMode").value = g.mode || "auto";
+    const rt = c.remindTimes || [];
+    $("#setRT1").value = rt[0] || ""; $("#setRT2").value = rt[1] || "";
+    $("#setClose").value = c.closeAction || "ask";
+    this.refreshKeyStatus();
+    const as = (await this.apiCall("get_autostart")) || {};
+    $("#setAuto").checked = !!as.enabled;
+    $("#setAutoHidden").checked = !!as.hidden;
     // during a session/exam only name + theme are editable
     const locked = !!this.S;
-    ["#setVps", "#setKps", "#setExS", "#setMcS", "#setTyS", "#setGV", "#setGK"]
+    ["#setVps", "#setKps", "#setExS", "#setMcS", "#setTyS", "#setGV", "#setGK", "#setAuto",
+     "#setRT1", "#setRT2", "#setAutoHidden", "#setClose", "#setKey"]
       .forEach(id => $(id).disabled = locked);
     $("#btnResetDefaults").disabled = locked;
     $("#btnResetAll").disabled = locked;
     $("#setLockNote").style.display = locked ? "block" : "none";
+    this.onGoalModeChange(locked);
     this.renderThemeRow();
     $("#settingsOverlay").style.display = "flex";
   },
@@ -1045,6 +1433,42 @@ const App = {
       if (r) this[r]();
     }
   },
+  onGoalModeChange(locked) {
+    const auto = $("#setGMode").value === "auto";
+    const lk = locked === undefined ? !!this.S : locked;
+    ["#setGV", "#setGK"].forEach(id => $(id).disabled = auto || lk);
+    if (auto) {
+      const a = this.autoGoal();
+      if (a) {
+        $("#setGV").value = a.vocabPerDay; $("#setGK").value = a.kanjiPerDay;
+        $("#setGHint").innerHTML = `còn <b>${a.days}</b> ngày tới JLPT · <b>${a.vSess + a.kSess}</b> session chưa học`;
+      }
+    } else {
+      $("#setGHint").textContent = "bạn tự quyết định nhịp độ";
+    }
+  },
+  async refreshKeyStatus() {
+    const k = (await this.apiCall("get_api_key")) || {};
+    const el = $("#keyStatus");
+    if (!el) return;
+    el.innerHTML = k.set
+      ? `✅ Đã lưu key (…${esc(k.tail)}) · bài dịch được chấm bằng Claude. <a style="cursor:pointer;text-decoration:underline" onclick="App.clearApiKey()">xoá key</a>`
+      : "Chưa có key — bài dịch vẫn được chấm bằng bộ chấm ngoại tuyến (so ý với từ điển trong app). "
+        + "Nhập key từ console.anthropic.com để có nhận xét chi tiết hơn. Key chỉ lưu trên máy bạn.";
+    $("#setKey").value = "";
+  },
+  async saveApiKey() {
+    const v = $("#setKey").value.trim();
+    if (!v) return;
+    await this.apiCall("set_api_key", v);
+    await this.refreshKeyStatus();
+    this.toastSaved("✓ Đã lưu key");
+  },
+  async clearApiKey() {
+    await this.apiCall("set_api_key", "");
+    await this.refreshKeyStatus();
+    this.toastSaved("✓ Đã xoá key");
+  },
   saveSettings() {
     const num = (id, min, max, def) => {
       const v = parseInt($(id).value, 10);
@@ -1055,21 +1479,74 @@ const App = {
     if (name) this.state.name = name;
     else $("#setName").value = this.state.name || "";
     if (!this.S) {           // locked values are not saved mid-session
+      const times = [$("#setRT1").value, $("#setRT2").value]
+        .filter(t => /^\d{2}:\d{2}$/.test(t));
       this.state.settings = {
         vocabPerSession: num("#setVps", 3, 30, 10),
         kanjiPerSession: num("#setKps", 2, 10, 4),
         examSessions: num("#setExS", 1, 10, 5),
         mcSec: num("#setMcS", 5, 60, 15),
         typedSec: num("#setTyS", 5, 90, 25),
+        remindTimes: [...new Set(times)],
+        closeAction: $("#setClose").value,
       };
+      const gmode = $("#setGMode").value;
       this.state.goals = {
+        mode: gmode,
         vocabPerDay: num("#setGV", 0, 20, 1),
         kanjiPerDay: num("#setGK", 0, 20, 1),
       };
+      if (gmode === "auto") this.autoGoal(true);
+      this.apiCall("set_reminders", this.state.settings.remindTimes);
+      this.apiCall("set_autostart", $("#setAuto").checked, $("#setAutoHidden").checked);
+      this.apiCall("set_close_pref", this.state.settings.closeAction);
     }
     this.save();
     this.toastSaved("✓ Đã lưu");
   },
+  testToast() {
+    this.apiCall("test_notification");
+  },
+  /* ---------------- close dialog (X button) ---------------- */
+  askCloseAction() {
+    if (this._closeAsk) return;          // already open
+    const ov = document.createElement("div");
+    ov.className = "overlay";
+    ov.innerHTML = `<div class="modal card" style="width:min(460px,94vw)">
+      <div style="font-size:34px;text-align:center">👋</div>
+      <h2 style="text-align:center;margin-top:10px">Đóng cửa sổ?</h2>
+      <p class="sub" style="text-align:center;margin-top:6px">
+        Chạy ngầm thì app vẫn nhắc bạn học đúng giờ mà không chiếm chỗ trên màn hình.</p>
+      <div class="closeopts">
+        <button class="btn primary closeopt" data-a="tray">
+          <b>🔔 Chạy ngầm ở khay</b>
+          <span>App thu về biểu tượng 語 cạnh đồng hồ · nhấn vào đó để mở lại · thông báo vẫn hoạt động</span>
+        </button>
+        <button class="btn closeopt" data-a="quit">
+          <b>⏻ Thoát hẳn</b>
+          <span>Tắt hoàn toàn · sẽ không có thông báo nhắc học cho tới khi bạn mở lại app</span>
+        </button>
+      </div>
+      <label class="rememberrow"><input type="checkbox" id="closeRemember"> Ghi nhớ lựa chọn này, đừng hỏi lại</label>
+      <div class="mbtns"><button class="btn ghost" data-a="cancel">Ở lại app</button></div>
+    </div>`;
+    const done = () => { ov.remove(); this._closeAsk = false; };
+    this._closeAsk = true;
+    ov.addEventListener("mousedown", e => { if (e.target === ov) done(); });
+    ov.querySelectorAll("[data-a]").forEach(b => b.onclick = () => {
+      const a = b.dataset.a;
+      if (a === "cancel") return done();
+      if ($("#closeRemember").checked) {
+        this.state.settings = Object.assign(this.cfg(), { closeAction: a });
+        this.save();
+        this.apiCall("set_close_pref", a);
+      }
+      done();
+      this.apiCall("close_choice", a);
+    });
+    document.body.appendChild(ov);
+  },
+
   /* ---------------- session detail (from history) ---------------- */
   openSessionDetail(mode, si) {
     const s = this.state[mode].sessions[si];
@@ -1126,8 +1603,9 @@ const App = {
 
   resetSettings() {
     if (this.S) return;
-    this.state.settings = Object.assign({}, CFG_DEFAULTS);
-    this.state.goals = Object.assign({}, GOAL_DEFAULTS);
+    this.state.settings = Object.assign({}, CFG_DEFAULTS, { remindTimes: [] });
+    this.state.goals = Object.assign({}, GOAL_DEFAULTS); this.autoGoal(true);
+    this.apiCall("set_reminders", []);
     this.save();
     this.openSettings();
     this.toastSaved("↺ Đã về mặc định");
@@ -1144,6 +1622,62 @@ const App = {
   dayKey(d) {
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   },
+  dayCounts(mode) {
+    const c = {};
+    for (const ses of this.state[mode].sessions) {
+      const k = this.dayKey(new Date(ses.date));
+      c[k] = (c[k] || 0) + 1;
+    }
+    return c;
+  },
+  // Walk every day since the first session and work out which days met the goal,
+  // which were missed, and which of the missed ones a later "make-up" day repaid.
+  // Surplus sessions repay the most recent unpaid day first.
+  goalAnalysis(mode) {
+    const goal = this.goalsCfg()[mode === "vocab" ? "vocabPerDay" : "kanjiPerDay"];
+    const counts = this.dayCounts(mode);
+    const out = { goal, counts, status: {}, pending: 0, pendingDays: [], repaid: 0 };
+    if (!goal) return out;
+    const keys = Object.keys(counts).sort();
+    if (!keys.length) return out;
+    const todayKey = this.dayKey(new Date());
+    const cur = new Date(keys[0] + "T00:00:00");
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const debts = [];                       // unpaid past days, oldest first
+    while (cur <= today) {
+      const k = this.dayKey(cur);
+      const c = counts[k] || 0;
+      if (c >= goal) {
+        out.status[k] = "met";
+        let surplus = c - goal;
+        while (surplus > 0 && debts.length) {   // repay most recent debt first
+          const d = debts[debts.length - 1];
+          const use = Math.min(surplus, d.missing);
+          d.missing -= use; surplus -= use;
+          if (d.missing === 0) { out.status[d.key] = "makeup"; out.repaid++; debts.pop(); }
+        }
+      } else if (k === todayKey) {
+        out.status[k] = c > 0 ? "part" : "todo";   // today is not a debt yet
+      } else {
+        out.status[k] = c > 0 ? "part" : "miss";
+        debts.push({ key: k, missing: goal - c });
+      }
+      cur.setDate(cur.getDate() + 1);
+    }
+    out.pendingDays = debts.map(d => d.key);
+    out.pending = debts.reduce((n, d) => n + d.missing, 0);
+    return out;
+  },
+  makeupSummary() {
+    const a = { vocab: this.goalAnalysis("vocab"), kanji: this.goalAnalysis("kanji") };
+    return { vocab: a.vocab.pending, kanji: a.kanji.pending,
+      days: a.vocab.pendingDays.length + a.kanji.pendingDays.length,
+      total: a.vocab.pending + a.kanji.pending, an: a };
+  },
+  pushMakeupToHost() {
+    const m = this.makeupSummary();
+    this.apiCall("set_makeup", m.total, m.days);
+  },
   renderGoals() {
     const g = this.goalsCfg(), el = $("#goalPanel");
     if (!g.vocabPerDay && !g.kanjiPerDay) {
@@ -1151,39 +1685,488 @@ const App = {
         <div class="sub">Đang tắt — đặt mục tiêu session mỗi ngày trong <a style="cursor:pointer;text-decoration:underline" onclick="App.openSettings()">Cài đặt</a> để theo dõi chuỗi ngày học của bạn.</div>`;
       return;
     }
-    const counts = { vocab: {}, kanji: {} };
-    for (const m of ["vocab", "kanji"])
-      for (const s of this.state[m].sessions) {
-        const k = this.dayKey(new Date(s.date));
-        counts[m][k] = (counts[m][k] || 0) + 1;
-      }
     const days = [...Array(7)].map((_, i) => {
       const d = new Date(); d.setDate(d.getDate() - (6 - i)); return d;
     });
     const todayKey = this.dayKey(new Date());
     const DOW = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
+    const sum = this.makeupSummary();
+    const a = (g.mode === "auto") ? this.autoGoal() : null;
+    const autoNote = a ? `<div class="autonote">🎯 Nhịp độ tự động: còn <b>${a.days}</b> ngày tới JLPT và <b>${a.vSess + a.kSess}</b> session chưa học
+      → <b>${a.vocabPerDay}</b> session từ vựng + <b>${a.kanjiPerDay}</b> session kanji mỗi ngày.
+      <span class="sub" style="font-size:12px">Tính lại mỗi ngày một lần · đổi trong Cài đặt</span></div>` : "";
     const row = (mode, goal, chipCls, acc, soft, dark) => {
       if (!goal) return "";
+      const an = sum.an[mode];
       const chips = days.map(d => {
-        const k = this.dayKey(d), c = counts[mode][k] || 0;
-        const st = c >= goal ? "met" : c > 0 ? "part" : "";
+        const k = this.dayKey(d), c = an.counts[k] || 0;
+        const st = an.status[k] || "";
+        const lab = { met: "đạt mục tiêu", makeup: "đã học bù", part: "chưa đủ",
+                      miss: "bỏ lỡ", todo: "chưa học hôm nay" }[st] || "chưa bắt đầu học";
         return `<div class="gchip ${st}${k === todayKey ? " today" : ""}"
           style="--gacc:${acc};--gsoft:${soft};--gdark:${dark}"
-          title="${DOW[d.getDay()]} ${d.getDate()}/${d.getMonth() + 1}: ${c}/${goal} session">${d.getDate()}</div>`;
+          title="${DOW[d.getDay()]} ${d.getDate()}/${d.getMonth() + 1}: ${c}/${goal} session · ${lab}">${d.getDate()}${st === "makeup" ? '<i class="mk">↻</i>' : ""}</div>`;
       }).join("");
-      const tc = counts[mode][todayKey] || 0;
+      const tc = an.counts[todayKey] || 0;
       const done = tc >= goal;
       return `<div class="goalrow">
         <span class="chip ${chipCls}" style="width:74px;text-align:center">${mode === "vocab" ? "Từ vựng" : "Kanji"}</span>
         <div class="gchips">${chips}</div>
-        <div class="gtoday">Hôm nay: <b>${tc}/${goal}</b> ${done ? "✅ Đạt mục tiêu!" : `— còn ${goal - tc} session nữa`}</div>
+        <div class="gtoday">Hôm nay: <b>${tc}/${goal}</b> ${done ? "✅ Đạt mục tiêu!" : `— còn ${goal - tc} session nữa`}${an.pending ? ` <span class="debt">· nợ ${an.pending} session</span>` : ""}</div>
       </div>`;
     };
+    const banner = sum.total ? `<div class="makeupbar">
+        <div>⚠️ Bạn đang <b>nợ ${sum.total} session</b> của ${sum.days} ngày chưa đạt mục tiêu${sum.vocab && sum.kanji ? ` (${sum.vocab} từ vựng · ${sum.kanji} kanji)` : ""}.
+          Học thêm hôm nay để bù — ngày được bù sẽ tô đậm lại trên lịch.</div>
+        <button class="btn primary" style="padding:8px 16px;white-space:nowrap" onclick="event.stopPropagation();App.navLearn()">Học bù ngay →</button>
+      </div>` : "";
     el.innerHTML = `<h2>Mục tiêu hằng ngày</h2>
-      <div class="sub">Checkpoint 7 ngày gần nhất — ô đậm là ngày đạt mục tiêu, ô nhạt là có học nhưng chưa đủ</div>
-      <div class="goalwrap">
+      <div class="sub">Checkpoint 7 ngày gần nhất — ô đậm là ngày đạt mục tiêu, ô có ↻ là ngày đã học bù, ô nhạt là chưa đủ. <b>Bấm để xem lịch đầy đủ ›</b></div>
+      ${autoNote}
+      ${banner}
+      <div class="goalwrap" onclick="App.openCalendar()" style="cursor:pointer">
         ${row("vocab", g.vocabPerDay, "sec-v", "var(--vocab)", "var(--vocab-soft)", "var(--vocab-dark)")}
         ${row("kanji", g.kanjiPerDay, "sec-k", "var(--kanji)", "var(--kanji-soft)", "var(--kanji-dark)")}
+      </div>`;
+    this.pushMakeupToHost();
+  },
+
+  /* ---------------- JLPT exam papers ---------------- */
+  navExamPapers() { if (this.S) return; this.renderPaperList(); },
+  renderPaperList() {
+    this.show("scr-papers");
+    const done = this.state.exams.done;
+    $("#paperList").innerHTML = `<div class="sessgrid">` + (this.data.exams || []).map((ex, i) => {
+      const last = [...done].reverse().find(d => d.id === ex.id);
+      const tot = ex.sections.reduce((n, sec) =>
+        n + sec.mondai.reduce((k, m) => k + m.questions.filter(q => q.answer).length, 0), 0);
+      return `<div class="card sesscard" style="--sacc:var(--exam)" onclick="App.openPaper(${i})">
+        <div class="sc-top"><b>${esc(ex.title)}</b><span class="chip sec-e">${tot} câu</span></div>
+        <div class="sc-date">${ex.sections.map(x => x.name).join(" · ")}</div>
+        <div class="sc-score">${last ? `Lần gần nhất: ${pct(last.c, last.t)}% (${last.c}/${last.t})` : "Chưa làm"}</div>
+        <div class="sc-go">Vào thi ›</div>
+      </div>`;
+    }).join("") + `</div>`;
+  },
+  openPaper(idx) {
+    const ex = this.data.exams[idx];
+    // only sections we can actually mark are runnable
+    const secs = ex.sections.map(sec => ({
+      key: sec.key, name: sec.name, jp: sec.jp, minutes: sec.minutes,
+      mondai: sec.mondai,
+      questions: sec.mondai.reduce((a, m) => a.concat(m.questions.map(q => ({ q, m }))), []),
+      markable: sec.mondai.some(m => m.questions.some(x => x.answer)),
+    }));
+    this.P = { ex, idx, secs, si: 0, qi: 0,
+               ans: secs.map(s2 => s2.questions.map(() => null)),
+               flag: secs.map(s2 => s2.questions.map(() => false)),
+               t0: Date.now(), results: [] };
+    this.startPaperSection(0);
+  },
+  startPaperSection(si) {
+    const P = this.P;
+    P.si = si;
+    P.qi = 0;
+    const sec = P.secs[si];
+    P.deadline = Date.now() + sec.minutes * 60000;
+    clearInterval(P.timer);
+    P.timer = setInterval(() => this.tickPaper(), 500);
+    this.show("scr-paper");
+    $("#paperChip").textContent = P.ex.title;
+    this.drawPaper();
+  },
+  tickPaper() {
+    const P = this.P;
+    if (!P || !P.deadline) return;
+    const left = (P.deadline - Date.now()) / 1000;
+    const el = $("#paperTimer");
+    if (el) {
+      el.textContent = this.fmtClock(left);
+      el.classList.toggle("warn", left < 300 && left >= 60);
+      el.classList.toggle("danger", left < 60);
+    }
+    if (left <= 0) this.finishSection(true);
+  },
+  drawPaper() {
+    const P = this.P, sec = P.secs[P.si];
+    const item = sec.questions[P.qi];
+    if (!item) return;
+    const q = item.q, m = item.m;
+    $("#paperSecName").textContent = `${sec.name} · ${sec.jp} (${sec.minutes} phút)`;
+    const CIRC = "①②③④";
+    const picked = P.ans[P.si][P.qi];
+    const flagged = P.flag[P.si][P.qi];
+    const passage = m.passage && m.passage.length > 40
+      ? `<div class="card readpassage" style="position:static;max-height:none;margin-bottom:14px">
+           <div class="rplab">${esc(m.instruction).slice(0, 60)}</div>
+           <div class="jp rptext">${esc(m.passage)}</div></div>` : "";
+    const noAnswer = !q.answer;
+    $("#paperBody").innerHTML = `
+      ${passage}
+      <div class="card paperq">
+        <div class="pqtop">
+          <span class="pqnum">Câu ${q.n}${q.label && q.label !== q.n ? ` (問題${m.no} – ${q.label})` : ` · 問題${m.no}`}</span>
+          <button class="flagbtn${flagged ? " on" : ""}" onclick="App.toggleFlag()">
+            ${flagged ? "★ Đang phân vân" : "☆ Đánh dấu phân vân"}</button>
+        </div>
+        ${noAnswer ? `<div class="banner" style="margin:0 0 12px">🎧 Phần nghe: đề PDF không kèm file audio nên câu này chỉ để xem cấu trúc, không chấm điểm.</div>` : ""}
+        <div class="jp pqtext">${esc(q.q) || "(Xem đoạn văn phía trên)"}</div>
+        <div class="opts" style="max-width:none;margin-top:14px">
+          ${q.opts.map((o, i) => `<button class="opt jp${picked === i + 1 ? " picked" : ""}"
+             onclick="App.pickPaper(${i + 1})"><span class="rnum">${CIRC[i]}</span> ${esc(o)}</button>`).join("")}
+        </div>
+        <div class="pqnav">
+          <button class="btn" onclick="App.paperGo(-1)" ${P.qi === 0 ? "disabled" : ""}>← Câu trước</button>
+          <button class="btn" onclick="App.clearPick()">Xoá lựa chọn</button>
+          ${P.qi === sec.questions.length - 1
+            ? `<button class="btn examC" onclick="App.finishSection(false)">Nộp phần này →</button>`
+            : `<button class="btn examC" onclick="App.paperGo(1)">Câu sau →</button>`}
+        </div>
+      </div>`;
+    this.drawNav();
+    window.scrollTo(0, 0);
+  },
+  drawNav() {
+    const P = this.P, sec = P.secs[P.si];
+    const cells = sec.questions.map((it, i) => {
+      const a = P.ans[P.si][i], f = P.flag[P.si][i];
+      const cls = [i === P.qi ? "cur" : "", f ? "flag" : (a ? "done" : "")].filter(Boolean).join(" ");
+      return `<button class="navcell ${cls}" onclick="App.paperJump(${i})" title="Câu ${it.q.n}">${it.q.n}</button>`;
+    }).join("");
+    const answered = P.ans[P.si].filter(x => x).length;
+    const flags = P.flag[P.si].filter(Boolean).length;
+    $("#paperNav").innerHTML = `
+      <div class="navhead">
+        <b>${sec.name}</b>
+        <div class="sub" style="font-size:12px">Phần ${P.si + 1}/${P.secs.length}</div>
+      </div>
+      <div class="navgrid">${cells}</div>
+      <div class="navstat">
+        <div><i class="sw done"></i> Đã làm: <b>${answered}</b>/${sec.questions.length}</div>
+        <div><i class="sw flag"></i> Phân vân: <b>${flags}</b></div>
+        <div><i class="sw todo"></i> Chưa làm: <b>${sec.questions.length - answered}</b></div>
+      </div>
+      <button class="btn examC" style="width:100%;margin-top:12px" onclick="App.finishSection(false)">Nộp phần này</button>
+      ${P.si < P.secs.length - 1 ? `<div class="sub" style="font-size:11.5px;margin-top:8px;text-align:center">Hết giờ sẽ tự chuyển sang<br><b>${esc(P.secs[P.si + 1].name)}</b></div>` : ""}`;
+  },
+  pickPaper(n) {
+    this.P.ans[this.P.si][this.P.qi] = n;
+    this.drawPaper();
+  },
+  clearPick() {
+    this.P.ans[this.P.si][this.P.qi] = null;
+    this.drawPaper();
+  },
+  toggleFlag() {
+    const P = this.P;
+    P.flag[P.si][P.qi] = !P.flag[P.si][P.qi];
+    this.drawPaper();
+  },
+  paperGo(d) {
+    const P = this.P, sec = P.secs[P.si];
+    P.qi = Math.max(0, Math.min(sec.questions.length - 1, P.qi + d));
+    this.drawPaper();
+  },
+  paperJump(i) { this.P.qi = i; this.drawPaper(); },
+  finishSection(timedOut) {
+    const P = this.P;
+    if (!P || P.grading) return;
+    P.grading = true;
+    clearInterval(P.timer);
+    const sec = P.secs[P.si];
+    let c = 0, t = 0;
+    sec.questions.forEach((it, i) => {
+      if (!it.q.answer) return;
+      t++;
+      if (P.ans[P.si][i] === it.q.answer) c++;
+    });
+    P.results[P.si] = { key: sec.key, name: sec.name, c, t,
+                        answered: P.ans[P.si].filter(x => x).length,
+                        total: sec.questions.length, timedOut: !!timedOut };
+    P.grading = false;
+    if (P.si < P.secs.length - 1) this.betweenSections(timedOut);
+    else this.finishPaper();
+  },
+  betweenSections(timedOut) {
+    const P = this.P, next = P.secs[P.si + 1];
+    const r = P.results[P.si];
+    clearInterval(P.timer);
+    $("#paperTimer").textContent = "--:--";
+    $("#paperNav").innerHTML = "";
+    $("#paperBody").innerHTML = `
+      <div class="card stagecard centered">
+        <div style="font-size:38px">${timedOut ? "⏰" : "✅"}</div>
+        <h2 style="margin-top:8px">${timedOut ? "Hết giờ phần " : "Đã nộp phần "}${esc(r.name)}</h2>
+        <p class="sub" style="margin-top:6px">Bạn đã trả lời ${r.answered}/${r.total} câu${r.t ? ` · đúng ${r.c}/${r.t}` : ""}.</p>
+        <div class="banner" style="margin-top:14px">Tiếp theo: <b>${esc(next.name)}</b> — ${next.minutes} phút, tính giờ ngay khi bắt đầu.</div>
+        <div class="choices">
+          <button class="btn examC" onclick="App.startPaperSection(${P.si + 1})">Bắt đầu phần tiếp theo →</button>
+          <button class="btn" onclick="App.finishPaper()">Kết thúc bài thi tại đây</button>
+        </div>
+      </div>`;
+    window.scrollTo(0, 0);
+  },
+  finishPaper() {
+    const P = this.P;
+    clearInterval(P.timer);
+    P.deadline = null;
+    const done = P.results.filter(Boolean);
+    const c = done.reduce((n, r) => n + r.c, 0);
+    const t = done.reduce((n, r) => n + r.t, 0);
+    const dur = Math.round((Date.now() - P.t0) / 1000);
+    this.state.exams.done.push({ id: P.ex.id, title: P.ex.title, c, t, dur,
+                                 date: new Date().toISOString(),
+                                 sections: done.map(r => ({ key: r.key, c: r.c, t: r.t })) });
+    this.save();
+    const p = pct(c, t);
+    $("#paperTimer").textContent = "--:--";
+    $("#paperNav").innerHTML = "";
+    $("#paperSecName").textContent = "Kết quả";
+    const rows = P.secs.map((sec, si) => {
+      const r = P.results[si];
+      if (!r) return `<div class="xrow"><div class="xq">${esc(sec.name)} — chưa làm</div></div>`;
+      return `<div class="xrow ${r.t && r.c / r.t >= 0.5 ? "ok" : "no"}">
+        <div class="xq">${esc(sec.name)} · ${r.t ? `${pct(r.c, r.t)}% (${r.c}/${r.t})` : "không chấm điểm"}</div>
+        <div class="xa">Trả lời ${r.answered}/${r.total} câu${r.timedOut ? " · hết giờ" : ""}</div>
+      </div>`;
+    }).join("");
+    // per-question review for the sections we could mark
+    const review = P.secs.map((sec, si) => sec.questions.map((it, i) => {
+      if (!it.q.answer) return "";
+      const pick = P.ans[si][i];
+      const ok = pick === it.q.answer;
+      return `<div class="xrow ${ok ? "ok" : "no"}">
+        <div class="xq">${ok ? "✔" : "✘"} Câu ${it.q.n} <span class="jp">${esc(it.q.q).slice(0, 70)}</span></div>
+        <div class="xa">Bạn chọn: ${pick ? esc(it.q.opts[pick - 1]) : "<i>(bỏ trống)</i>"}</div>
+        ${ok ? "" : `<div class="xm">Đáp án đúng: <b class="jp">${esc(it.q.opts[it.q.answer - 1])}</b></div>`}
+      </div>`;
+    }).join("")).join("");
+    $("#paperBody").innerHTML = `
+      <div class="card stagecard centered" style="max-width:900px">
+        <div style="font-size:40px">${p >= 60 ? "🏆" : p >= 40 ? "📝" : "📖"}</div>
+        <h2 style="margin-top:6px">${esc(P.ex.title)}</h2>
+        <div class="scorebig" style="color:${p >= 50 ? "var(--good)" : "var(--bad)"}">${p}%<small> · ${c}/${t} câu · ⏱ ${this.fmtDur(dur)}</small></div>
+        <div class="xrows" style="max-height:none">${rows}</div>
+        <h2 style="margin-top:20px;text-align:left">Xem lại từng câu</h2>
+        <div class="xrows">${review}</div>
+        <div class="choices" style="flex-direction:row;justify-content:center;max-width:none;flex-wrap:wrap">
+          <button class="btn" onclick="App.openPaper(${P.idx})">🔁 Làm lại đề này</button>
+          <button class="btn examC" onclick="App.P=null;App.navExamPapers()">Danh sách đề →</button>
+        </div>
+      </div>`;
+    window.scrollTo(0, 0);
+  },
+  async quitPaper() {
+    if (!this.P) return this.navExamPapers();
+    if (this.P.deadline &&
+        !(await this.askConfirm("Thoát bài thi?\nBài làm hiện tại sẽ không được lưu.", "Thoát", true))) return;
+    clearInterval(this.P.timer);
+    this.P = null;
+    this.navExamPapers();
+  },
+
+  /* ---------------- reading practice ---------------- */
+  renderReadingList() {
+    this.show("scr-reading");
+    const done = new Set(this.state.reading.done.map(d => d.id));
+    const byCh = new Map();
+    this.data.reading.forEach((r, i) => {
+      if (!byCh.has(r.chapter)) byCh.set(r.chapter, []);
+      byCh.get(r.chapter).push({ r, i });
+    });
+    let html = "";
+    let n = 0;
+    for (const [ch, list] of byCh) {
+      html += `<div class="sechead"><span>Chương ${ch} · ${esc(list[0].r.type)}</span></div><div class="sessgrid">`;
+      for (const { r, i } of list) {
+        n++;
+        const rec = this.state.reading.done.find(d => d.id === r.id);
+        html += `
+          <div class="card sesscard" style="--sacc:var(--read)" onclick="App.startReading(${i})">
+            <div class="sc-top"><b>Bài đọc ${n}</b>
+              <span class="chip sec-r">${r.questions.length} câu</span></div>
+            <div class="sc-date">${r.passage.length} chữ · ${esc(r.type)}</div>
+            <div class="sc-score">${rec ? `Đã làm: ${pct(rec.c, rec.t)}% (${rec.c}/${rec.t})` : "Chưa làm"}</div>
+            <div class="sc-go">${rec ? "Làm lại" : "Bắt đầu"} &amp; xem giải thích ›</div>
+          </div>`;
+      }
+      html += "</div>";
+    }
+    $("#readingList").innerHTML = html;
+  },
+  startReading(idx) {
+    const r = this.data.reading[idx];
+    this.S = { mode: "reading", reading: r, idx, answers: [], qi: 0, t0: Date.now() };
+    this.show("scr-session");
+    document.getElementById("scr-session").style.setProperty("--accent", "var(--read)");
+    const chip = $("#sessChip");
+    chip.className = "chip sec-r";
+    chip.textContent = "Đọc hiểu · " + r.type;
+    this.drawReading();
+  },
+  drawReading() {
+    const S = this.S, r = S.reading;
+    const q = r.questions[S.qi];
+    $("#sessPhase").textContent = `câu ${S.qi + 1}/${r.questions.length}`;
+    const CIRC = "①②③④⑤";
+    $("#sessBody").innerHTML = `
+      <div class="readwrap">
+        <div class="card readpassage">
+          <div class="rplab">本文</div>
+          <div class="jp rptext">${esc(r.passage)}</div>
+        </div>
+        <div class="card readq">
+          <div class="rqhead jp">${esc(q.q)}</div>
+          <div class="opts" style="max-width:none">
+            ${q.opts.map((o, i) => `<button class="opt jp" id="ropt${i}" onclick="App.answerReading(${i})">
+               <span class="rnum">${CIRC[i]}</span> ${esc(o)}</button>`).join("")}
+          </div>
+          <div id="rfb"></div>
+        </div>
+      </div>`;
+    window.scrollTo(0, 0);
+  },
+  answerReading(pick) {
+    const S = this.S, r = S.reading, q = r.questions[S.qi];
+    if (S.locked) return;
+    S.locked = true;
+    const ok = pick === q.answer;
+    S.answers.push({ pick, ok });
+    q.opts.forEach((_, i) => {
+      const el = $("#ropt" + i);
+      el.disabled = true;
+      if (i === q.answer) el.classList.add("correct");
+      else if (i === pick) el.classList.add("wrong");
+    });
+    const last = S.qi === r.questions.length - 1;
+    const wrongNotes = (q.wrong || []).map(w => `<li>${esc(w)}</li>`).join("");
+    $("#rfb").innerHTML = `
+      <div class="feedback ${ok ? "ok" : "no"}">
+        <div class="verdict">${ok ? "✔ Chính xác!" : "✘ Chưa đúng"} — đáp án đúng là ${"①②③④⑤"[q.answer]}</div>
+        <div class="evid">
+          <div class="evlab">Câu chứa đáp án trong bài</div>
+          <div class="jp">${esc(q.evidence)}</div>
+        </div>
+        <div class="expl">
+          <div class="whyt">${esc(q.why)}</div>
+          ${wrongNotes ? `<div class="wrongwhy"><b>Vì sao các đáp án còn lại sai</b><ul>${wrongNotes}</ul></div>` : ""}
+        </div>
+        <div class="centered" style="margin-top:14px">
+          <button class="btn readC" id="contBtn" onclick="App.nextReading()">${last ? "Xem kết quả →" : "Câu tiếp theo →"}</button>
+        </div>
+      </div>`;
+    setTimeout(() => { const b = $("#contBtn"); if (b) b.focus(); }, 80);
+  },
+  nextReading() {
+    const S = this.S;
+    S.locked = false;
+    if (S.qi < S.reading.questions.length - 1) { S.qi++; this.drawReading(); return; }
+    this.finishReading();
+  },
+  finishReading() {
+    const S = this.S, r = S.reading;
+    const c = S.answers.filter(a => a.ok).length, t = r.questions.length;
+    const dur = Math.round((Date.now() - S.t0) / 1000);
+    const rec = { id: r.id, c, t, dur, date: new Date().toISOString() };
+    const old = this.state.reading.done.findIndex(d => d.id === r.id);
+    if (old >= 0) this.state.reading.done[old] = rec;
+    else this.state.reading.done.push(rec);
+    this.save();
+    const p = pct(c, t);
+    $("#sessPhase").textContent = "Kết quả";
+    $("#sessBody").innerHTML = `
+      <div class="card stagecard centered" style="max-width:860px">
+        <div style="font-size:40px">${p === 100 ? "🏆" : p >= 50 ? "📖" : "📝"}</div>
+        <h2 style="margin-top:6px">${esc(r.type)}</h2>
+        <div class="scorebig" style="color:${p >= 50 ? "var(--good)" : "var(--bad)"}">${p}%<small> · ${c}/${t} câu · ⏱ ${this.fmtDur(dur)}</small></div>
+        <div class="tips">
+          <div class="tipslab">💡 Tip &amp; trick cho dạng bài này</div>
+          <ul>${r.tips.map(t2 => `<li>${esc(t2)}</li>`).join("")}</ul>
+        </div>
+        <div class="choices" style="flex-direction:row;justify-content:center;max-width:none;flex-wrap:wrap">
+          <button class="btn" onclick="App.startReading(${S.idx})">🔁 Làm lại bài này</button>
+          <button class="btn readC" onclick="App.S=null;App.navReading()">Danh sách bài đọc →</button>
+        </div>
+      </div>`;
+    window.scrollTo(0, 0);
+  },
+
+  /* ---------------- study calendar ---------------- */
+  openCalendar(mode) {
+    const g = this.goalsCfg();
+    const avail = [];
+    if (g.vocabPerDay) avail.push("vocab");
+    if (g.kanjiPerDay) avail.push("kanji");
+    if (!avail.length) return;
+    const now = new Date();
+    this._cal = { mode: avail.includes(mode) ? mode : avail[0],
+                  y: now.getFullYear(), m: now.getMonth(), avail };
+    const ov = document.createElement("div");
+    ov.className = "overlay";
+    ov.innerHTML = `<div class="modal card" style="width:min(560px,94vw)" id="calBody"></div>`;
+    ov.addEventListener("mousedown", e => { if (e.target === ov) ov.remove(); });
+    document.body.appendChild(ov);
+    this._calOv = ov;
+    this.renderCalendar();
+  },
+  calSetMode(m) { this._cal.mode = m; this.renderCalendar(); },
+  calShift(d) {
+    const c = this._cal, dt = new Date(c.y, c.m + d, 1);
+    c.y = dt.getFullYear(); c.m = dt.getMonth();
+    this.renderCalendar();
+  },
+  renderCalendar() {
+    const c = this._cal, an = this.goalAnalysis(c.mode);
+    const acc = c.mode === "vocab" ? "var(--vocab)" : "var(--kanji)";
+    const soft = c.mode === "vocab" ? "var(--vocab-soft)" : "var(--kanji-soft)";
+    const dark = c.mode === "vocab" ? "var(--vocab-dark)" : "var(--kanji-dark)";
+    const daysInMonth = new Date(c.y, c.m + 1, 0).getDate();
+    const lead = (new Date(c.y, c.m, 1).getDay() + 6) % 7;      // Monday first
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const todayKey = this.dayKey(today);
+    const LAB = { met: "Đạt mục tiêu", makeup: "Đã học bù", part: "Có học nhưng chưa đủ",
+                  miss: "Bỏ lỡ", todo: "Hôm nay chưa học", future: "Chưa tới" };
+    let met = 0, makeup = 0, miss = 0;
+    const cells = [];
+    for (let i = 0; i < lead; i++) cells.push('<div class="cday empty"></div>');
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(c.y, c.m, d);
+      const k = this.dayKey(date);
+      const cnt = an.counts[k] || 0;
+      let st = an.status[k] || "";
+      if (!st && date > today) st = "future";
+      if (st === "met") met++;
+      if (st === "makeup") makeup++;
+      if (st === "miss" || st === "part") miss++;
+      cells.push(`<div class="cday ${st}${k === todayKey ? " today" : ""}"
+        title="${d}/${c.m + 1}/${c.y}: ${cnt}/${an.goal} session · ${LAB[st] || "Chưa bắt đầu học"}">
+        <span class="dn">${d}</span>${cnt ? `<span class="dc">${cnt}</span>` : ""}${st === "makeup" ? '<i class="mk">↻</i>' : ""}</div>`);
+    }
+    const MON = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6",
+                 "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
+    const switcher = c.avail.length > 1 ? `<div class="calsw">
+        ${c.avail.map(m => `<button class="calswb${m === c.mode ? " on" : ""}" onclick="App.calSetMode('${m}')">${m === "vocab" ? "Từ vựng" : "Kanji"}</button>`).join("")}
+      </div>` : "";
+    $("#calBody").innerHTML = `
+      <div class="mtop">
+        <div><h2>Lịch học · ${c.mode === "vocab" ? "Từ vựng" : "Kanji"}</h2>
+          <div class="sub" style="font-size:13px">Mục tiêu ${an.goal} session/ngày${an.pending ? ` · đang nợ ${an.pending} session` : " · không nợ ngày nào 🎉"}</div></div>
+        <button class="mclose" onclick="App._calOv.remove()">✕</button>
+      </div>
+      ${switcher}
+      <div class="calhead">
+        <button class="btn" style="padding:6px 12px" onclick="App.calShift(-1)">‹</button>
+        <b>${MON[c.m]} ${c.y}</b>
+        <button class="btn" style="padding:6px 12px" onclick="App.calShift(1)">›</button>
+      </div>
+      <div class="calgrid dow">${["T2", "T3", "T4", "T5", "T6", "T7", "CN"].map(x => `<div class="cdow">${x}</div>`).join("")}</div>
+      <div class="calgrid" style="--gacc:${acc};--gsoft:${soft};--gdark:${dark}">${cells.join("")}</div>
+      <div class="calstat">Tháng này: <b>${met}</b> ngày đạt · <b>${makeup}</b> ngày học bù · <b>${miss}</b> ngày chưa đạt</div>
+      <div class="callegend">
+        <span><i class="sw met" style="--gacc:${acc}"></i>Đạt mục tiêu</span>
+        <span><i class="sw makeup" style="--gacc:${acc}"></i>Học bù</span>
+        <span><i class="sw part" style="--gsoft:${soft}"></i>Chưa đủ</span>
+        <span><i class="sw miss"></i>Bỏ lỡ</span>
       </div>`;
   },
 
@@ -1196,15 +2179,19 @@ const App = {
       if (!ns) return `
         <div class="card startcard ${cls}" style="opacity:.55;cursor:default">
           <div class="ico">${ico}</div>
-          <div><b>${label}</b><div class="det">Cần hoàn thành ít nhất 1 session ${mode === "vocab" ? "từ vựng" : "kanji"} trước đã</div></div>
+          <div><b>${label}</b><div class="det">Cần hoàn thành ít nhất 1 session ${this.modeLabel(mode).toLowerCase()} trước đã</div></div>
         </div>`;
       const cfg = this.cfg();
       const pick = Math.min(cfg.examSessions, ns);
       const countItems = s => mode === "vocab" ? s.items.length
+        : mode === "grammar"
+        ? s.items.reduce((m, i) => m + this.data.grammar[i].examples.length, 0)
         : s.items.reduce((m, i) => m + this.data.kanji[i].words.length, 0);
       const avg = st.sessions.reduce((n, s) => n + countItems(s), 0) / ns;
       const estQ = Math.round(avg * pick);
-      const estSec = Math.ceil(estQ / 2) * cfg.mcSec + Math.floor(estQ / 2) * cfg.typedSec;
+      const estSec = mode === "grammar"
+        ? estQ * Math.max(cfg.typedSec, 45)
+        : Math.ceil(estQ / 2) * cfg.mcSec + Math.floor(estQ / 2) * cfg.typedSec;
       return `
         <div class="card startcard ${cls}" onclick="App.startExam('${mode}')">
           <div class="ico">${ico}</div>
@@ -1212,7 +2199,16 @@ const App = {
             <div class="det">${pick}/${ns} session ngẫu nhiên · ≈${estQ} câu · ⏱ ~${Math.ceil(estSec / 60)} phút</div></div>
         </div>`;
     };
-    $("#examCards").innerHTML = mk("vocab", "v", "あ", "Kiểm tra từ vựng") + mk("kanji", "k", "漢", "Kiểm tra kanji");
+    const nExams = (this.data.exams || []).length;
+    const doneEx = this.state.exams.done.length;
+    $("#examCards").innerHTML = mk("vocab", "v", "あ", "Kiểm tra từ vựng")
+      + mk("kanji", "k", "漢", "Kiểm tra kanji")
+      + mk("grammar", "g", "文", "Kiểm tra ngữ pháp")
+      + `<div class="card startcard e" onclick="App.navExamPapers()">
+           <div class="ico">試</div>
+           <div><b>Đề thi JLPT N3</b>
+             <div class="det">${nExams} đề thi thật · thi theo đúng thời gian chuẩn${doneEx ? ` · đã làm ${doneEx} lượt` : ""}</div></div>
+         </div>`;
   },
   startExam(mode) {
     const st = this.state[mode];
@@ -1224,7 +2220,8 @@ const App = {
       sids: picked.map(s => s.id).sort((a, b) => a - b) };
     const qs = this.buildQuiz(this.sessionItems(items));
     this.S.quiz = { qs, i: 0, c: 0, wrong: [], answers: [] };
-    const total = qs.reduce((t, q) => t + (q.type === "mc" ? cfg.mcSec : cfg.typedSec), 0);
+    const total = qs.reduce((t, q) => t + (q.type === "mc" ? cfg.mcSec
+      : q.type === "translate" ? Math.max(cfg.typedSec, 45) : cfg.typedSec), 0);
     this.S.totalTime = total;
     this.S.t0 = Date.now();
     this.S.deadline = Date.now() + total * 1000;
@@ -1259,6 +2256,20 @@ const App = {
           ${Q.opts.map((o, oi) => `<button class="opt${Q.qkind === "k-word" ? " jp" : ""}"
             ${Q.qkind === "k-word" ? 'style="font-size:19px"' : ""} onclick="App.answerExamMC(${oi})">${esc(o.text)}</button>`).join("")}
         </div>`;
+    } else if (Q.type === "translate") {
+      body = `
+        <div class="centered qprompt">
+          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Dịch câu sau sang tiếng Việt</div>
+          <div class="jp transsent">${esc(Q.it.jp)}</div>
+        </div>
+        <div class="transbox">
+          <textarea id="transInput" rows="3" placeholder="Nhập bản dịch tiếng Việt của bạn..."
+            onkeydown="if(event.key==='Enter'&&(event.ctrlKey||event.metaKey))App.answerExamTranslate()"></textarea>
+          <div class="transrow">
+            <span class="sub" style="font-size:12px">Ctrl + Enter để sang câu tiếp</span>
+            <button class="btn ${this.btnClass()}" onclick="App.answerExamTranslate()">Câu tiếp →</button>
+          </div>
+        </div>`;
     } else {
       body = `
         ${this.qPromptHTML(Q)}
@@ -1271,10 +2282,10 @@ const App = {
     $("#sessBody").innerHTML = `<div class="card stagecard">${body}</div>`;
     const ti = $("#typedInput"); if (ti) ti.focus();
   },
-  recordExamAnswer(given, ok) {
+  recordExamAnswer(given, ok, pending) {
     const q = this.S.quiz, Q = q.qs[q.i];
-    q.answers.push({ Q, given, ok });
-    if (ok) q.c++; else q.wrong.push(Q);
+    q.answers.push({ Q, given, ok, pending: !!pending });
+    if (ok) q.c++; else if (!pending) q.wrong.push(Q);
     q.i++;
     this.gotoPhase("exam-quiz");
   },
@@ -1282,12 +2293,18 @@ const App = {
     const Q = this.S.quiz.qs[this.S.quiz.i], o = Q.opts[oi];
     this.recordExamAnswer(o.text, o.ok);
   },
+  answerExamTranslate() {
+    const Q = this.S.quiz.qs[this.S.quiz.i];
+    const val = ($("#transInput").value || "").trim();
+    // marked provisionally; the real grading happens once the paper is handed in
+    this.recordExamAnswer(val, false, true);
+  },
   answerExamTyped() {
     const Q = this.S.quiz.qs[this.S.quiz.i];
     const val = $("#typedInput").value;
     this.recordExamAnswer(val.trim(), this.checkAnswerFor(Q, val));
   },
-  finishExam(timedOut) {
+  async finishExam(timedOut) {
     if (!this.S || !this.S.exam || this.S.finished) return;
     this.S.finished = true;
     clearInterval(this.S.timer); this.S.timer = null; this.S.deadline = null;
@@ -1295,6 +2312,19 @@ const App = {
     while (q.i < q.qs.length) { q.answers.push({ Q: q.qs[q.i], given: null, ok: false }); q.i++; }
     this.S.examDur = Math.round((Date.now() - this.S.t0) / 1000);
     this.S.timedOut = timedOut;
+    const pend = q.answers.filter(a => a.pending);
+    if (pend.length) {
+      $("#sessBody").innerHTML = `<div class="card stagecard centered">
+        <div class="grading">🤖 Đang chấm ${pend.length} câu dịch…</div></div>`;
+      for (const a of pend) {
+        const res = a.given ? await this.gradeTranslation(a.Q.it, a.given)
+                            : { correct: false, score: 0, feedback: "Chưa trả lời.", source: "offline" };
+        a.result = res;
+        a.ok = !!res.correct;
+        a.pending = false;
+        if (a.ok) q.c++; else q.wrong.push(a.Q);
+      }
+    }
     const st = this.state[this.S.mode];
     (st.exams = st.exams || []).push({ date: new Date().toISOString(), dur: this.S.examDur,
       c: q.c, t: q.qs.length, sids: this.S.sids });
@@ -1306,6 +2336,16 @@ const App = {
     $("#sessPhase").textContent = "Kết quả kiểm tra";
     const rows = q.answers.map(a => {
       const it = a.Q.it;
+      if (a.Q.type === "translate") {
+        const r = a.result || {};
+        return `<div class="xrow ${a.ok ? "ok" : "no"}">
+          <div class="xq">${a.ok ? "✔" : "✘"} <span class="jp">${esc(it.jp)}</span> → dịch sang tiếng Việt${r.score != null ? ` · ${r.score}/100` : ""}</div>
+          <div class="xa">Bạn dịch: ${a.given ? esc(a.given) : "<i>(chưa trả lời)</i>"}</div>
+          ${r.feedback ? `<div class="xm">${esc(r.feedback)}</div>` : ""}
+          ${r.suggested ? `<div class="xm">Gợi ý: <b>${esc(r.suggested)}</b></div>` : ""}
+          <div class="xm">Mẫu: <b class="jp">${esc(it.pattern)}</b>${it.meaning ? " — " + esc(it.meaning) : ""}</div>
+        </div>`;
+      }
       const prompt = a.Q.qkind === "k-word"
         ? `<span class="jp">${esc(it.reading)}</span> → chọn cách viết`
         : a.Q.qkind === "k-read"
@@ -1338,7 +2378,12 @@ const App = {
   startSession(mode) {
     const st = this.state[mode];
     let items;
-    if (mode === "vocab") {
+    if (mode === "grammar") {
+      const les = this.grammarLessons();
+      const next = les[st.sessions.length];
+      if (!next) return;
+      items = next.items;
+    } else if (mode === "vocab") {
       const n = this.learnedVocabCount();
       const take = Math.min(this.cfg().vocabPerSession, this.data.vocab.length - n);
       if (take <= 0) return;
@@ -1357,20 +2402,43 @@ const App = {
     } else this.gotoPhase("study");
   },
   sessionItems(idxs) {
+    if (this.S.mode === "grammar") {
+      const out = [];
+      for (const gi of idxs) {
+        const g = this.data.grammar[gi];
+        g.examples.forEach((e, ei) => out.push(this.grammarItem(gi, ei)));
+      }
+      return out;
+    }
     if (this.S.mode === "vocab") return idxs.map(i => this.vocabItem(i));
     const out = [];
     for (const ki of idxs) this.data.kanji[ki].words.forEach((_, wi) => out.push(this.kanjiWordItem(ki, wi)));
     return out;
   },
-  accent() { return this.S.mode === "vocab" ? "var(--vocab)" : "var(--kanji)"; },
-  btnClass() { return this.S.mode === "vocab" ? "primary" : "kanjiC"; },
+  accent() {
+    return { vocab: "var(--vocab)", kanji: "var(--kanji)", grammar: "var(--gram)" }[this.S.mode];
+  },
+  btnClass() {
+    return { vocab: "primary", kanji: "kanjiC", grammar: "gramC" }[this.S.mode];
+  },
+  modeLabel(m) {
+    return { vocab: "Từ vựng", kanji: "Kanji", grammar: "Ngữ pháp" }[m || this.S.mode];
+  },
+  grammarItem(gi, ei) {
+    const g = this.data.grammar[gi];
+    const ex = g.examples[ei];
+    return { type: "translate", jp: ex.jp, g, gi, ei,
+             pattern: g.pattern, meaning: g.meaning,
+             meanings: [g.meaning || g.pattern], meanText: g.meaning || g.pattern,
+             reading: "", kana: [], pos: "", hanviet: "", kref: null };
+  },
 
   gotoPhase(p, arg) {
     this.S.phase = p;
     this.show("scr-session");
     const chip = $("#sessChip");
-    chip.className = "chip " + (this.S.mode === "vocab" ? "sec-v" : "sec-k");
-    const label = this.S.mode === "vocab" ? "Từ vựng" : "Kanji";
+    chip.className = "chip " + { vocab: "sec-v", kanji: "sec-k", grammar: "sec-g" }[this.S.mode];
+    const label = this.modeLabel();
     chip.textContent = this.S.exam ? "Kiểm tra · " + label
       : this.S.reviewOnly ? label + " · Ôn lại Session " + this.S.review.sid
       : label + " · Session " + this.S.id;
@@ -1449,12 +2517,15 @@ const App = {
   drawStudyCard(idxs, i, isWrongReview) {
     const mode = this.S.mode;
     const total = mode === "vocab" || isWrongReview ? idxs.length : idxs.length;
-    $("#sessPhase").textContent = isWrongReview ? "Ôn lại từ sai" : (mode === "vocab" ? "Ôn tập từ mới" : "Ôn tập kanji mới");
+    $("#sessPhase").textContent = isWrongReview ? "Ôn lại câu sai"
+      : { vocab: "Ôn tập từ mới", kanji: "Ôn tập kanji mới", grammar: "Học mẫu ngữ pháp" }[mode];
     let inner;
     if (isWrongReview) {
-      inner = this.studyCardItem(idxs[i]);
+      inner = idxs[i].type === "translate" ? this.studyCardGrammar(idxs[i].g) : this.studyCardItem(idxs[i]);
     } else if (mode === "vocab") {
       inner = this.studyCardItem(this.vocabItem(idxs[i]));
+    } else if (mode === "grammar") {
+      inner = this.studyCardGrammar(this.data.grammar[idxs[i]]);
     } else {
       inner = this.studyCardKanji(this.data.kanji[idxs[i]]);
     }
@@ -1479,6 +2550,27 @@ const App = {
     const wrongMode = this.S.phase === "wrong-study";
     const list = wrongMode ? this.S.wrongItems : this.S.items;
     this.drawStudyCard(list, this.S.studyIdx, wrongMode);
+  },
+  // laid out like the book page: pattern, meaning, conjugation table, notes, examples
+  grammarCardHTML(g, compact) {
+    return `
+      <div class="gtop">
+        <div class="gpat jp">${esc(g.pattern)}</div>
+        ${g.meaning ? `<div class="gmean">☆ ${esc(g.meaning)}</div>` : ""}
+      </div>
+      ${g.forms && g.forms.length ? `<div class="gforms jp">${g.forms.map(f => `<div>${esc(f)}</div>`).join("")}</div>` : ""}
+      ${g.notes && g.notes.length ? `<ul class="gnotes">${g.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
+      ${compact ? "" : `<div class="gex">
+        <div class="gexlab">Ví dụ trong sách</div>
+        ${g.examples.map(e => `<div class="jp">${esc(e.jp)}</div>`).join("")}
+      </div>`}
+      ${!compact && g.drills && g.drills.some(d => d.jp) ? `<div class="gex">
+        <div class="gexlab">Luyện dịch Việt → Nhật (đáp án tham khảo của sách)</div>
+        ${g.drills.filter(d => d.jp).map(d => `<div class="gdrill"><span>${esc(d.vi)}</span><b class="jp">${esc(d.jp)}</b></div>`).join("")}
+      </div>` : ""}`;
+  },
+  studyCardGrammar(g) {
+    return `<div class="gcard">${this.grammarCardHTML(g)}</div>`;
   },
   studyCardItem(it) {
     return `<div class="centered">
@@ -1564,6 +2656,22 @@ const App = {
             ${Q.qkind === "k-word" ? 'style="font-size:19px"' : ""} onclick="App.answerMC(${oi})">${esc(o.text)}</button>`).join("")}
         </div>
         <div id="fb"></div>`;
+    } else if (Q.type === "translate") {
+      body = `
+        <div class="centered qprompt">
+          <div class="sub" style="font-size:13px;font-weight:650;text-transform:uppercase;letter-spacing:.05em">Dịch câu sau sang tiếng Việt</div>
+          <div class="jp transsent">${esc(Q.it.jp)}</div>
+          <div class="sub" style="margin-top:6px">Mẫu: <b class="jp">${esc(Q.it.pattern)}</b></div>
+        </div>
+        <div class="transbox">
+          <textarea id="transInput" rows="3" placeholder="Nhập bản dịch tiếng Việt của bạn..."
+            onkeydown="if(event.key==='Enter'&&(event.ctrlKey||event.metaKey))App.answerTranslate()"></textarea>
+          <div class="transrow">
+            <span class="sub" style="font-size:12px" id="graderHint">Ctrl + Enter để nộp</span>
+            <button class="btn ${this.btnClass()}" id="transBtn" onclick="App.answerTranslate()">Chấm bài</button>
+          </div>
+        </div>
+        <div id="fb"></div>`;
     } else {
       body = `
         ${this.qPromptHTML(Q)}
@@ -1575,7 +2683,146 @@ const App = {
         <div id="fb"></div>`;
     }
     $("#sessBody").innerHTML = `<div class="card stagecard">${body}</div>`;
-    const ti = $("#typedInput"); if (ti) ti.focus();
+    const ti = $("#typedInput") || $("#transInput"); if (ti) ti.focus();
+    if (Q.type === "translate") this.showGraderHint();
+  },
+  async showGraderHint() {
+    const el = $("#graderHint");
+    if (!el) return;
+    const k = (await this.apiCall("get_api_key")) || {};
+    el.innerHTML = k.set
+      ? "Ctrl + Enter để nộp · <b>AI chấm theo nghĩa</b>"
+      : "Ctrl + Enter để nộp · chấm ngoại tuyến — <a style=\"cursor:pointer;text-decoration:underline\" onclick=\"App.openSettings()\">thêm API key</a> để AI chấm";
+  },
+
+  /* ---------- translation grading: Claude first, offline fallback ---------- */
+  async answerTranslate() {
+    const q = this.S.quiz, Q = q.qs[q.i];
+    if (Q.answered) return;
+    const val = ($("#transInput").value || "").trim();
+    if (!val) { $("#transInput").focus(); return; }
+    Q.answered = true;
+    $("#transInput").disabled = true;
+    const btn = $("#transBtn");
+    btn.disabled = true; btn.textContent = "Đang chấm…";
+    $("#fb").innerHTML = `<div class="grading">🤖 Đang chấm bản dịch của bạn…</div>`;
+    const res = await this.gradeTranslation(Q.it, val);
+    this.finishTranslate(Q, val, res);
+  },
+  async gradeTranslation(it, val) {
+    const ai = await this.apiCall("grade_translation", {
+      jp: it.jp, user: val, pattern: it.pattern,
+      meaning: it.meaning, notes: (it.g && it.g.notes) || [],
+    });
+    if (ai && ai.ok) return ai;
+    const off = this.offlineGrade(it, val);
+    off.aiError = ai ? ai.error : "no_host";
+    return off;
+  },
+  // Offline grader: measure how much of the sentence's meaning the translation
+  // covers. Concepts come from the dictionary (vocab + kanji words) plus the
+  // pattern's own meaning, so many different Vietnamese wordings can pass.
+  dictIndex() {
+    if (!this._dict) {
+      const m = new Map();
+      const put = (w, mean) => { if (w && mean && !m.has(w)) m.set(w, mean); };
+      for (const e of this.data.vocab) put(e.word, e.meanings[0]);
+      for (const k of this.data.kanji) for (const w of k.words) put(w.word, w.meaning);
+      this._dict = m;
+    }
+    return this._dict;
+  },
+  normVi(t) {
+    return " " + String(t || "").toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim() + " ";
+  },
+  offlineGrade(it, val) {
+    const dict = this.dictIndex();
+    const jp = it.jp.replace(/[（(].*?[）)]/g, "");
+    const concepts = [];
+    const seen = new Set();
+    for (let i = 0; i < jp.length; i++) {
+      for (let len = Math.min(7, jp.length - i); len >= 2; len--) {
+        const sub = jp.slice(i, i + len);
+        if (!/[\u4e00-\u9fff\u30a0-\u30ff]/.test(sub)) continue;
+        const mean = dict.get(sub);
+        if (mean && !seen.has(mean)) {
+          seen.add(mean);
+          concepts.push({ jp: sub, vi: mean });
+          i += len - 1;
+          break;
+        }
+      }
+    }
+    // whole-word matching: "qua" must not count as a hit inside "quan"
+    const userWords = new Set(this.normVi(val).trim().split(" ").filter(Boolean));
+    const hit = c => this.normVi(c.vi).trim().split(" ")
+      .filter(w => w.length > 2)
+      .some(w => userWords.has(w));
+    const got = concepts.filter(hit);
+    const missed = concepts.filter(c => !hit(c));
+    const patHit = it.meaning ? hit({ vi: it.meaning }) : true;
+    const head = c => c.vi.split(/[,;]/)[0];
+    const fb = [];
+    // the offline dictionary only knows the N3 words in this book, so a sentence
+    // built mostly from N4/N5 vocabulary gives it too little to judge
+    const thin = concepts.length < 3;
+    let score, correct;
+    if (thin) {
+      score = val.length < 8 ? 30 : 65;
+      correct = val.length >= 8;
+      fb.push("Bộ chấm ngoại tuyến chỉ đối chiếu được " + concepts.length +
+              " ý trong câu này nên chưa thể chấm chắc chắn.");
+      if (got.length) fb.push("Có khớp ý: " + got.map(head).join(", ") + ".");
+      fb.push("Nhập Claude API key trong Cài đặt để được AI chấm theo ngữ nghĩa và nhận xét chi tiết.");
+    } else {
+      score = Math.round(100 * got.length / concepts.length);
+      if (!patHit) score = Math.max(0, score - 15);
+      if (val.length < 4) score = Math.min(score, 20);
+      correct = score >= 70;
+      if (got.length) fb.push("Bạn đã dịch đúng ý: " + got.slice(0, 6).map(head).join(", ") + ".");
+      if (missed.length) fb.push("Có thể còn thiếu hoặc chưa rõ: " +
+        missed.slice(0, 6).map(c => c.jp + " (" + head(c) + ")").join(", ") + ".");
+      if (!patHit && it.meaning) fb.push("Chú ý thể hiện đúng sắc thái của mẫu: " + it.meaning + ".");
+    }
+    return { ok: true, source: "offline", score, correct, thin,
+             feedback: fb.join(" ") || "Chưa đủ dữ liệu để nhận xét chi tiết.",
+             grammar_note: it.meaning ? ("Mẫu " + it.pattern + ": " + it.meaning) : ("Mẫu " + it.pattern),
+             suggested: "" };
+  },
+  finishTranslate(Q, val, res) {
+    const q = this.S.quiz, it = Q.it;
+    const ok = !!res.correct;
+    if (ok) q.c++; else q.wrong.push(Q);
+    Q.result = res;
+    const badge = res.source === "ai"
+      ? `<span class="srcbadge ai">AI chấm</span>`
+      : `<span class="srcbadge off" title="${esc(this.aiErrorText(res.aiError))}">Chấm ngoại tuyến</span>`;
+    $("#fb").innerHTML = `
+      <div class="feedback ${ok ? "ok" : "no"}">
+        <div class="verdict">${ok ? "✔ Đạt" : "✘ Chưa đạt"} · ${res.score}/100 ${badge}</div>
+        <div class="scorebar"><i style="width:${Math.max(2, Math.min(100, res.score))}%;background:${ok ? "var(--good)" : "var(--bad)"}"></i></div>
+        <div style="margin-top:10px">${esc(res.feedback)}</div>
+        ${res.suggested ? `<div class="suggest">Gợi ý dịch: <b>${esc(res.suggested)}</b></div>` : ""}
+        <div class="expl">
+          <div class="sub" style="font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase">Cấu trúc ngữ pháp của câu này</div>
+          ${this.grammarCardHTML(it.g, true)}
+          ${res.grammar_note ? `<div class="gnote">💡 ${esc(res.grammar_note)}</div>` : ""}
+          <div class="kref"><b class="jp">${esc(it.jp)}</b></div>
+        </div>
+        <div class="centered" style="margin-top:14px">
+          <button class="btn ${this.btnClass()}" id="contBtn" onclick="App.nextQuestion()">Tiếp tục →</button>
+        </div>
+      </div>`;
+    setTimeout(() => { const b = $("#contBtn"); if (b) b.focus(); }, 100);
+  },
+  aiErrorText(err) {
+    return { no_key: "Chưa nhập Claude API key trong Cài đặt - đang dùng bộ chấm ngoại tuyến.",
+             bad_key: "API key không hợp lệ.",
+             rate_limit: "API đang bị giới hạn tần suất.",
+             offline: "Không kết nối được tới Claude API.",
+             no_sdk: "Thiếu thư viện anthropic." }[err] || ("Không gọi được AI: " + (err || ""));
   },
   answerMC(oi) {
     const q = this.S.quiz, Q = q.qs[q.i], o = Q.opts[oi];
@@ -1669,6 +2916,7 @@ const App = {
     const st = this.state[this.S.mode];
     st.sessions.push({ id: this.S.id, date: new Date().toISOString(),
       items: this.S.items, first: this.S.first,
+      label: this.S.mode === "grammar" ? this.grammarLessons()[this.S.id - 1].label : undefined,
       dur: this.S.t0 ? Math.round((Date.now() - this.S.t0) / 1000) : null });
     this.save();
     this.S = null;

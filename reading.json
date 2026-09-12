@@ -1,0 +1,908 @@
+[
+ {
+  "id": "r5-1",
+  "chapter": 5,
+  "no": 1,
+  "type": "Hỏi chi tiết・内容理解",
+  "passage": "子どものころ、友だちとよくおりがみを折って遊んでいた。おりがみは手を使って細かい作業をしたり、折る順番や次の形を考えたりする。そのため、子どもの集中力や想像力、思考力を育てる効果があるらしい。他の国の人に比べて、日本人は細かい作業が得意だと言われるのは、子どものころ、おりがみをしていたからかもしれない。遊びながら、たくさんのことを学べるおりがみは世界に誇れる日本の文化に違いない。",
+  "questions": [
+   {
+    "q": "おりがみで遊ぶと、どうなるか。",
+    "opts": [
+     "手を使うので、指が速く動くようになる。",
+     "細かい作業をするので、目がよくなる。",
+     "形を想像したり、考えたりする力が身につく。",
+     "たくさんのことを学べるので世界に誇ることができる。"
+    ],
+    "answer": 2,
+    "evidence": "そのため、子どもの集中力や想像力、思考力を育てる効果があるらしい。",
+    "why": "Câu này nói origami có tác dụng nuôi dưỡng khả năng tập trung, trí tưởng tượng và tư duy cho trẻ. Đáp án ③「形を想像したり、考えたりする力が身につく」chính là cách diễn đạt lại (言い換え) của 想像力・思考力を育てる.",
+    "wrong": [
+     "① Bài chỉ nói origami dùng tay làm việc tỉ mỉ, không hề nói ngón tay cử động nhanh hơn.",
+     "② Bài không nhắc gì đến mắt tốt lên — đây là thông tin hoàn toàn mới.",
+     "④ 「世界に誇れる日本の文化」là tác giả khen origami là nét văn hoá đáng tự hào, không phải người chơi sẽ tự hào được với thế giới."
+    ]
+   }
+  ],
+  "tips": [
+   "Đề cho một từ khoá đã xuất hiện trong bài rồi hỏi giải thích về nó: 〜について、筆者はどのように考えているか / 筆者は〜について、どう述べているか.",
+   "Bước 1: đọc kỹ câu hỏi, gạch chân đúng nội dung được hỏi (từ khoá).",
+   "Bước 2: đọc lướt cả bài để nắm đề tài, khoanh vùng chỗ xuất hiện từ khoá đó.",
+   "Bước 3: đọc thật kỹ vùng vừa khoanh — câu trả lời gần như luôn nằm trong 1–2 câu quanh từ khoá.",
+   "Bước 4: so từng đáp án với vùng đó. Đáp án đúng thường diễn đạt lại (言い換え) chứ không chép nguyên văn.",
+   "Mẹo loại trừ: đáp án sai hay thêm chi tiết lạ (mắt sáng hơn, ngón tay nhanh hơn…) hoặc đổi mức độ (少し違う → 全く違う)."
+  ]
+ },
+ {
+  "id": "r5-2",
+  "chapter": 5,
+  "no": 2,
+  "type": "Hỏi chi tiết・内容理解",
+  "passage": "先日、インターネットでくつを買って、失敗した。写真で見た商品の色と実際の商品の色が少し違っていた。商品を交換できるか電話で聞いてみると、交換はできないが、返品はできると言われた。少し考えたが、すぐに使いたかったので、そのまま使うことにした。でも、サイズも少し小さくてすぐに足が痛くなってしまったので、結局1回しかはかなかった。インターネットでショッピングする時は、店で同じ商品を見てから買うか、一度買ったことがある商品を買った方がいい。",
+  "questions": [
+   {
+    "q": "何が失敗だったのか。",
+    "opts": [
+     "一度買ったことがある商品をまた買ってしまったこと。",
+     "返品も交換もできない商品を確認しないで買ってしまったこと。",
+     "届いた商品の色や大きさが写真で確認したものと少し違ったこと。",
+     "注文した商品と全く違う色の商品が届いたこと。"
+    ],
+    "answer": 2,
+    "evidence": "写真で見た商品の色と実際の商品の色が少し違っていた。… でも、サイズも少し小さくてすぐに足が痛くなってしまった。",
+    "why": "Thất bại gồm hai điểm: màu thật khác ảnh và size hơi nhỏ. Đáp án ③ gộp đúng cả hai (màu và kích cỡ khác so với ảnh đã xem).",
+    "wrong": [
+     "① Ngược lại: cuối bài tác giả khuyên nên mua loại đã từng mua rồi.",
+     "② Bài nói rõ 返品はできる (trả lại được), chỉ không đổi được.",
+     "④ Bài dùng 少し違って (hơi khác), còn đáp án này nói 全く違う色 (màu hoàn toàn khác) — sai mức độ."
+    ]
+   }
+  ],
+  "tips": [
+   "Đề cho một từ khoá đã xuất hiện trong bài rồi hỏi giải thích về nó: 〜について、筆者はどのように考えているか / 筆者は〜について、どう述べているか.",
+   "Bước 1: đọc kỹ câu hỏi, gạch chân đúng nội dung được hỏi (từ khoá).",
+   "Bước 2: đọc lướt cả bài để nắm đề tài, khoanh vùng chỗ xuất hiện từ khoá đó.",
+   "Bước 3: đọc thật kỹ vùng vừa khoanh — câu trả lời gần như luôn nằm trong 1–2 câu quanh từ khoá.",
+   "Bước 4: so từng đáp án với vùng đó. Đáp án đúng thường diễn đạt lại (言い換え) chứ không chép nguyên văn.",
+   "Mẹo loại trừ: đáp án sai hay thêm chi tiết lạ (mắt sáng hơn, ngón tay nhanh hơn…) hoặc đổi mức độ (少し違う → 全く違う)."
+  ]
+ },
+ {
+  "id": "r5-3",
+  "chapter": 5,
+  "no": 3,
+  "type": "Hỏi chi tiết・内容理解",
+  "passage": "2月から3月にかけて、春らしい温かい日が何日か続いた後に、急に寒くなることがある。そんな気候のことを三寒四温と呼ぶ。1週間の中で3日間は寒い日で、4日間は温かい日になる。つまり、短い期間で寒くなったり温かくなったりするという意味だ。この時期は気温の変化が大きいので、風邪を引く人も多い。そのため、着るものや食べるものに注意して、体調に気をつける必要がある。三寒四温の時期は、必ず天気予報で気温を確認するようにしよう。",
+  "questions": [
+   {
+    "q": "三寒四温の時期は、どんなことをしなければならないか。",
+    "opts": [
+     "1日の間で気温の変化が大きいので、着るものに気をつける。",
+     "温かい日があったり、寒い日があったりするので、風邪を引かないように気をつける。",
+     "毎日温かいものを食べたり、コートを着たりするように気をつける。",
+     "必ず天気予報を見て雨が降らないか確認するようにする。"
+    ],
+    "answer": 1,
+    "evidence": "この時期は気温の変化が大きいので、風邪を引く人も多い。そのため、着るものや食べるものに注意して、体調に気をつける必要がある。",
+    "why": "そのため nối trực tiếp nguyên nhân (dễ cảm) với việc cần làm (chú ý sức khoẻ). Đáp án ② nêu đúng: vì có ngày ấm ngày lạnh nên phải giữ gìn để không bị cảm.",
+    "wrong": [
+     "① Bài nói thay đổi trong một khoảng ngắn (mấy ngày trong tuần), không phải 1日の間 (trong một ngày).",
+     "③ Bài chỉ nói chú ý đồ ăn/đồ mặc, không bắt mỗi ngày phải ăn đồ nóng và mặc áo khoác.",
+     "④ Xem dự báo là để kiểm tra 気温 (nhiệt độ), không phải xem có mưa hay không."
+    ]
+   }
+  ],
+  "tips": [
+   "Đề cho một từ khoá đã xuất hiện trong bài rồi hỏi giải thích về nó: 〜について、筆者はどのように考えているか / 筆者は〜について、どう述べているか.",
+   "Bước 1: đọc kỹ câu hỏi, gạch chân đúng nội dung được hỏi (từ khoá).",
+   "Bước 2: đọc lướt cả bài để nắm đề tài, khoanh vùng chỗ xuất hiện từ khoá đó.",
+   "Bước 3: đọc thật kỹ vùng vừa khoanh — câu trả lời gần như luôn nằm trong 1–2 câu quanh từ khoá.",
+   "Bước 4: so từng đáp án với vùng đó. Đáp án đúng thường diễn đạt lại (言い換え) chứ không chép nguyên văn.",
+   "Mẹo loại trừ: đáp án sai hay thêm chi tiết lạ (mắt sáng hơn, ngón tay nhanh hơn…) hoặc đổi mức độ (少し違う → 全く違う)."
+  ]
+ },
+ {
+  "id": "r5-4",
+  "chapter": 5,
+  "no": 4,
+  "type": "Hỏi chi tiết・内容理解",
+  "passage": "毎年、日本では3月の終わりから4月の始めに桜が咲きます。桜といえば、花見です。この時期は、公園の桜の木の下で飲んだり、食べたりしてパーティーをしている人がたくさんいます。毎年、(1)そんな花見を楽しみにしている人も多いでしょう。しかし、私の家族は人が多いところが嫌いです。「花見に行こう」と言っても、パーティーの準備をしません。近くの公園や川沿いに咲く桜の木々の下をドライブするだけです。毎年花見に行く場所は桜の木がピンクのトンネルを作っていて、とてもきれいです。桜を見ながら飲んだり、食べたりしなくても、きれいな桜の花を見ているだけで、(2)春を感じることができます。それでも、ときどき桜を見ながら食事がしたいと思います。そんな時は人があまりいない近所の小さな公園にお弁当を持っていって、静かに花見をします。桜を楽しむ方法はパーティーだけではありません。たまには違う方法で桜を楽しむのもいいかもしれません。",
+  "questions": [
+   {
+    "q": "(1)そんな花見とはどんな花見のことか。",
+    "opts": [
+     "3月から4月に公園の桜を見学する。",
+     "公園の桜の木の下で休憩する。",
+     "桜の木の下でコンサートをする。",
+     "桜の花を見ながらみんなで食事をする。"
+    ],
+    "answer": 3,
+    "evidence": "この時期は、公園の桜の木の下で飲んだり、食べたりしてパーティーをしている人がたくさんいます。",
+    "why": "そんな花見 chỉ ngược lại kiểu hanami vừa mô tả ở câu ngay trước: tụ tập ăn uống, mở tiệc dưới gốc anh đào. Đáp án ④「桜の花を見ながらみんなで食事をする」khớp đúng.",
+    "wrong": [
+     "① Chỉ 見学する (tham quan ngắm) là thiếu phần ăn uống — điểm cốt lõi của そんな花見.",
+     "② 休憩 (nghỉ ngơi) không phải nội dung được nói tới.",
+     "③ Bài không hề nhắc đến hoà nhạc."
+    ]
+   },
+   {
+    "q": "(2)春を感じることができますとあるが、何をすると感じることができるのか。",
+    "opts": [
+     "桜の花を見る。",
+     "公園をドライブする。",
+     "トンネルを作る。",
+     "お弁当を持って、公園に行く。"
+    ],
+    "answer": 0,
+    "evidence": "桜を見ながら飲んだり、食べたりしなくても、きれいな桜の花を見ているだけで、春を感じることができます。",
+    "why": "Mẫu 〜だけで chỉ rõ điều kiện: chỉ cần ngắm hoa anh đào đẹp là đã cảm nhận được mùa xuân. Vậy hành động cần là 桜の花を見る → đáp án ①.",
+    "wrong": [
+     "② Lái xe dạo chỉ là cách gia đình tác giả đi ngắm, bản thân việc lái xe không phải điều làm cảm nhận mùa xuân.",
+     "③ 「トンネル」là hình ảnh ví von hàng cây tạo thành, không phải việc ai đó làm.",
+     "④ Mang cơm hộp ra công viên là chuyện ở đoạn cuối, không phải câu trả lời cho (2)."
+    ]
+   }
+  ],
+  "tips": [
+   "Đề cho một từ khoá đã xuất hiện trong bài rồi hỏi giải thích về nó: 〜について、筆者はどのように考えているか / 筆者は〜について、どう述べているか.",
+   "Bước 1: đọc kỹ câu hỏi, gạch chân đúng nội dung được hỏi (từ khoá).",
+   "Bước 2: đọc lướt cả bài để nắm đề tài, khoanh vùng chỗ xuất hiện từ khoá đó.",
+   "Bước 3: đọc thật kỹ vùng vừa khoanh — câu trả lời gần như luôn nằm trong 1–2 câu quanh từ khoá.",
+   "Bước 4: so từng đáp án với vùng đó. Đáp án đúng thường diễn đạt lại (言い換え) chứ không chép nguyên văn.",
+   "Mẹo loại trừ: đáp án sai hay thêm chi tiết lạ (mắt sáng hơn, ngón tay nhanh hơn…) hoặc đổi mức độ (少し違う → 全く違う)."
+  ]
+ },
+ {
+  "id": "r6-1",
+  "chapter": 6,
+  "no": 1,
+  "type": "Hỏi lý do – nguyên nhân・理由",
+  "passage": "毎日、会社で長時間パソコンを使っていると、目が疲れる。そのうえ、頭が痛くなる時もある。同僚に相談したら、パソコン用のめがねをすすめられた。パソコン用のめがねはサングラスが太陽の光から目を守ってくれるように、パソコンから出る光から目を守ってくれるらしい。実際に、そのめがねを買って、使ってみたら、目が疲れにくくなった。これがあったら、仕事も楽になりそうだ。",
+  "questions": [
+   {
+    "q": "仕事が楽になりそうなのはなぜか。",
+    "opts": [
+     "仕事の時間が短くなるから。",
+     "目が疲れにくいから。",
+     "太陽の光から守ってくれるから。",
+     "パソコンを使う仕事が少なくなったから。"
+    ],
+    "answer": 1,
+    "evidence": "実際に、そのめがねを買って、使ってみたら、目が疲れにくくなった。これがあったら、仕事も楽になりそうだ。",
+    "why": "Câu chứa đáp án đứng ngay trước 仕事も楽になりそうだ: nhờ kính mà mắt đỡ mỏi. Vậy lý do là 目が疲れにくいから → ②.",
+    "wrong": [
+     "① Bài không nói giờ làm ngắn đi.",
+     "③ Kính chống nắng chỉ là hình ảnh so sánh; kính này bảo vệ mắt khỏi ánh sáng máy tính, không phải ánh mặt trời.",
+     "④ Khối lượng công việc dùng máy tính không hề giảm."
+    ]
+   }
+  ],
+  "tips": [
+   "Câu hỏi có なぜ / どうして: lời giải thích thường nằm ngay cạnh chỗ chứa nội dung được hỏi.",
+   "Bám vào các dấu hiệu chỉ nguyên nhân: 〜から、〜ので、〜ため（に）、〜ことから、〜おかげで (tích cực)、〜せいで (tiêu cực).",
+   "Từ nối cần chú ý: なぜなら（ば）、というのは、なぜかというと、そのため、したがって.",
+   "Cấu trúc hay gặp: 〜のは〜からだ / なぜなら〜からだ・ためだ / 〜によって・により.",
+   "Luôn tự hỏi: điều này là tác giả viết trong bài, hay mình đang tự suy diễn?",
+   "Đáp án sai thường: sai tiểu tiết, nội dung không hề có trong bài, hoặc mang tính suy diễn."
+  ]
+ },
+ {
+  "id": "r6-2",
+  "chapter": 6,
+  "no": 2,
+  "type": "Hỏi lý do – nguyên nhân・理由",
+  "passage": "海外から日本に帰国して電車に乗ると、みんな暗い色の服を着ていて驚いた。それは、日本の多くの会社ではスーツ、学校では制服を着ると決まっているからかもしれない。もちろん、自分で服を選べる会社や学校もあるだろう。しかし、日本人は目立つことがあまり好きではないため、スーツや制服のような黒や茶色、灰色などの服を選んでしまうのかもしれない。もしスーツや制服を明るい色に変えたら、日本人はそれに合わせて服の色を変えるのだろうか。",
+  "questions": [
+   {
+    "q": "日本人が暗い色の服を選ぶのはなぜか。",
+    "opts": [
+     "スーツや制服を着ているから。",
+     "スーツや制服が明るい色だから。",
+     "日本人は服を選ぶことが好きではないから。",
+     "日本人は目立つことが嫌いだから。"
+    ],
+    "answer": 3,
+    "evidence": "しかし、日本人は目立つことがあまり好きではないため、スーツや制服のような黒や茶色、灰色などの服を選んでしまうのかもしれない。",
+    "why": "〜ため（に）là dấu hiệu chỉ nguyên nhân. Lý do người Nhật chọn màu tối là vì không thích nổi bật → ④.",
+    "wrong": [
+     "① Mặc suit/đồng phục là ví dụ dẫn dắt, không phải lý do cho việc tự chọn quần áo màu tối.",
+     "② Ngược với bài: suit và đồng phục vốn là màu tối.",
+     "③ Bài không nói người Nhật ghét việc chọn quần áo."
+    ]
+   }
+  ],
+  "tips": [
+   "Câu hỏi có なぜ / どうして: lời giải thích thường nằm ngay cạnh chỗ chứa nội dung được hỏi.",
+   "Bám vào các dấu hiệu chỉ nguyên nhân: 〜から、〜ので、〜ため（に）、〜ことから、〜おかげで (tích cực)、〜せいで (tiêu cực).",
+   "Từ nối cần chú ý: なぜなら（ば）、というのは、なぜかというと、そのため、したがって.",
+   "Cấu trúc hay gặp: 〜のは〜からだ / なぜなら〜からだ・ためだ / 〜によって・により.",
+   "Luôn tự hỏi: điều này là tác giả viết trong bài, hay mình đang tự suy diễn?",
+   "Đáp án sai thường: sai tiểu tiết, nội dung không hề có trong bài, hoặc mang tính suy diễn."
+  ]
+ },
+ {
+  "id": "r6-3",
+  "chapter": 6,
+  "no": 3,
+  "type": "Hỏi lý do – nguyên nhân・理由",
+  "passage": "高齢の運転手が起こした交通事故のニュースを見るたびに父を思い出す。年を取ると、目も悪くなり、体の動きも若い人に比べて遅くなる。それでも、電車やバスがない田舎では買い物や病院に行くために、高齢者は車を運転しなければいけない。高齢者に運転をやめるように言うなら、高齢者が車を運転しなくても、安心して暮らせる社会を作るべきではないだろうか。",
+  "questions": [
+   {
+    "q": "高齢者が車を運転しなければいけないのはなぜか。",
+    "opts": [
+     "若い人に比べて体の動きが遅くなるから。",
+     "電車やバスの運賃が高いから。",
+     "買い物や病院に行くために必要だから。",
+     "日本社会は危険だから。"
+    ],
+    "answer": 2,
+    "evidence": "それでも、電車やバスがない田舎では買い物や病院に行くために、高齢者は車を運転しなければいけない。",
+    "why": "〜ために ở đây chỉ mục đích/lý do: ở nông thôn không có tàu xe nên phải lái xe để đi chợ, đi bệnh viện → ③.",
+    "wrong": [
+     "① Mắt kém và phản xạ chậm là lý do người già NÊN ngừng lái, không phải lý do phải lái.",
+     "② Bài không nhắc đến giá vé tàu xe, chỉ nói không có tàu xe.",
+     "④ Suy diễn — bài không nói xã hội Nhật nguy hiểm."
+    ]
+   }
+  ],
+  "tips": [
+   "Câu hỏi có なぜ / どうして: lời giải thích thường nằm ngay cạnh chỗ chứa nội dung được hỏi.",
+   "Bám vào các dấu hiệu chỉ nguyên nhân: 〜から、〜ので、〜ため（に）、〜ことから、〜おかげで (tích cực)、〜せいで (tiêu cực).",
+   "Từ nối cần chú ý: なぜなら（ば）、というのは、なぜかというと、そのため、したがって.",
+   "Cấu trúc hay gặp: 〜のは〜からだ / なぜなら〜からだ・ためだ / 〜によって・により.",
+   "Luôn tự hỏi: điều này là tác giả viết trong bài, hay mình đang tự suy diễn?",
+   "Đáp án sai thường: sai tiểu tiết, nội dung không hề có trong bài, hoặc mang tính suy diễn."
+  ]
+ },
+ {
+  "id": "r6-4",
+  "chapter": 6,
+  "no": 4,
+  "type": "Hỏi lý do – nguyên nhân・理由",
+  "passage": "私は旅行の荷物はできるだけ少なくするようにしている。そんな私が旅行に必ず持っていくものは、手ぬぐいだ。手ぬぐいはタオルの代わりに水や汗でぬれた手や顔をふいたり、体を洗ったりできるし、スカーフやマフラーの代わりにも使える。そのうえ、タオルよりも薄くて場所を取らないし、洗濯してもすぐに乾くので、とても便利だ。旅行には手ぬぐいを持っていくことをおすすめしたい。",
+  "questions": [
+   {
+    "q": "旅行には手ぬぐいを持っていくことをおすすめしたいのはなぜか。",
+    "opts": [
+     "薄くて、さまざまな使い方ができて便利だから。",
+     "タオルのように柔らかくて軽いから。",
+     "洗濯しても色が変わらなくて長く使えるから。",
+     "スカーフやマフラーのようにおしゃれを楽しめるから。"
+    ],
+    "answer": 0,
+    "evidence": "そのうえ、タオルよりも薄くて場所を取らないし、洗濯してもすぐに乾くので、とても便利だ。",
+    "why": "Lý do gồm: dùng thay khăn tắm/khăn quàng (nhiều công dụng) và mỏng, không chiếm chỗ, mau khô. Đáp án ① gói đúng hai ý đó: 薄くて、さまざまな使い方ができて便利.",
+    "wrong": [
+     "② Bài không nói tenugui mềm; điểm mạnh là mỏng và nhanh khô.",
+     "③ Chuyện màu không phai không hề được nhắc tới.",
+     "④ Dùng thay khăn quàng là công dụng, không phải để làm đẹp thời trang."
+    ]
+   }
+  ],
+  "tips": [
+   "Câu hỏi có なぜ / どうして: lời giải thích thường nằm ngay cạnh chỗ chứa nội dung được hỏi.",
+   "Bám vào các dấu hiệu chỉ nguyên nhân: 〜から、〜ので、〜ため（に）、〜ことから、〜おかげで (tích cực)、〜せいで (tiêu cực).",
+   "Từ nối cần chú ý: なぜなら（ば）、というのは、なぜかというと、そのため、したがって.",
+   "Cấu trúc hay gặp: 〜のは〜からだ / なぜなら〜からだ・ためだ / 〜によって・により.",
+   "Luôn tự hỏi: điều này là tác giả viết trong bài, hay mình đang tự suy diễn?",
+   "Đáp án sai thường: sai tiểu tiết, nội dung không hề có trong bài, hoặc mang tính suy diễn."
+  ]
+ },
+ {
+  "id": "r6-5",
+  "chapter": 6,
+  "no": 5,
+  "type": "Hỏi lý do – nguyên nhân・理由",
+  "passage": "郵便局に行くと新しく発売された切手を見てしまう。郵便局にはその時代や季節に合わせたすてきなデザインの切手が発売されていて、目を楽しませてくれる。中には数量限定の切手を集める人もいるそうだ。コンビニでも切手を売っているが、いつも同じ柄なので、買い物のついでに買うことはない。夏は花火、冬は雪景色など、その時その時を楽しめるデザインの切手は郵便局でしか売っていない。そして、そんな切手を見ていると、楽しくなって欲しくなってしまう。そうして、必要がないのについ買ってしまう。",
+  "questions": [
+   {
+    "q": "つい買ってしまうのはなぜですか。",
+    "opts": [
+     "数が限定されているめずらしい切手を集めているから。",
+     "新しく発売された切手のほうが、きれいだから。",
+     "時代や季節に合ったデザインがすてきだから。",
+     "コンビニに買い物に行ったついでに買えるから。"
+    ],
+    "answer": 2,
+    "evidence": "郵便局にはその時代や季節に合わせたすてきなデザインの切手が発売されていて、目を楽しませてくれる。… そんな切手を見ていると、楽しくなって欲しくなってしまう。",
+    "why": "Chuỗi nhân quả: tem có thiết kế hợp thời và hợp mùa → nhìn thấy thì thích → mua dù không cần. Vậy lý do là ③.",
+    "wrong": [
+     "① Người sưu tầm tem giới hạn là 中には…人もいる (có những người khác), không phải tác giả.",
+     "② Bài không so sánh tem mới đẹp hơn tem cũ.",
+     "④ Ở cửa hàng tiện lợi tác giả nói rõ 買うことはない (không mua)."
+    ]
+   }
+  ],
+  "tips": [
+   "Câu hỏi có なぜ / どうして: lời giải thích thường nằm ngay cạnh chỗ chứa nội dung được hỏi.",
+   "Bám vào các dấu hiệu chỉ nguyên nhân: 〜から、〜ので、〜ため（に）、〜ことから、〜おかげで (tích cực)、〜せいで (tiêu cực).",
+   "Từ nối cần chú ý: なぜなら（ば）、というのは、なぜかというと、そのため、したがって.",
+   "Cấu trúc hay gặp: 〜のは〜からだ / なぜなら〜からだ・ためだ / 〜によって・により.",
+   "Luôn tự hỏi: điều này là tác giả viết trong bài, hay mình đang tự suy diễn?",
+   "Đáp án sai thường: sai tiểu tiết, nội dung không hề có trong bài, hoặc mang tính suy diễn."
+  ]
+ },
+ {
+  "id": "r7-1",
+  "chapter": 7,
+  "no": 1,
+  "type": "Hỏi chỉ thị từ・指示語",
+  "passage": "私が高校を卒業して大学に通い始めたころ、駅に見たことがある顔の人がいました。高校の同級生か、それとも塾に行っていたときの知り合いかと、その時私はしばらく考えましたが、誰かわかりませんでした。次の日の朝、またその人が駅にいました。その人が私の顔を見て、ゆっくりとこちらに近づいてきて、言いました。「あれ、よしこちゃん？」私はその人に「すみません。どなたですか。」と聞きました。「みゆき、隣の家に住んでたみゆきだよ。」私は驚きました。その人は小学校の時に引っ越したみゆきちゃんでした。みゆきちゃんと会うのは10年ぶりでした。私はすっかり大人になった彼女に、全く気づきませんでした。私は彼女に「よく私って、わかったね。」と言うと、彼女は「よしこちゃんは、全然、変わってない。」と言いました。ひさしぶりに会えてうれしかったけれど、10年経っても変わらない自分が少し恥ずかしかったです。",
+  "questions": [
+   {
+    "q": "その時とはどのときか。",
+    "opts": [
+     "駅で知っているかもしれない人を見たとき。",
+     "知り合いと一緒に塾に通っていたとき。",
+     "駅で高校のときの友達と会ったとき。",
+     "電車で見たことがある人を見つけたとき。"
+    ],
+    "answer": 0,
+    "evidence": "駅に見たことがある顔の人がいました。高校の同級生か、それとも塾に行っていたときの知り合いかと、その時私はしばらく考えました。",
+    "why": "Đọc lùi lại ngay trước その時: tác giả nhìn thấy một người quen mặt ở ga và đang đoán xem đó là ai. Đáp án ① diễn đạt đúng tình huống đó.",
+    "wrong": [
+     "② Bài không kể lúc đang đi học thêm cùng người quen.",
+     "③ Lúc đó tác giả chưa biết là ai, chưa hề gặp lại bạn cấp ba.",
+     "④ Là ở 駅 (nhà ga), không phải trên tàu."
+    ]
+   }
+  ],
+  "tips": [
+   "Chỉ thị từ (指示語) thay thế cho nội dung đã nói trước đó — hoặc sẽ nói ngay sau đó.",
+   "Quy trình: xác định vị trí chỉ thị từ → đọc lùi 1–3 câu → tìm nội dung nó thay thế → so đáp án ngay.",
+   "Nếu chưa rõ, đọc thêm 1 câu phía sau: nhiều khi tác giả giải thích ngay sau đó.",
+   "これ / このこと / こうした → gần như luôn chỉ ý vừa nói ngay trước.",
+   "それ / そのこと / そうした → chỉ ý đã nói xa hơn, hoặc kết quả rút ra từ các câu trước.",
+   "この場合 / このとき → tình huống cụ thể vừa mô tả; こういう＋danh từ → ví dụ/tình huống vừa nêu.",
+   "Mẹo kiểm chứng: thay đáp án vào đúng vị trí chỉ thị từ, đọc lại câu xem có xuôi nghĩa không."
+  ]
+ },
+ {
+  "id": "r7-2",
+  "chapter": 7,
+  "no": 2,
+  "type": "Hỏi chỉ thị từ・指示語",
+  "passage": "キウイフルーツを1個食べるだけで、1日に必要なビタミンCが取れる。健康にも、美容にも良いので、日本では人気があるフルーツだ。スーパーでは一年中キウイフルーツが売られている。そのほとんどはニュージーランドから輸入されている。キウイという名前は、ニュージーランドにしかいないキウイバードという鳥に見た目が似ているからだ。しかし、キウイフルーツは健康にもいいし、おいしいので好きだという人もいれば、酸っぱくて好きじゃないという人もいる。酸っぱくて食べにくいと感じるのは、キウイフルーツが甘くなる前に食べてしまっているのかもしれない。少し柔らかくなるまで待てば、そういう人でも甘くておいしいキウイフルーツが食べられる。さらに、より多くの栄養を取りたい人は皮を食べると良いという。皮は、味は別として、それ以外の部分に劣らず栄養が豊富らしい。まず、1日1個、キウイフルーツを食べることからはじめてみようと思う。",
+  "questions": [
+   {
+    "q": "そういう人とあるが、どういう人か。",
+    "opts": [
+     "キウイフルーツは甘くて好きだという人。",
+     "キウイフルーツの味があまり好きではない人。",
+     "キウイフルーツは健康にいいが皮は食べたくないという人。",
+     "キウイフルーツを硬いままで食べたくない人。"
+    ],
+    "answer": 1,
+    "evidence": "酸っぱくて好きじゃないという人もいる。酸っぱくて食べにくいと感じるのは、キウイフルーツが甘くなる前に食べてしまっているのかもしれない。",
+    "why": "そういう人 chỉ nhóm người vừa nhắc: thấy kiwi chua nên không thích, thấy khó ăn. Đáp án ②「味があまり好きではない人」khớp đúng.",
+    "wrong": [
+     "① Ngược ý: đây là nhóm người thích vì ngọt.",
+     "③ Chuyện ăn vỏ nằm ở đoạn sau そういう人, không phải nội dung nó thay thế.",
+     "④ Bài không nói họ không muốn ăn lúc quả còn cứng — chính họ đã lỡ ăn khi chưa chín."
+    ]
+   }
+  ],
+  "tips": [
+   "Chỉ thị từ (指示語) thay thế cho nội dung đã nói trước đó — hoặc sẽ nói ngay sau đó.",
+   "Quy trình: xác định vị trí chỉ thị từ → đọc lùi 1–3 câu → tìm nội dung nó thay thế → so đáp án ngay.",
+   "Nếu chưa rõ, đọc thêm 1 câu phía sau: nhiều khi tác giả giải thích ngay sau đó.",
+   "これ / このこと / こうした → gần như luôn chỉ ý vừa nói ngay trước.",
+   "それ / そのこと / そうした → chỉ ý đã nói xa hơn, hoặc kết quả rút ra từ các câu trước.",
+   "この場合 / このとき → tình huống cụ thể vừa mô tả; こういう＋danh từ → ví dụ/tình huống vừa nêu.",
+   "Mẹo kiểm chứng: thay đáp án vào đúng vị trí chỉ thị từ, đọc lại câu xem có xuôi nghĩa không."
+  ]
+ },
+ {
+  "id": "r7-3",
+  "chapter": 7,
+  "no": 3,
+  "type": "Hỏi chỉ thị từ・指示語",
+  "passage": "この前、友人と食事に行くことになったのですが、そのとき困ったことがありました。「何が食べたい？」と聞いたら、「何でもいいよ。」と友人は言いました。でも、「カレーでいい？」と聞いたら友人は「辛いのは苦手だな。」と答え、「じゃあ、そばは？」と聞くと、「そばは昨日食べたばかりだから…」と答えました。「えっ、じゃあ何が食べたいの？」と聞くと、「うーん、何でもいい。」と言いました。「何でもいいよ。」と言ったのに、実際にはそうではない人がときどきいます。なぜでしょうか。調べてみると、こういう人は選択肢（注１）が多すぎると考えるのに疲れてしまい、なかなか選ぶことができないのだそうです。「何でもいいよ。」は実は「何がいいかわからない。」ということなのです。結局、私は「イタリア料理と中華料理、どっちがいい？」と聞いて、友人に二つから選んでもらうことにしました。これならあまり考えなくてもいいし、メニューは店で決めればいいからです。（注１）選択肢：用意されている複数の答え",
+  "questions": [
+   {
+    "q": "そうではない人とは、どんな人のことか。",
+    "opts": [
+     "何を食べるか、迷ってしまってなかなか決められない人。",
+     "選択肢が多すぎて、なかなか選ぶことができない人。",
+     "食べ物の好き嫌いが多くて、自分が何を食べたいのかわからない人。",
+     "提案されると「あれは嫌」「これはだめ」と否定する人。"
+    ],
+    "answer": 0,
+    "evidence": "「何が食べたい？」と聞いたら、「何でもいいよ。」と友人は言いました。…「何でもいいよ。」と言ったのに、実際にはそうではない人がときどきいます。",
+    "why": "そう thay cho 「何でもいい」. そうではない人 = người miệng nói 'gì cũng được' nhưng thực tế lại không phải vậy — như người bạn trong bài: bác bỏ hết đề xuất và mãi không quyết được ăn gì → ①.",
+    "wrong": [
+     "② Đây là LÝ DO được giải thích ở câu sau (調べてみると…), trả lời cho なぜでしょうか chứ không phải nội dung mà そう thay thế. Bẫy rất hay gặp: đáp án đúng về nội dung nhưng trả lời sai câu hỏi.",
+     "③ Bài không nói bạn ấy kén ăn nhiều thứ.",
+     "④ Bạn ấy không phủ định gay gắt mà chỉ nêu lý do nhẹ nhàng (辛いのは苦手、昨日食べたばかり)."
+    ]
+   }
+  ],
+  "tips": [
+   "Chỉ thị từ (指示語) thay thế cho nội dung đã nói trước đó — hoặc sẽ nói ngay sau đó.",
+   "Quy trình: xác định vị trí chỉ thị từ → đọc lùi 1–3 câu → tìm nội dung nó thay thế → so đáp án ngay.",
+   "Nếu chưa rõ, đọc thêm 1 câu phía sau: nhiều khi tác giả giải thích ngay sau đó.",
+   "これ / このこと / こうした → gần như luôn chỉ ý vừa nói ngay trước.",
+   "それ / そのこと / そうした → chỉ ý đã nói xa hơn, hoặc kết quả rút ra từ các câu trước.",
+   "この場合 / このとき → tình huống cụ thể vừa mô tả; こういう＋danh từ → ví dụ/tình huống vừa nêu.",
+   "Mẹo kiểm chứng: thay đáp án vào đúng vị trí chỉ thị từ, đọc lại câu xem có xuôi nghĩa không."
+  ]
+ },
+ {
+  "id": "r7-4",
+  "chapter": 7,
+  "no": 4,
+  "type": "Hỏi chỉ thị từ・指示語",
+  "passage": "毎朝、母は健康と体力づくりのために1時間散歩しています。母の楽しみは、毎月、父と山登りに行くことです。先月は、山登りの前日に父が風邪を引いてしまいました。母は父を心配していましたが、とてもがっかりしていました。そんな様子を見て、私が母と山に行くことにしました。次の日、母と私は山登りに出かけました。母はいつも通り、元気よく山を登っていきました。私は最初、母の後ろを登っていましたが、30分後には母の姿が見えなくなってしまいました。やっと追いついた私が「もう少しゆっくり登ってよ。」と言うと、「いつもよりゆっくりだよ。もう少し普段から運動した方がいいよ。」と母に笑われました。山登りに行った次の日から、私はジョギングを始めました。次に山登りに行くときは、母のように元気よく登りたいです。",
+  "questions": [
+   {
+    "q": "そんな様子とは、どんな様子か。",
+    "opts": [
+     "父が風邪で苦しそうに寝ている様子。",
+     "父が山に行きたくて、悩んでいる様子。",
+     "母が毎日散歩をして、がんばっている様子。",
+     "母が山登りに行けなくて、残念そうな様子。"
+    ],
+    "answer": 3,
+    "evidence": "母は父を心配していましたが、とてもがっかりしていました。そんな様子を見て、私が母と山に行くことにしました。",
+    "why": "Đọc lùi đúng một câu: người mẹ rất thất vọng vì chuyến leo núi với bố bị lỡ. そんな様子 chính là dáng vẻ tiếc nuối ấy → ④.",
+    "wrong": [
+     "① Bài không tả bố nằm mệt; chỉ nói bố bị cảm.",
+     "② Người phân vân/tiếc là mẹ, không phải bố.",
+     "③ Việc mẹ đi bộ mỗi sáng là thông tin nền ở đầu bài, không phải 様子 vừa được nhắc."
+    ]
+   }
+  ],
+  "tips": [
+   "Chỉ thị từ (指示語) thay thế cho nội dung đã nói trước đó — hoặc sẽ nói ngay sau đó.",
+   "Quy trình: xác định vị trí chỉ thị từ → đọc lùi 1–3 câu → tìm nội dung nó thay thế → so đáp án ngay.",
+   "Nếu chưa rõ, đọc thêm 1 câu phía sau: nhiều khi tác giả giải thích ngay sau đó.",
+   "これ / このこと / こうした → gần như luôn chỉ ý vừa nói ngay trước.",
+   "それ / そのこと / そうした → chỉ ý đã nói xa hơn, hoặc kết quả rút ra từ các câu trước.",
+   "この場合 / このとき → tình huống cụ thể vừa mô tả; こういう＋danh từ → ví dụ/tình huống vừa nêu.",
+   "Mẹo kiểm chứng: thay đáp án vào đúng vị trí chỉ thị từ, đọc lại câu xem có xuôi nghĩa không."
+  ]
+ },
+ {
+  "id": "r7-5",
+  "chapter": 7,
+  "no": 5,
+  "type": "Hỏi chỉ thị từ・指示語",
+  "passage": "私には2歳年下の妹がいます。小さいころ、妹はいつも私の後をついて来て、私と同じことをしようとしました。そんな妹の姿はとても可愛かったですが、私は妹のことがあまり好きじゃありませんでした。妹は、自分が食べているお菓子があっても、私が食べているものを食べたいと言いました。使っていないおもちゃも、私が使い出すとすぐに「ちょうだい」と言ってきました。そんな時、母はいつも「お姉ちゃんなんだから、我慢しなさい。」と言いました。それで、私は嫌だったけれど母に怒られたくないので、妹が欲しいというものを何でもあげました。私は妹と一緒にいると、いつも良いことがありませんでした。それで、できるだけ妹と一緒に行動しないようにしました。そんな私と妹も大学生になり、一緒に部屋を借りて住むことになりました。妹はいつも部屋の掃除をしたり、食事を作ったりしてくれます。今では、妹の方が姉のようにしっかりしています。私はいつも妹と一緒ですが、感謝することばかりです。子どもの時は妹にあげるばかりだったけれど、今は妹からもらってばかりいます。",
+  "questions": [
+   {
+    "q": "そんな時とは、どんな時か。",
+    "opts": [
+     "「私」が使っていないおもちゃで遊んだ時。",
+     "妹が「私」のものを欲しがった時。",
+     "「私」が妹のお菓子を食べていた時。",
+     "妹が「私」のものを使っている時。"
+    ],
+    "answer": 1,
+    "evidence": "妹は、自分が食べているお菓子があっても、私が食べているものを食べたいと言いました。使っていないおもちゃも、私が使い出すとすぐに「ちょうだい」と言ってきました。そんな時、母はいつも「お姉ちゃんなんだから、我慢しなさい。」と言いました。",
+    "why": "そんな時 gom lại hai tình huống vừa kể: em gái đòi đúng thứ mà 'tôi' đang ăn, đang dùng → ②「妹が「私」のものを欲しがった時」.",
+    "wrong": [
+     "① Người lấy đồ chơi ra dùng trước là 'tôi', và vấn đề là em đòi lại.",
+     "③ Ngược chiều: em đòi đồ của 'tôi', không phải 'tôi' ăn bánh của em.",
+     "④ Lúc bị mẹ nhắc là lúc em ĐÒI, chưa phải lúc em đang dùng."
+    ]
+   }
+  ],
+  "tips": [
+   "Chỉ thị từ (指示語) thay thế cho nội dung đã nói trước đó — hoặc sẽ nói ngay sau đó.",
+   "Quy trình: xác định vị trí chỉ thị từ → đọc lùi 1–3 câu → tìm nội dung nó thay thế → so đáp án ngay.",
+   "Nếu chưa rõ, đọc thêm 1 câu phía sau: nhiều khi tác giả giải thích ngay sau đó.",
+   "これ / このこと / こうした → gần như luôn chỉ ý vừa nói ngay trước.",
+   "それ / そのこと / そうした → chỉ ý đã nói xa hơn, hoặc kết quả rút ra từ các câu trước.",
+   "この場合 / このとき → tình huống cụ thể vừa mô tả; こういう＋danh từ → ví dụ/tình huống vừa nêu.",
+   "Mẹo kiểm chứng: thay đáp án vào đúng vị trí chỉ thị từ, đọc lại câu xem có xuôi nghĩa không."
+  ]
+ },
+ {
+  "id": "r8-1",
+  "chapter": 8,
+  "no": 1,
+  "type": "Hỏi ý tác giả・主張",
+  "passage": "私の住んでいる町は都会で、夜でも星があまり見えません。それは、電気の光が明るくて、空が暗くならないからです。きれいな星を見たいなら、都会から離れなければいけません。私は夏休みにきれいな星を見るために、友人を誘って星空を見るツアー（注1）に参加しました。ツアーに申し込んだ時に、夏の星座（注２）が説明された本をもらいました。友人とその本を見ながら、「天気が良いといいね。」と楽しみにしていました。ツアーの日は、雲が全くない晴れた日で、月がきれいでした。私が「月がきれいだね。」と言うと、友人は「そうだね。でも、思ったより星が少ないね。」と言いました。その時、ツアーガイドが「今日は月が明るくて、星が少し見えにくいですね。」と言いました。それを聞いて、私は電気の明かりが少なくても、月の光で星は見えにくくなるのか、と驚きました。それでも、ツアーでは都会よりきれいな星をたくさん見ることができました。季節ごとで星座は変わるので、今度は違う季節に来てみようと思いました。（注1）ツアー：観光旅行（注２）星座：星と星を結んで、動物や人を表したもの",
+  "questions": [
+   {
+    "q": "「私」はなぜ星を見るツアーに参加したのか。",
+    "opts": [
+     "「私」の町は天気が悪い日が多くて星が見えづらいから",
+     "都会は夜でも明るくて星が見えないから",
+     "友人に誘われたから",
+     "どうしても夏の星座が見たかったから"
+    ],
+    "answer": 1,
+    "evidence": "私の住んでいる町は都会で、夜でも星があまり見えません。それは、電気の光が明るくて、空が暗くならないからです。… きれいな星を見たいなら、都会から離れなければいけません。",
+    "why": "〜からです chỉ rõ nguyên nhân: thành phố nhiều ánh đèn nên trời không đủ tối, không nhìn được sao; muốn ngắm sao đẹp phải rời thành phố → đó là lý do tham gia tour → ②.",
+    "wrong": [
+     "① Bài không nói quê tác giả hay có thời tiết xấu.",
+     "③ Chính tác giả rủ bạn đi (友人を誘って), không phải bị rủ.",
+     "④ Chòm sao mùa hè chỉ là nội dung cuốn sách được tặng, không phải động cơ tham gia."
+    ]
+   },
+   {
+    "q": "驚きましたとあるが、どうして驚いたのか。",
+    "opts": [
+     "思っていたより電気の明かりが少なかったから",
+     "都会から離れても星は見えにくいと分かったから",
+     "思っていたより星が少なかったから",
+     "月のせいで、星が見えにくかったから"
+    ],
+    "answer": 3,
+    "evidence": "「今日は月が明るくて、星が少し見えにくいですね。」… 私は電気の明かりが少なくても、月の光で星は見えにくくなるのか、と驚きました。",
+    "why": "Câu ngay sau それを聞いて nêu đúng điều khiến tác giả bất ngờ: ngay cả khi ít ánh đèn thì ánh trăng vẫn làm sao khó nhìn → ④.",
+    "wrong": [
+     "① Tác giả không bất ngờ vì đèn ít — đó là điều đã biết trước khi đi.",
+     "② Ngược ý: rời thành phố vẫn nhìn được nhiều sao hơn (都会よりきれいな星をたくさん見ることができました).",
+     "③ Câu 'ít sao hơn tưởng' là lời của người bạn, còn điều khiến TÁC GIẢ ngạc nhiên là nguyên nhân do mặt trăng."
+    ]
+   },
+   {
+    "q": "「私」はツアーについてどう思っていますか。",
+    "opts": [
+     "星があまり見られなかったので、もう参加しない",
+     "月が明るい時は、もう参加しない",
+     "違う星座が見える時期に、また参加しよう",
+     "星座が全然見つけられなかったので、また参加しよう"
+    ],
+    "answer": 2,
+    "evidence": "季節ごとで星座は変わるので、今度は違う季節に来てみようと思いました。",
+    "why": "Câu kết bài thể hiện thái độ của tác giả: sẽ quay lại vào mùa khác để xem chòm sao khác → ③.",
+    "wrong": [
+     "① Ngược ý: tác giả vẫn xem được nhiều sao và muốn quay lại.",
+     "② Bài không đặt điều kiện 'trăng sáng thì không đi'.",
+     "④ Sai chi tiết: tác giả không hề nói không tìm thấy chòm sao nào."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng hỏi thông điệp bao trùm: 筆者が最も言いたいことはどれか / 筆者の考えに合うのはどれか.",
+   "Bước 1: đọc lướt toàn bài nắm đề tài, chú ý đặc biệt câu mở đoạn và đoạn kết.",
+   "Bước 2: đọc kỹ chỗ có từ tổng hợp ý (要するに、つまり、このように、だから) và chỗ chuyển ý mạnh (しかし、ところが) — ý chính hay nằm sau khi tác giả bác bỏ quan điểm.",
+   "Chú ý đuôi câu thể hiện chủ quan: 〜べきだ、〜たい、大切だ、重要だ、〜ではないだろうか.",
+   "Bước 3: khái quát hoá — nếu bài có nhiều ví dụ thì các ví dụ đều phục vụ một luận điểm chung.",
+   "Bước 4 (loại trừ): quá hẹp (chỉ 1 ví dụ), quá rộng (điều bài không nói), ngược ý, hoặc chỉ là chi tiết phụ."
+  ]
+ },
+ {
+  "id": "r8-2",
+  "chapter": 8,
+  "no": 2,
+  "type": "Hỏi ý tác giả・主張",
+  "passage": "日本では2008年から竜巻注意情報の発表が始まった。竜巻は地上から空へ強力な空気が巻き上げられて起こる強い風だ。季節に関係なく、一年中日本のあちこちで発生して、建物が壊れたり、自動車などの重いものが飛ばされたりするなどの被害が出ている。その被害は台風被害と似ているが、違う点は、竜巻が起きてから消えるまで長くても数十分と短く、狭い範囲で起こる点だ。竜巻注意情報も、これから〇〇地域で1時間くらいの間に竜巻が起きるかもしれませんと、時間と場所が発表される。注意情報が出たからといって、必ず竜巻が起きるわけではない。しかし、(1)竜巻に備えて必要なことを知っておくことは大事だ。注意情報が出たときに外にいる場合は、建物の中に入って、窓がない部屋や地下室に避難（注）しよう。窓がある場合は、窓が割れるかもしれないので、離れておいたほうがいい。竜巻が起きると強い風が吹くので、車の中も安全ではない。すぐに車から離れて、建物の中にいよう。山のような形の雲の近づいてきて、空が急に暗くなったり、冷たい風が吹いてきたり、雷が聞こえたりした時は竜巻が近くまで来ている。(2)そのような時は特に気をつけて、早く避難しよう。竜巻は自動車よりも速く移動することもあって、どう進むかわからない。起きてから短時間で消えてなくなるが、その短い時間で台風と同じような被害が出る。竜巻が来たらどうしたらいいか正しい知識を身に付けて、竜巻から身を守ろう。（注）避難：危険なところから安全なところに行く",
+  "questions": [
+   {
+    "q": "竜巻と台風が似ている点はどんなところか。",
+    "opts": [
+     "強い風で、多くの被害を出す点",
+     "一年中、日本のどこでも起こる点",
+     "発生範囲が狭くて、短時間で起こる点",
+     "限られた地域に注意情報が出される点"
+    ],
+    "answer": 0,
+    "evidence": "建物が壊れたり、自動車などの重いものが飛ばされたりするなどの被害が出ている。その被害は台風被害と似ている。",
+    "why": "Câu nói rõ điểm giống nhau nằm ở THIỆT HẠI do gió mạnh gây ra (nhà cửa hỏng, vật nặng bị thổi bay) → ①.",
+    "wrong": [
+     "② Đây là đặc điểm riêng của vòi rồng (xảy ra quanh năm khắp nơi), không phải điểm giống bão.",
+     "③ Phạm vi hẹp, thời gian ngắn chính là 違う点 (điểm KHÁC) mà bài nêu ngay sau đó.",
+     "④ Thông tin cảnh báo là chuyện khác, không phải điểm tương đồng về thiệt hại."
+    ]
+   },
+   {
+    "q": "(1)竜巻に備えてとあるが、どのように備えたらいいか。",
+    "opts": [
+     "運転中なら、車の窓を閉めて外に出ない。",
+     "外にいたら、急いで建物の中に入る。",
+     "建物の中にいたら、急いで外に出る。",
+     "家にいたら、窓がある部屋に行く。"
+    ],
+    "answer": 1,
+    "evidence": "注意情報が出たときに外にいる場合は、建物の中に入って、窓がない部屋や地下室に避難しよう。",
+    "why": "Bài hướng dẫn rất rõ: đang ở ngoài thì vào trong nhà, trú ở phòng không cửa sổ hoặc tầng hầm → ②.",
+    "wrong": [
+     "① Ngược ý: trong xe cũng không an toàn, phải rời xe ngay.",
+     "③ Ngược ý hoàn toàn: đang ở trong nhà thì không được chạy ra ngoài.",
+     "④ Phải TRÁNH XA cửa sổ vì kính có thể vỡ."
+    ]
+   },
+   {
+    "q": "(2)そのような時とは、どのような時か。",
+    "opts": [
+     "空が急に明るくなって、晴れてきた時",
+     "空が暗くなって、雨が降ってきた時",
+     "温かい風が吹いてきて、雲がなくなった時",
+     "冷たい風が吹いてきて、雷が聞こえてきた時"
+    ],
+    "answer": 3,
+    "evidence": "山のような形の雲の近づいてきて、空が急に暗くなったり、冷たい風が吹いてきたり、雷が聞こえたりした時は竜巻が近くまで来ている。",
+    "why": "そのような時 gom các dấu hiệu vừa liệt kê ở câu trước: mây hình núi, trời tối sầm, gió lạnh, có sấm. Đáp án ④ nêu đúng hai dấu hiệu trong đó.",
+    "wrong": [
+     "① Ngược ý: trời tối sầm chứ không sáng lên.",
+     "② Bài nói trời tối nhưng không nhắc tới mưa — chi tiết thêm vào.",
+     "③ Ngược ý: gió LẠNH thổi tới và mây kéo đến, không phải gió ấm và mây tan."
+    ]
+   },
+   {
+    "q": "竜巻についての説明で正しいのはどれか。",
+    "opts": [
+     "竜巻の被害は台風の被害ほど大きくない。",
+     "竜巻注意情報が出たら、必ず竜巻が起こる。",
+     "竜巻は、台風と同じくらい広い範囲で被害が出る。",
+     "空や風の様子で竜巻が近くに来ているか知ることができる。"
+    ],
+    "answer": 3,
+    "evidence": "山のような形の雲の近づいてきて、空が急に暗くなったり、冷たい風が吹いてきたり、雷が聞こえたりした時は竜巻が近くまで来ている。",
+    "why": "Câu này cho biết có thể nhận ra vòi rồng đang tới gần qua trạng thái bầu trời và gió → ④ là mô tả đúng.",
+    "wrong": [
+     "① Ngược ý: thiệt hại của vòi rồng tương đương bão (台風と同じような被害).",
+     "② Bài không nói hễ có cảnh báo là chắc chắn xảy ra vòi rồng.",
+     "③ Sai: phạm vi của vòi rồng hẹp hơn bão, đó là 違う点 bài đã nêu."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng hỏi thông điệp bao trùm: 筆者が最も言いたいことはどれか / 筆者の考えに合うのはどれか.",
+   "Bước 1: đọc lướt toàn bài nắm đề tài, chú ý đặc biệt câu mở đoạn và đoạn kết.",
+   "Bước 2: đọc kỹ chỗ có từ tổng hợp ý (要するに、つまり、このように、だから) và chỗ chuyển ý mạnh (しかし、ところが) — ý chính hay nằm sau khi tác giả bác bỏ quan điểm.",
+   "Chú ý đuôi câu thể hiện chủ quan: 〜べきだ、〜たい、大切だ、重要だ、〜ではないだろうか.",
+   "Bước 3: khái quát hoá — nếu bài có nhiều ví dụ thì các ví dụ đều phục vụ một luận điểm chung.",
+   "Bước 4 (loại trừ): quá hẹp (chỉ 1 ví dụ), quá rộng (điều bài không nói), ngược ý, hoặc chỉ là chi tiết phụ."
+  ]
+ },
+ {
+  "id": "r8-3",
+  "chapter": 8,
+  "no": 3,
+  "type": "Hỏi ý tác giả・主張",
+  "passage": "ブロッコリーは美容や健康に役立つ栄養をたくさん含んだ野菜だ。(1)特にビタミンC、たんぱく質、鉄分、マグネシウムなどの栄養素が多く含まれている。ビタミンCは、病気の予防や美容にいいと言われているし、たんぱく質は体をつくり、マグネシウムは骨や歯を強くし、鉄分は体中に酸素を運ぶなど、これらは体にとって、大切な栄養素だ。ブロッコリーは、日本では冬に採れる野菜だが、外国から輸入しているので、スーパーで年中売られている。では、たくさん売られているブロッコリーの中から、どうやったら(2)新鮮なブロッコリーを選べるだろうか。まず、ブロッコリーの色を見ることが大切だ。黄色のブロッコリーではなく、できるだけ濃い緑色のブロッコリーを選んだ方がいい。次に、ブロッコリーのつぼみを見よう。つぼみが柔らかくなくて、しっかりと集まっているものがいい。最後に、茎の中に隙間（注）がないかを見よう。ブロッコリーは成長しすぎると、茎に隙間ができることがある。成長しすぎたブロッコリーは固くなって、味も少し悪くなる。新鮮なブロッコリーを選んだら、(3)調理方法にも気をつけた方がいい。ブロッコリーはあまり調理しすぎると、栄養がなくなってしまう。できるだけ、短い時間で調理した方がいい。お湯で調理すると栄養が湯に流れ出してしまうので、電子レンジで調理するのがおすすめだ。新鮮なブロッコリーを正しく調理すれば、たくさんの栄養をブロッコリーから得ることができる。（注）隙間：物と物との間が少し空いていること",
+  "questions": [
+   {
+    "q": "(1)特にビタミンC、たんぱく質、鉄分、マグネシウムなどの栄養素が多く含まれているとあるが、肌をきれいにしたい人はどの栄養素を取った方がいいか。",
+    "opts": [
+     "ビタミンC",
+     "たんぱく質",
+     "マグネシウム",
+     "鉄分"
+    ],
+    "answer": 0,
+    "evidence": "ビタミンCは、病気の予防や美容にいいと言われている。",
+    "why": "Câu hỏi hỏi người muốn đẹp da (肌をきれいにしたい) nên nạp chất nào; bài gắn 美容 (làm đẹp) với vitamin C → ①.",
+    "wrong": [
+     "② たんぱく質 dùng để tạo cơ thể (体をつくる).",
+     "③ マグネシウム làm chắc xương và răng.",
+     "④ 鉄分 vận chuyển oxy đi khắp cơ thể."
+    ]
+   },
+   {
+    "q": "どのようなものが(2)新鮮なブロッコリーか。",
+    "opts": [
+     "鮮やかな緑色で、つぼみが広がったもの",
+     "薄い黄緑色で、つぼみがしっかりしたもの",
+     "茎に隙間があって、明るい黄色のもの",
+     "つぼみが集まっていて、茎がしっかりしたもの"
+    ],
+    "answer": 3,
+    "evidence": "つぼみが柔らかくなくて、しっかりと集まっているものがいい。最後に、茎の中に隙間がないかを見よう。",
+    "why": "Bông cải tươi = nụ hoa khít chặt, không mềm + thân không có lỗ rỗng (tức thân chắc) → ④.",
+    "wrong": [
+     "① Sai ở つぼみが広がった: nụ phải khít lại, không được xoè ra.",
+     "② Sai màu: phải chọn xanh đậm, không phải vàng nhạt.",
+     "③ Sai cả hai: thân có lỗ rỗng là bông đã già, và màu vàng là dấu hiệu không tươi."
+    ]
+   },
+   {
+    "q": "(3)調理方法にも気をつけた方がいいとあるが、どんな調理方法がいいか。",
+    "opts": [
+     "短時間で、栄養が逃げない方法",
+     "長時間で、ゆっくり栄養を閉じ込める方法",
+     "時間をかけて、栄養を取り出す方法",
+     "時間に関係なく、栄養が増える方法"
+    ],
+    "answer": 0,
+    "evidence": "ブロッコリーはあまり調理しすぎると、栄養がなくなってしまう。できるだけ、短い時間で調理した方がいい。お湯で調理すると栄養が湯に流れ出してしまう。",
+    "why": "Nấu quá kỹ hoặc luộc sẽ mất chất, nên nấu nhanh (khuyên dùng lò vi sóng) → ① 短時間で、栄養が逃げない方法.",
+    "wrong": [
+     "② Ngược ý: nấu lâu làm mất chất chứ không giữ được chất.",
+     "③ Ngược ý: mục tiêu là giữ chất trong rau, không phải chiết chất ra.",
+     "④ Nấu nướng không làm dinh dưỡng tăng lên."
+    ]
+   },
+   {
+    "q": "この文のブロッコリーの説明と合わないのは、どれか。",
+    "opts": [
+     "日本で作られたブロッコリーは冬に売られている。",
+     "新鮮なブロッコリーを選ぶにはつぼみと茎と色を見るべきだ。",
+     "ブロッコリーは成長しすぎると、柔らかくなってしまう。",
+     "調理方法に気をつけないと、ブロッコリーの栄養が減る。"
+    ],
+    "answer": 2,
+    "evidence": "成長しすぎたブロッコリーは固くなって、味も少し悪くなる。",
+    "why": "Câu hỏi yêu cầu chọn ý KHÔNG khớp với bài. Bài nói bông cải già thì CỨNG lại, còn ③ nói mềm đi → đây là đáp án cần chọn.",
+    "wrong": [
+     "① Khớp: ở Nhật bông cải là rau vụ đông.",
+     "② Khớp: bài hướng dẫn xem màu, nụ và thân.",
+     "④ Khớp: nấu không đúng cách thì dinh dưỡng mất đi."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng hỏi thông điệp bao trùm: 筆者が最も言いたいことはどれか / 筆者の考えに合うのはどれか.",
+   "Bước 1: đọc lướt toàn bài nắm đề tài, chú ý đặc biệt câu mở đoạn và đoạn kết.",
+   "Bước 2: đọc kỹ chỗ có từ tổng hợp ý (要するに、つまり、このように、だから) và chỗ chuyển ý mạnh (しかし、ところが) — ý chính hay nằm sau khi tác giả bác bỏ quan điểm.",
+   "Chú ý đuôi câu thể hiện chủ quan: 〜べきだ、〜たい、大切だ、重要だ、〜ではないだろうか.",
+   "Bước 3: khái quát hoá — nếu bài có nhiều ví dụ thì các ví dụ đều phục vụ một luận điểm chung.",
+   "Bước 4 (loại trừ): quá hẹp (chỉ 1 ví dụ), quá rộng (điều bài không nói), ngược ý, hoặc chỉ là chi tiết phụ."
+  ]
+ },
+ {
+  "id": "r9-1",
+  "chapter": 9,
+  "no": 1,
+  "type": "Thông báo & email・情報検索",
+  "passage": "大山さんお疲れ様です。大山さん、お疲れ様です。さきほど、急に部長から明日A市に出張するように言われました。申し訳ありませんが、明日のミーティングを違う日に変えていただけませんか。今週なら、水曜日と木曜日の午後が空いています。来週なら、月曜日の午前以外は空いています。明日は出張で忙しいので、連絡をもらっても返信できないと思います。できれば、今日中に返信をお願いします。中村",
+  "questions": [
+   {
+    "q": "中村さんがメールで大山さんに伝えたいこととして、正しいのはどれか。",
+    "opts": [
+     "自分の代わりに明日の出張に行ってほしいこと",
+     "明日は忙しいのでミーティングを来週にしたいこと",
+     "ミーティングの予定を変えてほしいこと",
+     "部長がミーティングをキャンセルしたこと"
+    ],
+    "answer": 2,
+    "evidence": "申し訳ありませんが、明日のミーティングを違う日に変えていただけませんか。",
+    "why": "Mẫu 〜ていただけませんか là lời nhờ vả — chính là mục đích của email: xin đổi lịch họp sang ngày khác → ③.",
+    "wrong": [
+     "① Nakamura là người phải đi công tác, không nhờ ai đi thay.",
+     "② Có đề xuất cả thứ Tư/thứ Năm tuần này lẫn tuần sau, nên không phải 'muốn dời sang tuần sau'.",
+     "④ Trưởng phòng chỉ yêu cầu đi công tác, không hề huỷ cuộc họp."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng email/thông báo: mở đầu → nội dung chính → yêu cầu/hành động → lời kết.",
+   "Bước 1: xác định người gửi – người nhận – bối cảnh (thường ở ngay đầu).",
+   "Bước 2: tìm mục đích chính, bám các từ khoá ご案内、お知らせ、お願い、ご確認、ご提案、ご報告.",
+   "Bước 3: gạch chân thông tin then chốt — ngày giờ, địa điểm, số lượng, điều kiện (thường nằm ở đoạn giữa).",
+   "Bước 4: câu hỏi về việc cần làm thì bám các mẫu 〜てください、お願いします、〜ていただけませんか、可能でしょうか.",
+   "Cẩn thận bẫy số liệu: ngày bắt đầu/kết thúc, giá gốc và giá đã giảm, phần nào được gia hạn và phần nào không."
+  ]
+ },
+ {
+  "id": "r9-2",
+  "chapter": 9,
+  "no": 2,
+  "type": "Thông báo & email・情報検索",
+  "passage": "竹中商店様今日、先週の5月20日、月曜日に注文した商品が届きましたが、注文と違う商品が入っていました。注文した商品は黒いペン10本、赤いペン5本、コピー用紙3箱でしたが、黒、赤、青のペンが5本ずつとコピー用紙3箱が届きました。注文した内容を確認していただけますか。お返事をお待ちしております。野村まりこ",
+  "questions": [
+   {
+    "q": "何が注文と違っていましたか。",
+    "opts": [
+     "ペンの本数が足りないこと",
+     "黒ペンが多かったこと",
+     "黒ペンが足りなくて、青ペンが多かったこと",
+     "赤ペンが多くて、青ペンが少なかったこと"
+    ],
+    "answer": 2,
+    "evidence": "注文した商品は黒いペン10本、赤いペン5本、コピー用紙3箱でしたが、黒、赤、青のペンが5本ずつとコピー用紙3箱が届きました。",
+    "why": "Đối chiếu con số: đặt bút đen 10 → nhận 5 (thiếu 5); bút đỏ 5 → nhận 5 (đúng); bút xanh không đặt → nhận 5 (thừa). Vậy ③ đúng.",
+    "wrong": [
+     "① Tổng số bút vẫn là 15 cây, không thiếu về tổng số — chỉ sai chủng loại.",
+     "② Ngược ý: bút đen bị THIẾU chứ không thừa.",
+     "④ Bút đỏ nhận đúng 5 cây như đặt, còn bút xanh là thừa chứ không thiếu."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng email/thông báo: mở đầu → nội dung chính → yêu cầu/hành động → lời kết.",
+   "Bước 1: xác định người gửi – người nhận – bối cảnh (thường ở ngay đầu).",
+   "Bước 2: tìm mục đích chính, bám các từ khoá ご案内、お知らせ、お願い、ご確認、ご提案、ご報告.",
+   "Bước 3: gạch chân thông tin then chốt — ngày giờ, địa điểm, số lượng, điều kiện (thường nằm ở đoạn giữa).",
+   "Bước 4: câu hỏi về việc cần làm thì bám các mẫu 〜てください、お願いします、〜ていただけませんか、可能でしょうか.",
+   "Cẩn thận bẫy số liệu: ngày bắt đầu/kết thúc, giá gốc và giá đã giảm, phần nào được gia hạn và phần nào không."
+  ]
+ },
+ {
+  "id": "r9-3",
+  "chapter": 9,
+  "no": 3,
+  "type": "Thông báo & email・情報検索",
+  "passage": "ABC町図書館ご利用のみなさまABC町図書館は、9月10日（月）から9月24日（月）まで図書整理のため休館いたします。休館期間は図書館入口の横にあるブックポストに本を返してください。CD／DVDは壊れやすいためブックポストには入れないでください。休館中はCD／DVDの返却期間が延長されますので、返却日を確認してください。ABC町図書館",
+  "questions": [
+   {
+    "q": "この文の内容について、正しいのはどれか。",
+    "opts": [
+     "休館するため本が長く借りられる。",
+     "休館中はCD／DVDを返さなくてもいい。",
+     "休館前に本、CD／DVDすべてを返さなければならない。",
+     "本、CD／DVDは、すべてブックポストに入れてもいい。"
+    ],
+    "answer": 1,
+    "evidence": "休館中はCD／DVDの返却期間が延長されますので、返却日を確認してください。",
+    "why": "Trong thời gian đóng cửa, hạn trả CD/DVD được gia hạn — tức không phải trả trong lúc đó → ②.",
+    "wrong": [
+     "① Chỉ CD/DVD được gia hạn; sách vẫn phải trả vào thùng ブックポスト.",
+     "③ Không bắt buộc trả hết trước khi đóng cửa: sách trả qua thùng, CD/DVD được gia hạn.",
+     "④ Sai: CD/DVD dễ hỏng nên KHÔNG được bỏ vào thùng sách."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng email/thông báo: mở đầu → nội dung chính → yêu cầu/hành động → lời kết.",
+   "Bước 1: xác định người gửi – người nhận – bối cảnh (thường ở ngay đầu).",
+   "Bước 2: tìm mục đích chính, bám các từ khoá ご案内、お知らせ、お願い、ご確認、ご提案、ご報告.",
+   "Bước 3: gạch chân thông tin then chốt — ngày giờ, địa điểm, số lượng, điều kiện (thường nằm ở đoạn giữa).",
+   "Bước 4: câu hỏi về việc cần làm thì bám các mẫu 〜てください、お願いします、〜ていただけませんか、可能でしょうか.",
+   "Cẩn thận bẫy số liệu: ngày bắt đầu/kết thúc, giá gốc và giá đã giảm, phần nào được gia hạn và phần nào không."
+  ]
+ },
+ {
+  "id": "r9-4",
+  "chapter": 9,
+  "no": 4,
+  "type": "Thông báo & email・情報検索",
+  "passage": "台風による休校のお知らせ学生のみなさん現在、台風20号が日本に接近しています。今日の夜から明日の朝にかけて、県内に最接近することが予想されています。そのため、明日9月18日(水)の午前中は休校にします。授業はありませんが、危険ですからできるだけ外出しないで、家にいてください。午後からの授業については午前10時までにホームページでお知らせします。ABC日本語学校kinkyuu@abcnihonngogakkou.ac.jp",
+  "questions": [
+   {
+    "q": "このお知らせの内容について、正しいのはどれか。",
+    "opts": [
+     "火曜日の夜から台風に気をつけないといけない。",
+     "明日は午前も午後も学校が休みになる。",
+     "台風の時は危険なので、家にいない方がいい。",
+     "午後の授業について学校からメールで連絡が来る。"
+    ],
+    "answer": 0,
+    "evidence": "今日の夜から明日の朝にかけて、県内に最接近することが予想されています。そのため、明日9月18日(水)の午前中は休校にします。",
+    "why": "Ngày mai là thứ Tư 18/9, nên hôm nay là thứ Ba — bão áp sát từ tối nay, tức từ tối thứ Ba phải đề phòng → ①.",
+    "wrong": [
+     "② Chỉ nghỉ buổi sáng; buổi chiều sẽ thông báo sau, chưa chắc nghỉ.",
+     "③ Ngược ý: thông báo dặn ở yên trong nhà, hạn chế ra ngoài.",
+     "④ Thông báo về tiết chiều sẽ đăng trên trang web (ホームページ), không phải gửi email."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng email/thông báo: mở đầu → nội dung chính → yêu cầu/hành động → lời kết.",
+   "Bước 1: xác định người gửi – người nhận – bối cảnh (thường ở ngay đầu).",
+   "Bước 2: tìm mục đích chính, bám các từ khoá ご案内、お知らせ、お願い、ご確認、ご提案、ご報告.",
+   "Bước 3: gạch chân thông tin then chốt — ngày giờ, địa điểm, số lượng, điều kiện (thường nằm ở đoạn giữa).",
+   "Bước 4: câu hỏi về việc cần làm thì bám các mẫu 〜てください、お願いします、〜ていただけませんか、可能でしょうか.",
+   "Cẩn thận bẫy số liệu: ngày bắt đầu/kết thúc, giá gốc và giá đã giảm, phần nào được gia hạn và phần nào không."
+  ]
+ },
+ {
+  "id": "r9-5",
+  "chapter": 9,
+  "no": 5,
+  "type": "Thông báo & email・情報検索",
+  "passage": "マリアさんこんにちは。元気ですか。去年の夏休みのキャンプを覚えていますか。楽しかったですね。私は今年もキャンプに参加しますが、マリアさんも参加しませんか。キャンプは8月10日から12日まで東京キャンプ場で行われます。参加費は去年と同じ3万円ですが、参加したことがある人は5000円安くなるそうです。もしマリアさんが参加するなら、私が一緒に申し込みをしておきますよ。申し込みは来週の水曜日までなので、その前に返事をください。たかこ",
+  "questions": [
+   {
+    "q": "この文の内容について、正しいのはどれか。",
+    "opts": [
+     "マリアさんはキャンプに参加する予定です。",
+     "マリアさんのキャンプ参加費は3万円です。",
+     "キャンプは2日間で東京キャンプ場であります。",
+     "申し込みは水曜日までにたかこさんがします。"
+    ],
+    "answer": 3,
+    "evidence": "もしマリアさんが参加するなら、私が一緒に申し込みをしておきますよ。申し込みは来週の水曜日までなので、その前に返事をください。",
+    "why": "Takako sẽ đăng ký giúp, hạn đăng ký là thứ Tư tuần sau → ④ khớp đúng.",
+    "wrong": [
+     "① Maria mới chỉ được rủ, chưa trả lời nên chưa thể nói là sẽ tham gia.",
+     "② Maria từng đi năm ngoái nên được giảm 5.000 yên, tức 25.000 chứ không phải 30.000.",
+     "③ Trại từ 10/8 đến 12/8 là 3 ngày, không phải 2 ngày."
+    ]
+   }
+  ],
+  "tips": [
+   "Dạng email/thông báo: mở đầu → nội dung chính → yêu cầu/hành động → lời kết.",
+   "Bước 1: xác định người gửi – người nhận – bối cảnh (thường ở ngay đầu).",
+   "Bước 2: tìm mục đích chính, bám các từ khoá ご案内、お知らせ、お願い、ご確認、ご提案、ご報告.",
+   "Bước 3: gạch chân thông tin then chốt — ngày giờ, địa điểm, số lượng, điều kiện (thường nằm ở đoạn giữa).",
+   "Bước 4: câu hỏi về việc cần làm thì bám các mẫu 〜てください、お願いします、〜ていただけませんか、可能でしょうか.",
+   "Cẩn thận bẫy số liệu: ngày bắt đầu/kết thúc, giá gốc và giá đã giảm, phần nào được gia hạn và phần nào không."
+  ]
+ }
+]
