@@ -1,16 +1,34 @@
 # GunGun N3 Trainer — Bàn giao & việc còn lại
 
-> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: 12/09/2026.
+> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: 13/09/2026.
+>
+> Chỗ nào đánh dấu **❓CẦN BỔ SUNG** là thông tin chỉ người chủ dự án biết — điền vào giúp.
+
+Repo: `emgaimua123/japanese-n3-learning` · nhánh chính `main` · thư mục làm việc trên máy:
+`C:\Users\Admin\Coding\GitHub\japanese-n3-learning`
+
+---
 
 ## 1. Ứng dụng là gì
 
 App desktop Windows luyện thi JLPT N3 theo giáo trình GunGun Joutatsu, đóng gói 1 file `.exe`.
 
-- **Host**: `app.py` — pywebview + WebView2, tray icon (pystray), thông báo Windows, auto-start, chấm dịch bằng Claude API.
-- **Giao diện + toàn bộ logic**: `web/index.html` (một file, ~4.700 dòng, không framework).
-- **Dữ liệu**: `vocab.json`, `kanji.json`, `grammar.json`, `reading.json`, `exams.json` — đều trích tự động từ PDF trong `C:\Users\Admin\Downloads`.
-- **Tiến trình người dùng**: localStorage của WebView2 **và** bản sao `%LOCALAPPDATA%\GunGunN3Trainer\state-backup.json` (lúc khởi động lấy bản mới hơn theo `savedAt`).
-- **API key Claude**: lưu riêng ở `%LOCALAPPDATA%\GunGunN3Trainer\claude-api-key.txt`, cố ý **không** nằm trong file backup tiến trình.
+- **Host**: `app.py` (450 dòng) — pywebview + WebView2, tray icon (pystray), thông báo Windows, auto-start, chấm dịch bằng Claude API.
+- **Giao diện + toàn bộ logic**: `web/index.html` (một file, **2.930 dòng / 88 KB**, không framework, không build step).
+- **Dữ liệu**: `vocab.json`, `kanji.json`, `grammar.json`, `reading.json`, `exams.json` — trích tự động từ PDF trong `C:\Users\Admin\Downloads` (xem §8).
+- **Tiến trình người dùng**: localStorage của WebView2 **và** bản sao `%LOCALAPPDATA%\GunGunN3Trainer\state-backup.json` (lúc khởi động lấy bản mới hơn theo `savedAt`). Schema ở §4.
+- **API key Claude**: lưu riêng ở `%LOCALAPPDATA%\GunGunN3Trainer\claude-api-key.txt` (plaintext), cố ý **không** nằm trong file backup tiến trình.
+
+### Cài môi trường
+
+```powershell
+# chạy app + build exe
+python -m pip install pywebview pyinstaller pystray pillow anthropic
+# chỉ cần khi chạy lại pipeline trích PDF trong tools/
+python -m pip install pdfplumber
+```
+
+Python đang dùng: `C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\python.exe`.
 
 ### Build lại exe
 
@@ -18,37 +36,118 @@ App desktop Windows luyện thi JLPT N3 theo giáo trình GunGun Joutatsu, đón
 python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --hidden-import pystray._win32 app.py
 ```
 
-Phải tắt `GunGunN3Trainer.exe` trước khi build (nó khoá file trong `dist`). Python dùng: `C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\python.exe`.
+- Phải **tắt `GunGunN3Trainer.exe`** trước khi build (nó khoá file trong `dist`).
+- **Đủ 5 file JSON** trong `--add-data`, thiếu file nào là app crash ngay ở `Api.get_data()` (`app.py:234`).
+- `dist\GunGunN3Trainer.exe` (~35 MB) **được commit vào git** → mỗi lần build là repo phình thêm ~35 MB. Exe hiện tại build từ commit `1ce2a91`, đang khớp source.
 
 ### Test nhanh không cần build
 
-`.claude/launch.json` có cấu hình `n3-trainer-web` chạy `python -m http.server 8123`; mở `http://localhost:8123/web/index.html`. Khi không có pywebview, `App.loadData()` tự fetch các file JSON, và các API host (`grade_translation`, tray, thông báo…) trả `null` nên UI vẫn chạy được.
+`.claude/launch.json` có cấu hình `n3-trainer-web` chạy `python -m http.server 8123`; mở `http://localhost:8123/web/index.html`
+(đường dẫn fetch là `../vocab.json`… nên **phải** serve từ thư mục gốc repo, không serve từ trong `web/`).
 
-## 2. Trạng thái các phần
+Giới hạn: khi không có pywebview, `App.loadData()` tự fetch 5 file JSON, còn `App.apiCall()` trả `null` cho mọi lời gọi → **không test được** ở chế độ này: chấm dịch bằng AI, tray, thông báo Windows, auto-start, backup ra file, hỏi khi bấm X.
+
+> `.claude/launch.json` hardcode đường dẫn python của máy hiện tại — sửa lại nếu chạy trên máy khác.
+
+---
+
+## 2. Hợp đồng giữa host (`app.py`) và UI (`index.html`)
+
+JS gọi Python qua `App.apiCall("<tên hàm>", ...)`; hỏng một bên là gãy bên kia.
+
+| Hàm `Api.*` | Vào | Ra | Việc |
+|---|---|---|---|
+| `get_data()` | — | `{vocab,kanji,grammar,reading,exams}` | đọc 5 file JSON kèm trong exe |
+| `get_api_key()` / `set_api_key(key)` | key | bool / chuỗi | quản lý `claude-api-key.txt` |
+| `grade_translation(payload)` | `{jp,user,pattern,meaning,notes}` | `{ok,score,correct,feedback,grammar_note,suggested}` hoặc `{ok:false,error:"no_key"\|"no_sdk"\|...}` | chấm dịch bằng Claude |
+| `save_backup(text)` / `load_backup()` | JSON string | bool / chuỗi | ghi `state-backup.json` (ghi atomic qua file `.tmp` + `os.replace`) |
+| `get_autostart()` / `set_autostart(enabled,hidden)` | bool | `{enabled,hidden}` | registry `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` |
+| `set_reminders(times)` | `["HH:MM", …]` | — | luồng nền kiểm tra mỗi 15 giây |
+| `set_makeup(total,days)` | số | — | UI đẩy số session đang nợ xuống để đưa vào nội dung thông báo |
+| `set_close_pref(action)` / `close_choice(action)` | `"ask"\|"tray"\|"quit"` | — | hành vi khi bấm nút X |
+| `test_notification()` | — | — | bắn thử toast |
+
+**Chiều ngược lại (Python → JS)**: `app.py:217` gọi `evaluate_js("App.askCloseAction()")` khi người dùng bấm X mà chưa chọn hành vi. Đổi tên hàm JS này là gãy.
+
+Cơ chế Windows-only đang dùng:
+
+- **Single instance**: mutex `GunGunN3Trainer_SingleInstance`; lần chạy thứ hai ghi file cờ `%LOCALAPPDATA%\GunGunN3Trainer\show.request` rồi thoát, bản đang chạy dò file này mỗi giây để hiện cửa sổ lại.
+- **Toast**: dựng XML rồi chạy PowerShell ẩn với AppUserModelID mượn của PowerShell (`app.py:26`) — nhờ vậy app không cần đăng ký shortcut trong Start Menu.
+- **Tray**: pystray chạy ở thread riêng; `--tray` ở dòng lệnh = khởi động ẩn.
+
+---
+
+## 3. Trạng thái các phần
+
+### Nội dung học
 
 | Phần | Trạng thái | Ghi chú |
 |---|---|---|
 | Từ vựng | ✅ 2016 từ | đã làm sạch lỗi nuốt câu ví dụ vào nghĩa |
 | Kanji | ✅ 337 chữ + 1073 từ | quiz: kanji→hiragana (tự luận), hiragana→kanji (trắc nghiệm) |
-| Ngữ pháp | ✅ 151 mẫu / 26 bài | quiz dịch Nhật→Việt, chấm bằng Claude API hoặc bộ chấm offline |
-| Đọc hiểu | ✅ 22 bài (chương 5–9) | đáp án + câu chứa đáp án + giải thích + tips do Claude soạn |
-| Đề thi JLPT | ⚠️ 3/5 đề, thiếu nhiều câu | xem mục 3 |
+| Ngữ pháp | ✅ 151 mẫu / 26 bài (9 chương) | quiz dịch Nhật→Việt, chấm bằng Claude API hoặc bộ chấm offline |
+| Đọc hiểu | ✅ 22 bài / 31 câu (chương 5–9) | đáp án + câu chứa đáp án + giải thích + tips do Claude soạn |
+| Đề thi JLPT | ⚠️ 3/5 đề, thiếu nhiều câu | xem §5 |
 
-## 3. ĐỀ THI — những chỗ còn thiếu (phần cần bổ sung)
+### Tính năng hệ thống (đều đã chạy, đừng làm hỏng khi sửa)
 
-### 3.1 Hai đề chưa xử lý được: PDF là ảnh scan
+| Tính năng | Nơi cài đặt |
+|---|---|
+| Chấm dịch bằng Claude (model `claude-opus-5`, `app.py:32`) + **bộ chấm offline** dự phòng | `app.py:263`, `index.html:2712` (`gradeTranslation`) và `index.html:2740` (`offlineGrade`) |
+| Học bù / ghi nợ session, banner nhắc | `index.html` (`pushMakeupToHost`) + `app.py:376` |
+| Mục tiêu tự động (chia số session còn lại cho số ngày tới kỳ thi) | `goalsCfg()` / `autoGoal()` |
+| Lịch học tháng, checkpoint 7 ngày, đếm ngược JLPT | `renderDash()` và các hàm lịch |
+| Chạy ngầm ở tray + nhắc giờ học bằng toast | `app.py:110` (`_reminder_loop`), `app.py:181` (`_start_tray`) |
+| Màn Ôn tập (thẻ session đã học, sắp xếp/mở lại) | `index.html` |
+| 5 theme (2 tĩnh + 3 gradient động) | `THEMES` (`index.html:726`) |
 
-| File | Trang | Vấn đề |
+**Không có test tự động nào** trong repo — checklist kiểm tra tay ở §9.
+
+---
+
+## 4. Schema tiến trình người dùng (`state`)
+
+Khoá localStorage: **`gungun_n3_state_v1`** (`index.html:723`). Nội dung y hệt được mirror sang `state-backup.json`.
+
+```jsonc
+{
+  "name": "…", "theme": "light", "savedAt": 1757600000000,
+  "vocab":   { "sessions": [], "reviews": [] },
+  "kanji":   { "sessions": [], "reviews": [] },
+  "grammar": { "sessions": [], "reviews": [] },
+  "reading": { "done": [] },
+  "exams":   { "done": [] },        // lượt làm đề thi JLPT: {id,title,c,t,dur,…}
+  "settings": {                     // mặc định: CFG_DEFAULTS, index.html:724
+    "vocabPerSession": 10, "kanjiPerSession": 4, "examSessions": 5,
+    "mcSec": 15, "typedSec": 25, "remindTimes": [], "closeAction": "ask"
+  },
+  "goals": { "mode": "auto", "vocabPerDay": 1, "kanjiPerDay": 1 }   // GOAL_DEFAULTS
+}
+```
+
+- `settings` và `goals` luôn đọc qua `App.cfg()` / `App.goalsCfg()` (có merge mặc định) → thêm khoá mới ở đây thì an toàn.
+- Các nhánh còn lại **bị truy cập trực tiếp** → thêm khoá mới phải thêm dòng migration trong `App.boot()` (`index.html:760-767`), nếu không state cũ của người dùng sẽ crash.
+- Sửa tay `state-backup.json` thì phải **tăng `savedAt`**, không thì localStorage cũ thắng lúc khởi động (`pickState`, `index.html:812`).
+
+---
+
+## 5. ĐỀ THI — những chỗ còn thiếu (phần cần bổ sung)
+
+### 5.1 Hai đề chưa xử lý được: PDF là ảnh scan
+
+| File (id dùng trong `exams.json`) | Trang | Vấn đề |
 |---|---|---|
-| `Đề thi JLPT N3 7_2021.pdf` | 16 trang, 43 ảnh | **Không có text**, toàn ảnh scan |
-| `ĐỀ THI JLPT N3 12.2023.pdf` | 30 trang, 24 ảnh | **Không có text**, toàn ảnh scan |
+| `Đề thi JLPT N3 7_2021.pdf` → id **`2021-07`** | 16 trang, 43 ảnh | **Không có text**, toàn ảnh scan |
+| `ĐỀ THI JLPT N3 12.2023.pdf` → id **`2023-12`** | 30 trang, 24 ảnh | **Không có text**, toàn ảnh scan |
 
 Máy chưa có `tesseract` (và `pytesseract`/`pdf2image`/`fitz` cũng chưa cài). Hai cách:
 
 1. Cài Tesseract + gói ngôn ngữ `jpn`, rồi OCR (chất lượng OCR tiếng Nhật với furigana thường kém, phải sửa tay nhiều).
 2. **Cách nên dùng**: đọc từng trang bằng vision (công cụ `Read` với `pages:"n"`) rồi gõ lại câu hỏi + 4 lựa chọn vào JSON. ~46 trang.
 
-### 3.2 Đề đã xử lý — số câu lấy được
+⚠️ Đọc kỹ **§8 — cảnh báo ghi đè** trước khi nhập tay bất cứ thứ gì vào `exams.json`.
+
+### 5.2 Đề đã xử lý — số câu lấy được
 
 | Đề | Từ vựng–Chữ Hán (30′) | Ngữ pháp–Đọc hiểu (70′) | Nghe hiểu (40′) |
 |---|---|---|---|
@@ -56,19 +155,19 @@ Máy chưa có `tesseract` (và `pytesseract`/`pdf2image`/`fitz` cũng chưa cà
 | 12/2022 | 35 câu ✅ | 20 câu ✅ | 12 câu (không chấm) |
 | 7/2023 | 32 câu ✅ | 19 câu ✅ | 12 câu (không chấm) |
 
-Tổng đang dùng được: **140 câu có đáp án**.
+Tổng đang dùng được: **140 câu có đáp án** (đã kiểm lại bằng script, khớp với `exams.json`).
 
-### 3.3 Vì sao thiếu — theo từng nguyên nhân
+### 5.3 Vì sao thiếu — theo từng nguyên nhân
 
 **(a) Phần nghe hiểu 聴解 — thiếu audio và script (cả 5 đề)**
 - PDF chỉ in 4 lựa chọn của mỗi câu, không có file mp3 cũng không có transcript.
 - 問題3 và 問題5 trong đề còn ghi rõ「問題用紙に何もいんさつされていません」→ trên giấy không có gì.
 - Hiện app vẫn hiển thị phần này (đúng cấu trúc, đếm giờ 40 phút) nhưng **không chấm điểm**, có banner giải thích.
-- **Cần**: file audio + đáp án (hoặc transcript) cho từng đề.
+- **Cần**: file audio + đáp án (hoặc transcript) cho từng đề. ❓CẦN BỔ SUNG: có nguồn audio không?
 
 **(b) Các câu sắp xếp ★ (問題2 phần ngữ pháp) — mất vị trí ô trống**
 - Khi PDF bị làm phẳng thành text, chỉ còn **một** dấu ★ và mất các ô trống còn lại, nên không biết ★ nằm ở ô thứ mấy → không xác định được đáp án.
-- Đang bị **loại bỏ** khỏi đề (mỗi đề 5 câu).
+- Đang bị **loại bỏ** khỏi đề ở `tools/build_exams.py:47` (mỗi đề 5 câu).
 - **Cần**: gõ lại thủ công vị trí ★ hoặc bỏ hẳn dạng này.
 
 **(c) Bài đọc nằm trong PDF dưới dạng ảnh**
@@ -85,18 +184,28 @@ Tổng đang dùng được: **140 câu có đáp án**.
 **(e) Đáp án do AI giải, chưa đối chiếu đáp án chính thức**
 - 5 PDF **không kèm đáp án**. Toàn bộ 140 đáp án hiện có do Claude tự giải khi đọc đề.
 - Độ tin cậy cao với 文字・語彙 và 文法, nhưng **nên đối chiếu lại với đáp án chính thức** khi có.
-- File đáp án: `exam_answers.json` (key dạng `đề/phần/số-câu`, giá trị 1–4).
+- File đáp án: `exam_answers.json` ở thư mục gốc repo. Giá trị 1–4.
+  🔑 **Key có dạng `<id đề>/<key phần>/<số câu GỐC in trên đề>`** — tức là ứng với trường **`label`** trong `exams.json`, **không phải `n`**.
+  (Kiểm chứng: khớp theo `label` = 140/140, khớp theo `n` = 112/140. Lý do: `build_exams.py:57` tính key *trước* vòng đánh số lại ở dòng 72–75.)
+- Cùng nhóm rủi ro: phần giải thích/đáp án của `reading.json` cũng do Claude soạn, **không có script hay prompt lưu lại** → không tái tạo và chưa được đối chiếu.
 
-## 4. Nhiệm vụ tiếp theo (ưu tiên từ trên xuống)
+---
 
-1. **Bổ sung phần nghe**: nhận file audio + đáp án từ người dùng → thêm trường `audio` cho từng câu trong `exams.json`, thêm player vào màn hình thi (`drawPaper`), bỏ banner "không chấm điểm".
+## 6. Nhiệm vụ tiếp theo (ưu tiên từ trên xuống)
+
+1. **Bổ sung phần nghe**: nhận file audio + đáp án → thêm trường `audio` cho từng câu trong `exams.json`, thêm player vào màn hình thi (`drawPaper`), bỏ banner "không chấm điểm".
 2. **Đề 7/2022 – phần ngữ pháp**: xử lý parser riêng hoặc nhập tay.
-3. **Hai đề scan (7/2021, 12/2023)**: đọc ảnh → nhập JSON theo đúng schema ở mục 5.
+3. **Hai đề scan (7/2021, 12/2023)**: đọc ảnh → nhập JSON theo đúng schema ở §7.
 4. **Khôi phục các bài đọc là ảnh** (問題3, 問題4(1), 問題7) cho 3 đề đã có.
-5. **Đối chiếu lại 140 đáp án** với đáp án chính thức.
-6. Cân nhắc: cho phép nộp sớm và xem lại bài trước khi hết giờ từng phần (hiện chỉ nộp rồi mới xem).
+5. **Đối chiếu lại 140 đáp án** với đáp án chính thức (nhớ quy ước key ở §5.3e).
+6. **Sửa lỗi `resetAll()`** — xem §10.
+7. Cân nhắc: cho phép nộp sớm và xem lại bài trước khi hết giờ từng phần (hiện chỉ nộp rồi mới xem).
 
-## 5. Schema `exams.json`
+Việc 1–4 đều đụng `exams.json` → đọc **§8 cảnh báo ghi đè** trước.
+
+---
+
+## 7. Schema `exams.json`
 
 ```jsonc
 [{
@@ -110,10 +219,10 @@ Tổng đang dùng được: **140 câu có đáp án**.
     "mondai": [{
       "no": 1,
       "instruction": "問題 1 ＿＿＿の言葉の…",
-      "passage": "",                       // bài đọc chung của mondai (nếu có)
+      "passage": "",                       // bài đọc chung của mondai (nếu có), tối đa 2600 ký tự
       "questions": [{
-        "n": 1,                            // số thứ tự liên tục trong phần (dùng cho navigator)
-        "label": 1,                        // số câu gốc in trên đề
+        "n": 1,                            // đánh số lại 1..n trong phần, dùng cho navigator
+        "label": 1,                        // số câu GỐC in trên đề — khớp với key trong exam_answers.json
         "q": "この店では、いろいろな容器を売っています。",
         "opts": ["ようぎ", "ようき", "どうぐ", "どうく"],
         "answer": 2                        // 1-based; null = không chấm (phần nghe)
@@ -125,26 +234,89 @@ Tổng đang dùng được: **140 câu có đáp án**.
 
 Quy ước: `answer: null` → câu vẫn hiển thị, có đếm giờ, nhưng không tính điểm.
 
-## 6. Pipeline trích xuất (trong `scratchpad/`)
+---
 
-Đã copy vào repo: thư mục **`tools/`**. Đáp án nằm ở **`exam_answers.json`** (thư mục gốc repo).
+## 8. Pipeline trích xuất (`tools/`)
 
-| Script | Việc |
-|---|---|
-| `resolve.py` | dò đường dẫn 5 PDF đề thi → `exam_files.json` (tên file có Unicode tổ hợp, phải glob chứ không hardcode) |
-| `clean_text.py` | trích text đã lọc watermark ("Tôi Yêu Ngoại Ngữ Group / Yuuki Bùi": font Helvetica, màu `(0.0,)`, cỡ >15.5) |
-| `parse_exam2.py` | text → cấu trúc phần / 問題 / câu / 4 lựa chọn |
-| `build_exams.py` | ghép với `exam_answers.json` → `exams.json` (loại câu ★, câu không có đáp án, mondai trùng số) |
-| `show_parsed.py` | in đề ra để giải đáp án bằng tay |
-| `parse_grammar2.py`, `build_reading.py`, `parse_kanji.py`, `parse_vocab.py` | pipeline của 4 phần dữ liệu còn lại |
+| Script | Việc | Trạng thái |
+|---|---|---|
+| `resolve.py` | dò đường dẫn 5 PDF đề thi trong `Downloads` → `exam_files.json` (tên file có Unicode tổ hợp, phải glob chứ không hardcode) | ✅ trong repo |
+| `clean_text.py` | trích text đã lọc watermark ("Tôi Yêu Ngoại Ngữ Group / Yuuki Bùi": font Helvetica, màu `(0.0,)`, cỡ >15.5) | ✅ |
+| `parse_exam2.py` | text → cấu trúc phần / 問題 / câu / 4 lựa chọn | ✅ |
+| `build_exams.py` | ghép với `exam_answers.json` → `exams.json` (loại câu ★, câu không có đáp án, mondai trùng số) | ✅ |
+| `show_parsed.py` | in đề ra để giải đáp án bằng tay | ✅ |
+| `parse_vocab.py`, `parse_kanji.py`, `parse_grammar2.py`, `build_reading.py` | pipeline của 4 bộ dữ liệu còn lại | ❌ **KHÔNG có trong repo** |
 
-Chạy lại toàn bộ đề thi: `cd tools && python resolve.py && python build_exams.py`
+Cần `pdfplumber`. Chạy lại đề thi: `cd tools && python resolve.py && python build_exams.py`
 (`resolve.py` phải chạy trước vì nó dò lại đường dẫn 5 PDF trong Downloads).
 
-## 7. Những cái bẫy đã gặp (đừng lặp lại)
+### ⚠️ Cảnh báo ghi đè — đọc trước khi nhập tay
+
+`build_exams.py` **ghi đè toàn bộ `exams.json`** từ PDF (dòng 84). Mọi câu hỏi, đoạn văn, trường `audio` nhập tay thẳng vào `exams.json` sẽ **bị xoá sạch** ở lần chạy tiếp theo.
+
+Chọn một trong hai, và ghi rõ đã chọn cách nào:
+- **(A)** Coi `exams.json` là file thành phẩm, **không chạy lại `build_exams.py`** nữa.
+- **(B)** Cho dữ liệu nhập tay vào một file riêng (vd. `exams_manual.json`) và sửa `build_exams.py` để merge vào cuối hàm `build()`. — *cách này bền hơn, hiện chưa làm.*
+
+❓CẦN BỔ SUNG: chọn (A) hay (B)?
+
+### Những chỗ hardcode trong `tools/` phải sửa nếu đổi máy / thêm đề
+
+- `build_exams.py:9` — `OUT` là đường dẫn tuyệt đối `C:\Users\Admin\Coding\GitHub\...\exams.json`.
+- `build_exams.py:18` — `TAGS` chỉ liệt kê 3 đề; thêm đề mới phải thêm vào đây.
+- `resolve.py:8` — chỉ quét `C:\Users\Admin\Downloads\*.pdf`.
+
+### Nguồn dữ liệu — rủi ro mất trắng
+
+Tất cả PDF gốc chỉ nằm trong `C:\Users\Admin\Downloads`, **không có trong repo, không có backup**. Xoá Downloads là mất nguồn vĩnh viễn.
+
+| Bộ dữ liệu | PDF nguồn |
+|---|---|
+| `vocab.json` | "GG N3 - TỪ VỰNG TỔNG HỢP" |
+| `kanji.json` | "GUNGUN N3 - KANJI" |
+| `grammar.json` | "GUNGUN N3 - NGỮ PHÁP" |
+| `reading.json` | ❓CẦN BỔ SUNG: tên file PDF |
+| `exams.json` | 5 đề, đường dẫn đầy đủ trong `tools/exam_files.json` |
+
+❓CẦN BỔ SUNG: 4 script pipeline thiếu ở trên còn nằm ở đâu không (scratchpad cũ?) — nếu mất hẳn thì ghi "mất, từ nay sửa tay JSON" để session sau khỏi đi tìm.
+
+---
+
+## 9. Checklist kiểm tra tay (không có test tự động)
+
+Sau khi sửa `web/index.html` — chạy ở chế độ web (`localhost:8123`) là đủ cho nhóm 1:
+
+1. Vào tên mới → dashboard hiện đúng; học 1 session từ vựng → quiz → kết thúc; F5 lại thấy tiến trình còn.
+2. Session kanji, session ngữ pháp (kiểm tra cả nhánh chấm offline khi không có key), 1 bài đọc hiểu.
+3. Mở 1 đề thi JLPT → đếm giờ chạy → nộp → xem điểm; kiểm tra tổng hợp.
+4. Đổi qua cả 5 theme; mở Cài đặt sửa số từ/session rồi học thử.
+5. Màn Ôn tập: mở lại 1 session cũ, làm quiz ôn tập.
+
+Sau khi sửa `app.py` — phải build exe hoặc chạy `python app.py` trên Windows:
+
+6. Bấm X → hộp hỏi "chạy ngầm / thoát hẳn"; chọn chạy ngầm → có icon 語 ở khay, bấm vào hiện lại cửa sổ.
+7. Mở exe lần thứ hai → không mở 2 cửa sổ, cửa sổ cũ hiện lên.
+8. Cài đặt → "Thử thông báo" → toast hiện; đặt giờ nhắc trước 1 phút → đợi toast.
+9. Bật/tắt khởi động cùng Windows → kiểm tra khoá `Run` trong registry.
+10. Nhập API key → làm 1 câu dịch → thấy nhận xét của Claude (`source` khác `"offline"`).
+11. Tắt app → mở lại → tiến trình còn nguyên; thử xoá localStorage để chắc chắn `state-backup.json` khôi phục được.
+
+---
+
+## 10. Lỗi đã biết / nợ kỹ thuật
+
+- **`App.resetAll()` (`index.html:1167`) dựng lại state thiếu khoá `exams`** → sau khi "Đặt lại toàn bộ dữ liệu", nếu người dùng vào màn Kiểm tra mà chưa khởi động lại app thì `this.state.exams.done` là `undefined` → crash (`index.html:2203` và `:1738`). Sửa: thêm `exams: { done: [] }` (và `grammar`/`reading` cho đủ bộ) vào object ở dòng 1176. Đúng kiểu bẫy mô tả ở §11.
+- `README.md` mô tả tính năng đã cũ hơn thực tế ở vài chỗ (không nhắc đề thi JLPT trong bảng cấu trúc file).
+- Exe 35 MB commit thẳng vào git, repo sẽ phình theo số lần build.
+
+---
+
+## 11. Những cái bẫy đã gặp (đừng lặp lại)
 
 - **Không dùng heredoc bash** cho script chứa ký tự Unicode đặc biệt (⓵, ❶, ★…) — Git Bash lỗi "unexpected EOF". Dùng công cụ Write để tạo file.
 - Tên PDF tiếng Việt dùng Unicode tổ hợp → `open()` với chuỗi hardcode sẽ `FileNotFoundError`. Luôn `glob`.
 - `state-backup.json` sửa tay thì phải **tăng `savedAt`**, nếu không localStorage cũ sẽ thắng lúc khởi động.
 - Khi thêm khóa mới vào state (vd `exams`), phải thêm migration trong `App.boot()` — dữ liệu cũ của người dùng không có khóa đó và sẽ crash.
+- Lệnh build thiếu một `--add-data` JSON → exe mở lên là crash, không có thông báo lỗi (vì `--windowed`).
+- `build_exams.py` ghi đè `exams.json`, xem §8.
 - Người dùng giao tiếp bằng **tiếng Việt**; mọi chuỗi trong UI đều tiếng Việt.

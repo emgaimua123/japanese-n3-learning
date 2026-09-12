@@ -42,7 +42,7 @@ Chạy file `dist\GunGunN3Trainer.exe` (không cần cài đặt gì thêm — c
 
 ```powershell
 python -m pip install pywebview pyinstaller pystray pillow anthropic
-python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "icon.ico;." --hidden-import pystray._win32 app.py
+python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --hidden-import pystray._win32 app.py
 ```
 
 Kết quả nằm ở `dist\GunGunN3Trainer.exe`.
