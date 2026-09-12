@@ -1,6 +1,6 @@
 # GunGun N3 Trainer
 
-Ứng dụng desktop (Windows) luyện **từ vựng** và **kanji** JLPT N3 theo giáo trình GunGun Joutatsu N3.
+Ứng dụng desktop (Windows) luyện **từ vựng**, **kanji**, **ngữ pháp**, **đọc hiểu** và **thi thử đề JLPT N3** theo giáo trình GunGun Joutatsu N3.
 
 ## Chạy ứng dụng
 
@@ -16,6 +16,7 @@ Chạy file `dist\GunGunN3Trainer.exe` (không cần cài đặt gì thêm — c
 - **Dashboard**: số session, số từ/kanji đã học, tỷ lệ đúng quiz, tỷ lệ thuộc bài cũ, biểu đồ kết quả theo session, checkpoint mục tiêu ngày (7 ngày gần nhất), lịch sử ôn tập (ngày giờ, thời lượng, điểm), đồng hồ trực tiếp.
 - **Session ngữ pháp**: mỗi bài của sách là một session — học từng mẫu (cấu trúc, giải thích y hệt sách, ví dụ, đáp án luyện dịch của sách), rồi quiz dịch câu ví dụ Nhật → Việt. Bài dịch được chấm theo **nghĩa**, không khoá cứng một đáp án: ưu tiên Claude API (nhập key trong Cài đặt), nếu không có key thì dùng bộ chấm ngoại tuyến đối chiếu ý với từ điển trong app. Dù đúng hay sai đều hiện lại cấu trúc ngữ pháp gốc gắn với câu đó.
 - **Đọc hiểu** (Học → Luyện đọc hiểu): 22 bài đọc luyện tập từ chương 5 đến 9. Làm xong mỗi câu có giải thích chi tiết, trích đúng câu chứa đáp án trong bài, lý do từng đáp án sai, và tip & trick cho dạng bài đó.
+- **Đề thi JLPT** (Kiểm tra → Đề thi JLPT N3): thi thử đề thật theo đúng cấu trúc và thời gian chuẩn (Từ vựng–Chữ Hán 30 phút · Ngữ pháp–Đọc hiểu 70 phút · Nghe hiểu 40 phút). Có bảng điều hướng câu hỏi bên phải (đã làm / đánh dấu phân vân / chưa làm đổi màu khác nhau), đồng hồ đếm ngược, hết giờ tự chuyển sang phần tiếp theo; cuối bài có điểm từng phần và bảng xem lại từng câu.
 - **Kiểm tra tổng hợp** (sidebar → Kiểm tra): gom tối đa N session ngẫu nhiên đã học thành bài kiểm tra có đếm giờ, không chấm từng câu — chấm điểm và giải thích toàn bộ ở cuối.
 - **Ôn tập** (sidebar): tất cả session đã học dạng thẻ, sắp xếp theo số session / tỷ lệ đúng / ngày học; mở ra xem lại toàn bộ nội dung và làm quiz ôn tập.
 - **Cài đặt** (sidebar, pop-up): đổi tên, giao diện, số từ/kanji mỗi session, số session mỗi bài kiểm tra, thời gian mỗi câu, mục tiêu session/ngày, khởi động cùng Windows, giờ nhắc học (thông báo Windows).
@@ -37,12 +38,34 @@ Chạy file `dist\GunGunN3Trainer.exe` (không cần cài đặt gì thêm — c
 | `kanji.json` | 337 kanji + 1073 từ đi kèm trích từ PDF "GUNGUN N3 - KANJI" |
 | `grammar.json` | 151 mẫu ngữ pháp (26 bài) + 462 câu ví dụ + 462 câu luyện dịch kèm đáp án, trích từ PDF "GUNGUN N3 - NGỮ PHÁP" |
 | `reading.json` | 22 bài đọc (chương 5–9) + 31 câu hỏi kèm đáp án, câu chứa đáp án, giải thích và tips |
+| `exams.json` | 3 đề thi JLPT thật (7/2022, 12/2022, 7/2023) — 140 câu có đáp án. **File thành phẩm, sinh ra bởi `tools/build_exams.py`** |
+| `exam_answers.json` | đáp án đề thi (key `<id đề>/<phần>/<số câu gốc>`), dùng khi dựng lại `exams.json` |
+| `exams_manual.json` | dữ liệu đề thi nhập tay (đề scan, audio, bài đọc là ảnh) — được merge đè lên kết quả trích từ PDF |
+| `tools/` | pipeline trích dữ liệu từ PDF (xem `HANDOFF.md` §8) |
+| `audio/` | file nghe cho phần 聴解 (xem `audio/README.md`) |
 
 ## Build lại exe
 
 ```powershell
 python -m pip install pywebview pyinstaller pystray pillow anthropic
-python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --hidden-import pystray._win32 app.py
+python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --add-data "audio;audio" --hidden-import pystray._win32 app.py
 ```
 
 Kết quả nằm ở `dist\GunGunN3Trainer.exe`.
+
+Lưu ý khi build:
+- Phải **tắt app đang chạy** trước (exe bị khoá file).
+- Thiếu bất kỳ `--add-data` JSON nào là exe mở lên crash ngay mà không báo lỗi (do `--windowed`).
+
+## Dựng lại dữ liệu từ PDF
+
+```powershell
+python -m pip install pdfplumber
+cd tools
+python parse_vocab.py; python fix_vocab2.py   # vocab.json
+python parse_kanji.py                          # kanji.json
+python parse_grammar2.py                       # grammar.json
+python resolve.py; python build_exams.py       # exams.json (gộp exams_manual.json)
+```
+
+Các script tự tìm PDF trong `C:\Users\Admin\Downloads`. Riêng `reading.json` cần `tools/reading_raw.json` (xem `HANDOFF.md` §8).

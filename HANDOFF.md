@@ -1,6 +1,6 @@
 # GunGun N3 Trainer — Bàn giao & việc còn lại
 
-> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: 13/09/2026.
+> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: 13/09/2026 (lần 2).
 >
 > Chỗ nào đánh dấu **❓CẦN BỔ SUNG** là thông tin chỉ người chủ dự án biết — điền vào giúp.
 
@@ -164,6 +164,7 @@ Tổng đang dùng được: **140 câu có đáp án** (đã kiểm lại bằn
 - 問題3 và 問題5 trong đề còn ghi rõ「問題用紙に何もいんさつされていません」→ trên giấy không có gì.
 - Hiện app vẫn hiển thị phần này (đúng cấu trúc, đếm giờ 40 phút) nhưng **không chấm điểm**, có banner giải thích.
 - **Cần**: file audio + đáp án (hoặc transcript) cho từng đề. ❓CẦN BỔ SUNG: có nguồn audio không?
+- ✅ **Đã chuẩn bị sẵn chỗ cắm** (13/09): câu nào có trường `audio` thì màn thi tự hiện player (`index.html`, `drawPaper`), banner "không chấm điểm" tự ẩn. Thả mp3 vào `audio/` rồi khai báo trong `exams_manual.json` — hướng dẫn ở `audio/README.md`. Lệnh build đã có `--add-data "audio;audio"`.
 
 **(b) Các câu sắp xếp ★ (問題2 phần ngữ pháp) — mất vị trí ô trống**
 - Khi PDF bị làm phẳng thành text, chỉ còn **một** dấu ★ và mất các ô trống còn lại, nên không biết ★ nằm ở ô thứ mấy → không xác định được đáp án.
@@ -244,26 +245,49 @@ Quy ước: `answer: null` → câu vẫn hiển thị, có đếm giờ, nhưng
 | `parse_exam2.py` | text → cấu trúc phần / 問題 / câu / 4 lựa chọn | ✅ |
 | `build_exams.py` | ghép với `exam_answers.json` → `exams.json` (loại câu ★, câu không có đáp án, mondai trùng số) | ✅ |
 | `show_parsed.py` | in đề ra để giải đáp án bằng tay | ✅ |
-| `parse_vocab.py`, `parse_kanji.py`, `parse_grammar2.py`, `build_reading.py` | pipeline của 4 bộ dữ liệu còn lại | ❌ **KHÔNG có trong repo** |
+| `parse_vocab.py` + `fix_vocab2.py` | PDF từ vựng → `vocab.json` (parse rồi dọn nghĩa lẫn câu ví dụ) | ✅ **đã bổ sung 13/09** |
+| `parse_kanji.py` | PDF kanji → `kanji.json` | ✅ **đã bổ sung 13/09** |
+| `parse_grammar2.py` | PDF ngữ pháp → `grammar.json` | ✅ |
+| `parse_reading2.py` + `build_reading.py` | PDF đọc hiểu → `reading_raw.json` → `reading.json` | ✅ |
 
 Cần `pdfplumber`. Chạy lại đề thi: `cd tools && python resolve.py && python build_exams.py`
 (`resolve.py` phải chạy trước vì nó dò lại đường dẫn 5 PDF trong Downloads).
 
 ### ⚠️ Cảnh báo ghi đè — đọc trước khi nhập tay
 
-`build_exams.py` **ghi đè toàn bộ `exams.json`** từ PDF (dòng 84). Mọi câu hỏi, đoạn văn, trường `audio` nhập tay thẳng vào `exams.json` sẽ **bị xoá sạch** ở lần chạy tiếp theo.
+✅ **ĐÃ XỬ LÝ (13/09) — chọn phương án (B).**
 
-Chọn một trong hai, và ghi rõ đã chọn cách nào:
-- **(A)** Coi `exams.json` là file thành phẩm, **không chạy lại `build_exams.py`** nữa.
-- **(B)** Cho dữ liệu nhập tay vào một file riêng (vd. `exams_manual.json`) và sửa `build_exams.py` để merge vào cuối hàm `build()`. — *cách này bền hơn, hiện chưa làm.*
+`build_exams.py` vẫn ghi đè `exams.json` từ PDF, **nhưng** trước khi ghi nó gộp thêm `exams_manual.json`
+(hàm `merge_manual`). Vì vậy **dữ liệu nhập tay không còn bị mất** khi chạy lại script.
 
-❓CẦN BỔ SUNG: chọn (A) hay (B)?
+Cách dùng `exams_manual.json` (nằm ở thư mục gốc repo, mặc định là `[]`):
 
-### Những chỗ hardcode trong `tools/` phải sửa nếu đổi máy / thêm đề
+- Khớp theo **`id` đề → `key` phần → `no` của 問題 → `label` của câu**.
+- Có sẵn thì **cập nhật từng trường** (trường không nhắc tới vẫn giữ nguyên); chưa có thì **thêm mới**.
+- Thêm cả đề mới cũng được — cứ đặt một object đề đầy đủ theo schema §7.
+- Sau khi gộp, số `n` được đánh lại 1..n cho mỗi phần nên navigator vẫn đúng.
 
-- `build_exams.py:9` — `OUT` là đường dẫn tuyệt đối `C:\Users\Admin\Coding\GitHub\...\exams.json`.
-- `build_exams.py:18` — `TAGS` chỉ liệt kê 3 đề; thêm đề mới phải thêm vào đây.
-- `resolve.py:8` — chỉ quét `C:\Users\Admin\Downloads\*.pdf`.
+Ví dụ gắn audio + đáp án cho một câu nghe:
+
+```json
+[{ "id": "2022-12",
+   "sections": [{ "key": "choukai",
+     "mondai": [{ "no": 1,
+       "questions": [{ "label": 1, "audio": "../audio/2022-12/q1.mp3", "answer": 3 }] }] }] }]
+```
+
+Đã kiểm thử: thêm đề mới, sửa câu cũ, gắn audio — dữ liệu trích tự động vẫn nguyên vẹn.
+
+### Những chỗ hardcode trong `tools/`
+
+✅ **Đã dọn (13/09)**: mọi script ghi ra JSON bằng đường dẫn tương đối (`os.path.join(here, "..", …)`),
+và tìm PDF bằng **so khớp không dấu** (`_find_pdf`) nên không còn trượt vì tên file Unicode tổ hợp.
+
+Còn lại (cố ý giữ):
+
+- Các script tìm PDF trong `~/Downloads` — đổi chỗ để PDF thì phải sửa.
+- `build_exams.py` — `TAGS` liệt kê 3 đề trích được text; thêm đề mới (trích được text) phải thêm vào đây.
+  Đề nhập tay thì **không cần** đụng `TAGS`, cứ bỏ vào `exams_manual.json`.
 
 ### Nguồn dữ liệu — rủi ro mất trắng
 
@@ -274,10 +298,12 @@ Tất cả PDF gốc chỉ nằm trong `C:\Users\Admin\Downloads`, **không có 
 | `vocab.json` | "GG N3 - TỪ VỰNG TỔNG HỢP" |
 | `kanji.json` | "GUNGUN N3 - KANJI" |
 | `grammar.json` | "GUNGUN N3 - NGỮ PHÁP" |
-| `reading.json` | ❓CẦN BỔ SUNG: tên file PDF |
+| `reading.json` | `20260320110812_GG N3 - DOCHIEU- C1C9 (260320).pdf` (chương 5–9) |
 | `exams.json` | 5 đề, đường dẫn đầy đủ trong `tools/exam_files.json` |
 
-❓CẦN BỔ SUNG: 4 script pipeline thiếu ở trên còn nằm ở đâu không (scratchpad cũ?) — nếu mất hẳn thì ghi "mất, từ nay sửa tay JSON" để session sau khỏi đi tìm.
+✅ **Đã xong (13/09)**: `parse_grammar2.py`, `build_reading.py`, `parse_reading2.py`, `fix_vocab2.py` lấy lại được từ scratchpad; `parse_vocab.py` và `parse_kanji.py` đã **mất hẳn nên được viết lại**. Đã kiểm chứng: chạy lại toàn bộ pipeline tái tạo **đúng 100%** cả 5 file JSON đang dùng (vocab 2016 / kanji 337 / grammar 151 / reading 22 / exams 3 — 0 mục sai lệch).
+
+`build_reading.py` cần `tools/reading_raw.json` (đã có trong repo); muốn dựng lại file này từ PDF thì chạy `parse_reading2.py`.
 
 ---
 
@@ -305,7 +331,7 @@ Sau khi sửa `app.py` — phải build exe hoặc chạy `python app.py` trên 
 ## 10. Lỗi đã biết / nợ kỹ thuật
 
 - ~~`App.resetAll()` dựng lại state thiếu khoá `exams` → crash màn Kiểm tra sau khi "Đặt lại toàn bộ dữ liệu" nếu chưa khởi động lại app.~~ **Đã sửa** (13/09/2026): object trong `resetAll()` giờ có đủ mọi nhánh mà `boot()` bảo đảm. Nếu sau này thêm nhánh mới vào `boot()`, nhớ thêm cả ở đây — đúng kiểu bẫy mô tả ở §11.
-- `README.md` mô tả tính năng đã cũ hơn thực tế ở vài chỗ (không nhắc đề thi JLPT trong bảng cấu trúc file).
+- ~~`README.md` mô tả tính năng đã cũ hơn thực tế.~~ **Đã cập nhật (13/09)**: thêm mục đề thi JLPT, `exams.json` / `exam_answers.json` / `exams_manual.json` / `tools/` / `audio/` vào bảng cấu trúc, lệnh build có `--add-data "audio;audio"`, và thêm mục "Dựng lại dữ liệu từ PDF".
 - Exe 35 MB commit thẳng vào git, repo sẽ phình theo số lần build.
 
 ---
@@ -317,5 +343,6 @@ Sau khi sửa `app.py` — phải build exe hoặc chạy `python app.py` trên 
 - `state-backup.json` sửa tay thì phải **tăng `savedAt`**, nếu không localStorage cũ sẽ thắng lúc khởi động.
 - Khi thêm khóa mới vào state (vd `exams`), phải thêm migration trong `App.boot()` — dữ liệu cũ của người dùng không có khóa đó và sẽ crash.
 - Lệnh build thiếu một `--add-data` JSON → exe mở lên là crash, không có thông báo lỗi (vì `--windowed`).
-- `build_exams.py` ghi đè `exams.json`, xem §8.
+- `build_exams.py` ghi đè `exams.json`, xem §8 (đã có cơ chế merge nên an toàn hơn).
+- **Chạy script pipeline để debug là ghi đè luôn file JSON thật.** Đã có lần chạy thử `parse_grammar2.py` lúc nó còn lỗi → `grammar.json` bị ghi thành mảng rỗng. Khi thử nghiệm, hãy sao lưu file trước (xem cách làm trong `verify_*.py` ở scratchpad) hoặc kiểm tra lại bằng `git diff --stat` ngay sau khi chạy.
 - Người dùng giao tiếp bằng **tiếng Việt**; mọi chuỗi trong UI đều tiếng Việt.
