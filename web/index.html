@@ -731,6 +731,10 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 const pct = (c, t) => t ? Math.round(100 * c / t) : 0;
 
 const STORE_KEY = "gungun_n3_state_v1";
+// Kết quả AI đã chấm, để khỏi trả tiền lại khi làm lại đúng câu đó. Cố ý để
+// riêng chứ không nhét vào state: state được mirror ra state-backup.json mỗi
+// lần save, không nên phình vì cache.
+const AI_CACHE_KEY = "gungun_n3_aigrade_v1";
 const CFG_DEFAULTS = { vocabPerSession: 10, kanjiPerSession: 4, examSessions: 5, mcSec: 15, typedSec: 25, remindTimes: [], closeAction: "ask" };
 const GOAL_DEFAULTS = { mode: "auto", vocabPerDay: 1, kanjiPerDay: 1 };
 const THEMES = [
@@ -2354,7 +2358,7 @@ const App = {
     const pend = q.answers.filter(a => a.pending);
     if (pend.length) {
       $("#sessBody").innerHTML = `<div class="card stagecard centered">
-        <div class="grading">🤖 Đang chấm ${pend.length} câu dịch…</div></div>`;
+        <div class="grading">Đang chấm ${pend.length} câu dịch…</div></div>`;
       for (const a of pend) {
         const res = a.given ? await this.gradeTranslation(a.Q.it, a.given)
                             : { correct: false, score: 0, feedback: "Chưa trả lời.", source: "offline" };
@@ -2743,20 +2747,57 @@ const App = {
     Q.answered = true;
     $("#transInput").disabled = true;
     const btn = $("#transBtn");
-    btn.disabled = true; btn.textContent = "Đang chấm…";
-    $("#fb").innerHTML = `<div class="grading">🤖 Đang chấm bản dịch của bạn…</div>`;
-    const res = await this.gradeTranslation(Q.it, val);
-    this.finishTranslate(Q, val, res);
+    btn.disabled = true;
+    // chấm ngay bằng bộ offline (miễn phí, tức thì); muốn AI thì bấm nút ở dưới
+    btn.textContent = "Đã nộp";
+    this.finishTranslate(Q, val, this.gradeTranslation(Q.it, val));
   },
-  async gradeTranslation(it, val) {
+  // Chấm bằng bộ offline (miễn phí). Muốn AI chấm kỹ thì bấm nút ở ô kết quả —
+  // mỗi lần gọi AI là một lần trả tiền API nên không gọi tự động nữa.
+  gradeTranslation(it, val) {
+    return this.offlineGrade(it, val);
+  },
+  /* ---- bộ nhớ kết quả AI: gõ lại y hệt câu cũ thì không tốn tiền lần nữa ---- */
+  aiCacheKey(it, val) {
+    return it.jp + " " + String(val || "").trim().replace(/\s+/g, " ").toLowerCase();
+  },
+  aiCache() {
+    if (!this._aiCache) {
+      try { this._aiCache = JSON.parse(localStorage.getItem(AI_CACHE_KEY) || "{}"); }
+      catch (e) { this._aiCache = {}; }
+    }
+    return this._aiCache;
+  },
+  aiCachePut(k, res) {
+    const c = this.aiCache();
+    c[k] = res;
+    const keys = Object.keys(c);
+    // giữ 300 kết quả gần nhất, xoá bớt cái cũ cho khỏi phình localStorage
+    if (keys.length > 300) for (const old of keys.slice(0, keys.length - 300)) delete c[old];
+    try { localStorage.setItem(AI_CACHE_KEY, JSON.stringify(c)); } catch (e) {}
+  },
+  async askAI() {
+    const q = this.S.quiz, Q = q.qs[q.i], it = Q.it, val = Q.userVal || "";
+    const key = this.aiCacheKey(it, val);
+    const hit = this.aiCache()[key];
+    if (hit) {
+      this.scoreTranslate(Q, Object.assign({}, hit, { cached: true }));
+      return this.renderTranslate(Q, val, Q.result);
+    }
+    const btn = $("#aiBtn");
+    if (btn) { btn.disabled = true; btn.textContent = "🤖 Đang hỏi AI…"; }
     const ai = await this.apiCall("grade_translation", {
       jp: it.jp, user: val, pattern: it.pattern,
       meaning: it.meaning, notes: (it.g && it.g.notes) || [],
     });
-    if (ai && ai.ok) return ai;
-    const off = this.offlineGrade(it, val);
-    off.aiError = ai ? ai.error : "no_host";
-    return off;
+    if (ai && ai.ok) {
+      this.aiCachePut(key, ai);
+      this.scoreTranslate(Q, ai);
+      return this.renderTranslate(Q, val, ai);
+    }
+    const res = Object.assign({}, Q.result, { aiError: ai ? ai.error : "no_host" });
+    Q.result = res;
+    this.renderTranslate(Q, val, res);
   },
   // Offline grader: measure how much of the sentence's meaning the translation
   // covers. Concepts come from the dictionary (vocab + kanji words) plus the
@@ -2830,14 +2871,37 @@ const App = {
              grammar_note: it.meaning ? ("Mẫu " + it.pattern + ": " + it.meaning) : ("Mẫu " + it.pattern),
              suggested: "" };
   },
-  finishTranslate(Q, val, res) {
-    const q = this.S.quiz, it = Q.it;
-    const ok = !!res.correct;
-    if (ok) q.c++; else q.wrong.push(Q);
+  // Cộng/trừ điểm cho câu này. Gọi lại được nhiều lần: nếu AI chấm khác bộ
+  // offline thì gỡ kết quả cũ ra trước, không thì điểm session bị đếm hai lần.
+  scoreTranslate(Q, res) {
+    const q = this.S.quiz;
+    if (Q.result) {
+      if (Q.result.correct) q.c--;
+      else { const i = q.wrong.indexOf(Q); if (i >= 0) q.wrong.splice(i, 1); }
+    }
     Q.result = res;
+    if (res.correct) q.c++; else q.wrong.push(Q);
+  },
+  finishTranslate(Q, val, res) {
+    this.scoreTranslate(Q, res);
+    this.renderTranslate(Q, val, res);
+  },
+  renderTranslate(Q, val, res) {
+    const it = Q.it;
+    const ok = !!res.correct;
+    // giữ bản dịch trên Q chứ không nhét vào onclick: bản dịch có dấu nháy kép
+    // là thuộc tính HTML đứt ngay giữa chừng
+    Q.userVal = val;
     const badge = res.source === "ai"
-      ? `<span class="srcbadge ai">AI chấm</span>`
+      ? `<span class="srcbadge ai">AI chấm${res.cached ? " (đã lưu)" : ""}</span>`
       : `<span class="srcbadge off" title="${esc(this.aiErrorText(res.aiError))}">Chấm ngoại tuyến</span>`;
+    const aiBtn = res.source === "ai" ? "" : `
+        <div class="centered" style="margin-top:12px">
+          <button class="btn ghost" id="aiBtn" onclick="App.askAI()"
+                  title="Gọi Claude API — tốn khoảng 200-350đ cho câu này">
+            🤖 Nhờ AI chấm kỹ</button>
+          ${res.aiError ? `<div class="sub" style="font-size:12px;margin-top:6px">${esc(this.aiErrorText(res.aiError))}</div>` : ""}
+        </div>`;
     $("#fb").innerHTML = `
       <div class="feedback ${ok ? "ok" : "no"}">
         <div class="verdict">${ok ? "✔ Đạt" : "✘ Chưa đạt"} · ${res.score}/100 ${badge}</div>
@@ -2850,6 +2914,7 @@ const App = {
           ${res.grammar_note ? `<div class="gnote">💡 ${esc(res.grammar_note)}</div>` : ""}
           <div class="kref"><b class="jp">${esc(it.jp)}</b></div>
         </div>
+        ${aiBtn}
         <div class="centered" style="margin-top:14px">
           <button class="btn ${this.btnClass()}" id="contBtn" onclick="App.nextQuestion()">Tiếp tục →</button>
         </div>
