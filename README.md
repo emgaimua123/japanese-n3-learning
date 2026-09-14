@@ -4,7 +4,8 @@
 
 ## Chạy ứng dụng
 
-Chạy file `dist\GunGunN3Trainer.exe` (không cần cài đặt gì thêm — chỉ cần Windows 10/11 có WebView2, mặc định đã có sẵn).
+Giải nén file zip phát hành rồi chạy `GunGunN3Trainer.exe` (không cần cài đặt gì thêm — chỉ cần Windows 10/11
+có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `resources\` cạnh file exe.
 
 ## Tính năng
 
@@ -42,20 +43,36 @@ Chạy file `dist\GunGunN3Trainer.exe` (không cần cài đặt gì thêm — c
 | `exam_answers.json` | đáp án đề thi (key `<id đề>/<phần>/<số câu gốc>`), dùng khi dựng lại `exams.json` |
 | `exams_manual.json` | dữ liệu đề thi nhập tay (đề scan, audio, bài đọc là ảnh) — được merge đè lên kết quả trích từ PDF |
 | `tools/` | pipeline trích dữ liệu từ PDF (xem `HANDOFF.md` §8) |
-| `audio/` | file nghe cho phần 聴解 (xem `audio/README.md`) |
+| `audio/` | file nghe phần 聴解 — `audio/<id đề>/choukai.mp3`, mỗi đề một file dài cho cả phần |
+| `source-pdf/` | toàn bộ PDF gốc (5 đề thi + 4 giáo trình) mà pipeline trích dữ liệu ra |
 
 ## Build lại exe
 
 ```powershell
 python -m pip install pywebview pyinstaller pystray pillow anthropic
-python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --add-data "audio;audio" --hidden-import pystray._win32 app.py
+python build.py
 ```
 
-Kết quả nằm ở `dist\GunGunN3Trainer.exe`.
+Kết quả nằm ở `dist\GunGunN3Trainer\`:
+
+```
+GunGunN3Trainer.exe      ~34 MB — chỉ có Python runtime + pywebview + pystray
+resources\
+  web\index.html         giao diện
+  vocab.json …           5 file dữ liệu
+  audio\<id đề>\*.mp3    file nghe phần 聴解
+  icon.ico
+```
+
+Tài nguyên **để ngoài exe** (kiểu `resources/` của app thường gặp) nên:
+- exe nhẹ, build nhanh; audio ~73 MB không làm phình exe;
+- sửa dữ liệu hay `web/index.html` thì chỉ cần chép đè vào `resources\`, **không phải build lại**;
+- phát hành: nén cả thư mục `dist\GunGunN3Trainer` thành một file zip.
 
 Lưu ý khi build:
-- Phải **tắt app đang chạy** trước (exe bị khoá file).
-- Thiếu bất kỳ `--add-data` JSON nào là exe mở lên crash ngay mà không báo lỗi (do `--windowed`).
+- Phải **tắt app đang chạy** trước (exe bị khoá file) — `build.py` sẽ báo nếu gặp.
+- Thiếu file trong `resources\` thì app hiện hộp thoại nói rõ thiếu gì (trước đây crash im lặng do `--windowed`).
+- App vẫn chạy được với exe bản cũ (tài nguyên nhúng sẵn bên trong) — `res_base()` trong `app.py` tự nhận biết.
 
 ## Dựng lại dữ liệu từ PDF
 

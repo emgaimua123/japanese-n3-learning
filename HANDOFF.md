@@ -7,17 +7,16 @@
 Repo: `emgaimua123/japanese-n3-learning` · nhánh chính `main` · thư mục làm việc trên máy:
 `C:\Users\Admin\Coding\GitHub\japanese-n3-learning`
 
-**Commit gần nhất**: `0470467` (docs) ← `1e55f9b` (audio) ← `e491871` (pipeline).
-Cây làm việc sạch, **chưa push lên GitHub**.
+**Commit gần nhất**: `b56bdb0` (docs, **chưa push**) ← `0470467` ← `1e55f9b` (audio).
 
-**Việc đang chờ ngay**: chủ dự án nói *"mai tôi gửi audio"* (hẹn ngày 14/09) → xem **§6 việc 1**,
-mọi thứ phía code đã sẵn sàng, chỉ còn nhận file và khai báo.
+**Việc đang chờ ngay**: 35 câu nghe đã có audio nhưng **chưa có đáp án** nên chưa chấm điểm được —
+xem **§6 việc 1**. Đáp án nhiều khả năng nằm ở cuối chính các file mp3 ("KEM" = kèm đáp án).
 
 ---
 
 ## 1. Ứng dụng là gì
 
-App desktop Windows luyện thi JLPT N3 theo giáo trình GunGun Joutatsu, đóng gói 1 file `.exe`.
+App desktop Windows luyện thi JLPT N3 theo giáo trình GunGun Joutatsu, đóng gói thành exe + thư mục `resources/`.
 
 - **Host**: `app.py` (450 dòng) — pywebview + WebView2, tray icon (pystray), thông báo Windows, auto-start, chấm dịch bằng Claude API.
 - **Giao diện + toàn bộ logic**: `web/index.html` (một file, **2.930 dòng / 88 KB**, không framework, không build step).
@@ -39,12 +38,21 @@ Python đang dùng: `C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\pyth
 ### Build lại exe
 
 ```powershell
-python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --add-data "audio;audio" --hidden-import pystray._win32 app.py
+python build.py
 ```
 
-- Phải **tắt `GunGunN3Trainer.exe`** trước khi build (nó khoá file trong `dist`).
-- **Đủ 5 file JSON** trong `--add-data`, thiếu file nào là app crash ngay ở `Api.get_data()` (`app.py:234`). `audio;audio` thì không bắt buộc, nhưng thiếu là player phần nghe không có file để phát.
-- `dist\GunGunN3Trainer.exe` (~35 MB) **được commit vào git** → mỗi lần build là repo phình thêm ~35 MB. Exe hiện tại build ở commit `1e55f9b`, đang khớp source.
+**Đổi kiến trúc đóng gói (14/09)**: exe **không còn nhúng tài nguyên**. Kết quả ra `dist\GunGunN3Trainer\`:
+exe ~33.7 MB (chỉ Python runtime) + thư mục `resources\` (web/, 5 JSON, audio/, icon.ico) — tổng ~105 MB
+do audio. Phát hành bằng cách nén cả thư mục thành zip.
+
+- `app.py` tìm tài nguyên qua `res_base()`: bản đóng gói lấy `resources\` cạnh exe, không có thì lùi về
+  `_MEIPASS` (exe bản cũ vẫn chạy), chạy từ source thì lấy thư mục repo.
+- Thiếu file trong `resources\` → `_check_resources()` hiện MessageBox nói rõ thiếu gì, thay vì crash im lặng.
+- Sửa dữ liệu / `web/index.html` thì **chỉ cần chép đè vào `resources\`**, không phải build lại exe.
+- Phải **tắt app đang chạy** trước khi build (`build.py` báo lỗi rõ nếu exe bị khoá).
+- `dist/` và `audio/*/` đã cho vào `.gitignore`. ⚠️ `dist\GunGunN3Trainer.exe` (bản cũ, 35 MB, nhúng sẵn
+  tài nguyên, **chưa có audio**) vẫn đang được git theo dõi từ trước — ❓chủ dự án quyết định có gỡ khỏi git
+  và chuyển sang phát hành zip qua GitHub Releases hay không.
 
 ### Test nhanh không cần build
 
@@ -63,7 +71,7 @@ JS gọi Python qua `App.apiCall("<tên hàm>", ...)`; hỏng một bên là gã
 
 | Hàm `Api.*` | Vào | Ra | Việc |
 |---|---|---|---|
-| `get_data()` | — | `{vocab,kanji,grammar,reading,exams}` | đọc 5 file JSON kèm trong exe |
+| `get_data()` | — | `{vocab,kanji,grammar,reading,exams}` | đọc 5 file JSON trong `resources/` (xem `res_base()`) |
 | `get_api_key()` / `set_api_key(key)` | key | bool / chuỗi | quản lý `claude-api-key.txt` |
 | `grade_translation(payload)` | `{jp,user,pattern,meaning,notes}` | `{ok,score,correct,feedback,grammar_note,suggested}` hoặc `{ok:false,error:"no_key"\|"no_sdk"\|...}` | chấm dịch bằng Claude |
 | `save_backup(text)` / `load_backup()` | JSON string | bool / chuỗi | ghi `state-backup.json` (ghi atomic qua file `.tmp` + `os.replace`) |
@@ -93,7 +101,8 @@ Cơ chế Windows-only đang dùng:
 | Kanji | ✅ 337 chữ + 1073 từ | quiz: kanji→hiragana (tự luận), hiragana→kanji (trắc nghiệm) |
 | Ngữ pháp | ✅ 151 mẫu / 26 bài (9 chương) | quiz dịch Nhật→Việt, chấm bằng Claude API hoặc bộ chấm offline |
 | Đọc hiểu | ✅ 22 bài / 31 câu (chương 5–9) | đáp án + câu chứa đáp án + giải thích + tips do Claude soạn |
-| Đề thi JLPT | ⚠️ 3/5 đề, thiếu nhiều câu | xem §5 |
+| Đề thi JLPT | ⚠️ 3/5 đề, 140/175 câu chấm được | xem §5 |
+| Audio phần nghe | ⚠️ có file cho 3 đề, chưa có đáp án | mỗi đề 1 file dài cho cả phần, xem §6 việc 1 |
 
 ### Tính năng hệ thống (đều đã chạy, đừng làm hỏng khi sửa)
 
@@ -157,9 +166,9 @@ Máy chưa có `tesseract` (và `pytesseract`/`pdf2image`/`fitz` cũng chưa cà
 
 | Đề | Từ vựng–Chữ Hán (30′) | Ngữ pháp–Đọc hiểu (70′) | Nghe hiểu (40′) |
 |---|---|---|---|
-| 7/2022 | 34 câu ✅ | **0 câu** ❌ | 11 câu (không chấm) |
-| 12/2022 | 35 câu ✅ | 20 câu ✅ | 12 câu (không chấm) |
-| 7/2023 | 32 câu ✅ | 19 câu ✅ | 12 câu (không chấm) |
+| 7/2022 | 34 câu ✅ | **0 câu** ❌ | 11 câu — có audio 🎧, chưa có đáp án |
+| 12/2022 | 35 câu ✅ | 20 câu ✅ | 12 câu — có audio 🎧, chưa có đáp án |
+| 7/2023 | 32 câu ✅ | 19 câu ✅ | 12 câu — có audio 🎧, chưa có đáp án |
 
 Tổng đang dùng được: **140 câu có đáp án** (đã kiểm lại bằng script, khớp với `exams.json`).
 
@@ -169,8 +178,9 @@ Tổng đang dùng được: **140 câu có đáp án** (đã kiểm lại bằn
 - PDF chỉ in 4 lựa chọn của mỗi câu, không có file mp3 cũng không có transcript.
 - 問題3 và 問題5 trong đề còn ghi rõ「問題用紙に何もいんさつされていません」→ trên giấy không có gì.
 - Hiện app vẫn hiển thị phần này (đúng cấu trúc, đếm giờ 40 phút) nhưng **không chấm điểm**, có banner giải thích.
-- **Cần**: file audio + đáp án (hoặc transcript) cho từng đề. ❓CẦN BỔ SUNG: có nguồn audio không?
-- ✅ **Đã chuẩn bị sẵn chỗ cắm** (13/09): câu nào có trường `audio` thì màn thi tự hiện player (`index.html`, `drawPaper`), banner "không chấm điểm" tự ẩn. Thả mp3 vào `audio/` rồi khai báo trong `exams_manual.json` — hướng dẫn ở `audio/README.md`. Lệnh build đã có `--add-data "audio;audio"`.
+- ✅ **Audio đã có (14/09)** cho 3 đề đang dùng — một file dài cho cả phần, player sticky ngoài `#paperBody`,
+  banner "không có audio" tự ẩn. Chi tiết ở §6 việc 1.
+- ❌ **Vẫn thiếu đáp án và transcript** → 35 câu nghe chưa chấm điểm được.
 
 **(b) Các câu sắp xếp ★ (問題2 phần ngữ pháp) — mất vị trí ô trống**
 - Khi PDF bị làm phẳng thành text, chỉ còn **một** dấu ★ và mất các ô trống còn lại, nên không biết ★ nằm ở ô thứ mấy → không xác định được đáp án.
@@ -203,37 +213,33 @@ Tổng đang dùng được: **140 câu có đáp án** (đã kiểm lại bằn
 > Việc 1–4 đều đụng `exams.json`. **Không sửa tay `exams.json`** — nó là file thành phẩm,
 > bị ghi đè mỗi lần chạy `build_exams.py`. Nhập vào `exams_manual.json` rồi build lại (§8).
 
-### 1. Gắn audio cho phần nghe hiểu 聴解 — ĐANG CHỜ FILE
+### 1. Gắn audio cho phần nghe hiểu 聴解 — ✅ ĐÃ XONG (14/09), còn thiếu đáp án
 
-Phía code **đã xong hết** (commit `1e55f9b`), chỉ còn nhận file:
+Audio lấy từ `C:\Users\Admin\Downloads` (5 file `YTDown.com_…CHOUKAI-JLPT-N3-<kỳ>-KEM….mp3`,
+mỗi file là **một bản dài cho cả phần nghe**, ~35 phút). Đã chép 3 file ứng với 3 đề đang có:
+`audio/2022-07/choukai.mp3`, `audio/2022-12/choukai.mp3`, `audio/2023-07/choukai.mp3`.
+`exams_manual.json` gán file đó cho **cả 35 câu** 聴解 → `build_exams.py` đã merge.
 
-1. Chép mp3 vào `audio/<id đề>/`, ví dụ `audio/2022-12/q1.mp3`.
-   Tên file tuỳ ý nhưng nên đặt theo số câu gốc để khỏi nhầm.
-2. Khai báo trong `exams_manual.json` (đường dẫn tính từ `web/` nên phải có `../`):
+Phía UI (`web/index.html`): vì một file dùng chung cho cả phần, player **không** nằm trong
+`#paperBody` (drawPaper vẽ lại mỗi lần đổi câu → audio sẽ nhảy về đầu). Thay vào đó:
 
-   ```json
-   [{ "id": "2022-12",
-      "sections": [{ "key": "choukai",
-        "mondai": [{ "no": 1, "questions": [
-          { "label": 1, "audio": "../audio/2022-12/q1.mp3", "answer": 3 },
-          { "label": 2, "audio": "../audio/2022-12/q2.mp3", "answer": 1 }
-        ]}]}]}]
-   ```
+- `<div id="paperAudio">` nằm ngay dưới `.paperbar`, sticky, ngoài vùng bị vẽ lại;
+- `syncPaperAudio(q, sec)` chỉ `load()` lại khi **đổi file** (so bằng `getAttribute("src")`);
+- `show(id)` pause player khi rời `scr-paper` — không thì audio chạy tiếp ở màn khác.
 
-3. `cd tools && python build_exams.py` → kiểm tra dòng "đã gộp N câu từ exams_manual.json".
-4. Build lại exe (lệnh ở §1, **nhớ `--add-data "audio;audio"`**), mở thử một đề: câu nghe phải
-   hiện player và **không còn banner** "đề PDF không kèm file audio".
+Đã kiểm: phát → chuyển câu → vẫn đúng phần tử cũ, vẫn chạy, không mất vị trí; sang phần không có
+audio thì ẩn hẳn và dừng; thoát màn thi thì dừng.
 
-Lưu ý:
-- Có `answer` thì câu đó mới được tính điểm; chỉ có `audio` mà thiếu `answer` thì vẫn nghe được
-  nhưng không chấm.
-- Nếu đề nào chỉ có **một file audio dài cho cả phần** thì cứ gán cùng `audio` cho mọi câu của
-  phần đó, hoặc hỏi chủ dự án xem có muốn tách file không.
-- ❓ Nếu kèm **transcript**: hiện app chưa hiển thị. Chủ dự án đã được gợi ý "hiện script sau khi
-  nộp bài để đối chiếu chỗ nghe sai" — hỏi lại xem có làm không. Cách làm: thêm trường `script`
-  cho câu, render ở bảng "Xem lại từng câu" trong `finishPaper()` (`web/index.html`).
+**Còn thiếu**: 35 câu nghe vẫn `answer: null` → nghe được nhưng **không chấm điểm**. Tên file có chữ
+"KEM" (kèm đáp án) nên đáp án nhiều khả năng nằm ở cuối mỗi bản ghi — cần nghe rồi điền `answer`
+vào `exams_manual.json` (hoặc `exam_answers.json` với key `<id>/choukai/<label>`).
+
+Còn lại:
+- 2 file audio của `2021-07` và `2023-12` vẫn nằm ở Downloads, chờ khi nào nhập xong 2 đề scan (§6.3).
+- ❓ **Transcript**: app vẫn chưa hiển thị. Cách làm: thêm trường `script` cho câu, render ở bảng
+  "Xem lại từng câu" trong `finishPaper()`.
 - 問題3 và 問題5 của phần nghe **không in gì trên đề** (chỉ có ーメモー) nên `exams.json` hiện
-  không có câu nào của hai 問題 này. Nếu audio có kèm các câu đó thì phải nhập cả câu hỏi +
+  không có câu nào của hai 問題 này, dù audio có đọc. Muốn có thì phải nhập cả câu hỏi +
   4 lựa chọn vào `exams_manual.json` như đề mới (schema §7).
 
 ### 2. Đề 7/2022 — phần ngữ pháp bị mất (~30 câu)
@@ -362,17 +368,23 @@ Còn lại (cố ý giữ):
 - `build_exams.py` — `TAGS` liệt kê 3 đề trích được text; thêm đề mới (trích được text) phải thêm vào đây.
   Đề nhập tay thì **không cần** đụng `TAGS`, cứ bỏ vào `exams_manual.json`.
 
-### Nguồn dữ liệu — rủi ro mất trắng
+### Nguồn dữ liệu
 
-Tất cả PDF gốc chỉ nằm trong `C:\Users\Admin\Downloads`, **không có trong repo, không có backup**. Xoá Downloads là mất nguồn vĩnh viễn.
+✅ **Đã hết rủi ro mất trắng (14/09)**: toàn bộ PDF gốc và 5 file audio đã được commit vào repo
+(~160 MB). Trước đó chỉ nằm ở `Downloads`, không có backup.
 
-| Bộ dữ liệu | PDF nguồn |
+| Bộ dữ liệu | Nguồn trong repo |
 |---|---|
-| `vocab.json` | "GG N3 - TỪ VỰNG TỔNG HỢP" |
-| `kanji.json` | "GUNGUN N3 - KANJI" |
-| `grammar.json` | "GUNGUN N3 - NGỮ PHÁP" |
-| `reading.json` | `20260320110812_GG N3 - DOCHIEU- C1C9 (260320).pdf` (chương 5–9) |
-| `exams.json` | 5 đề, đường dẫn đầy đủ trong `tools/exam_files.json` |
+| `vocab.json` | `source-pdf/textbook/vocab.pdf` |
+| `kanji.json` | `source-pdf/textbook/kanji.pdf` |
+| `grammar.json` | `source-pdf/textbook/grammar.pdf` |
+| `reading.json` | `source-pdf/textbook/reading.pdf` (chương 5–9) |
+| `exams.json` | `source-pdf/exams/<id đề>.pdf` — 5 đề |
+| audio phần nghe | `audio/<id đề>/choukai.mp3` — 5 file, mỗi file cả phần |
+
+Tên file đã đổi sang ASCII (tên gốc dùng Unicode tổ hợp, xem §11); bảng đối chiếu ở
+`source-pdf/_manifest.md`. ⚠️ Các script trong `tools/` **vẫn đọc PDF từ `~/Downloads`**, chưa trỏ
+về `source-pdf/` — việc nên làm tiếp nếu muốn chạy pipeline trên máy khác.
 
 ✅ **Đã xong (13/09)**: `parse_grammar2.py`, `build_reading.py`, `parse_reading2.py`, `fix_vocab2.py` lấy lại được từ scratchpad; `parse_vocab.py` và `parse_kanji.py` đã **mất hẳn nên được viết lại**. Đã kiểm chứng: chạy lại toàn bộ pipeline tái tạo **đúng 100%** cả 5 file JSON đang dùng (vocab 2016 / kanji 337 / grammar 151 / reading 22 / exams 3 — 0 mục sai lệch).
 
@@ -405,7 +417,11 @@ Sau khi sửa `app.py` — phải build exe hoặc chạy `python app.py` trên 
 
 - ~~`App.resetAll()` dựng lại state thiếu khoá `exams` → crash màn Kiểm tra sau khi "Đặt lại toàn bộ dữ liệu" nếu chưa khởi động lại app.~~ **Đã sửa** (13/09/2026): object trong `resetAll()` giờ có đủ mọi nhánh mà `boot()` bảo đảm. Nếu sau này thêm nhánh mới vào `boot()`, nhớ thêm cả ở đây — đúng kiểu bẫy mô tả ở §11.
 - ~~`README.md` mô tả tính năng đã cũ hơn thực tế.~~ **Đã cập nhật (13/09)**: thêm mục đề thi JLPT, `exams.json` / `exam_answers.json` / `exams_manual.json` / `tools/` / `audio/` vào bảng cấu trúc, lệnh build có `--add-data "audio;audio"`, và thêm mục "Dựng lại dữ liệu từ PDF".
-- Exe 35 MB commit thẳng vào git, repo sẽ phình theo số lần build.
+- ~~Exe 35 MB commit thẳng vào git~~ **Đã giảm nhẹ (14/09)**: `dist/` và `audio/*/` đã vào `.gitignore`,
+  exe mới không nhúng tài nguyên. Riêng `dist/GunGunN3Trainer.exe` bản cũ vẫn đang được git theo dõi
+  (đã track từ trước nên `.gitignore` không gỡ) — ❓ hỏi chủ dự án trước khi `git rm --cached`.
+- File mp3 (~73 MB cho 3 đề) **không nằm trong git** — nguồn duy nhất vẫn là `Downloads`, cùng nhóm rủi ro
+  với PDF gốc (§8).
 
 ---
 
