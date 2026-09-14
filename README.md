@@ -43,6 +43,7 @@ có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `res
 | `exam_answers.json` | đáp án đề thi (key `<id đề>/<phần>/<số câu gốc>`), dùng khi dựng lại `exams.json` |
 | `exams_manual.json` | dữ liệu đề thi nhập tay (đề scan, audio, bài đọc là ảnh) — được merge đè lên kết quả trích từ PDF |
 | `tools/` | pipeline trích dữ liệu từ PDF (xem `HANDOFF.md` §8) |
+| `EXAM-GAPS.md` | đề nào thiếu 問題 nào, câu số mấy — danh sách để nhập bổ sung |
 | `audio/` | file nghe phần 聴解 — `audio/<id đề>/choukai.mp3`, mỗi đề một file dài cho cả phần |
 | `source-pdf/` | toàn bộ PDF gốc (5 đề thi + 4 giáo trình) mà pipeline trích dữ liệu ra |
 
