@@ -146,6 +146,8 @@ body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[dat
 .paudio{position:sticky;top:66px;z-index:4;background:var(--elev);border:1.5px solid var(--line);
   border-radius:14px;padding:12px 14px 2px;margin:0 0 16px;backdrop-filter:blur(10px)}
 .palab{font-size:12.5px;font-weight:650;color:var(--muted);margin-bottom:8px}
+.qimg{display:block;max-width:min(100%,520px);margin:0 auto 14px;border:1.5px solid var(--line);
+  border-radius:12px;background:#fff}
 .paperq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.7;white-space:normal}
 .paperq .opt.picked{border-color:var(--exam);background:var(--exam-soft);font-weight:600}
 .pqnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
@@ -1823,7 +1825,11 @@ const App = {
             ${flagged ? "★ Đang phân vân" : "☆ Đánh dấu phân vân"}</button>
         </div>
         ${noAnswer && !q.audio ? `<div class="banner" style="margin:0 0 12px">🎧 Phần nghe: đề PDF không kèm file audio nên câu này chỉ để xem cấu trúc, không chấm điểm.</div>` : ""}
-        <div class="jp pqtext">${esc(q.q) || "(Xem đoạn văn phía trên)"}</div>
+        ${q.img ? `<img class="qimg" src="${esc(q.img)}" alt="Hình của câu ${q.n}" loading="lazy">` : ""}
+        ${q.q ? `<div class="jp pqtext">${esc(q.q)}</div>`
+              : (q.img ? "" : `<div class="jp pqtext">(Xem đoạn văn phía trên)</div>`)}
+        ${q.opts.every(o => !o) ? `<div class="sub" style="font-size:12.5px;margin-top:14px">
+             Đề không in lựa chọn — nghe audio rồi chọn số tương ứng.</div>` : ""}
         <div class="opts" style="max-width:none;margin-top:14px">
           ${q.opts.map((o, i) => `<button class="opt jp${picked === i + 1 ? " picked" : ""}"
              onclick="App.pickPaper(${i + 1})"><span class="rnum">${CIRC[i]}</span> ${esc(o)}</button>`).join("")}

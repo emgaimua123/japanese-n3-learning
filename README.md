@@ -46,6 +46,7 @@ có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `res
 | `EXAM-GAPS.md` | đề nào thiếu 問題 nào, câu số mấy — danh sách để nhập bổ sung |
 | `audio/` | file nghe phần 聴解 — `audio/<id đề>/choukai.mp3`, mỗi đề một file dài cho cả phần |
 | `source-pdf/` | toàn bộ PDF gốc (5 đề thi + 4 giáo trình) mà pipeline trích dữ liệu ra |
+| `images/` | hình minh hoạ phần nghe cắt từ PDF (`tools/crop_images.py`) |
 
 ## Build lại exe
 

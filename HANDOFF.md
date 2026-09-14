@@ -327,6 +327,7 @@ Quy ước: `answer: null` → câu vẫn hiển thị, có đếm giờ, nhưng
 | `parse_exam2.py` | text → cấu trúc phần / 問題 / câu / 4 lựa chọn | ✅ |
 | `build_exams.py` | ghép với `exam_answers.json` → `exams.json` (loại câu ★, câu không có đáp án, mondai trùng số) | ✅ |
 | `show_parsed.py` | in đề ra để giải đáp án bằng tay | ✅ |
+| `crop_images.py` | cắt hình minh hoạ phần nghe ra `images/` + sinh đoạn JSON để gộp | ✅ **thêm 14/09** |
 | `parse_vocab.py` + `fix_vocab2.py` | PDF từ vựng → `vocab.json` (parse rồi dọn nghĩa lẫn câu ví dụ) | ✅ **đã bổ sung 13/09** |
 | `parse_kanji.py` | PDF kanji → `kanji.json` | ✅ **đã bổ sung 13/09** |
 | `parse_grammar2.py` | PDF ngữ pháp → `grammar.json` | ✅ |

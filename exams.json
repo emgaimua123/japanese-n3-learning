@@ -515,7 +515,8 @@
         ],
         "answer": null,
         "label": 5,
-        "audio": "../audio/2022-07/choukai.mp3"
+        "audio": "../audio/2022-07/choukai.mp3",
+        "img": "../images/2022-07/choukai-m1-q5.png"
        },
        {
         "n": 5,
@@ -529,6 +530,20 @@
         "answer": null,
         "label": 6,
         "audio": "../audio/2022-07/choukai.mp3"
+       },
+       {
+        "label": 1,
+        "audio": "../audio/2022-07/choukai.mp3",
+        "img": "../images/2022-07/choukai-m1-q1.png",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 6
        }
       ]
      },
@@ -538,7 +553,7 @@
       "passage": "ります。それから話を聞いて、問題用紙の 1から 4の中から、最もよいものを一つえらんでく ださい。",
       "questions": [
        {
-        "n": 6,
+        "n": 7,
         "q": "",
         "opts": [
          "日本でアンケートを取とる",
@@ -551,7 +566,7 @@
         "audio": "../audio/2022-07/choukai.mp3"
        },
        {
-        "n": 7,
+        "n": 8,
         "q": "",
         "opts": [
          "けしきがいい旅館",
@@ -564,7 +579,7 @@
         "audio": "../audio/2022-07/choukai.mp3"
        },
        {
-        "n": 8,
+        "n": 9,
         "q": "",
         "opts": [
          "おもしろくなかったから",
@@ -577,7 +592,7 @@
         "audio": "../audio/2022-07/choukai.mp3"
        },
        {
-        "n": 9,
+        "n": 10,
         "q": "",
         "opts": [
          "多くの人に写真を見てもらいたいから",
@@ -590,7 +605,7 @@
         "audio": "../audio/2022-07/choukai.mp3"
        },
        {
-        "n": 10,
+        "n": 11,
         "q": "",
         "opts": [
          "明るい色にする",
@@ -603,7 +618,7 @@
         "audio": "../audio/2022-07/choukai.mp3"
        },
        {
-        "n": 11,
+        "n": 12,
         "q": "",
         "opts": [
          "りゅうがくした国のことばが上手になった",
@@ -614,6 +629,64 @@
         "answer": null,
         "label": 6,
         "audio": "../audio/2022-07/choukai.mp3"
+       }
+      ]
+     },
+     {
+      "no": 4,
+      "instruction": "問題4 では、えを見ながら質問を聞いてください。やじるし（→）の人は何と言いますか。1から3の中から、最もよいものを一つえらんでください。",
+      "questions": [
+       {
+        "label": 1,
+        "img": "../images/2022-07/choukai-m4-q1.png",
+        "audio": "../audio/2022-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 13
+       },
+       {
+        "label": 2,
+        "img": "../images/2022-07/choukai-m4-q2.png",
+        "audio": "../audio/2022-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 14
+       },
+       {
+        "label": 3,
+        "img": "../images/2022-07/choukai-m4-q3.png",
+        "audio": "../audio/2022-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 15
+       },
+       {
+        "label": 4,
+        "img": "../images/2022-07/choukai-m4-q4.png",
+        "audio": "../audio/2022-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 16
        }
       ]
      }
@@ -1412,7 +1485,8 @@
         ],
         "answer": null,
         "label": 3,
-        "audio": "../audio/2022-12/choukai.mp3"
+        "audio": "../audio/2022-12/choukai.mp3",
+        "img": "../images/2022-12/choukai-m1-q3.png"
        },
        {
         "n": 4,
@@ -1537,6 +1611,64 @@
         "answer": null,
         "label": 6,
         "audio": "../audio/2022-12/choukai.mp3"
+       }
+      ]
+     },
+     {
+      "no": 4,
+      "instruction": "問題4 では、えを見ながら質問を聞いてください。やじるし（→）の人は何と言いますか。1から3の中から、最もよいものを一つえらんでください。",
+      "questions": [
+       {
+        "label": 1,
+        "img": "../images/2022-12/choukai-m4-q1.png",
+        "audio": "../audio/2022-12/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 13
+       },
+       {
+        "label": 2,
+        "img": "../images/2022-12/choukai-m4-q2.png",
+        "audio": "../audio/2022-12/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 14
+       },
+       {
+        "label": 3,
+        "img": "../images/2022-12/choukai-m4-q3.png",
+        "audio": "../audio/2022-12/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 15
+       },
+       {
+        "label": 4,
+        "img": "../images/2022-12/choukai-m4-q4.png",
+        "audio": "../audio/2022-12/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 16
        }
       ]
      }
@@ -2287,7 +2419,8 @@
         ],
         "answer": null,
         "label": 3,
-        "audio": "../audio/2023-07/choukai.mp3"
+        "audio": "../audio/2023-07/choukai.mp3",
+        "img": "../images/2023-07/choukai-m1-q3.png"
        },
        {
         "n": 4,
@@ -2300,7 +2433,8 @@
         ],
         "answer": null,
         "label": 4,
-        "audio": "../audio/2023-07/choukai.mp3"
+        "audio": "../audio/2023-07/choukai.mp3",
+        "img": "../images/2023-07/choukai-m1-q4.png"
        },
        {
         "n": 5,
@@ -2412,6 +2546,64 @@
         "answer": null,
         "label": 6,
         "audio": "../audio/2023-07/choukai.mp3"
+       }
+      ]
+     },
+     {
+      "no": 4,
+      "instruction": "問題4 では、えを見ながら質問を聞いてください。やじるし（→）の人は何と言いますか。1から3の中から、最もよいものを一つえらんでください。",
+      "questions": [
+       {
+        "label": 1,
+        "img": "../images/2023-07/choukai-m4-q1.png",
+        "audio": "../audio/2023-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 13
+       },
+       {
+        "label": 2,
+        "img": "../images/2023-07/choukai-m4-q2.png",
+        "audio": "../audio/2023-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 14
+       },
+       {
+        "label": 3,
+        "img": "../images/2023-07/choukai-m4-q3.png",
+        "audio": "../audio/2023-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 15
+       },
+       {
+        "label": 4,
+        "img": "../images/2023-07/choukai-m4-q4.png",
+        "audio": "../audio/2023-07/choukai.mp3",
+        "q": "",
+        "opts": [
+         "",
+         "",
+         ""
+        ],
+        "answer": null,
+        "n": 16
        }
       ]
      }

@@ -110,6 +110,37 @@ Audio hai đề này **đã có sẵn** ở `audio/2021-07/choukai.mp3` và `aud
 
 ---
 
+## Hình minh hoạ — đã cắt xong (14/09)
+
+`tools/crop_images.py` cắt 17 hình trong phần 聴解 ra `images/<id đề>/choukai-m<問題>-q<câu>.png`
+(PNG xám 216 dpi, tổng 1,7 MB), đã gắn vào câu qua trường `img` trong `exams_manual.json`:
+
+| Đề | 問題1 課題理解 | 問題4 発話表現 |
+|---|---|---|
+| 2022-07 | câu 1, câu 5 | 4 câu (đã tạo mới) |
+| 2022-12 | câu 3 | 4 câu (đã tạo mới) |
+| 2023-07 | câu 3, câu 4 | 4 câu (đã tạo mới) |
+
+- 問題1: hình chính là 4 lựa chọn (tranh đánh số 1–4, hoặc sơ đồ ア/イ/ウ/エ) — gắn vào câu có sẵn.
+  Câu 1 của đề 2022-07 trước đây thiếu hẳn, nay đã thêm cùng hình.
+- 問題4 発話表現: tranh **chính là** đề bài, đề không in chữ nào. Đã tạo mới 4 câu mỗi đề,
+  mỗi câu 3 lựa chọn trống — app hiện ①②③ kèm dòng "Đề không in lựa chọn — nghe audio rồi chọn số".
+- Cả 17 câu này **vẫn chưa có đáp án**, phải nghe audio mới điền được.
+
+Phần 文法・読解 **không cần hình**: xem mục dưới.
+
+## ⚠️ Bài đọc "là ảnh" thực ra là text bị lọc nhầm
+
+Kiểm lại tận PDF: các trang 問題3 / 問題4 / 問題7 **có đủ text**. Ví dụ trang 9 đề 12/2022 có 649 ký
+tự, nhưng `tools/clean_text.py` chỉ giữ 127 — 479 ký tự bài đọc 京都旅行 (font `…giKyokashoNK-R`
+12pt) bị vứt vì luật lọc watermark `non_stroking_color == "(0.0,)"` quá rộng. Watermark thật
+("Tôi Yêu Ngoại Ngữ Group / Yuuki Bùi") dùng font Helvetica-BoldOblique nên **đã bị luật font bắt
+rồi**, luật màu là thừa.
+
+Nới luật đó lại là lấy về được: bài đọc 問題3, các đoạn 問題4 còn thiếu, bảng thông tin 問題7 —
+khoảng **30 câu** trên 2 đề, dưới dạng text đàng hoàng chứ không phải ảnh. Việc này **chưa làm**
+vì đụng vào pipeline trích xuất, cần chạy lại và đối chiếu kỹ kẻo hỏng dữ liệu đang tốt.
+
 ## Ghi chú kỹ thuật khi bổ sung
 
 - **Số câu khác nhau giữa các đề**: 2022-07 phần 文字・語彙 chỉ có 34 câu (問題1 = 7 câu);

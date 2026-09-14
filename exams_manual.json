@@ -9,6 +9,19 @@
             "no": 1,
             "questions": [
               {
+                "label": 1,
+                "audio": "../audio/2022-07/choukai.mp3",
+                "img": "../images/2022-07/choukai-m1-q1.png",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
                 "label": 2,
                 "audio": "../audio/2022-07/choukai.mp3"
               },
@@ -22,7 +35,8 @@
               },
               {
                 "label": 5,
-                "audio": "../audio/2022-07/choukai.mp3"
+                "audio": "../audio/2022-07/choukai.mp3",
+                "img": "../images/2022-07/choukai-m1-q5.png"
               },
               {
                 "label": 6,
@@ -56,6 +70,60 @@
               {
                 "label": 6,
                 "audio": "../audio/2022-07/choukai.mp3"
+              }
+            ]
+          },
+          {
+            "no": 4,
+            "instruction": "問題4 では、えを見ながら質問を聞いてください。やじるし（→）の人は何と言いますか。1から3の中から、最もよいものを一つえらんでください。",
+            "questions": [
+              {
+                "label": 1,
+                "img": "../images/2022-07/choukai-m4-q1.png",
+                "audio": "../audio/2022-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 2,
+                "img": "../images/2022-07/choukai-m4-q2.png",
+                "audio": "../audio/2022-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 3,
+                "img": "../images/2022-07/choukai-m4-q3.png",
+                "audio": "../audio/2022-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 4,
+                "img": "../images/2022-07/choukai-m4-q4.png",
+                "audio": "../audio/2022-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
               }
             ]
           }
@@ -82,7 +150,8 @@
               },
               {
                 "label": 3,
-                "audio": "../audio/2022-12/choukai.mp3"
+                "audio": "../audio/2022-12/choukai.mp3",
+                "img": "../images/2022-12/choukai-m1-q3.png"
               },
               {
                 "label": 4,
@@ -124,6 +193,60 @@
               {
                 "label": 6,
                 "audio": "../audio/2022-12/choukai.mp3"
+              }
+            ]
+          },
+          {
+            "no": 4,
+            "instruction": "問題4 では、えを見ながら質問を聞いてください。やじるし（→）の人は何と言いますか。1から3の中から、最もよいものを一つえらんでください。",
+            "questions": [
+              {
+                "label": 1,
+                "img": "../images/2022-12/choukai-m4-q1.png",
+                "audio": "../audio/2022-12/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 2,
+                "img": "../images/2022-12/choukai-m4-q2.png",
+                "audio": "../audio/2022-12/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 3,
+                "img": "../images/2022-12/choukai-m4-q3.png",
+                "audio": "../audio/2022-12/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 4,
+                "img": "../images/2022-12/choukai-m4-q4.png",
+                "audio": "../audio/2022-12/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
               }
             ]
           }
@@ -150,11 +273,13 @@
               },
               {
                 "label": 3,
-                "audio": "../audio/2023-07/choukai.mp3"
+                "audio": "../audio/2023-07/choukai.mp3",
+                "img": "../images/2023-07/choukai-m1-q3.png"
               },
               {
                 "label": 4,
-                "audio": "../audio/2023-07/choukai.mp3"
+                "audio": "../audio/2023-07/choukai.mp3",
+                "img": "../images/2023-07/choukai-m1-q4.png"
               },
               {
                 "label": 5,
@@ -192,6 +317,60 @@
               {
                 "label": 6,
                 "audio": "../audio/2023-07/choukai.mp3"
+              }
+            ]
+          },
+          {
+            "no": 4,
+            "instruction": "問題4 では、えを見ながら質問を聞いてください。やじるし（→）の人は何と言いますか。1から3の中から、最もよいものを一つえらんでください。",
+            "questions": [
+              {
+                "label": 1,
+                "img": "../images/2023-07/choukai-m4-q1.png",
+                "audio": "../audio/2023-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 2,
+                "img": "../images/2023-07/choukai-m4-q2.png",
+                "audio": "../audio/2023-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 3,
+                "img": "../images/2023-07/choukai-m4-q3.png",
+                "audio": "../audio/2023-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
+              },
+              {
+                "label": 4,
+                "img": "../images/2023-07/choukai-m4-q4.png",
+                "audio": "../audio/2023-07/choukai.mp3",
+                "q": "",
+                "opts": [
+                  "",
+                  "",
+                  ""
+                ],
+                "answer": null
               }
             ]
           }
