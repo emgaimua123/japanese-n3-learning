@@ -50,9 +50,9 @@ do audio. Phát hành bằng cách nén cả thư mục thành zip.
 - Thiếu file trong `resources\` → `_check_resources()` hiện MessageBox nói rõ thiếu gì, thay vì crash im lặng.
 - Sửa dữ liệu / `web/index.html` thì **chỉ cần chép đè vào `resources\`**, không phải build lại exe.
 - Phải **tắt app đang chạy** trước khi build (`build.py` báo lỗi rõ nếu exe bị khoá).
-- `dist/` và `audio/*/` đã cho vào `.gitignore`. ⚠️ `dist\GunGunN3Trainer.exe` (bản cũ, 35 MB, nhúng sẵn
-  tài nguyên, **chưa có audio**) vẫn đang được git theo dõi từ trước — ❓chủ dự án quyết định có gỡ khỏi git
-  và chuyển sang phát hành zip qua GitHub Releases hay không.
+- `dist/` đã cho vào `.gitignore`; `dist/GunGunN3Trainer.exe` bản cũ đã `git rm --cached` (14/09) nên
+  **repo không còn chứa exe** — phát hành bằng zip (GitHub Releases). File cũ vẫn còn trên đĩa máy này,
+  xoá tay lúc nào cũng được.
 
 ### Test nhanh không cần build
 
@@ -279,8 +279,8 @@ Toàn bộ đáp án hiện do AI giải (§5.3e). Nếu tìm được đáp án
 - Cho phép **nộp sớm và xem lại bài** trước khi hết giờ từng phần (hiện nộp xong mới xem được).
 - Câu sắp xếp ★ (問題2) đang bị loại vì mất vị trí ô trống — nếu muốn có, phải nhập tay cả câu
   lẫn vị trí ★.
-- Cân nhắc bỏ `dist/GunGunN3Trainer.exe` khỏi git (mỗi lần build repo phình ~35 MB);
-  đổi sang phát hành qua GitHub Releases. **Hỏi chủ dự án trước** vì họ đang tải exe từ repo.
+- ~~Cân nhắc bỏ `dist/GunGunN3Trainer.exe` khỏi git.~~ **Đã gỡ (14/09)** — phát hành bằng zip
+  (exe + `resources/`) qua GitHub Releases.
 
 ---
 
@@ -417,11 +417,11 @@ Sau khi sửa `app.py` — phải build exe hoặc chạy `python app.py` trên 
 
 - ~~`App.resetAll()` dựng lại state thiếu khoá `exams` → crash màn Kiểm tra sau khi "Đặt lại toàn bộ dữ liệu" nếu chưa khởi động lại app.~~ **Đã sửa** (13/09/2026): object trong `resetAll()` giờ có đủ mọi nhánh mà `boot()` bảo đảm. Nếu sau này thêm nhánh mới vào `boot()`, nhớ thêm cả ở đây — đúng kiểu bẫy mô tả ở §11.
 - ~~`README.md` mô tả tính năng đã cũ hơn thực tế.~~ **Đã cập nhật (13/09)**: thêm mục đề thi JLPT, `exams.json` / `exam_answers.json` / `exams_manual.json` / `tools/` / `audio/` vào bảng cấu trúc, lệnh build có `--add-data "audio;audio"`, và thêm mục "Dựng lại dữ liệu từ PDF".
-- ~~Exe 35 MB commit thẳng vào git~~ **Đã giảm nhẹ (14/09)**: `dist/` và `audio/*/` đã vào `.gitignore`,
-  exe mới không nhúng tài nguyên. Riêng `dist/GunGunN3Trainer.exe` bản cũ vẫn đang được git theo dõi
-  (đã track từ trước nên `.gitignore` không gỡ) — ❓ hỏi chủ dự án trước khi `git rm --cached`.
-- File mp3 (~73 MB cho 3 đề) **không nằm trong git** — nguồn duy nhất vẫn là `Downloads`, cùng nhóm rủi ro
-  với PDF gốc (§8).
+- ~~Exe 35 MB commit thẳng vào git~~ **Đã xong (14/09)**: `dist/` vào `.gitignore`, exe cũ đã
+  `git rm --cached`. Repo không còn chứa exe; phát hành bằng zip.
+- Lịch sử git vẫn giữ các blob exe cũ nên `.git` **không tự nhỏ lại** (~301 MB, gồm cả PDF + audio mới
+  thêm). Muốn thu gọn thật sự thì phải viết lại lịch sử (`git filter-repo`) và force-push — chỉ nên làm
+  khi thấy nặng thật, vì nó phá mọi bản clone đang có.
 
 ---
 
