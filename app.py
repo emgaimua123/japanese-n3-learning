@@ -39,9 +39,41 @@ _ui = {"window": None, "tray": None, "quitting": False,
        "close_action": "ask", "tray_hint_shown": False}
 
 
+RES_FILES = ("vocab.json", "kanji.json", "grammar.json", "reading.json", "exams.json",
+             "icon.ico", os.path.join("web", "index.html"))
+
+
+def res_base():
+    """Thư mục tài nguyên (web/, *.json, audio/, icon.ico).
+
+    Bản đóng gói: `resources/` nằm cạnh exe — exe chỉ chứa runtime nên nhẹ và
+    không phải build lại mỗi khi đổi dữ liệu. Có `_MEIPASS` là bản cũ nhúng sẵn
+    tài nguyên vào exe, vẫn chạy được. Chạy từ source thì lấy luôn thư mục repo.
+    """
+    if getattr(sys, "frozen", False):
+        ext = os.path.join(os.path.dirname(sys.executable), "resources")
+        if os.path.isdir(ext):
+            return ext
+        return getattr(sys, "_MEIPASS", os.path.dirname(sys.executable))
+    return os.path.dirname(os.path.abspath(__file__))
+
+
 def res_path(rel):
-    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
-    return os.path.join(base, rel)
+    return os.path.join(res_base(), rel)
+
+
+def _check_resources():
+    """Thiếu tài nguyên thì báo rõ — bản --windowed không có console để in lỗi."""
+    missing = [r for r in RES_FILES if not os.path.isfile(res_path(r))]
+    if not missing:
+        return True
+    ctypes.windll.user32.MessageBoxW(
+        None,
+        "Không tìm thấy tài nguyên:\n\n  " + "\n  ".join(missing)
+        + "\n\nThư mục đang tìm:\n  " + res_base()
+        + "\n\nGiải nén đầy đủ cả thư mục 'resources' cạnh file exe rồi mở lại.",
+        APP_NAME, 0x10)
+    return False
 
 
 def _app_exe():
@@ -419,6 +451,8 @@ if __name__ == "__main__":
         except OSError:
             pass
         sys.exit(0)
+    if not _check_resources():
+        sys.exit(1)
     os.makedirs(STORAGE_DIR, exist_ok=True)
     try:
         os.remove(SHOW_FLAG)          # clear a stale request from a past run
