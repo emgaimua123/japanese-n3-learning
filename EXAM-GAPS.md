@@ -13,9 +13,9 @@ Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tậ
 | 2022-07 | 50 | 34 | 50 câu chưa nhập |
 | 2022-12 | 71 | 55 | 30 câu chưa nhập |
 | 2023-07 | 67 | 51 | 34 câu chưa nhập |
-| **2023-12** | **101** | **0** ⚠️ | **đủ câu nhưng chưa có đáp án nào** |
+| **2023-12** | 101 | **101** ✅ | — xong hẳn |
 
-Tổng: **390/504 câu đã nhập**, trong đó **241 chấm được**.
+Tổng: **390/504 câu đã nhập**, trong đó **342 chấm được**.
 
 Kiểm tra dữ liệu bất cứ lúc nào bằng `cd tools && python check_exams.py [id đề]` — soi số câu so với
 format JLPT, lựa chọn trống/trùng, đáp án ngoài khoảng, thiếu file ảnh/audio, số thứ tự không liên tục.
@@ -128,15 +128,38 @@ Nhập từ bản gõ lại `source-pdf/exams/2023-12-typed.docx` bằng `tools/
 - Audio `audio/2023-12/choukai.mp3` gắn cho cả 28 câu.
 - 問題3 (3 câu) và 問題5 (9 câu) phần nghe: đề không in gì, vẫn tạo đủ số câu với lựa chọn trống.
 
-⚠️ **File docx không kèm bảng đáp án** (khác đề 2021-07). Vì vậy cả 101 câu đang `answer: null` —
-làm được, xem được, nhưng **không chấm điểm**. Cần bảng đáp án theo dạng:
+### Đáp án (15/09) — và 6 chỗ đã sửa khác bảng đáp án
 
-```
-【言語知識（文字・語彙）】問題1 (1)～(8)：…   【文法・読解】問題1 (1)～(13)：…   【聴解】問題1 (1)～(6)：…
-```
+Docx không kèm đáp án; chủ dự án gửi bảng đáp án riêng (ảnh chụp bảng của 芥末日语). Đã áp đủ 101 câu
+vào `exams_manual.json`.
 
-Có bảng rồi thì điền vào `exam_answers.json` với key `2023-12/<phần>/<số câu gốc>`
-(phần = `moji` / `bunpou` / `choukai`), chạy lại `build_exams.py` là xong — không phải nhập lại câu nào.
+**Đã đối chiếu chéo 73/101 câu** bằng cách tự giải lại đề và so với scan gốc `source-pdf/exams/2023-12.pdf`:
+
+| Phần | Kết quả |
+|---|---|
+| 読解 (23–38) | **16/16 khớp** |
+| 文法 問題2 ★, 問題3 (14–22) | khớp hết (sau khi sửa lỗi ★ bên dưới) |
+| 文字・語彙 (1–35) | 32 khớp, **3 vênh** |
+| 文法 問題1 (1–13) | 10 khớp, **3 vênh** |
+| 聴解 (28 câu) | không kiểm được — phải nghe audio |
+
+**6 câu đang dùng đáp án khác bảng** (đã xác minh thứ tự lựa chọn trên scan gốc, nghĩa tiếng Nhật
+không có chỗ tranh cãi). Muốn quay lại theo bảng thì sửa `exams_manual.json`:
+
+| Câu | Bảng ghi | Đang dùng | Vì sao |
+|---|---|---|---|
+| 文字・語彙 2 | 2 = せんしゅう | **3 = せんしゅ** | 選手 đọc là せんしゅ |
+| 文字・語彙 14 | 3 = 回費 | **2 = 会費** | かいひ viết là 会費; 回費 không phải từ |
+| 文字・語彙 32 | 1 = 教師になるという行き先… | **3 = 次の旅行の行き先を…** | 行き先 = nơi đến, câu 1 phải là 目標 |
+| 文法 9 | 3 = 踊れるようにして | **4 = 踊れるようになるのに** | 「…のに何年かかる」 mới đúng ngữ pháp |
+| 文法 11 | 4 = でいらっしゃいます | **3 = でございます** | いらっしゃる dùng cho người, không dùng cho tầng lầu |
+| 文法 13 | 3 = 思っていたからでした | **1 = 思っていたところでした** | 「ちょうど…しようと思っていたところ」 |
+
+### Lỗi của bản gõ lại đã sửa
+
+`文法 問題2 câu 14`: đề gốc để ★ ở **ô thứ nhất** (「彼女 ★ ＿ ＿ ＿ いないと思う」), docx chép thành ô
+thứ hai. Sai vị trí ★ là sai luôn đáp án. Đã sửa theo scan; sau khi sửa thì đáp án của bảng (4 = ほど)
+đúng.
 
 ---
 

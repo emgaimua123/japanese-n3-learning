@@ -39,7 +39,7 @@ có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `res
 | `kanji.json` | 337 kanji + 1073 từ đi kèm trích từ PDF "GUNGUN N3 - KANJI" |
 | `grammar.json` | 151 mẫu ngữ pháp (26 bài) + 462 câu ví dụ + 462 câu luyện dịch kèm đáp án, trích từ PDF "GUNGUN N3 - NGỮ PHÁP" |
 | `reading.json` | 22 bài đọc (chương 5–9) + 31 câu hỏi kèm đáp án, câu chứa đáp án, giải thích và tips |
-| `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — 390 câu, 241 câu chấm điểm được. **File thành phẩm, sinh ra bởi `tools/build_exams.py`** |
+| `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — 390 câu, 342 câu chấm điểm được. **File thành phẩm, sinh ra bởi `tools/build_exams.py`** |
 | `exam_answers.json` | đáp án đề thi (key `<id đề>/<phần>/<số câu gốc>`), dùng khi dựng lại `exams.json` |
 | `exams_manual.json` | dữ liệu đề thi nhập tay (đề scan, audio, bài đọc là ảnh) — được merge đè lên kết quả trích từ PDF |
 | `tools/` | pipeline trích dữ liệu từ PDF (xem `HANDOFF.md` §8) |

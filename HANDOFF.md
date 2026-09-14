@@ -101,7 +101,7 @@ Cơ chế Windows-only đang dùng:
 | Kanji | ✅ 337 chữ + 1073 từ | quiz: kanji→hiragana (tự luận), hiragana→kanji (trắc nghiệm) |
 | Ngữ pháp | ✅ 151 mẫu / 26 bài (9 chương) | quiz dịch Nhật→Việt, chấm bằng Claude API hoặc bộ chấm offline |
 | Đọc hiểu | ✅ 22 bài / 31 câu (chương 5–9) | đáp án + câu chứa đáp án + giải thích + tips do Claude soạn |
-| Đề thi JLPT | ⚠️ đủ 5/5 đề, 390/504 câu đã nhập, 241 chấm được | chi tiết từng câu: `EXAM-GAPS.md` |
+| Đề thi JLPT | đủ 5/5 đề, 390/504 câu đã nhập, **342 chấm được**; hai đề 2021-07 và 2023-12 xong hẳn | chi tiết: `EXAM-GAPS.md` |
 | Audio phần nghe | ⚠️ có file cho 3 đề, chưa có đáp án | mỗi đề 1 file dài cho cả phần, xem §6 việc 1 |
 | Hình phần nghe | ✅ 17 hình đã cắt và gắn vào câu | `images/`, `tools/crop_images.py` |
 
