@@ -143,6 +143,9 @@ body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[dat
 .flagbtn.on{background:var(--flag-soft);border-color:var(--flag);color:var(--flag)}
 .pqtext{font-size:18px;line-height:1.85}
 .qaudio{width:100%;margin-bottom:12px}
+.paudio{position:sticky;top:66px;z-index:4;background:var(--elev);border:1.5px solid var(--line);
+  border-radius:14px;padding:12px 14px 2px;margin:0 0 16px;backdrop-filter:blur(10px)}
+.palab{font-size:12.5px;font-weight:650;color:var(--muted);margin-bottom:8px}
 .paperq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.7;white-space:normal}
 .paperq .opt.picked{border-color:var(--exam);background:var(--exam-soft);font-weight:600}
 .pqnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
@@ -591,6 +594,10 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
         <div class="ptimer" id="paperTimer">--:--</div>
       </div>
     </div>
+    <div class="paudio" id="paperAudio" hidden>
+      <div class="palab" id="paperAudioLab"></div>
+      <audio class="qaudio" id="paperAudioEl" controls preload="metadata"></audio>
+    </div>
     <div class="paperwrap">
       <div id="paperBody"></div>
       <aside class="navpanel card" id="paperNav"></aside>
@@ -829,6 +836,8 @@ const App = {
   show(id) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("on"));
     $("#" + id).classList.add("on");
+    // rời màn thi thì audio phần nghe phải im, không thì nó chạy tiếp ở màn khác
+    if (id !== "scr-paper") { const a = $("#paperAudioEl"); if (a) a.pause(); }
     document.body.classList.toggle("nosb",
       id === "scr-name" || id === "scr-session" || id === "scr-paper");
     $("#nav-dash").classList.toggle("on", id === "scr-dash");
@@ -1813,7 +1822,6 @@ const App = {
           <button class="flagbtn${flagged ? " on" : ""}" onclick="App.toggleFlag()">
             ${flagged ? "★ Đang phân vân" : "☆ Đánh dấu phân vân"}</button>
         </div>
-        ${q.audio ? `<audio class="qaudio" controls preload="none" src="${esc(q.audio)}"></audio>` : ""}
         ${noAnswer && !q.audio ? `<div class="banner" style="margin:0 0 12px">🎧 Phần nghe: đề PDF không kèm file audio nên câu này chỉ để xem cấu trúc, không chấm điểm.</div>` : ""}
         <div class="jp pqtext">${esc(q.q) || "(Xem đoạn văn phía trên)"}</div>
         <div class="opts" style="max-width:none;margin-top:14px">
@@ -1828,8 +1836,23 @@ const App = {
             : `<button class="btn examC" onclick="App.paperGo(1)">Câu sau →</button>`}
         </div>
       </div>`;
+    this.syncPaperAudio(q, sec);
     this.drawNav();
     window.scrollTo(0, 0);
+  },
+  // Player nằm ngoài #paperBody: một file audio thường dùng chung cho cả phần nghe,
+  // đổi câu mà dựng lại <audio> là mất chỗ đang nghe.
+  syncPaperAudio(q, sec) {
+    const box = $("#paperAudio"), el = $("#paperAudioEl");
+    if (!q.audio) { box.hidden = true; if (el.src) { el.pause(); el.removeAttribute("src"); el.load(); } return; }
+    box.hidden = false;
+    const shared = sec.questions.every(it => it.q.audio === q.audio);
+    $("#paperAudioLab").textContent = "🎧 " + (shared
+      ? `Audio cả phần ${sec.name} — nghe liên tục, chuyển câu không làm dừng`
+      : `Audio câu ${q.n}`)
+      + (sec.markable ? "" : " · phần này chưa có đáp án nên không chấm điểm");
+    // chỉ nạp lại khi đổi file, so bằng getAttribute vì el.src đã là URL tuyệt đối
+    if (el.getAttribute("src") !== q.audio) { el.setAttribute("src", q.audio); el.load(); }
   },
   drawNav() {
     const P = this.P, sec = P.secs[P.si];

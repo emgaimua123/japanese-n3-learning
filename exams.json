@@ -475,7 +475,8 @@
          "料理に使っているざいりょう"
         ],
         "answer": null,
-        "label": 2
+        "label": 2,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 2,
@@ -487,7 +488,8 @@
          "１６００円"
         ],
         "answer": null,
-        "label": 3
+        "label": 3,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 3,
@@ -499,7 +501,8 @@
          "かばんをへやの後ろにおく"
         ],
         "answer": null,
-        "label": 4
+        "label": 4,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 4,
@@ -511,7 +514,8 @@
          "イ エ"
         ],
         "answer": null,
-        "label": 5
+        "label": 5,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 5,
@@ -523,7 +527,8 @@
          "社会学研究"
         ],
         "answer": null,
-        "label": 6
+        "label": 6,
+        "audio": "../audio/2022-07/choukai.mp3"
        }
       ]
      },
@@ -542,7 +547,8 @@
          "自分の国でインタビューをする"
         ],
         "answer": null,
-        "label": 1
+        "label": 1,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 7,
@@ -554,7 +560,8 @@
          "男の人がよく行くみやげ物屋"
         ],
         "answer": null,
-        "label": 2
+        "label": 2,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 8,
@@ -566,7 +573,8 @@
          "しょうがくきんがもらえたから"
         ],
         "answer": null,
-        "label": 3
+        "label": 3,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 9,
@@ -578,7 +586,8 @@
          "日本語でこうりゅうできるから"
         ],
         "answer": null,
-        "label": 4
+        "label": 4,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 10,
@@ -590,7 +599,8 @@
          "軽いざいりょうにする"
         ],
         "answer": null,
-        "label": 5
+        "label": 5,
+        "audio": "../audio/2022-07/choukai.mp3"
        },
        {
         "n": 11,
@@ -602,7 +612,8 @@
          "国がちがっても分かり合える友人ができた"
         ],
         "answer": null,
-        "label": 6
+        "label": 6,
+        "audio": "../audio/2022-07/choukai.mp3"
        }
       ]
      }
@@ -1374,7 +1385,8 @@
          "わりびきけんを もらいに行く"
         ],
         "answer": null,
-        "label": 1
+        "label": 1,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 2,
@@ -1386,7 +1398,8 @@
          "先生に会いに行く時間を決める"
         ],
         "answer": null,
-        "label": 2
+        "label": 2,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 3,
@@ -1398,7 +1411,8 @@
          "ウ エ"
         ],
         "answer": null,
-        "label": 3
+        "label": 3,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 4,
@@ -1410,7 +1424,8 @@
          "使用料をはらう"
         ],
         "answer": null,
-        "label": 4
+        "label": 4,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 5,
@@ -1422,7 +1437,8 @@
          "ぶんがくぶのしりょうしつに行く"
         ],
         "answer": null,
-        "label": 5
+        "label": 5,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 6,
@@ -1434,7 +1450,8 @@
          "ゆかをそうじする"
         ],
         "answer": null,
-        "label": 6
+        "label": 6,
+        "audio": "../audio/2022-12/choukai.mp3"
        }
       ]
      },
@@ -1453,7 +1470,8 @@
          "スピーチをみじかくする"
         ],
         "answer": null,
-        "label": 1
+        "label": 1,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 8,
@@ -1465,7 +1483,8 @@
          "動物のしゅるいが多いところ"
         ],
         "answer": null,
-        "label": 2
+        "label": 2,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 9,
@@ -1477,7 +1496,8 @@
          "週1日はれんしゅうを休む"
         ],
         "answer": null,
-        "label": 3
+        "label": 3,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 10,
@@ -1489,7 +1509,8 @@
          "出発の日の午前 8 時"
         ],
         "answer": null,
-        "label": 4
+        "label": 4,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 11,
@@ -1501,7 +1522,8 @@
          "勉強をがんばるようになると聞いたから"
         ],
         "answer": null,
-        "label": 5
+        "label": 5,
+        "audio": "../audio/2022-12/choukai.mp3"
        },
        {
         "n": 12,
@@ -1513,7 +1535,8 @@
          "店を始めた年"
         ],
         "answer": null,
-        "label": 6
+        "label": 6,
+        "audio": "../audio/2022-12/choukai.mp3"
        }
       ]
      }
@@ -2237,7 +2260,8 @@
          "家においていく"
         ],
         "answer": null,
-        "label": 1
+        "label": 1,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 2,
@@ -2249,7 +2273,8 @@
          "13人分コピーして、木村さんにわたす"
         ],
         "answer": null,
-        "label": 2
+        "label": 2,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 3,
@@ -2261,7 +2286,8 @@
          "４"
         ],
         "answer": null,
-        "label": 3
+        "label": 3,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 4,
@@ -2273,7 +2299,8 @@
          "４"
         ],
         "answer": null,
-        "label": 4
+        "label": 4,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 5,
@@ -2285,7 +2312,8 @@
          "スケジュールを作りなおす"
         ],
         "answer": null,
-        "label": 5
+        "label": 5,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 6,
@@ -2297,7 +2325,8 @@
          "スーツを用意する"
         ],
         "answer": null,
-        "label": 6
+        "label": 6,
+        "audio": "../audio/2023-07/choukai.mp3"
        }
       ]
      },
@@ -2316,7 +2345,8 @@
          "新しいアルバイトを始めること"
         ],
         "answer": null,
-        "label": 1
+        "label": 1,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 8,
@@ -2328,7 +2358,8 @@
          "あしたの午後5 時から"
         ],
         "answer": null,
-        "label": 2
+        "label": 2,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 9,
@@ -2340,7 +2371,8 @@
          "とってがとれること"
         ],
         "answer": null,
-        "label": 3
+        "label": 3,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 10,
@@ -2352,7 +2384,8 @@
          "ちがうぶんかを知りたかったから"
         ],
         "answer": null,
-        "label": 4
+        "label": 4,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 11,
@@ -2364,7 +2397,8 @@
          "ひょうにタイトルをつけること"
         ],
         "answer": null,
-        "label": 5
+        "label": 5,
+        "audio": "../audio/2023-07/choukai.mp3"
        },
        {
         "n": 12,
@@ -2376,7 +2410,8 @@
          "つまに習うといいと言われたから"
         ],
         "answer": null,
-        "label": 6
+        "label": 6,
+        "audio": "../audio/2023-07/choukai.mp3"
        }
       ]
      }
