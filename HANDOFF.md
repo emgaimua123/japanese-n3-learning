@@ -1,11 +1,17 @@
 # GunGun N3 Trainer — Bàn giao & việc còn lại
 
-> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: 13/09/2026 (lần 2).
+> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: **14/09/2026**.
 >
 > Chỗ nào đánh dấu **❓CẦN BỔ SUNG** là thông tin chỉ người chủ dự án biết — điền vào giúp.
 
 Repo: `emgaimua123/japanese-n3-learning` · nhánh chính `main` · thư mục làm việc trên máy:
 `C:\Users\Admin\Coding\GitHub\japanese-n3-learning`
+
+**Commit gần nhất**: `0470467` (docs) ← `1e55f9b` (audio) ← `e491871` (pipeline).
+Cây làm việc sạch, **chưa push lên GitHub**.
+
+**Việc đang chờ ngay**: chủ dự án nói *"mai tôi gửi audio"* (hẹn ngày 14/09) → xem **§6 việc 1**,
+mọi thứ phía code đã sẵn sàng, chỉ còn nhận file và khai báo.
 
 ---
 
@@ -33,12 +39,12 @@ Python đang dùng: `C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\pyth
 ### Build lại exe
 
 ```powershell
-python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --hidden-import pystray._win32 app.py
+python -m PyInstaller --noconfirm --onefile --windowed --name GunGunN3Trainer --icon icon.ico --add-data "web;web" --add-data "vocab.json;." --add-data "kanji.json;." --add-data "grammar.json;." --add-data "reading.json;." --add-data "exams.json;." --add-data "icon.ico;." --add-data "audio;audio" --hidden-import pystray._win32 app.py
 ```
 
 - Phải **tắt `GunGunN3Trainer.exe`** trước khi build (nó khoá file trong `dist`).
-- **Đủ 5 file JSON** trong `--add-data`, thiếu file nào là app crash ngay ở `Api.get_data()` (`app.py:234`).
-- `dist\GunGunN3Trainer.exe` (~35 MB) **được commit vào git** → mỗi lần build là repo phình thêm ~35 MB. Exe hiện tại build từ commit `1ce2a91`, đang khớp source.
+- **Đủ 5 file JSON** trong `--add-data`, thiếu file nào là app crash ngay ở `Api.get_data()` (`app.py:234`). `audio;audio` thì không bắt buộc, nhưng thiếu là player phần nghe không có file để phát.
+- `dist\GunGunN3Trainer.exe` (~35 MB) **được commit vào git** → mỗi lần build là repo phình thêm ~35 MB. Exe hiện tại build ở commit `1e55f9b`, đang khớp source.
 
 ### Test nhanh không cần build
 
@@ -194,14 +200,81 @@ Tổng đang dùng được: **140 câu có đáp án** (đã kiểm lại bằn
 
 ## 6. Nhiệm vụ tiếp theo (ưu tiên từ trên xuống)
 
-1. **Bổ sung phần nghe**: nhận file audio + đáp án → thêm trường `audio` cho từng câu trong `exams.json`, thêm player vào màn hình thi (`drawPaper`), bỏ banner "không chấm điểm".
-2. **Đề 7/2022 – phần ngữ pháp**: xử lý parser riêng hoặc nhập tay.
-3. **Hai đề scan (7/2021, 12/2023)**: đọc ảnh → nhập JSON theo đúng schema ở §7.
-4. **Khôi phục các bài đọc là ảnh** (問題3, 問題4(1), 問題7) cho 3 đề đã có.
-5. **Đối chiếu lại 140 đáp án** với đáp án chính thức (nhớ quy ước key ở §5.3e).
-6. Cân nhắc: cho phép nộp sớm và xem lại bài trước khi hết giờ từng phần (hiện chỉ nộp rồi mới xem).
+> Việc 1–4 đều đụng `exams.json`. **Không sửa tay `exams.json`** — nó là file thành phẩm,
+> bị ghi đè mỗi lần chạy `build_exams.py`. Nhập vào `exams_manual.json` rồi build lại (§8).
 
-Việc 1–4 đều đụng `exams.json` → đọc **§8 cảnh báo ghi đè** trước.
+### 1. Gắn audio cho phần nghe hiểu 聴解 — ĐANG CHỜ FILE
+
+Phía code **đã xong hết** (commit `1e55f9b`), chỉ còn nhận file:
+
+1. Chép mp3 vào `audio/<id đề>/`, ví dụ `audio/2022-12/q1.mp3`.
+   Tên file tuỳ ý nhưng nên đặt theo số câu gốc để khỏi nhầm.
+2. Khai báo trong `exams_manual.json` (đường dẫn tính từ `web/` nên phải có `../`):
+
+   ```json
+   [{ "id": "2022-12",
+      "sections": [{ "key": "choukai",
+        "mondai": [{ "no": 1, "questions": [
+          { "label": 1, "audio": "../audio/2022-12/q1.mp3", "answer": 3 },
+          { "label": 2, "audio": "../audio/2022-12/q2.mp3", "answer": 1 }
+        ]}]}]}]
+   ```
+
+3. `cd tools && python build_exams.py` → kiểm tra dòng "đã gộp N câu từ exams_manual.json".
+4. Build lại exe (lệnh ở §1, **nhớ `--add-data "audio;audio"`**), mở thử một đề: câu nghe phải
+   hiện player và **không còn banner** "đề PDF không kèm file audio".
+
+Lưu ý:
+- Có `answer` thì câu đó mới được tính điểm; chỉ có `audio` mà thiếu `answer` thì vẫn nghe được
+  nhưng không chấm.
+- Nếu đề nào chỉ có **một file audio dài cho cả phần** thì cứ gán cùng `audio` cho mọi câu của
+  phần đó, hoặc hỏi chủ dự án xem có muốn tách file không.
+- ❓ Nếu kèm **transcript**: hiện app chưa hiển thị. Chủ dự án đã được gợi ý "hiện script sau khi
+  nộp bài để đối chiếu chỗ nghe sai" — hỏi lại xem có làm không. Cách làm: thêm trường `script`
+  cho câu, render ở bảng "Xem lại từng câu" trong `finishPaper()` (`web/index.html`).
+- 問題3 và 問題5 của phần nghe **không in gì trên đề** (chỉ có ーメモー) nên `exams.json` hiện
+  không có câu nào của hai 問題 này. Nếu audio có kèm các câu đó thì phải nhập cả câu hỏi +
+  4 lựa chọn vào `exams_manual.json` như đề mới (schema §7).
+
+### 2. Đề 7/2022 — phần ngữ pháp bị mất (~30 câu)
+
+`tools/parse_exam2.py` tách sai section vì file này không in tên phần 「文法・読解」 và in số câu
+ở layer riêng. Hai hướng:
+
+- Sửa parser: thêm nhánh riêng cho `2022-07` (nhận diện phần ngữ pháp theo 問題 numbering
+  restart, hiện heuristic này đã có nhưng chưa đủ với layout đó).
+- Hoặc nhập tay qua `exams_manual.json` (chắc ăn hơn): dùng
+  `python tools/show_parsed.py 2022-07` để xem những gì parser đã đọc được.
+
+Sau khi có câu hỏi thì **vẫn phải tự giải đáp án** (xem §5.3e) và thêm vào `exam_answers.json`
+với key `2022-07/bunpou/<số câu gốc>`.
+
+### 3. Hai đề scan 7/2021 và 12/2023 (~46 trang ảnh)
+
+Không có text, máy chưa cài Tesseract. Cách nên dùng: đọc ảnh bằng vision
+(`Read` với `pages:"n"`, tối đa 20 trang/lần) rồi gõ lại vào `exams_manual.json` theo schema §7.
+Id đề: `2021-07`, `2023-12`. Đề mới **không cần** thêm vào `TAGS` của `build_exams.py`.
+
+Khối lượng lớn → nên làm từng phần một (mỗi lần một 問題), commit dần.
+
+### 4. Khôi phục các bài đọc đang là ảnh (3 đề đã có)
+
+問題3 (điền từ vào đoạn văn, 4 câu/đề), 問題4 (1) (tờ rơi), 問題7 (bảng thông tin, 2 câu/đề).
+Đọc ảnh → điền `passage` cho 問題 tương ứng + thêm lại các câu đã bị loại, qua `exams_manual.json`.
+
+### 5. Đối chiếu 140 đáp án với đáp án chính thức
+
+Toàn bộ đáp án hiện do AI giải (§5.3e). Nếu tìm được đáp án chính thức thì sửa
+`exam_answers.json` rồi chạy lại `build_exams.py`. Nhớ: **key theo `label`** (số câu gốc in trên
+đề), không phải `n`.
+
+### 6. Việc nhỏ / nice-to-have
+
+- Cho phép **nộp sớm và xem lại bài** trước khi hết giờ từng phần (hiện nộp xong mới xem được).
+- Câu sắp xếp ★ (問題2) đang bị loại vì mất vị trí ô trống — nếu muốn có, phải nhập tay cả câu
+  lẫn vị trí ★.
+- Cân nhắc bỏ `dist/GunGunN3Trainer.exe` khỏi git (mỗi lần build repo phình ~35 MB);
+  đổi sang phát hành qua GitHub Releases. **Hỏi chủ dự án trước** vì họ đang tải exe từ repo.
 
 ---
 
