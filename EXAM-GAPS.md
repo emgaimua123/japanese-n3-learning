@@ -143,8 +143,8 @@ vào `exams_manual.json`.
 | 文法 問題1 (1–13) | 10 khớp, **3 vênh** |
 | 聴解 (28 câu) | không kiểm được — phải nghe audio |
 
-**6 câu đang dùng đáp án khác bảng** (đã xác minh thứ tự lựa chọn trên scan gốc, nghĩa tiếng Nhật
-không có chỗ tranh cãi). Muốn quay lại theo bảng thì sửa `exams_manual.json`:
+**6 câu dùng đáp án khác bảng** — đã xác minh thứ tự lựa chọn trên scan gốc, và **chủ dự án đã duyệt
+(15/09)**. Đây là đáp án chính thức của app; đừng "sửa lại cho khớp bảng" nếu sau này có ai đối chiếu:
 
 | Câu | Bảng ghi | Đang dùng | Vì sao |
 |---|---|---|---|
