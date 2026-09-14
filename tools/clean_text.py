@@ -8,14 +8,22 @@ import pdfplumber
 here = os.path.dirname(os.path.abspath(__file__))
 FILES = json.load(open(os.path.join(here, "exam_files.json"), encoding="utf-8"))
 WM_FONT = "Helvetica"          # the "Tôi Yêu Ngoại Ngữ Group / Yuuki Bùi" overlay
+# Watermark còn rải thêm mấy mẩu "ạữ" bằng Arial. Phân biệt với chữ số thật
+# (cũng in bằng Arial) bằng MÀU: rác watermark là `(0.0,)`, chữ thật là `(0,)`.
+#
+# Luật cũ lọc mọi ký tự màu `(0.0,)` bất kể font → ăn nhầm cả bài đọc, vì thân
+# bài in bằng UDDigiKyokashoNK-R cũng mang đúng màu ấy (2046 ký tự ở đề 12/2022,
+# 1423 ở đề 7/2023). Đó là lý do 問題3/4/7 từng bị coi là "bài đọc nằm trong ảnh".
+WM_COLOR_FONTS = ("Helvetica", "Arial")
 
 
 def is_watermark(c):
-    # the overlay uses Helvetica, renders in colour (0.0,) rather than (0,),
-    # and is much larger than the 11-14pt body text
+    # the overlay uses Helvetica (big diagonal text) plus Arial for the stray
+    # "ạữ" fragments, and is much larger than the 11-14pt body text
     if WM_FONT in c["fontname"]:
         return True
-    if str(c.get("non_stroking_color")) == "(0.0,)":
+    if (str(c.get("non_stroking_color")) == "(0.0,)"
+            and any(f in c["fontname"] for f in WM_COLOR_FONTS)):
         return True
     if c["size"] > 15.5 and not re.match(r"[　-鿿＀-￯]", c["text"]):
         return True

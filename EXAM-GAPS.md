@@ -10,29 +10,30 @@ Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tậ
 | Đề | Câu đã có | Chấm được | Còn thiếu |
 |---|---|---|---|
 | **2021-07** | 101 | **101** ✅ | — xong hẳn |
-| 2022-07 | 50 | 34 | 50 câu chưa nhập |
-| 2022-12 | 71 | 55 | 30 câu chưa nhập |
-| 2023-07 | 67 | 51 | 34 câu chưa nhập |
+| 2022-07 | 58 | 42 | 42 câu chưa nhập |
+| 2022-12 | 75 | 59 | 26 câu chưa nhập |
+| 2023-07 | 72 | 56 | 29 câu chưa nhập |
 | **2023-12** | 101 | **101** ✅ | — xong hẳn |
 
-Tổng: **390/504 câu đã nhập**, trong đó **342 chấm được**.
+Tổng: **407/504 câu đã nhập**, trong đó **359 chấm được**.
 
 Kiểm tra dữ liệu bất cứ lúc nào bằng `cd tools && python check_exams.py [id đề]` — soi số câu so với
 format JLPT, lựa chọn trống/trùng, đáp án ngoài khoảng, thiếu file ảnh/audio, số thứ tự không liên tục.
 
 ---
 
-## 2022-07 — thiếu 66 câu
+## 2022-07 — thiếu 58 câu
 
 ### 文字・語彙 (30 phút) — ✅ ĐỦ 34/34
 Đề này chỉ in **34 câu** (問題1 có 7 câu, không phải 8 như các đề khác). Không thiếu gì.
 
-### 文法・読解 (70 phút) — ❌ MẤT TOÀN BỘ 38 câu
-Parser tách section sai vì file này không in tên phần 「文法・読解」. Cần nhập lại tất cả:
+### 文法・読解 (70 phút) — lấy lại được 8/38 câu (15/09)
+Parser tách section sai vì file này không in tên phần 「文法・読解」. Sau khi sửa bộ lọc watermark thì
+問題1 lấy lại được 8 câu; phần còn lại vẫn phải nhập tay:
 
 | 問題 | Câu số | Cần nhập |
 |---|---|---|
-| 1 Ngữ pháp chọn đáp án | 1–13 | câu hỏi + 4 lựa chọn + đáp án |
+| 1 Ngữ pháp chọn đáp án | 1–13 | ✅ có câu 1, 3, 4, 5, 6, 7, 9, 10 — **thiếu câu 2, 8, 11, 12, 13** |
 | 2 Sắp xếp câu ★ | 14–18 | câu hỏi + 4 lựa chọn + **vị trí ô ★** + đáp án |
 | 3 Ngữ pháp trong đoạn văn | 19–22 | đoạn văn (`passage`) + 4 câu + đáp án |
 | 4 Đọc ngắn (4 bài) | 23–26 | 4 đoạn văn + 4 câu + đáp án |
@@ -53,7 +54,7 @@ Dữ liệu parser đọc được (dùng để gõ lại cho nhanh): `python to
 
 ---
 
-## 2022-12 — thiếu 46 câu
+## 2022-12 — thiếu 42 câu
 
 ### 文字・語彙 (30 phút) — ✅ ĐỦ 35/35
 
@@ -62,11 +63,11 @@ Dữ liệu parser đọc được (dùng để gõ lại cho nhanh): `python to
 |---|---|---|
 | 1 Ngữ pháp chọn đáp án | 1–13 | **câu 8, 9, 12, 13** |
 | 2 Sắp xếp câu ★ | 14–18 | **cả 5 câu** (mất vị trí ô ★ khi PDF bị làm phẳng) |
-| 3 Ngữ pháp trong đoạn văn | 19–22 | **cả 4 câu** (đoạn văn là ảnh) |
-| 4 Đọc ngắn (4 bài) | 23–26 | **câu 23, 25** (đoạn văn là ảnh/tờ rơi) |
+| 3 Ngữ pháp trong đoạn văn | 19–22 | **câu 21, 22** (19, 20 đã lấy lại 15/09) |
+| 4 Đọc ngắn (4 bài) | 23–26 | **câu 23, 25** |
 | 5 Đọc trung | 27–32 | **câu 29** |
 | 6 Đọc dài | 33–36 | ✅ đủ |
-| 7 Tìm kiếm thông tin | 37–38 | **cả 2 câu** (bảng thông tin là ảnh) |
+| 7 Tìm kiếm thông tin | 37–38 | ✅ đủ (lấy lại 15/09) |
 
 ### 聴解 (40 phút) — thiếu 28 câu
 | 問題 | Câu số | Tình trạng |
@@ -79,7 +80,7 @@ Dữ liệu parser đọc được (dùng để gõ lại cho nhanh): `python to
 
 ---
 
-## 2023-07 — thiếu 50 câu
+## 2023-07 — thiếu 45 câu
 
 ### 文字・語彙 (30 phút) — thiếu 3/35
 | 問題 | Đề in câu | Thiếu |
@@ -93,11 +94,11 @@ Các 問題 còn lại (1–3, 5) đủ.
 |---|---|---|
 | 1 Ngữ pháp chọn đáp án | 1–13 | **câu 8, 9, 11, 12, 13** |
 | 2 Sắp xếp câu ★ | 14–18 | **cả 5 câu** |
-| 3 Ngữ pháp trong đoạn văn | 19–22 | **cả 4 câu** (đoạn văn là ảnh) |
+| 3 Ngữ pháp trong đoạn văn | 19–22 | **câu 22** (19, 20, 21 đã lấy lại 15/09) |
 | 4 Đọc ngắn (4 bài) | 23–26 | **câu 23, 25** |
 | 5 Đọc trung | 27–32 | **câu 29** |
 | 6 Đọc dài | 33–36 | ✅ đủ |
-| 7 Tìm kiếm thông tin | 37–38 | **cả 2 câu** |
+| 7 Tìm kiếm thông tin | 37–38 | ✅ đủ (lấy lại 15/09) |
 
 ### 聴解 (40 phút) — thiếu 28 câu
 Giống hệt 2022-12: 問題1 và 問題2 đủ câu nhưng **chưa có đáp án**; 問題3, 4, 5 chưa có câu nào.
@@ -182,7 +183,7 @@ thứ hai. Sai vị trí ★ là sai luôn đáp án. Đã sửa theo scan; sau 
 
 Phần 文法・読解 **không cần hình**: xem mục dưới.
 
-## ⚠️ Bài đọc "là ảnh" thực ra là text bị lọc nhầm
+## ✅ Bài đọc "là ảnh" — ĐÃ SỬA (15/09)
 
 Kiểm lại tận PDF: các trang 問題3 / 問題4 / 問題7 **có đủ text**. Ví dụ trang 9 đề 12/2022 có 649 ký
 tự, nhưng `tools/clean_text.py` chỉ giữ 127 — 479 ký tự bài đọc 京都旅行 (font `…giKyokashoNK-R`
