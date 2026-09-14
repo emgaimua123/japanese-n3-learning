@@ -7,15 +7,15 @@ không phải số thứ tự trong app. Nhập bổ sung qua `exams_manual.json
 Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tận PDF gốc**, không suy từ cấu trúc chuẩn
 (hai đề có cấu trúc lệch nhau, xem ghi chú ở cuối).
 
-| Đề | Chấm được | Tổng câu của đề |
-|---|---|---|
-| **2021-07** | **101** ✅ | **101 — xong hẳn, đủ đáp án cả phần nghe** |
-| 2022-07 | 34 | 100 |
-| 2022-12 | 55 | 101 |
-| 2023-07 | 51 | 101 |
-| 2023-12 | 0 | 101 (chưa trích được gì — PDF scan) |
+| Đề | Câu đã có | Chấm được | Còn thiếu |
+|---|---|---|---|
+| **2021-07** | 101 | **101** ✅ | — xong hẳn |
+| 2022-07 | 50 | 34 | 50 câu chưa nhập |
+| 2022-12 | 71 | 55 | 30 câu chưa nhập |
+| 2023-07 | 67 | 51 | 34 câu chưa nhập |
+| **2023-12** | **101** | **0** ⚠️ | **đủ câu nhưng chưa có đáp án nào** |
 
-Tổng: **241 / 504 câu** chấm được.
+Tổng: **390/504 câu đã nhập**, trong đó **241 chấm được**.
 
 Kiểm tra dữ liệu bất cứ lúc nào bằng `cd tools && python check_exams.py [id đề]` — soi số câu so với
 format JLPT, lựa chọn trống/trùng, đáp án ngoài khoảng, thiếu file ảnh/audio, số thứ tự không liên tục.
@@ -117,15 +117,26 @@ Chủ dự án cung cấp bản gõ lại đầy đủ kèm bảng đáp án:
   nhưng vẫn tạo đủ số câu với lựa chọn trống để nghe audio rồi chọn số — có đáp án nên **chấm điểm được**.
 - Audio `audio/2021-07/choukai.mp3` gắn cho cả 28 câu.
 
-## 2023-12 — chưa có gì (101 câu)
+## 2023-12 — đủ 101 câu, ❌ THIẾU TOÀN BỘ ĐÁP ÁN
 
-PDF là ảnh scan 30 trang, không có lớp text. Cấu trúc chuẩn để nhập: 文字・語彙 35 câu
-(問題1: 1–8, 2: 9–14, 3: 15–25, 4: 26–30, 5: 31–35) · 文法・読解 38 câu (問題1: 1–13, 2: 14–18,
-3: 19–22, 4: 23–26, 5: 27–32, 6: 33–36, 7: 37–38) · 聴解 28 câu (問題1: 6, 2: 6, 3: 3, 4: 4, 5: 9 —
-đánh số lại từ 1 mỗi 問題). Audio **đã có sẵn** ở `audio/2023-12/choukai.mp3`.
+Nhập từ bản gõ lại `source-pdf/exams/2023-12-typed.docx` bằng `tools/parse_docx_2023.py`
+(PDF scan gốc vẫn ở `source-pdf/exams/2023-12.pdf`). `check_exams.py`: **0 lỗi, 0 nghi ngờ**.
 
-> Nếu có bản gõ lại dạng .docx như đề 2021-07 thì nhanh nhất: `tools/parse_docx_2021.py` chỉ cần
-> đổi đường dẫn + id là dùng lại được.
+- 文字・語彙 35 · 文法・読解 38 · 聴解 28 — đúng format JLPT, đủ bài đọc và bảng giá của 問題7.
+- 6 ảnh phần nghe ở `images/2023-12/` (問題1 câu 1 và 4; 問題4 cả 4 câu — ảnh gốc là ảnh chụp
+  cả trang gồm hai câu nên script tự tách đôi theo khung tranh).
+- Audio `audio/2023-12/choukai.mp3` gắn cho cả 28 câu.
+- 問題3 (3 câu) và 問題5 (9 câu) phần nghe: đề không in gì, vẫn tạo đủ số câu với lựa chọn trống.
+
+⚠️ **File docx không kèm bảng đáp án** (khác đề 2021-07). Vì vậy cả 101 câu đang `answer: null` —
+làm được, xem được, nhưng **không chấm điểm**. Cần bảng đáp án theo dạng:
+
+```
+【言語知識（文字・語彙）】問題1 (1)～(8)：…   【文法・読解】問題1 (1)～(13)：…   【聴解】問題1 (1)～(6)：…
+```
+
+Có bảng rồi thì điền vào `exam_answers.json` với key `2023-12/<phần>/<số câu gốc>`
+(phần = `moji` / `bunpou` / `choukai`), chạy lại `build_exams.py` là xong — không phải nhập lại câu nào.
 
 ---
 

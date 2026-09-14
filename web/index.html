@@ -1753,10 +1753,13 @@ const App = {
     const done = this.state.exams.done;
     $("#paperList").innerHTML = `<div class="sessgrid">` + (this.data.exams || []).map((ex, i) => {
       const last = [...done].reverse().find(d => d.id === ex.id);
+      const all = ex.sections.reduce((n, sec) =>
+        n + sec.mondai.reduce((k, m) => k + m.questions.length, 0), 0);
       const tot = ex.sections.reduce((n, sec) =>
         n + sec.mondai.reduce((k, m) => k + m.questions.filter(q => q.answer).length, 0), 0);
       return `<div class="card sesscard" style="--sacc:var(--exam)" onclick="App.openPaper(${i})">
-        <div class="sc-top"><b>${esc(ex.title)}</b><span class="chip sec-e">${tot} câu</span></div>
+        <div class="sc-top"><b>${esc(ex.title)}</b><span class="chip sec-e">${all} câu${
+          tot < all ? ` · chấm ${tot}` : ""}</span></div>
         <div class="sc-date">${ex.sections.map(x => x.name).join(" · ")}</div>
         <div class="sc-score">${last ? `Lần gần nhất: ${pct(last.c, last.t)}% (${last.c}/${last.t})` : "Chưa làm"}</div>
         <div class="sc-go">Vào thi ›</div>
