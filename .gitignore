@@ -2,3 +2,7 @@ __pycache__/
 build/
 *.spec
 dist/
+tools/exam_parsed_*.json
+tools/exam_20*.json
+tools/images_manual.json
+de-*-de-doi-chieu.txt
