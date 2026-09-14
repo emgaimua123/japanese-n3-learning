@@ -109,7 +109,7 @@ Cơ chế Windows-only đang dùng:
 
 | Tính năng | Nơi cài đặt |
 |---|---|
-| Chấm dịch: **mặc định bộ chấm offline (miễn phí)**, có nút 🤖 "Nhờ AI chấm kỹ" mới gọi API (`claude-sonnet-5`, effort `medium`, `app.py:32`). Kết quả AI nhớ trong localStorage `gungun_n3_aigrade_v1` nên gõ lại y hệt thì không tốn tiền lần nữa | `app.py:263`, `index.html:2712` (`gradeTranslation`) và `index.html:2740` (`offlineGrade`) |
+| Chấm dịch: **mặc định bộ chấm offline (miễn phí)**, có nút 🤖 "Nhờ AI chấm kỹ" mới gọi API (model đổi được trong Cài đặt: haiku-4.5 / sonnet-5 mặc định / opus-5, danh sách trắng ở `app.py:37`; effort `medium`). Kết quả AI nhớ trong localStorage `gungun_n3_aigrade_v1` nên gõ lại y hệt thì không tốn tiền lần nữa | `app.py:263`, `index.html:2712` (`gradeTranslation`) và `index.html:2740` (`offlineGrade`) |
 | Học bù / ghi nợ session, banner nhắc | `index.html` (`pushMakeupToHost`) + `app.py:376` |
 | Mục tiêu tự động (chia số session còn lại cho số ngày tới kỳ thi) | `goalsCfg()` / `autoGoal()` |
 | Lịch học tháng, checkpoint 7 ngày, đếm ngược JLPT | `renderDash()` và các hàm lịch |

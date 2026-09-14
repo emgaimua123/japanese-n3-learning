@@ -30,8 +30,11 @@ SHOW_FLAG = os.path.join(STORAGE_DIR, "show.request")
 # the user's own Claude API key, kept out of the progress backup on purpose
 API_KEY_FILE = os.path.join(STORAGE_DIR, "claude-api-key.txt")
 # Sonnet + effort medium: chấm dịch N3 không cần tới Opus, mà rẻ hơn ~2,5 lần
-# (sonnet-5 $2/$10 mỗi triệu token, opus-5 $5/$25)
+# (sonnet-5 $2/$10 mỗi triệu token, opus-5 $5/$25). Đổi được trong Cài đặt.
 _ai = {"model": "claude-sonnet-5"}
+# Danh sách trắng: UI gửi model xuống, nhưng chỉ nhận đúng mấy cái này để một
+# giá trị rác không biến thành lời gọi API hỏng (hoặc model đắt ngoài ý muốn).
+AI_MODELS = ("claude-haiku-4-5", "claude-sonnet-5", "claude-opus-5")
 
 _reminders = {"times": [], "fired": {}}
 # how many goal sessions the user still owes, pushed from the UI
@@ -313,6 +316,9 @@ class Api:
         pattern = payload.get("pattern", "")
         meaning = payload.get("meaning", "")
         notes = " ".join(payload.get("notes") or [])[:700]
+        model = payload.get("model")
+        if model not in AI_MODELS:
+            model = _ai["model"]
 
         system = (
             "Bạn là giáo viên tiếng Nhật người Việt, chấm bài dịch Nhật→Việt cho học viên trình độ JLPT N3.\n"
@@ -349,7 +355,7 @@ class Api:
         try:
             client = anthropic.Anthropic(api_key=key, timeout=60.0, max_retries=1)
             resp = client.messages.create(
-                model=_ai["model"],
+                model=model,
                 # Trần chứ không phải mức tiêu: chỉ trả tiền số token thực sinh ra.
                 # Để rộng vì effort medium suy nghĩ nhiều hơn — chạm trần là JSON bị
                 # cắt giữa chừng, json.loads nổ, mất tiền mà không có kết quả.
