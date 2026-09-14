@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# dữ liệu nguồn: nhị phân, không đụng vào nội dung
+*.pdf binary
+*.mp3 binary
+*.ico binary
