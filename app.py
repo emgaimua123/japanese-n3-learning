@@ -29,7 +29,9 @@ PS_APPID = r"{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsPowerShell\v1.0\power
 SHOW_FLAG = os.path.join(STORAGE_DIR, "show.request")
 # the user's own Claude API key, kept out of the progress backup on purpose
 API_KEY_FILE = os.path.join(STORAGE_DIR, "claude-api-key.txt")
-_ai = {"model": "claude-opus-5"}
+# Sonnet + effort medium: chấm dịch N3 không cần tới Opus, mà rẻ hơn ~2,5 lần
+# (sonnet-5 $2/$10 mỗi triệu token, opus-5 $5/$25)
+_ai = {"model": "claude-sonnet-5"}
 
 _reminders = {"times": [], "fired": {}}
 # how many goal sessions the user still owes, pushed from the UI
@@ -348,12 +350,17 @@ class Api:
             client = anthropic.Anthropic(api_key=key, timeout=60.0, max_retries=1)
             resp = client.messages.create(
                 model=_ai["model"],
-                max_tokens=1200,
+                # Trần chứ không phải mức tiêu: chỉ trả tiền số token thực sinh ra.
+                # Để rộng vì effort medium suy nghĩ nhiều hơn — chạm trần là JSON bị
+                # cắt giữa chừng, json.loads nổ, mất tiền mà không có kết quả.
+                max_tokens=4000,
                 system=system,
-                output_config={"effort": "low",
+                output_config={"effort": "medium",
                                "format": {"type": "json_schema", "schema": schema}},
                 messages=[{"role": "user", "content": prompt}],
             )
+            if resp.stop_reason == "max_tokens":
+                return {"ok": False, "error": "truncated"}
             text = next(b.text for b in resp.content if b.type == "text")
             data = json.loads(text)
             data["ok"] = True

@@ -2861,6 +2861,7 @@ const App = {
              bad_key: "API key không hợp lệ.",
              rate_limit: "API đang bị giới hạn tần suất.",
              offline: "Không kết nối được tới Claude API.",
+             truncated: "Câu trả lời của AI bị cắt giữa chừng (chạm trần token).",
              no_sdk: "Thiếu thư viện anthropic." }[err] || ("Không gọi được AI: " + (err || ""));
   },
   answerMC(oi) {

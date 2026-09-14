@@ -109,7 +109,7 @@ Cơ chế Windows-only đang dùng:
 
 | Tính năng | Nơi cài đặt |
 |---|---|
-| Chấm dịch bằng Claude (model `claude-opus-5`, `app.py:32`) + **bộ chấm offline** dự phòng | `app.py:263`, `index.html:2712` (`gradeTranslation`) và `index.html:2740` (`offlineGrade`) |
+| Chấm dịch bằng Claude (model `claude-sonnet-5`, effort `medium`, `app.py:32`) + **bộ chấm offline** dự phòng | `app.py:263`, `index.html:2712` (`gradeTranslation`) và `index.html:2740` (`offlineGrade`) |
 | Học bù / ghi nợ session, banner nhắc | `index.html` (`pushMakeupToHost`) + `app.py:376` |
 | Mục tiêu tự động (chia số session còn lại cho số ngày tới kỳ thi) | `goalsCfg()` / `autoGoal()` |
 | Lịch học tháng, checkpoint 7 ngày, đếm ngược JLPT | `renderDash()` và các hàm lịch |
