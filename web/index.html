@@ -1811,10 +1811,12 @@ const App = {
     const CIRC = "①②③④";
     const picked = P.ans[P.si][P.qi];
     const flagged = P.flag[P.si][P.qi];
-    const passage = m.passage && m.passage.length > 40
+    // 問題4 đọc hiểu: mỗi câu một đoạn riêng, nên câu có passage thì ưu tiên câu
+    const pas = q.passage || m.passage;
+    const passage = pas && pas.length > 40
       ? `<div class="card readpassage" style="position:static;max-height:none;margin-bottom:14px">
            <div class="rplab">${esc(m.instruction).slice(0, 60)}</div>
-           <div class="jp rptext">${esc(m.passage)}</div></div>` : "";
+           <div class="jp rptext">${esc(pas)}</div></div>` : "";
     const noAnswer = !q.answer;
     $("#paperBody").innerHTML = `
       ${passage}

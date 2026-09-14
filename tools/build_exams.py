@@ -43,11 +43,23 @@ def merge_manual(exams):
     if not isinstance(manual, list):
         raise SystemExit("exams_manual.json phải là một mảng các đề")
 
+    def renumber(ex):
+        """`n` là số thứ tự 1..n trong từng phần, navigator dựa vào nó."""
+        for sec in ex["sections"]:
+            sec["mondai"].sort(key=lambda m: (m["no"] if isinstance(m["no"], int) else 99))
+            seq = 0
+            for m in sec["mondai"]:
+                for q in m["questions"]:
+                    seq += 1
+                    q.setdefault("label", q.get("n"))
+                    q["n"] = seq
+
     changed = 0
     by_id = {e["id"]: e for e in exams}
     for mex in manual:
         ex = by_id.get(mex["id"])
         if ex is None:
+            renumber(mex)          # đề mới hoàn toàn cũng phải được đánh số
             exams.append(mex)
             by_id[mex["id"]] = mex
             changed += sum(len(m["questions"]) for s in mex.get("sections", [])
@@ -85,15 +97,7 @@ def merge_manual(exams):
                     else:
                         mon["questions"].append(mq)
                     changed += 1
-        # đánh số lại toàn phần sau khi gộp để navigator vẫn là 1..n
-        for sec in ex["sections"]:
-            sec["mondai"].sort(key=lambda m: (m["no"] if isinstance(m["no"], int) else 99))
-            seq = 0
-            for m in sec["mondai"]:
-                for q in m["questions"]:
-                    seq += 1
-                    q.setdefault("label", q.get("n"))
-                    q["n"] = seq
+        renumber(ex)               # gộp xong thì đánh số lại để navigator vẫn là 1..n
     return exams, changed
 
 
@@ -162,6 +166,7 @@ def build():
     elif os.path.exists(MANUAL):
         print("exams_manual.json rỗng - không có gì để gộp")
 
+    exams.sort(key=lambda e: e["id"])      # đề nhập tay được nối vào cuối
     json.dump(exams, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("exams:", len(exams))
     for e in exams:

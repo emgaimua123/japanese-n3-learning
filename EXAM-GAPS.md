@@ -9,11 +9,16 @@ Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tậ
 
 | Đề | Chấm được | Tổng câu của đề |
 |---|---|---|
-| 2021-07 | 0 | 101 (chưa trích được gì — PDF scan) |
+| **2021-07** | **101** ✅ | **101 — xong hẳn, đủ đáp án cả phần nghe** |
 | 2022-07 | 34 | 100 |
 | 2022-12 | 55 | 101 |
 | 2023-07 | 51 | 101 |
 | 2023-12 | 0 | 101 (chưa trích được gì — PDF scan) |
+
+Tổng: **241 / 504 câu** chấm được.
+
+Kiểm tra dữ liệu bất cứ lúc nào bằng `cd tools && python check_exams.py [id đề]` — soi số câu so với
+format JLPT, lựa chọn trống/trùng, đáp án ngoài khoảng, thiếu file ảnh/audio, số thứ tự không liên tục.
 
 ---
 
@@ -99,14 +104,28 @@ Giống hệt 2022-12: 問題1 và 問題2 đủ câu nhưng **chưa có đáp �
 
 ---
 
-## 2021-07 và 2023-12 — chưa có gì (101 câu mỗi đề)
+## 2021-07 — ✅ XONG (14/09)
 
-PDF là ảnh scan, không có lớp text (16 và 30 trang). Phải đọc bằng vision rồi gõ lại toàn bộ.
-Cấu trúc chuẩn để nhập: 文字・語彙 35 câu (問題1: 1–8, 2: 9–14, 3: 15–25, 4: 26–30, 5: 31–35) ·
-文法・読解 38 câu (問題1: 1–13, 2: 14–18, 3: 19–22, 4: 23–26, 5: 27–32, 6: 33–36, 7: 37–38) ·
-聴解 28 câu (問題1: 6, 2: 6, 3: 3, 4: 4, 5: 9 — đánh số lại từ 1 mỗi 問題).
+Chủ dự án cung cấp bản gõ lại đầy đủ kèm bảng đáp án:
+`source-pdf/exams/2021-07-typed.docx` (PDF scan gốc vẫn giữ ở `source-pdf/exams/2021-07.pdf`).
+`tools/parse_docx_2021.py` trích ra **101/101 câu có đáp án**, `check_exams.py` báo **0 lỗi, 0 nghi ngờ**.
 
-Audio hai đề này **đã có sẵn** ở `audio/2021-07/choukai.mp3` và `audio/2023-12/choukai.mp3`.
+- 文字・語彙 35 · 文法・読解 38 · 聴解 28 — đúng format JLPT.
+- Giữ được dấu gạch chân của đề (từ đang hỏi bọc trong 【】) và **vị trí ô ★** của 問題2.
+- 5 ảnh trong docx tách ra `images/2021-07/` (問題1 câu 4, 問題4 cả 4 câu).
+- 問題3 (概要理解, 3 câu, 4 lựa chọn) và 問題5 (即時応答, 9 câu, 3 lựa chọn) đề **không in gì**,
+  nhưng vẫn tạo đủ số câu với lựa chọn trống để nghe audio rồi chọn số — có đáp án nên **chấm điểm được**.
+- Audio `audio/2021-07/choukai.mp3` gắn cho cả 28 câu.
+
+## 2023-12 — chưa có gì (101 câu)
+
+PDF là ảnh scan 30 trang, không có lớp text. Cấu trúc chuẩn để nhập: 文字・語彙 35 câu
+(問題1: 1–8, 2: 9–14, 3: 15–25, 4: 26–30, 5: 31–35) · 文法・読解 38 câu (問題1: 1–13, 2: 14–18,
+3: 19–22, 4: 23–26, 5: 27–32, 6: 33–36, 7: 37–38) · 聴解 28 câu (問題1: 6, 2: 6, 3: 3, 4: 4, 5: 9 —
+đánh số lại từ 1 mỗi 問題). Audio **đã có sẵn** ở `audio/2023-12/choukai.mp3`.
+
+> Nếu có bản gõ lại dạng .docx như đề 2021-07 thì nhanh nhất: `tools/parse_docx_2021.py` chỉ cần
+> đổi đường dẫn + id là dùng lại được.
 
 ---
 
@@ -140,6 +159,16 @@ rồi**, luật màu là thừa.
 Nới luật đó lại là lấy về được: bài đọc 問題3, các đoạn 問題4 còn thiếu, bảng thông tin 問題7 —
 khoảng **30 câu** trên 2 đề, dưới dạng text đàng hoàng chứ không phải ảnh. Việc này **chưa làm**
 vì đụng vào pipeline trích xuất, cần chạy lại và đối chiếu kỹ kẻo hỏng dữ liệu đang tốt.
+
+## Chỗ nên đối chiếu lại với đề gốc
+
+`check_exams.py` báo 0 lỗi trên cả 4 đề. Còn lại mấy chỗ **nghi ngờ**, không phải lỗi chắc chắn:
+
+| Chỗ | Vấn đề | Nên làm |
+|---|---|---|
+| 2022-07 問題2 câu 13 | lựa chọn 2 và 4 **giống hệt nhau** (đều là 図面) | đọc lại đề gốc — gần như chắc parser đọc nhầm một lựa chọn |
+| 2022-07 文字・語彙 問題1 | 7 câu thay vì 8 | đề này in đúng 7 câu, **không phải lỗi** |
+| các đề 2022/2023 | số câu ít hơn format | đúng như bảng thiếu ở trên |
 
 ## Ghi chú kỹ thuật khi bổ sung
 
