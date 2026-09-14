@@ -1,0 +1,125 @@
+# Đề thi — thiếu bài nào, câu số mấy
+
+Cập nhật 14/09/2026. Số câu ghi ở đây là **số gốc in trên đề** (trường `label` trong `exams.json`),
+không phải số thứ tự trong app. Nhập bổ sung qua `exams_manual.json` rồi chạy
+`cd tools && python build_exams.py` — xem schema ở `HANDOFF.md` §7.
+
+Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tận PDF gốc**, không suy từ cấu trúc chuẩn
+(hai đề có cấu trúc lệch nhau, xem ghi chú ở cuối).
+
+| Đề | Chấm được | Tổng câu của đề |
+|---|---|---|
+| 2021-07 | 0 | 101 (chưa trích được gì — PDF scan) |
+| 2022-07 | 34 | 100 |
+| 2022-12 | 55 | 101 |
+| 2023-07 | 51 | 101 |
+| 2023-12 | 0 | 101 (chưa trích được gì — PDF scan) |
+
+---
+
+## 2022-07 — thiếu 66 câu
+
+### 文字・語彙 (30 phút) — ✅ ĐỦ 34/34
+Đề này chỉ in **34 câu** (問題1 có 7 câu, không phải 8 như các đề khác). Không thiếu gì.
+
+### 文法・読解 (70 phút) — ❌ MẤT TOÀN BỘ 38 câu
+Parser tách section sai vì file này không in tên phần 「文法・読解」. Cần nhập lại tất cả:
+
+| 問題 | Câu số | Cần nhập |
+|---|---|---|
+| 1 Ngữ pháp chọn đáp án | 1–13 | câu hỏi + 4 lựa chọn + đáp án |
+| 2 Sắp xếp câu ★ | 14–18 | câu hỏi + 4 lựa chọn + **vị trí ô ★** + đáp án |
+| 3 Ngữ pháp trong đoạn văn | 19–22 | đoạn văn (`passage`) + 4 câu + đáp án |
+| 4 Đọc ngắn (4 bài) | 23–26 | 4 đoạn văn + 4 câu + đáp án |
+| 5 Đọc trung | 27–32 | đoạn văn + 6 câu + đáp án |
+| 6 Đọc dài | 33–36 | đoạn văn + 4 câu + đáp án |
+| 7 Tìm kiếm thông tin | 37–38 | bảng thông tin (là ảnh) + 2 câu + đáp án |
+
+Dữ liệu parser đọc được (dùng để gõ lại cho nhanh): `python tools/show_parsed.py 2022-07`.
+
+### 聴解 (40 phút) — thiếu 28 câu
+| 問題 | Câu số | Tình trạng |
+|---|---|---|
+| 1 課題理解 | 1–6 | có câu 2–6 (thiếu **câu 1**), cả 5 câu **chưa có đáp án** |
+| 2 ポイント理解 | 1–6 | có đủ 6 câu, **chưa có đáp án** |
+| 3 概要理解 | 1–3 | ❌ đề không in gì (ーメモー) — phải nghe rồi gõ lại |
+| 4 発話表現 | 1–4 | ❌ **có hình vẽ**, 3 lựa chọn |
+| 5 即時応答 | 1–9 | ❌ đề không in gì (ーメモー) |
+
+---
+
+## 2022-12 — thiếu 46 câu
+
+### 文字・語彙 (30 phút) — ✅ ĐỦ 35/35
+
+### 文法・読解 (70 phút) — thiếu 18/38
+| 問題 | Đề in câu | Thiếu |
+|---|---|---|
+| 1 Ngữ pháp chọn đáp án | 1–13 | **câu 8, 9, 12, 13** |
+| 2 Sắp xếp câu ★ | 14–18 | **cả 5 câu** (mất vị trí ô ★ khi PDF bị làm phẳng) |
+| 3 Ngữ pháp trong đoạn văn | 19–22 | **cả 4 câu** (đoạn văn là ảnh) |
+| 4 Đọc ngắn (4 bài) | 23–26 | **câu 23, 25** (đoạn văn là ảnh/tờ rơi) |
+| 5 Đọc trung | 27–32 | **câu 29** |
+| 6 Đọc dài | 33–36 | ✅ đủ |
+| 7 Tìm kiếm thông tin | 37–38 | **cả 2 câu** (bảng thông tin là ảnh) |
+
+### 聴解 (40 phút) — thiếu 28 câu
+| 問題 | Câu số | Tình trạng |
+|---|---|---|
+| 1 課題理解 | 1–6 | có đủ, **chưa có đáp án** |
+| 2 ポイント理解 | 1–6 | có đủ, **chưa có đáp án** |
+| 3 概要理解 | 1–3 | ❌ đề không in gì |
+| 4 発話表現 | 1–4 | ❌ **có hình vẽ**, 3 lựa chọn |
+| 5 即時応答 | 1–9 | ❌ đề không in gì |
+
+---
+
+## 2023-07 — thiếu 50 câu
+
+### 文字・語彙 (30 phút) — thiếu 3/35
+| 問題 | Đề in câu | Thiếu |
+|---|---|---|
+| 4 Từ đồng nghĩa | 26–30 | **câu 28, 29, 30** — 3 câu này in lựa chọn thành 2 cột nên parser bỏ qua |
+
+Các 問題 còn lại (1–3, 5) đủ.
+
+### 文法・読解 (70 phút) — thiếu 19/38
+| 問題 | Đề in câu | Thiếu |
+|---|---|---|
+| 1 Ngữ pháp chọn đáp án | 1–13 | **câu 8, 9, 11, 12, 13** |
+| 2 Sắp xếp câu ★ | 14–18 | **cả 5 câu** |
+| 3 Ngữ pháp trong đoạn văn | 19–22 | **cả 4 câu** (đoạn văn là ảnh) |
+| 4 Đọc ngắn (4 bài) | 23–26 | **câu 23, 25** |
+| 5 Đọc trung | 27–32 | **câu 29** |
+| 6 Đọc dài | 33–36 | ✅ đủ |
+| 7 Tìm kiếm thông tin | 37–38 | **cả 2 câu** |
+
+### 聴解 (40 phút) — thiếu 28 câu
+Giống hệt 2022-12: 問題1 và 問題2 đủ câu nhưng **chưa có đáp án**; 問題3, 4, 5 chưa có câu nào.
+
+---
+
+## 2021-07 và 2023-12 — chưa có gì (101 câu mỗi đề)
+
+PDF là ảnh scan, không có lớp text (16 và 30 trang). Phải đọc bằng vision rồi gõ lại toàn bộ.
+Cấu trúc chuẩn để nhập: 文字・語彙 35 câu (問題1: 1–8, 2: 9–14, 3: 15–25, 4: 26–30, 5: 31–35) ·
+文法・読解 38 câu (問題1: 1–13, 2: 14–18, 3: 19–22, 4: 23–26, 5: 27–32, 6: 33–36, 7: 37–38) ·
+聴解 28 câu (問題1: 6, 2: 6, 3: 3, 4: 4, 5: 9 — đánh số lại từ 1 mỗi 問題).
+
+Audio hai đề này **đã có sẵn** ở `audio/2021-07/choukai.mp3` và `audio/2023-12/choukai.mp3`.
+
+---
+
+## Ghi chú kỹ thuật khi bổ sung
+
+- **Số câu khác nhau giữa các đề**: 2022-07 phần 文字・語彙 chỉ có 34 câu (問題1 = 7 câu);
+  2022-12 và 2023-07 có 35 câu (問題1 = 8 câu). Đừng áp một khuôn cho cả 5 đề.
+- **問題4 phần nghe (発話表現) có hình vẽ** — thí sinh nhìn tranh rồi chọn câu nói phù hợp.
+  `exams.json` hiện **không có trường ảnh** cho câu hỏi, muốn làm phần này phải thêm.
+- **問題4 và 問題5 phần nghe chỉ có 3 lựa chọn**, không phải 4. UI render theo độ dài `opts`
+  nên không cần sửa code, chỉ cần nhập đúng 3 phần tử.
+- **Đáp án**: nhập kèm trong `exams_manual.json` (trường `answer`), hoặc bỏ vào `exam_answers.json`
+  với key `<id đề>/<phần>/<số câu gốc>` — ví dụ `2022-12/bunpou/8`. Phần nghe dùng key
+  `<id đề>/choukai/<số câu trong 問題 đó>`, nhưng vì 問題1 và 問題2 đều đánh số 1–6 nên
+  **nhập qua `exams_manual.json` sẽ an toàn hơn** (khớp theo cả `no` của 問題).
+- Toàn bộ 140 đáp án hiện có là **do Claude tự giải**, chưa đối chiếu đáp án chính thức.
