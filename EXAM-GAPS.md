@@ -47,8 +47,8 @@ Bản gõ lại này lệch chuẩn nhiều nhất, phải vá bốn chỗ trong
 |---|---|---|---|
 | 文法 3 | 2 = すっかり | **4 = ちっとも** | 「のに（ ）面白くなかった」 — ちっとも mới đi với phủ định |
 
-Bảng đáp án **không có 問題5 phần từ vựng (câu 30–34)**, năm câu đó vẫn dùng đáp án cũ do AI giải
-(2, 3, 4, 1, 1) — nếu có bảng đầy đủ thì nên đối chiếu lại.
+Bảng đáp án **không có 問題5 phần từ vựng (câu 30–34)**; năm câu đó dùng đáp án do AI giải
+(2, 3, 4, 1, 1) và **chủ dự án đã kiểm lại, xác nhận đúng (16/09)**.
 
 ---
 
