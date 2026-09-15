@@ -146,6 +146,20 @@ body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[dat
 .paudio{position:sticky;top:66px;z-index:4;background:var(--elev);border:1.5px solid var(--line);
   border-radius:14px;padding:12px 14px 2px;margin:0 0 16px;backdrop-filter:blur(10px)}
 .palab{font-size:12.5px;font-weight:650;color:var(--muted);margin-bottom:8px}
+.parun{display:flex;align-items:center;gap:12px;padding-bottom:12px}
+.pabar{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.pabar>i{display:block;height:100%;width:0;background:var(--exam);transition:width .25s linear}
+.patime{font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.pactl{display:flex;align-items:center;gap:10px;padding-bottom:12px;flex-wrap:wrap}
+.pactl select{font:inherit;font-size:12.5px;padding:3px 6px;border-radius:8px;
+  border:1.5px solid var(--line);background:var(--elev);color:var(--ink2)}
+.modegrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;text-align:left}
+@media (max-width:760px){.modegrid{grid-template-columns:1fr}}
+.modecard{padding:18px;cursor:pointer;border:1.5px solid var(--line);font:inherit;
+  display:flex;flex-direction:column;gap:8px;transition:.14s}
+.modecard:hover{border-color:var(--exam);transform:translateY(-2px)}
+.modecard b{font-size:16px}
+.modecard .sub{font-size:13px;line-height:1.6}
 .qimg{display:block;max-width:min(100%,520px);margin:0 auto 14px;border:1.5px solid var(--line);
   border-radius:12px;background:#fff}
 .paperq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.7;white-space:normal}
@@ -598,7 +612,26 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
     </div>
     <div class="paudio" id="paperAudio" hidden>
       <div class="palab" id="paperAudioLab"></div>
-      <audio class="qaudio" id="paperAudioEl" controls preload="metadata"></audio>
+      <audio class="qaudio" id="paperAudioEl" preload="metadata"></audio>
+      <!-- chế độ Kiểm tra: chỉ xem được đã chạy tới đâu, không tua không dừng -->
+      <div class="parun" id="paperAudioRun">
+        <div class="pabar"><i id="paperAudioFill"></i></div>
+        <span class="patime" id="paperAudioTime">0:00 / --:--</span>
+        <button class="btn ghost pastart" id="paperAudioStart" hidden
+                onclick="App.startExamAudio()">▶ Bắt đầu nghe</button>
+      </div>
+      <!-- chế độ Luyện tập: tua, dừng, đổi tốc độ thoải mái -->
+      <div class="pactl" id="paperAudioCtl" hidden>
+        <button class="btn ghost" onclick="App.audioSeek(-5)">« 5s</button>
+        <button class="btn ghost" onclick="App.audioSeek(5)">5s »</button>
+        <label class="sub" style="font-size:12.5px">Tốc độ
+          <select id="paperAudioRate" onchange="App.audioRate()">
+            <option value="0.75">0,75×</option>
+            <option value="1" selected>1×</option>
+            <option value="1.25">1,25×</option>
+            <option value="1.5">1,5×</option>
+          </select></label>
+      </div>
     </div>
     <div class="paperwrap">
       <div id="paperBody"></div>
@@ -1797,7 +1830,39 @@ const App = {
       </div>`;
     }).join("") + `</div>`;
   },
+  // Lần đầu làm một đề thì vào thẳng chế độ Kiểm tra — thi thử phải là thi thật.
+  // Đã làm rồi thì cho chọn, vì lúc đó mục đích thường là luyện chứ không phải đo.
   openPaper(idx) {
+    const ex = this.data.exams[idx];
+    const daLam = (this.state.exams.done || []).some(d => d.id === ex.id);
+    if (!daLam) return this.startPaper(idx, "test");
+    const lan = (this.state.exams.done || []).filter(d => d.id === ex.id).length;
+    this.show("scr-paper");
+    $("#paperChip").textContent = ex.title;
+    $("#paperSecName").textContent = "";
+    $("#paperTimer").textContent = "--:--";
+    $("#paperAudio").hidden = true;
+    $("#paperNav").innerHTML = "";
+    $("#paperBody").innerHTML = `
+      <div class="card stagecard centered">
+        <div style="font-size:38px">📝</div>
+        <h2 style="margin-top:8px">${esc(ex.title)}</h2>
+        <p class="sub" style="margin-top:6px">Bạn đã làm đề này ${lan} lần. Lần này muốn làm kiểu nào?</p>
+        <div class="modegrid">
+          <button class="card modecard" onclick="App.startPaper(${idx}, 'test')">
+            <b>⏱️ Kiểm tra</b>
+            <span class="sub">Đúng như thi thật: đếm giờ từng phần, hết giờ tự chuyển.
+              Phần nghe phát một mạch từ đầu đến cuối, không dừng, không tua.</span>
+          </button>
+          <button class="card modecard" onclick="App.startPaper(${idx}, 'practice')">
+            <b>🎧 Luyện tập</b>
+            <span class="sub">Thoải mái: audio dừng / lùi / tiến 5 giây / đổi tốc độ được,
+              hết giờ vẫn làm tiếp. Kết quả vẫn được chấm nhưng không ghi vào lịch sử.</span>
+          </button>
+        </div>
+      </div>`;
+  },
+  startPaper(idx, mode) {
     const ex = this.data.exams[idx];
     // only sections we can actually mark are runnable
     const secs = ex.sections.map(sec => ({
@@ -1806,10 +1871,11 @@ const App = {
       questions: sec.mondai.reduce((a, m) => a.concat(m.questions.map(q => ({ q, m }))), []),
       markable: sec.mondai.some(m => m.questions.some(x => x.answer)),
     }));
-    this.P = { ex, idx, secs, si: 0, qi: 0,
+    this.P = { ex, idx, secs, si: 0, qi: 0, mode: mode || "test",
                ans: secs.map(s2 => s2.questions.map(() => null)),
                flag: secs.map(s2 => s2.questions.map(() => false)),
                t0: Date.now(), results: [] };
+    this.armAudio();
     this.startPaperSection(0);
   },
   startPaperSection(si) {
@@ -1817,11 +1883,14 @@ const App = {
     P.si = si;
     P.qi = 0;
     const sec = P.secs[si];
-    P.deadline = Date.now() + sec.minutes * 60000;
+    P.secStart = Date.now();
+    P.deadline = P.secStart + sec.minutes * 60000;
+    P.overtime = false;
     clearInterval(P.timer);
     P.timer = setInterval(() => this.tickPaper(), 500);
     this.show("scr-paper");
-    $("#paperChip").textContent = P.ex.title;
+    $("#paperChip").textContent = P.ex.title
+      + (P.mode === "practice" ? " · luyện tập" : "");
     this.drawPaper();
   },
   tickPaper() {
@@ -1830,11 +1899,14 @@ const App = {
     const left = (P.deadline - Date.now()) / 1000;
     const el = $("#paperTimer");
     if (el) {
-      el.textContent = this.fmtClock(left);
-      el.classList.toggle("warn", left < 300 && left >= 60);
-      el.classList.toggle("danger", left < 60);
+      el.textContent = P.overtime ? "Hết giờ" : this.fmtClock(left);
+      el.classList.toggle("warn", !P.overtime && left < 300 && left >= 60);
+      el.classList.toggle("danger", P.overtime || left < 60);
     }
-    if (left <= 0) this.finishSection(true);
+    if (left > 0) return;
+    // luyện tập thì hết giờ chỉ báo chứ không cắt bài
+    if (P.mode === "practice") { P.overtime = true; P.deadline = null; return; }
+    this.finishSection(true);
   },
   drawPaper() {
     const P = this.P, sec = P.secs[P.si];
@@ -1884,17 +1956,105 @@ const App = {
   },
   // Player nằm ngoài #paperBody: một file audio thường dùng chung cho cả phần nghe,
   // đổi câu mà dựng lại <audio> là mất chỗ đang nghe.
+  /* ---------- audio phần nghe: khoá khi Kiểm tra, mở khi Luyện tập ---------- */
+  // Gắn sự kiện đúng MỘT lần cho mỗi lượt thi. Gắn trong syncPaperAudio là mỗi
+  // lần chuyển câu lại chồng thêm một bộ listener.
+  armAudio() {
+    const el = $("#paperAudioEl");
+    el.playbackRate = 1;
+    $("#paperAudioRate").value = "1";
+    if (el._armed) return;
+    el._armed = true;
+    const test = () => this.P && this.P.mode === "test";
+    el.addEventListener("timeupdate", () => this.drawAudioProgress());
+    // Chặn tua bằng cách canh theo nhịp chứ không bám sự kiện seeking/seeked:
+    // khi tua, trình duyệt bắn timeupdate mang sẵn vị trí MỚI trước cả seeked,
+    // nên mọi cách chốt "vị trí hợp lệ" trong seeked đều đã bị chính cú tua ghi
+    // đè. Ở đây cứ 250ms lấy mẫu một lần: chạy bình thường thì mỗi nhịp nhích
+    // ~0,25s; nhảy ra ngoài khoảng đó là tua, kéo về chỗ cũ.
+    el._t = 0;
+    setInterval(() => {
+      if (!test() || !this.P.audioLocked || el.seeking) { el._t = el.currentTime; return; }
+      const dt = el.currentTime - el._t;
+      if (dt >= -0.5 && dt <= 1.5) { el._t = el.currentTime; return; }
+      el.currentTime = el._t;
+    }, 250);
+    // chặn dừng: đề thi thật băng chạy một mạch, dừng được là gian lận
+    el.addEventListener("pause", () => {
+      if (test() && this.P.audioLocked && !el.ended && el.getAttribute("src")) el.play().catch(() => {});
+    });
+    el.addEventListener("loadedmetadata", () => {
+      this.applyAudioDeadline();
+      this.drawAudioProgress();
+    });
+  },
+  drawAudioProgress() {
+    const el = $("#paperAudioEl"), fill = $("#paperAudioFill"), t = $("#paperAudioTime");
+    if (!fill || !t) return;
+    const d = isFinite(el.duration) ? el.duration : 0;
+    fill.style.width = d ? (el.currentTime / d * 100) + "%" : "0";
+    t.textContent = this.fmtClock(el.currentTime) + " / " + (d ? this.fmtClock(d) : "--:--");
+  },
+  // File nghe là bản không chính thống nên có thể dài hơn 40 phút chuẩn. Lấy
+  // mốc lớn hơn giữa hai cái, để không bao giờ bị cắt giữa chừng băng.
+  applyAudioDeadline() {
+    const P = this.P, el = $("#paperAudioEl");
+    if (!P || P.mode !== "test") return;
+    const sec = P.secs[P.si];
+    if (!sec || sec.key !== "choukai" || !isFinite(el.duration) || !el.duration) return;
+    const canByAudio = Math.ceil(el.duration) * 1000 + 5000;   // +5s cho câu cuối
+    const need = Math.max(sec.minutes * 60000, canByAudio);
+    P.deadline = P.secStart + need;
+    if (canByAudio > sec.minutes * 60000) {
+      $("#paperAudioLab").textContent +=
+        ` · băng dài ${this.fmtClock(el.duration)} nên thời gian làm bài lấy bằng độ dài băng`;
+    }
+  },
+  startExamAudio() {
+    const el = $("#paperAudioEl");
+    el.play().then(() => { $("#paperAudioStart").hidden = true; }).catch(() => {});
+  },
+  audioSeek(d) {
+    const el = $("#paperAudioEl");
+    if (!this.P || this.P.mode !== "practice" || !isFinite(el.duration)) return;
+    el.currentTime = Math.max(0, Math.min(el.duration, el.currentTime + d));
+    el._t = el.currentTime;
+  },
+  audioRate() {
+    $("#paperAudioEl").playbackRate = parseFloat($("#paperAudioRate").value) || 1;
+  },
   syncPaperAudio(q, sec) {
     const box = $("#paperAudio"), el = $("#paperAudioEl");
     if (!q.audio) { box.hidden = true; if (el.src) { el.pause(); el.removeAttribute("src"); el.load(); } return; }
     box.hidden = false;
+    const practice = this.P.mode === "practice";
+    el.controls = practice;
+    $("#paperAudioCtl").hidden = !practice;
+    $("#paperAudioRun").hidden = practice;
     const shared = sec.questions.every(it => it.q.audio === q.audio);
     $("#paperAudioLab").textContent = "🎧 " + (shared
       ? `Audio cả phần ${sec.name} — nghe liên tục, chuyển câu không làm dừng`
       : `Audio câu ${q.n}`)
+      + (practice ? " · luyện tập: dừng / tua / đổi tốc độ thoải mái"
+                  : " · như thi thật: phát một mạch, không dừng, không tua")
       + (sec.markable ? "" : " · phần này chưa có đáp án nên không chấm điểm");
+    // Khoá theo CHẾ ĐỘ, không theo việc có đổi file hay không: làm luyện tập
+    // trước rồi vào kiểm tra cùng đề thì file y nguyên, đặt trong nhánh đổi file
+    // là khoá không bao giờ bật.
+    this.P.audioLocked = !practice;
     // chỉ nạp lại khi đổi file, so bằng getAttribute vì el.src đã là URL tuyệt đối
-    if (el.getAttribute("src") !== q.audio) { el.setAttribute("src", q.audio); el.load(); }
+    if (el.getAttribute("src") !== q.audio) {
+      el.setAttribute("src", q.audio);
+      el._t = 0;
+      el.load();
+    }
+    // Kiểm tra: băng chạy ngay khi vào phần nghe. Trình duyệt chặn tự phát thì
+    // hiện nút bấm — một cú bấm là đủ để mở khoá autoplay.
+    if (!practice && el.paused) {
+      $("#paperAudioStart").hidden = true;
+      el.play().catch(() => { $("#paperAudioStart").hidden = false; });
+    }
+    this.drawAudioProgress();
   },
   drawNav() {
     const P = this.P, sec = P.secs[P.si];
@@ -1942,6 +2102,9 @@ const App = {
     const P = this.P;
     if (!P || P.grading) return;
     P.grading = true;
+    // bỏ khoá trước khi dừng: nếu không, listener chặn-dừng sẽ cho băng chạy lại
+    P.audioLocked = false;
+    $("#paperAudioEl").pause();
     clearInterval(P.timer);
     const sec = P.secs[P.si];
     let c = 0, t = 0;
@@ -1984,10 +2147,13 @@ const App = {
     const c = done.reduce((n, r) => n + r.c, 0);
     const t = done.reduce((n, r) => n + r.t, 0);
     const dur = Math.round((Date.now() - P.t0) / 1000);
-    this.state.exams.done.push({ id: P.ex.id, title: P.ex.title, c, t, dur,
-                                 date: new Date().toISOString(),
-                                 sections: done.map(r => ({ key: r.key, c: r.c, t: r.t })) });
-    this.save();
+    // luyện tập không ghi lịch sử: nó không phải một lần thi thật
+    if (P.mode !== "practice") {
+      this.state.exams.done.push({ id: P.ex.id, title: P.ex.title, c, t, dur,
+                                   date: new Date().toISOString(),
+                                   sections: done.map(r => ({ key: r.key, c: r.c, t: r.t })) });
+      this.save();
+    }
     const p = pct(c, t);
     $("#paperTimer").textContent = "--:--";
     $("#paperNav").innerHTML = "";
@@ -2031,6 +2197,8 @@ const App = {
     if (this.P.deadline &&
         !(await this.askConfirm("Thoát bài thi?\nBài làm hiện tại sẽ không được lưu.", "Thoát", true))) return;
     clearInterval(this.P.timer);
+    this.P.audioLocked = false;
+    $("#paperAudioEl").pause();
     this.P = null;
     this.navExamPapers();
   },

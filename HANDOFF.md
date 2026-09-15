@@ -104,6 +104,7 @@ Cơ chế Windows-only đang dùng:
 | Đề thi JLPT | đủ 5/5 đề, 407/504 câu đã nhập, **359 chấm được**; hai đề 2021-07 và 2023-12 xong hẳn | chi tiết: `EXAM-GAPS.md` |
 | Audio phần nghe | ⚠️ có file cho 3 đề, chưa có đáp án | mỗi đề 1 file dài cho cả phần, xem §6 việc 1 |
 | Hình phần nghe | ✅ 17 hình đã cắt và gắn vào câu | `images/`, `tools/crop_images.py` |
+| Đề thi 2 chế độ | ✅ lần đầu vào thẳng Kiểm tra, từ lần 2 cho chọn Kiểm tra / Luyện tập | `openPaper()` → `startPaper(idx, mode)`; audio khoá ở Kiểm tra, mở ở Luyện tập |
 
 ### Tính năng hệ thống (đều đã chạy, đừng làm hỏng khi sửa)
 
