@@ -12,10 +12,10 @@ Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tậ
 | **2021-07** | 101 | **101** ✅ | — xong hẳn |
 | 2022-07 | 58 | 42 | 42 câu chưa nhập |
 | 2022-12 | 75 | 59 | 26 câu chưa nhập |
-| 2023-07 | 72 | 56 | 29 câu chưa nhập |
+| **2023-07** | 101 | **101** ✅ | — xong hẳn |
 | **2023-12** | 101 | **101** ✅ | — xong hẳn |
 
-Tổng: **407/504 câu đã nhập**, trong đó **359 chấm được**.
+Tổng: **436/504 câu đã nhập**, trong đó **404 chấm được**. Ba đề 2021-07, 2023-07, 2023-12 xong hẳn.
 
 Kiểm tra dữ liệu bất cứ lúc nào bằng `cd tools && python check_exams.py [id đề]` — soi số câu so với
 format JLPT, lựa chọn trống/trùng, đáp án ngoài khoảng, thiếu file ảnh/audio, số thứ tự không liên tục.
@@ -80,28 +80,31 @@ Dữ liệu parser đọc được (dùng để gõ lại cho nhanh): `python to
 
 ---
 
-## 2023-07 — thiếu 45 câu
+## 2023-07 — ✅ XONG (16/09)
 
-### 文字・語彙 (30 phút) — thiếu 3/35
-| 問題 | Đề in câu | Thiếu |
-|---|---|---|
-| 4 Từ đồng nghĩa | 26–30 | **câu 28, 29, 30** — 3 câu này in lựa chọn thành 2 cột nên parser bỏ qua |
+Nhập lại toàn bộ từ bản gõ lại `source-pdf/exams/2023-07-typed.docx` bằng `tools/parse_docx_typed.py`,
+thay cho bản trích từ PDF trước đây (chỉ được 72 câu). **101/101 câu có đáp án**,
+`check_exams.py` báo 0 lỗi.
 
-Các 問題 còn lại (1–3, 5) đủ.
+- 文字・語彙 35 · 文法・読解 38 · 聴解 28 — đủ cả 5 câu ★ của 問題2 (có vị trí ô ★) và
+  bốn đoạn đọc riêng của 問題4.
+- 6 ảnh phần nghe ở `images/2023-07/` (問題1 câu 3–4, 問題4 cả 4 câu), lấy thẳng từ docx.
+- Audio `audio/2023-07/choukai.mp3` gắn cho cả 28 câu.
 
-### 文法・読解 (70 phút) — thiếu 19/38
-| 問題 | Đề in câu | Thiếu |
-|---|---|---|
-| 1 Ngữ pháp chọn đáp án | 1–13 | **câu 8, 9, 11, 12, 13** |
-| 2 Sắp xếp câu ★ | 14–18 | **cả 5 câu** |
-| 3 Ngữ pháp trong đoạn văn | 19–22 | **câu 22** (19, 20, 21 đã lấy lại 15/09) |
-| 4 Đọc ngắn (4 bài) | 23–26 | **câu 23, 25** |
-| 5 Đọc trung | 27–32 | **câu 29** |
-| 6 Đọc dài | 33–36 | ✅ đủ |
-| 7 Tìm kiếm thông tin | 37–38 | ✅ đủ (lấy lại 15/09) |
+### Đáp án — 3 chỗ dùng khác bảng
 
-### 聴解 (40 phút) — thiếu 28 câu
-Giống hệt 2022-12: 問題1 và 問題2 đủ câu nhưng **chưa có đáp án**; 問題3, 4, 5 chưa có câu nào.
+Chủ dự án gửi bảng đáp án riêng (ảnh chụp bảng của Sei Japanese Centre). **Đối chiếu chéo với 56 đáp án
+cũ do AI giải: khớp 53, lệch 3.** Ba chỗ lệch đều là nội dung đề nói rõ về một phía nên dùng đáp án
+theo đề:
+
+| Câu | Bảng ghi | Đang dùng | Vì sao |
+|---|---|---|---|
+| 文法 7 | 2 = 点で | **4 = せいで** | 「電車が遅れたせいで遅刻した」 — 点で không ghép được vào câu |
+| 読解 24 | 4 = ずっとなりたいと思い続けていた | **2 = 自分でも忘れていた夢** | bài đọc ghi rõ 「すっかり忘れていた」 |
+| 読解 37 | 3 = ③と④ | **4 = ③** | ④ là 「教師や関係者のための食堂、学生は利用できません」 |
+
+Bảng đánh số phần 読解 lại từ 1–16 (không nối tiếp 23–38) và phần 聴解 từ 1–28 (không quay về 1 ở mỗi
+問題) — đã quy đổi khi nhập.
 
 ---
 
@@ -118,9 +121,9 @@ Chủ dự án cung cấp bản gõ lại đầy đủ kèm bảng đáp án:
   nhưng vẫn tạo đủ số câu với lựa chọn trống để nghe audio rồi chọn số — có đáp án nên **chấm điểm được**.
 - Audio `audio/2021-07/choukai.mp3` gắn cho cả 28 câu.
 
-## 2023-12 — đủ 101 câu, ❌ THIẾU TOÀN BỘ ĐÁP ÁN
+## 2023-12 — ✅ XONG (15/09)
 
-Nhập từ bản gõ lại `source-pdf/exams/2023-12-typed.docx` bằng `tools/parse_docx_2023.py`
+Nhập từ bản gõ lại `source-pdf/exams/2023-12-typed.docx` bằng `tools/parse_docx_typed.py`
 (PDF scan gốc vẫn ở `source-pdf/exams/2023-12.pdf`). `check_exams.py`: **0 lỗi, 0 nghi ngờ**.
 
 - 文字・語彙 35 · 文法・読解 38 · 聴解 28 — đúng format JLPT, đủ bài đọc và bảng giá của 問題7.

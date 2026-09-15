@@ -49,6 +49,9 @@ def merge_manual(exams):
             sec["mondai"].sort(key=lambda m: (m["no"] if isinstance(m["no"], int) else 99))
             seq = 0
             for m in sec["mondai"]:
+                # Câu nhập tay được nối vào CUỐI mảng, nên không sắp lại là đề
+                # hiện lộn xộn: đề 7/2023 問題4 từng ra thứ tự 24, 26, 23, 25.
+                m["questions"].sort(key=lambda q: q.get("label") or q.get("n") or 0)
                 for q in m["questions"]:
                     seq += 1
                     q.setdefault("label", q.get("n"))

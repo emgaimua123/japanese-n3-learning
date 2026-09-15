@@ -101,7 +101,7 @@ Cơ chế Windows-only đang dùng:
 | Kanji | ✅ 337 chữ + 1073 từ | quiz: kanji→hiragana (tự luận), hiragana→kanji (trắc nghiệm) |
 | Ngữ pháp | ✅ 151 mẫu / 26 bài (9 chương) | quiz dịch Nhật→Việt, chấm bằng Claude API hoặc bộ chấm offline |
 | Đọc hiểu | ✅ 22 bài / 31 câu (chương 5–9) | đáp án + câu chứa đáp án + giải thích + tips do Claude soạn |
-| Đề thi JLPT | đủ 5/5 đề, 407/504 câu đã nhập, **359 chấm được**; hai đề 2021-07 và 2023-12 xong hẳn | chi tiết: `EXAM-GAPS.md` |
+| Đề thi JLPT | đủ 5/5 đề, 436/504 câu đã nhập, **404 chấm được**; ba đề 2021-07, 2023-07, 2023-12 xong hẳn | chi tiết: `EXAM-GAPS.md` |
 | Audio phần nghe | ⚠️ có file cho 3 đề, chưa có đáp án | mỗi đề 1 file dài cho cả phần, xem §6 việc 1 |
 | Hình phần nghe | ✅ 17 hình đã cắt và gắn vào câu | `images/`, `tools/crop_images.py` |
 | Đề thi 2 chế độ | ✅ lần đầu vào thẳng Kiểm tra, từ lần 2 cho chọn Kiểm tra / Luyện tập | `openPaper()` → `startPaper(idx, mode)`; audio khoá ở Kiểm tra, mở ở Luyện tập |
@@ -331,7 +331,7 @@ Quy ước: `answer: null` → câu vẫn hiển thị, có đếm giờ, nhưng
 | `show_parsed.py` | in đề ra để giải đáp án bằng tay | ✅ |
 | `crop_images.py` | cắt hình minh hoạ phần nghe ra `images/` + sinh đoạn JSON để gộp | ✅ **thêm 14/09** |
 | `parse_docx_2021.py` | trích đề 2021-07 từ bản gõ lại .docx (cả đáp án + ảnh) | ✅ **thêm 14/09** |
-| `parse_docx_2023.py` | trích đề 2023-12 từ bản gõ lại .docx (bố cục khác hẳn, tự tách ảnh hai câu một trang) | ✅ **thêm 15/09** |
+| `parse_docx_typed.py` | trích đề từ bản gõ lại .docx (2023-12 và 2023-07); khác nhau giữa các bản gom vào bảng `EXAMS` | ✅ **15–16/09** |
 | `check_exams.py` | soi lỗi `exams.json`: số câu so với format JLPT, lựa chọn trống/trùng, thiếu ảnh/audio | ✅ **thêm 14/09** |
 | `parse_vocab.py` + `fix_vocab2.py` | PDF từ vựng → `vocab.json` (parse rồi dọn nghĩa lẫn câu ví dụ) | ✅ **đã bổ sung 13/09** |
 | `parse_kanji.py` | PDF kanji → `kanji.json` | ✅ **đã bổ sung 13/09** |
