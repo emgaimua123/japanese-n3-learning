@@ -45,8 +45,26 @@ EXAMS = {
         "choukai_mark": "聴解",
         "m4_mark": "絵の問題",             # 問題4 không in tiêu đề, chỉ có dòng này
         "m4_split": [(1, 2), (3, 4)],      # mỗi ảnh chụp cả trang gồm 2 câu
+        "mondai_fix": {},
         "skip": ("Bản chuyển sang text", "2023 年", "文法・読解",
                  "言語知識（文字・語彙）", "言語知識（文法）・読解"),
+    },
+    "2022-07": {
+        "file": "JLPT_N3_07_2022_text_gach_chan.docx",
+        "title": "Đề thi tháng 7/2022",
+        "q": r"^([0-9０-９]{1,2})[)）][　 ]*(.*)$",
+        # phần đọc đánh số kiểu khác hẳn: "23 ", "24．", "25. ", "33.  "
+        "q_bare": r"^([0-9０-９]{1,2})[\s　]*[.．]?[\s　]*(\S.*)$",
+        "ban": r"^([0-9０-９]{1,2})[　 ]*番",
+        # 文法 và 読解 in thành hai tiêu đề nhưng là MỘT phần thi
+        "sec_marks": {"文字・語彙": "moji", "文法": "bunpou", "読解": "bunpou",
+                      "聴解": "choukai"},
+        "choukai_mark": None,
+        "m4_mark": None,
+        "m4_split": None,
+        # bản gõ chép nhầm 問題2 (dạng ★) thành 問題8
+        "mondai_fix": {("bunpou", 8): 2},
+        "skip": ("Bản chuyển sang text", "2022 年"),
     },
     "2023-07": {
         "file": "JLPT_N3_07_2023_text_gach_chan.docx",
@@ -61,6 +79,7 @@ EXAMS = {
         "choukai_mark": None,
         "m4_mark": None,                   # có tiêu đề 問題4 hẳn hoi
         "m4_split": None,                  # 4 ảnh, mỗi câu một ảnh
+        "mondai_fix": {},
         "skip": ("Bản chuyển sang text",),
     },
 }
@@ -70,9 +89,13 @@ SECTIONS = {
     "bunpou":  {"name": "Ngữ pháp – Đọc hiểu", "jp": "言語知識（文法）・読解", "minutes": 70},
     "choukai": {"name": "Nghe hiểu", "jp": "聴解", "minutes": 40},
 }
-RX_MONDAI = re.compile(r"^問題[　 ]?([0-9０-９])(?![0-9０-９])")
+# bản gõ lại lẫn lộn 問題 với 間題 (nhận dạng sai chữ)
+RX_MONDAI = re.compile(r"^[問間]題[　 ]?([0-9０-９])(?![0-9０-９])")
 RX_BARE = re.compile(r"^(\d{1,2})$")
-RX_OPT1 = re.compile(r"^([1-4１-４])[　 ]+(\S.*)$")
+# Lựa chọn viết đủ kiểu: "1 あ", "１. あ", và dính liền "1「大きな家」と".
+# Không bắt buộc dấu cách — an toàn vì chỗ dùng còn đòi số phải đúng bằng
+# lựa chọn kế tiếp, nên dòng như "23 「私」は…" không lọt vào.
+RX_OPT1 = re.compile(r"^([1-4１-４])[\s　]*[.．)）]?[\s　]*(\S.*)$")
 FW = str.maketrans("０１２３４５６７８９", "0123456789")
 PER_Q_PASSAGE = {("bunpou", 4)}
 AFTER_Q_PASSAGE = {("bunpou", 7)}
@@ -82,9 +105,25 @@ RX_HEADER = re.compile(r"^[０-９\d]{4}\s*年.*日本語能力試験")
 
 
 def para_text(p):
+    """Văn bản một đoạn, giữ hai thứ mà `.text` làm mất:
+
+    - từ được gạch chân trong đề  -> bọc 【】
+    - ô trống của câu sắp xếp ★   -> `＿＿＿`
+
+    Đề 7/2022 không gõ ký tự gạch nào cho ô trống: mỗi ô chỉ là mấy khoảng
+    trắng CÓ GẠCH CHÂN. Đọc bằng `.text` là mất sạch, không còn biết ★ nằm ở ô
+    thứ mấy — mà đáp án phụ thuộc đúng chỗ đó.
+    """
     out = []
     for r in p.runs:
-        out.append("【%s】" % r.text if r.underline and r.text.strip() else r.text)
+        if not r.underline:
+            out.append(r.text)
+        elif "★" in r.text:
+            out.append(" ★ ")
+        elif not r.text.strip():
+            out.append(" ＿＿＿ ")
+        else:
+            out.append("【%s】" % r.text)
     return re.sub(r"[ \t]+", " ", "".join(out)).strip()
 
 
@@ -185,8 +224,12 @@ def parse(tag):
             continue
         if cfg["sec_marks"] and t in cfg["sec_marks"]:
             flush(cur_q)
-            cur_sec = new_sec(cfg["sec_marks"][t])
-            cur_m = cur_q = None
+            k = cfg["sec_marks"][t]
+            # 文法 và 読解 là hai tiêu đề của cùng một phần thi: gặp cái thứ
+            # hai thì đi tiếp chứ không mở phần mới
+            if cur_sec is None or cur_sec["key"] != k:
+                cur_sec = new_sec(k)
+                cur_m = cur_q = None
             continue
         if cfg["choukai_mark"] and t.startswith(cfg["choukai_mark"]) and not cfg["sec_marks"]:
             flush(cur_q)
@@ -208,6 +251,13 @@ def parse(tag):
         if m:
             flush(cur_q)
             no = int(m.group(1).translate(FW))
+            if cur_sec is not None:
+                no = cfg.get("mondai_fix", {}).get((cur_sec["key"], no), no)
+                # phần nghe in tiêu đề 問題N hai lần liền nhau (dòng tiêu đề
+                # rồi tới dòng hướng dẫn) — lần thứ hai không mở 問題 mới
+                if cur_m is not None and cur_m["no"] == no and not cur_m["questions"]:
+                    cur_m["instruction"] = t
+                    continue
             if cur_sec is None:
                 cur_sec = new_sec("moji")
             elif not cfg["sec_marks"] and no == 1 and cur_sec["key"] == "moji":

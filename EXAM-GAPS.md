@@ -10,47 +10,45 @@ Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tậ
 | Đề | Câu đã có | Chấm được | Còn thiếu |
 |---|---|---|---|
 | **2021-07** | 101 | **101** ✅ | — xong hẳn |
-| 2022-07 | 58 | 42 | 42 câu chưa nhập |
+| **2022-07** | 100 | **100** ✅ | — xong hẳn |
 | 2022-12 | 75 | 59 | 26 câu chưa nhập |
 | **2023-07** | 101 | **101** ✅ | — xong hẳn |
 | **2023-12** | 101 | **101** ✅ | — xong hẳn |
 
-Tổng: **436/504 câu đã nhập**, trong đó **404 chấm được**. Ba đề 2021-07, 2023-07, 2023-12 xong hẳn.
+Tổng: **478/504 câu đã nhập**, trong đó **462 chấm được**. Bốn đề xong hẳn, chỉ còn 2022-12.
 
 Kiểm tra dữ liệu bất cứ lúc nào bằng `cd tools && python check_exams.py [id đề]` — soi số câu so với
 format JLPT, lựa chọn trống/trùng, đáp án ngoài khoảng, thiếu file ảnh/audio, số thứ tự không liên tục.
 
 ---
 
-## 2022-07 — thiếu 58 câu
+## 2022-07 — ✅ XONG (16/09)
 
-### 文字・語彙 (30 phút) — ✅ ĐỦ 34/34
-Đề này chỉ in **34 câu** (問題1 có 7 câu, không phải 8 như các đề khác). Không thiếu gì.
+Nhập lại toàn bộ từ `source-pdf/exams/2022-07-typed.docx` bằng `tools/parse_docx_typed.py`,
+thay bản trích từ PDF (58 câu). **100/100 câu có đáp án** — đề này phần 文字・語彙 chỉ có 34 câu
+(問題1 bảy câu), nên tổng là 100 chứ không phải 101.
 
-### 文法・読解 (70 phút) — lấy lại được 8/38 câu (15/09)
-Parser tách section sai vì file này không in tên phần 「文法・読解」. Sau khi sửa bộ lọc watermark thì
-問題1 lấy lại được 8 câu; phần còn lại vẫn phải nhập tay:
+Bản gõ lại này lệch chuẩn nhiều nhất, phải vá bốn chỗ trong bộ trích:
 
-| 問題 | Câu số | Cần nhập |
-|---|---|---|
-| 1 Ngữ pháp chọn đáp án | 1–13 | ✅ có câu 1, 3, 4, 5, 6, 7, 9, 10 — **thiếu câu 2, 8, 11, 12, 13** |
-| 2 Sắp xếp câu ★ | 14–18 | câu hỏi + 4 lựa chọn + **vị trí ô ★** + đáp án |
-| 3 Ngữ pháp trong đoạn văn | 19–22 | đoạn văn (`passage`) + 4 câu + đáp án |
-| 4 Đọc ngắn (4 bài) | 23–26 | 4 đoạn văn + 4 câu + đáp án |
-| 5 Đọc trung | 27–32 | đoạn văn + 6 câu + đáp án |
-| 6 Đọc dài | 33–36 | đoạn văn + 4 câu + đáp án |
-| 7 Tìm kiếm thông tin | 37–38 | bảng thông tin (là ảnh) + 2 câu + đáp án |
+- `文法` và `読解` in thành hai tiêu đề nhưng là **một** phần thi — gặp tiêu đề thứ hai thì đi tiếp
+  chứ không mở phần mới.
+- 問題2 (dạng ★) bị chép nhầm thành **問題8**; 問題3 và 問題5 của phần từ vựng bị gõ thành **間題**
+  (nhận dạng sai chữ 問).
+- Phần nghe in tiêu đề 問題N **hai lần liền nhau** (dòng tiêu đề rồi dòng hướng dẫn).
+- **Ô trống của câu ★ không phải ký tự nào cả** — chỉ là mấy khoảng trắng *có gạch chân*. Đọc bằng
+  `.text` là mất sạch, không còn biết ★ ở ô thứ mấy, mà đáp án phụ thuộc đúng chỗ đó. `para_text()`
+  giờ đổi mỗi đoạn trắng-gạch-chân thành một ô `＿＿＿`.
 
-Dữ liệu parser đọc được (dùng để gõ lại cho nhanh): `python tools/show_parsed.py 2022-07`.
+### Đáp án — 1 chỗ dùng khác bảng, 5 câu bảng không có
 
-### 聴解 (40 phút) — thiếu 28 câu
-| 問題 | Câu số | Tình trạng |
-|---|---|---|
-| 1 課題理解 | 1–6 | có câu 2–6 (thiếu **câu 1**), cả 5 câu **chưa có đáp án** |
-| 2 ポイント理解 | 1–6 | có đủ 6 câu, **chưa có đáp án** |
-| 3 概要理解 | 1–3 | ❌ đề không in gì (ーメモー) — phải nghe rồi gõ lại |
-| 4 発話表現 | 1–4 | ❌ **có hình vẽ**, 3 lựa chọn |
-| 5 即時応答 | 1–9 | ❌ đề không in gì (ーメモー) |
+Đối chiếu chéo với 37 đáp án cũ do AI giải: **khớp 36, lệch 1**.
+
+| Câu | Bảng ghi | Đang dùng | Vì sao |
+|---|---|---|---|
+| 文法 3 | 2 = すっかり | **4 = ちっとも** | 「のに（ ）面白くなかった」 — ちっとも mới đi với phủ định |
+
+Bảng đáp án **không có 問題5 phần từ vựng (câu 30–34)**, năm câu đó vẫn dùng đáp án cũ do AI giải
+(2, 3, 4, 1, 1) — nếu có bảng đầy đủ thì nên đối chiếu lại.
 
 ---
 

@@ -27,6 +27,38 @@ def clean(t):
     return t
 
 
+# Mỗi bản gõ lại trình bày một kiểu: ô trống khi là `＿＿`, khi `＿＿＿`, khi chỉ
+# là khoảng trắng; dấu cách khi nửa rộng khi toàn rộng. Chuẩn hoá ở đây, sau khi
+# đã gộp hết, để mọi đề hiện lên trong app giống nhau bất kể nguồn nào.
+RX_BLANK = re.compile(r"[＿_]{2,}")
+
+
+def tidy(t):
+    if not t:
+        return t
+    out = []
+    for line in str(t).split("\n"):
+        line = line.replace("　", " ")          # dấu cách toàn rộng
+        line = RX_BLANK.sub("＿＿＿", line)          # mọi ô trống về một cỡ
+        line = re.sub(r"\s*★\s*", " ★ ", line)      # ★ luôn có một dấu cách hai bên
+        line = re.sub(r"[ \t]{2,}", " ", line)
+        out.append(line.strip())
+    return "\n".join(out).strip()
+
+
+def tidy_exam(ex):
+    for sec in ex["sections"]:
+        for m in sec["mondai"]:
+            for k in ("instruction", "passage"):
+                if m.get(k):
+                    m[k] = tidy(m[k])
+            for q in m["questions"]:
+                for k in ("q", "passage"):
+                    if q.get(k):
+                        q[k] = tidy(q[k])
+                q["opts"] = [tidy(o) for o in q["opts"]]
+
+
 def merge_manual(exams):
     """Gộp exams_manual.json vào kết quả trích tự động.
 
@@ -169,6 +201,8 @@ def build():
     elif os.path.exists(MANUAL):
         print("exams_manual.json rỗng - không có gì để gộp")
 
+    for e in exams:
+        tidy_exam(e)
     exams.sort(key=lambda e: e["id"])      # đề nhập tay được nối vào cuối
     json.dump(exams, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("exams:", len(exams))
