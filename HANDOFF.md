@@ -48,7 +48,11 @@ do audio. Phát hành bằng cách nén cả thư mục thành zip.
 - `app.py` tìm tài nguyên qua `res_base()`: bản đóng gói lấy `resources\` cạnh exe, không có thì lùi về
   `_MEIPASS` (exe bản cũ vẫn chạy), chạy từ source thì lấy thư mục repo.
 - Thiếu file trong `resources\` → `_check_resources()` hiện MessageBox nói rõ thiếu gì, thay vì crash im lặng.
-- Sửa dữ liệu / `web/index.html` thì **chỉ cần chép đè vào `resources\`**, không phải build lại exe.
+- Sửa dữ liệu / `web/index.html` thì **chỉ cần chép đè vào `resources\`**, không phải build lại exe:
+  `python -c "import build; build.copy_resources()"`. Hàm này **đồng bộ tại chỗ** (chép file đổi, dọn
+  file thừa) chứ không xoá cả thư mục rồi chép lại — cách cũ để hở vài giây `resources/` trống, mở app
+  đúng lúc đó là `_check_resources()` báo thiếu tài nguyên rồi thoát. Đã xảy ra thật với chủ dự án
+  (16/09). Chép tại chỗ còn chạy được khi app đang mở, vì không đụng `icon.ico` mà app đang giữ.
 - Phải **tắt app đang chạy** trước khi build (`build.py` báo lỗi rõ nếu exe bị khoá).
 - `dist/` đã cho vào `.gitignore`; `dist/GunGunN3Trainer.exe` bản cũ đã `git rm --cached` (14/09) nên
   **repo không còn chứa exe** — phát hành bằng zip (GitHub Releases). File cũ vẫn còn trên đĩa máy này,

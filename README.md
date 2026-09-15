@@ -68,7 +68,8 @@ resources\
 
 Tài nguyên **để ngoài exe** (kiểu `resources/` của app thường gặp) nên:
 - exe nhẹ, build nhanh; audio ~73 MB không làm phình exe;
-- sửa dữ liệu hay `web/index.html` thì chỉ cần chép đè vào `resources\`, **không phải build lại**;
+- sửa dữ liệu hay `web/index.html` thì chỉ cần chép đè vào `resources\`, **không phải build lại**
+  (`python -c "import build; build.copy_resources()"` — đồng bộ tại chỗ, chạy được cả khi app đang mở);
 - phát hành: nén cả thư mục `dist\GunGunN3Trainer` thành một file zip.
 
 Lưu ý khi build:

@@ -41,12 +41,60 @@ def build_exe():
     subprocess.check_call(cmd, cwd=HERE)
 
 
+def sync_file(src, dst):
+    """Chép nếu khác, trả True nếu có chép. So theo cỡ + thời gian sửa."""
+    if os.path.isfile(dst):
+        a, b = os.stat(src), os.stat(dst)
+        if a.st_size == b.st_size and abs(a.st_mtime - b.st_mtime) < 2:
+            return False
+    d = os.path.dirname(dst)
+    if d and not os.path.isdir(d):
+        os.makedirs(d)
+    shutil.copy2(src, dst)
+    return True
+
+
+def sync_dir(src, dst, keep=None):
+    """Đồng bộ thư mục tại chỗ: chép file đổi, xoá file thừa.
+
+    `keep` (nếu có) là tập thư mục con được giữ, còn lại bỏ qua.
+    """
+    n = skip = 0
+    want = set()
+    for root, dirs, files in os.walk(src):
+        rel = os.path.relpath(root, src)
+        if keep is not None and rel != ".":
+            top = rel.split(os.sep)[0]
+            if top not in keep:
+                dirs[:] = []
+                continue
+        for f in files:
+            r = os.path.normpath(os.path.join(rel, f))
+            want.add(r)
+            if sync_file(os.path.join(root, f), os.path.join(dst, r)):
+                n += 1
+            else:
+                skip += 1
+    for root, _, files in os.walk(dst):
+        for f in files:
+            r = os.path.relpath(os.path.join(root, f), dst)
+            if os.path.normpath(r) not in want:
+                os.remove(os.path.join(root, f))
+    return n, skip
+
+
 def copy_resources():
+    """Đồng bộ TẠI CHỖ, không xoá cả thư mục rồi chép lại.
+
+    Cách cũ `rmtree` + `copytree` để hở một quãng vài giây thư mục resources
+    trống: mở app đúng lúc đó là `_check_resources()` báo thiếu tài nguyên rồi
+    thoát. Chép tại chỗ còn nhanh hơn hẳn vì 121 MB audio hầu như không đổi, và
+    không đụng vào file đang bị app mở (icon.ico) nên cập nhật được cả khi app
+    đang chạy.
+    """
     print("== resources ==")
     res = os.path.join(OUT, "resources")
-    if os.path.isdir(res):
-        shutil.rmtree(res)
-    os.makedirs(res)
+    os.makedirs(res, exist_ok=True)
     for name in RES:
         src = os.path.join(HERE, name)
         if not os.path.exists(src):
@@ -55,24 +103,20 @@ def copy_resources():
             print("   bỏ qua (chưa có): %s" % name)
             continue
         dst = os.path.join(res, name)
-        if name == "audio":
-            # chỉ chép audio của đề thật sự có trong exams.json — repo giữ cả file
-            # của đề chưa nhập xong, không cần nhét vào bản phát hành
-            ids = {e["id"] for e in json.load(
-                open(os.path.join(HERE, "exams.json"), encoding="utf-8"))}
-            shutil.copytree(src, dst, ignore=lambda d, names: [
-                n for n in names
-                if os.path.isdir(os.path.join(d, n)) and d == src and n not in ids])
-            n = sum(len(f) for _, _, f in os.walk(dst))
-            print("   %-14s %d file (đề: %s)" % (name + "/", n, ", ".join(sorted(ids))))
-            continue
         if os.path.isdir(src):
-            shutil.copytree(src, dst)
-            n = sum(len(f) for _, _, f in os.walk(dst))
-            print("   %-14s %d file" % (name + "/", n))
+            keep = None
+            note = ""
+            if name == "audio":
+                # chỉ giữ audio của đề thật sự có trong exams.json — repo giữ cả
+                # file của đề chưa nhập xong, không cần nhét vào bản phát hành
+                keep = {e["id"] for e in json.load(
+                    open(os.path.join(HERE, "exams.json"), encoding="utf-8"))}
+                keep.add("README.md")
+                note = " (đề: %s)" % ", ".join(sorted(x for x in keep if x != "README.md"))
+            n, skip = sync_dir(src, dst, keep)
+            print("   %-14s %d file chép, %d giữ nguyên%s" % (name + "/", n, skip, note))
         else:
-            shutil.copy2(src, dst)
-            print("   %-14s %.1f KB" % (name, os.path.getsize(dst) / 1024))
+            print("   %-14s %s" % (name, "đã chép" if sync_file(src, dst) else "giữ nguyên"))
 
 
 def main():
