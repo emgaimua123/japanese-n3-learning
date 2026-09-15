@@ -95,7 +95,7 @@ thay cho bản trích từ PDF trước đây (chỉ được 72 câu). **101/10
 
 Chủ dự án gửi bảng đáp án riêng (ảnh chụp bảng của Sei Japanese Centre). **Đối chiếu chéo với 56 đáp án
 cũ do AI giải: khớp 53, lệch 3.** Ba chỗ lệch đều là nội dung đề nói rõ về một phía nên dùng đáp án
-theo đề:
+theo đề — **chủ dự án đã duyệt (16/09)**, đừng sửa lại cho khớp bảng:
 
 | Câu | Bảng ghi | Đang dùng | Vì sao |
 |---|---|---|---|
