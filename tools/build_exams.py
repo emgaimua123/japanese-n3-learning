@@ -204,6 +204,16 @@ def build():
     for e in exams:
         tidy_exam(e)
     exams.sort(key=lambda e: e["id"])      # đề nhập tay được nối vào cuối
+
+    try:
+        from furigana import annotate_exam
+    except ImportError:                    # thiếu janome thì bỏ qua, đừng chặn build
+        print("! chưa có janome - exams.json sẽ không có furigana"
+              " (pip install janome rồi chạy lại)")
+    else:
+        for e in exams:
+            annotate_exam(e)
+
     json.dump(exams, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("exams:", len(exams))
     for e in exams:

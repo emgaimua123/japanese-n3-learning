@@ -1,16 +1,16 @@
 # GunGun N3 Trainer — Bàn giao & việc còn lại
 
-> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: **14/09/2026**.
+> File này để mở session mới mà không mất ngữ cảnh. Cập nhật lần cuối: **16/09/2026**.
 >
 > Chỗ nào đánh dấu **❓CẦN BỔ SUNG** là thông tin chỉ người chủ dự án biết — điền vào giúp.
 
 Repo: `emgaimua123/japanese-n3-learning` · nhánh chính `main` · thư mục làm việc trên máy:
 `C:\Users\Admin\Coding\GitHub\japanese-n3-learning`
 
-**Commit gần nhất**: `b56bdb0` (docs, **chưa push**) ← `0470467` ← `1e55f9b` (audio).
+**Commit gần nhất**: `68afe18` (đề 12/2022) — từ đó tới nay **chưa push**, đang tồn 7+ commit local.
 
-**Việc đang chờ ngay**: 35 câu nghe đã có audio nhưng **chưa có đáp án** nên chưa chấm điểm được —
-xem **§6 việc 1**. Đáp án nhiều khả năng nằm ở cuối chính các file mp3 ("KEM" = kèm đáp án).
+**Việc đang chờ ngay**: không có việc nào đang dở. Cả 5 đề đã đủ 504/504 câu, có audio, có furigana
+(§7). Việc còn lại là push và những mục nice-to-have ở §6.
 
 ---
 
@@ -30,7 +30,7 @@ App desktop Windows luyện thi JLPT N3 theo giáo trình GunGun Joutatsu, đón
 # chạy app + build exe
 python -m pip install pywebview pyinstaller pystray pillow anthropic
 # chỉ cần khi chạy lại pipeline trích PDF trong tools/
-python -m pip install pdfplumber
+python -m pip install pdfplumber janome
 ```
 
 Python đang dùng: `C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\python.exe`.
@@ -311,7 +311,7 @@ Toàn bộ đáp án hiện do AI giải (§5.3e). Nếu tìm được đáp án
       "questions": [{
         "n": 1,                            // đánh số lại 1..n trong phần, dùng cho navigator
         "label": 1,                        // số câu GỐC in trên đề — khớp với key trong exam_answers.json
-        "q": "この店では、いろいろな容器を売っています。",
+        "q": "この店《みせ》では、いろいろな容器《ようき》を売っています。",
         "opts": ["ようぎ", "ようき", "どうぐ", "どうく"],
         "answer": 2                        // 1-based; null = không chấm (phần nghe)
       }]
@@ -321,6 +321,30 @@ Toàn bộ đáp án hiện do AI giải (§5.3e). Nếu tìm được đáp án
 ```
 
 Quy ước: `answer: null` → câu vẫn hiển thị, có đếm giờ, nhưng không tính điểm.
+
+### Furigana `漢字《かんじ》`
+
+`q`, `opts`, `passage` có thể chứa furigana theo cú pháp `漢字《かんじ》` — sinh bằng
+`tools/furigana.py` (janome), gọi tự động ở cuối `build_exams.py`. Trong UI:
+
+* `rb(s)` → escape rồi đổi thành `<ruby>…<rt>…</rt></ruby>`;
+* `rbOff(s)` → gỡ markup, dùng khi cần **cắt chuỗi** (`.slice`) hoặc so khớp text gốc —
+  cắt thẳng chuỗi có markup sẽ chặt đứt `《…》` thành rác;
+* nút `ふりがな` trên thanh đề thi đổi `settings.furigana` (mặc định bật).
+
+Quy tắc gắn (đối chiếu 2 đề bản scan 7/2021 và 12/2023 còn giữ furigana in trên giấy):
+
+| Chỗ | Đề in thật | App |
+|---|---|---|
+| 文字・語彙, 文法 | có, gần như mọi từ có kanji | có |
+| Từ đang hỏi `【…】` | **không** (lộ đáp án) | không |
+| Đáp án 問題1 (chọn cách đọc) và 問題2 (chọn cách viết) | **không** (lộ đáp án) | không |
+| Đọc hiểu 問題4–7 | **không** | có, nhưng tắt được bằng nút `ふりがな` |
+| Kanji cơ bản mức N5 (`BASIC` trong `furigana.py`) | không | không |
+
+Hai chỗ janome hay đoán sai, đã chặn trong `furigana.py` — sửa `BASIC`/luật thì nhớ giữ:
+tên riêng bịa trong đề (`日前` → `ひくま`, `春中市` → `なかいち`) nên chỉ ép furigana cho
+tên người khi có hậu tố `さん/くん/先生/「…`; và lượng từ đứng sau số (`5 歳` → `とし`) thì bỏ qua.
 
 ---
 
@@ -336,13 +360,14 @@ Quy ước: `answer: null` → câu vẫn hiển thị, có đếm giờ, nhưng
 | `crop_images.py` | cắt hình minh hoạ phần nghe ra `images/` + sinh đoạn JSON để gộp | ✅ **thêm 14/09** |
 | `parse_docx_2021.py` | trích đề 2021-07 từ bản gõ lại .docx (cả đáp án + ảnh) | ✅ **thêm 14/09** |
 | `parse_docx_typed.py` | trích đề từ bản gõ lại .docx (2023-12 và 2023-07); khác nhau giữa các bản gom vào bảng `EXAMS` | ✅ **15–16/09** |
+| `furigana.py` | sinh furigana `漢字《かんじ》` cho `exams.json` bằng janome (xem §7) | ✅ **thêm 16/09** |
 | `check_exams.py` | soi lỗi `exams.json`: số câu so với format JLPT, lựa chọn trống/trùng, thiếu ảnh/audio | ✅ **thêm 14/09** |
 | `parse_vocab.py` + `fix_vocab2.py` | PDF từ vựng → `vocab.json` (parse rồi dọn nghĩa lẫn câu ví dụ) | ✅ **đã bổ sung 13/09** |
 | `parse_kanji.py` | PDF kanji → `kanji.json` | ✅ **đã bổ sung 13/09** |
 | `parse_grammar2.py` | PDF ngữ pháp → `grammar.json` | ✅ |
 | `parse_reading2.py` + `build_reading.py` | PDF đọc hiểu → `reading_raw.json` → `reading.json` | ✅ |
 
-Cần `pdfplumber`. Chạy lại đề thi: `cd tools && python resolve.py && python build_exams.py`
+Cần `pdfplumber` và `janome`. Chạy lại đề thi: `cd tools && python resolve.py && python build_exams.py`
 (`resolve.py` phải chạy trước vì nó dò lại đường dẫn 5 PDF trong Downloads).
 
 ### ⚠️ Cảnh báo ghi đè — đọc trước khi nhập tay

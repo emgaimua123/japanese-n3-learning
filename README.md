@@ -18,6 +18,8 @@ có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `res
 - **Session ngữ pháp**: mỗi bài của sách là một session — học từng mẫu (cấu trúc, giải thích y hệt sách, ví dụ, đáp án luyện dịch của sách), rồi quiz dịch câu ví dụ Nhật → Việt. Bài dịch được chấm theo **nghĩa**, không khoá cứng một đáp án: ưu tiên Claude API (nhập key trong Cài đặt), nếu không có key thì dùng bộ chấm ngoại tuyến đối chiếu ý với từ điển trong app. Dù đúng hay sai đều hiện lại cấu trúc ngữ pháp gốc gắn với câu đó.
 - **Đọc hiểu** (Học → Luyện đọc hiểu): 22 bài đọc luyện tập từ chương 5 đến 9. Làm xong mỗi câu có giải thích chi tiết, trích đúng câu chứa đáp án trong bài, lý do từng đáp án sai, và tip & trick cho dạng bài đó.
 - **Đề thi JLPT** (Kiểm tra → Đề thi JLPT N3): thi thử đề thật theo đúng cấu trúc và thời gian chuẩn (Từ vựng–Chữ Hán 30 phút · Ngữ pháp–Đọc hiểu 70 phút · Nghe hiểu 40 phút). Có bảng điều hướng câu hỏi bên phải (đã làm / đánh dấu phân vân / chưa làm đổi màu khác nhau), đồng hồ đếm ngược, hết giờ tự chuyển sang phần tiếp theo; cuối bài có điểm từng phần và bảng xem lại từng câu.
+  Đề có sẵn **furigana** cho các từ kanji (trừ từ đang được hỏi và đáp án của 問題1/問題2 — gắn vào là lộ đáp án);
+  nút `ふりがな` trên thanh đề bật/tắt được, tắt đi thì giống hệt bản in.
 - **Kiểm tra tổng hợp** (sidebar → Kiểm tra): gom tối đa N session ngẫu nhiên đã học thành bài kiểm tra có đếm giờ, không chấm từng câu — chấm điểm và giải thích toàn bộ ở cuối.
 - **Ôn tập** (sidebar): tất cả session đã học dạng thẻ, sắp xếp theo số session / tỷ lệ đúng / ngày học; mở ra xem lại toàn bộ nội dung và làm quiz ôn tập.
 - **Cài đặt** (sidebar, pop-up): đổi tên, giao diện, số từ/kanji mỗi session, số session mỗi bài kiểm tra, thời gian mỗi câu, mục tiêu session/ngày, khởi động cùng Windows, giờ nhắc học (thông báo Windows).
@@ -39,7 +41,7 @@ có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `res
 | `kanji.json` | 337 kanji + 1073 từ đi kèm trích từ PDF "GUNGUN N3 - KANJI" |
 | `grammar.json` | 151 mẫu ngữ pháp (26 bài) + 462 câu ví dụ + 462 câu luyện dịch kèm đáp án, trích từ PDF "GUNGUN N3 - NGỮ PHÁP" |
 | `reading.json` | 22 bài đọc (chương 5–9) + 31 câu hỏi kèm đáp án, câu chứa đáp án, giải thích và tips |
-| `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — đủ 504 câu, tất cả đều chấm điểm được. **File thành phẩm, sinh ra bởi `tools/build_exams.py`** |
+| `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — đủ 504 câu, tất cả đều chấm điểm được, kèm furigana dạng `漢字《かんじ》`. **File thành phẩm, sinh ra bởi `tools/build_exams.py`** |
 | `exam_answers.json` | đáp án đề thi (key `<id đề>/<phần>/<số câu gốc>`), dùng khi dựng lại `exams.json` |
 | `exams_manual.json` | dữ liệu đề thi nhập tay (đề scan, audio, bài đọc là ảnh) — được merge đè lên kết quả trích từ PDF |
 | `tools/` | pipeline trích dữ liệu từ PDF (xem `HANDOFF.md` §8) |
@@ -80,12 +82,15 @@ Lưu ý khi build:
 ## Dựng lại dữ liệu từ PDF
 
 ```powershell
-python -m pip install pdfplumber
+python -m pip install pdfplumber janome
 cd tools
 python parse_vocab.py; python fix_vocab2.py   # vocab.json
 python parse_kanji.py                          # kanji.json
 python parse_grammar2.py                       # grammar.json
-python resolve.py; python build_exams.py       # exams.json (gộp exams_manual.json)
+python resolve.py; python build_exams.py       # exams.json (gộp exams_manual.json + furigana)
 ```
+
+`build_exams.py` tự gọi `furigana.py` ở bước cuối. Chạy riêng cũng được:
+`python tools/furigana.py` (đọc và ghi đè `exams.json`).
 
 Các script tự tìm PDF trong `C:\Users\Admin\Downloads`. Riêng `reading.json` cần `tools/reading_raw.json` (xem `HANDOFF.md` §8).

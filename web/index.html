@@ -136,12 +136,14 @@ body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[dat
 @media (max-width:1000px){.paperwrap{grid-template-columns:1fr}}
 .paperq{padding:22px 26px}
 .pqtop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+ruby rt{font-size:.56em;font-weight:400;color:var(--muted);letter-spacing:0;user-select:none}
+.furibtn{font-size:12px;padding:5px 10px}
 .pqnum{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
 .flagbtn{border:1.5px solid var(--line);background:var(--elev);color:var(--ink2);font:inherit;
   font-size:12.5px;font-weight:650;padding:6px 12px;border-radius:99px;cursor:pointer;transition:.12s}
 .flagbtn:hover{border-color:var(--flag);color:var(--flag)}
 .flagbtn.on{background:var(--flag-soft);border-color:var(--flag);color:var(--flag)}
-.pqtext{font-size:18px;line-height:1.85}
+.pqtext{font-size:18px;line-height:2.4}
 .qaudio{width:100%;margin-bottom:12px}
 .paudio{position:sticky;top:66px;z-index:4;background:var(--elev);border:1.5px solid var(--line);
   border-radius:14px;padding:12px 14px 2px;margin:0 0 16px;backdrop-filter:blur(10px)}
@@ -162,7 +164,7 @@ body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[dat
 .modecard .sub{font-size:13px;line-height:1.6}
 .qimg{display:block;max-width:min(100%,520px);margin:0 auto 14px;border:1.5px solid var(--line);
   border-radius:12px;background:#fff}
-.paperq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.7;white-space:normal}
+.paperq .opt{display:flex;gap:10px;align-items:flex-start;line-height:2.25;white-space:normal}
 .paperq .opt.picked{border-color:var(--exam);background:var(--exam-soft);font-weight:600}
 .pqnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
 .navpanel{padding:16px;position:sticky;top:86px}
@@ -223,7 +225,7 @@ body[data-theme="aurora"] .paperbar,body[data-theme="sunset"] .paperbar,body[dat
 @media (max-width:1100px){.readwrap{grid-template-columns:1fr}}
 .readpassage{padding:22px 26px;position:sticky;top:18px;max-height:78vh;overflow-y:auto}
 .rplab{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
-.rptext{font-size:16.5px;line-height:2.1;text-align:justify}
+.rptext{font-size:16.5px;line-height:2.45;text-align:justify}
 .readq{padding:22px 26px}
 .rqhead{font-size:17px;font-weight:650;line-height:1.7;margin-bottom:14px}
 .readq .opt{display:flex;gap:10px;align-items:flex-start;line-height:1.65;white-space:normal}
@@ -607,6 +609,7 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
         <span class="sub" id="paperSecName"></span>
       </div>
       <div class="pbright">
+        <button class="btn ghost furibtn" id="paperFuri" onclick="App.toggleFurigana()"></button>
         <div class="ptimer" id="paperTimer">--:--</div>
       </div>
     </div>
@@ -763,6 +766,13 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
 ================================================================ */
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+// Đề thi lưu furigana theo cú pháp 漢字《かんじ》 (tools/furigana.py).
+// rb() dựng thành <ruby>, rbOff() gỡ hẳn khi người dùng tắt furigana.
+const FURI_RE = /([一-鿿々]+)《([^》]*)》/g;
+const rbOff = s => String(s ?? "").replace(/《[^》]*》/g, "");
+const rb = s => App.cfg().furigana === false
+  ? esc(rbOff(s))
+  : esc(s).replace(FURI_RE, "<ruby>$1<rt>$2</rt></ruby>");
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const pct = (c, t) => t ? Math.round(100 * c / t) : 0;
 
@@ -771,7 +781,7 @@ const STORE_KEY = "gungun_n3_state_v1";
 // riêng chứ không nhét vào state: state được mirror ra state-backup.json mỗi
 // lần save, không nên phình vì cache.
 const AI_CACHE_KEY = "gungun_n3_aigrade_v1";
-const CFG_DEFAULTS = { vocabPerSession: 10, kanjiPerSession: 4, examSessions: 5, mcSec: 15, typedSec: 25, remindTimes: [], closeAction: "ask", aiModel: "claude-sonnet-5" };
+const CFG_DEFAULTS = { vocabPerSession: 10, kanjiPerSession: 4, examSessions: 5, mcSec: 15, typedSec: 25, remindTimes: [], closeAction: "ask", furigana: true, aiModel: "claude-sonnet-5" };
 // Model chấm bài dịch. Giá mỗi triệu token (vào/ra) lấy từ bảng giá Anthropic;
 // "đ/câu" là ước lượng cho một câu dịch của app: ~580 token vào, ~600-1200 ra.
 const AI_MODELS = [
@@ -1568,6 +1578,7 @@ const App = {
         remindTimes: [...new Set(times)],
         closeAction: $("#setClose").value,
         aiModel: $("#setModel").value,
+        furigana: this.cfg().furigana,   // bật/tắt ở thanh đề thi, đừng ghi đè mất
       };
       const gmode = $("#setGMode").value;
       this.state.goals = {
@@ -1922,7 +1933,12 @@ const App = {
     const passage = pas && pas.length > 40
       ? `<div class="card readpassage" style="position:static;max-height:none;margin-bottom:14px">
            <div class="rplab">${esc(m.instruction).slice(0, 60)}</div>
-           <div class="jp rptext">${esc(pas)}</div></div>` : "";
+           <div class="jp rptext">${rb(pas)}</div></div>` : "";
+    const furiOn = this.cfg().furigana !== false;
+    $("#paperFuri").textContent = furiOn ? "ふりがな ON" : "ふりがな OFF";
+    $("#paperFuri").title = furiOn
+      ? "Đang hiện furigana — bấm để tắt (đề in thật không có furigana ở phần đọc hiểu)"
+      : "Đang ẩn furigana — bấm để hiện";
     const noAnswer = !q.answer;
     $("#paperBody").innerHTML = `
       ${passage}
@@ -1934,13 +1950,13 @@ const App = {
         </div>
         ${noAnswer && !q.audio ? `<div class="banner" style="margin:0 0 12px">🎧 Phần nghe: đề PDF không kèm file audio nên câu này chỉ để xem cấu trúc, không chấm điểm.</div>` : ""}
         ${q.img ? `<img class="qimg" src="${esc(q.img)}" alt="Hình của câu ${q.n}" loading="lazy">` : ""}
-        ${q.q ? `<div class="jp pqtext">${esc(q.q)}</div>`
+        ${q.q ? `<div class="jp pqtext">${rb(q.q)}</div>`
               : (q.img ? "" : `<div class="jp pqtext">(Xem đoạn văn phía trên)</div>`)}
         ${q.opts.every(o => !o) ? `<div class="sub" style="font-size:12.5px;margin-top:14px">
              Đề không in lựa chọn — nghe audio rồi chọn số tương ứng.</div>` : ""}
         <div class="opts" style="max-width:none;margin-top:14px">
           ${q.opts.map((o, i) => `<button class="opt jp${picked === i + 1 ? " picked" : ""}"
-             onclick="App.pickPaper(${i + 1})"><span class="rnum">${CIRC[i]}</span> ${esc(o)}</button>`).join("")}
+             onclick="App.pickPaper(${i + 1})"><span class="rnum">${CIRC[i]}</span> ${rb(o)}</button>`).join("")}
         </div>
         <div class="pqnav">
           <button class="btn" onclick="App.paperGo(-1)" ${P.qi === 0 ? "disabled" : ""}>← Câu trước</button>
@@ -2087,6 +2103,14 @@ const App = {
     this.P.ans[this.P.si][this.P.qi] = null;
     this.drawPaper();
   },
+  // Đề thật chỉ in furigana ở phần 文字・語彙 và 文法; ai muốn thi thử đúng y
+  // như bản in thì tắt đi, còn mặc định bật để đỡ vướng chữ chưa học.
+  toggleFurigana() {
+    const s = this.state.settings || (this.state.settings = {});
+    s.furigana = this.cfg().furigana === false;
+    this.save();
+    this.drawPaper();
+  },
   toggleFlag() {
     const P = this.P;
     P.flag[P.si][P.qi] = !P.flag[P.si][P.qi];
@@ -2172,9 +2196,9 @@ const App = {
       const pick = P.ans[si][i];
       const ok = pick === it.q.answer;
       return `<div class="xrow ${ok ? "ok" : "no"}">
-        <div class="xq">${ok ? "✔" : "✘"} Câu ${it.q.n} <span class="jp">${esc(it.q.q).slice(0, 70)}</span></div>
-        <div class="xa">Bạn chọn: ${pick ? esc(it.q.opts[pick - 1]) : "<i>(bỏ trống)</i>"}</div>
-        ${ok ? "" : `<div class="xm">Đáp án đúng: <b class="jp">${esc(it.q.opts[it.q.answer - 1])}</b></div>`}
+        <div class="xq">${ok ? "✔" : "✘"} Câu ${it.q.n} <span class="jp">${esc(rbOff(it.q.q).slice(0, 70))}</span></div>
+        <div class="xa">Bạn chọn: ${pick ? rb(it.q.opts[pick - 1]) : "<i>(bỏ trống)</i>"}</div>
+        ${ok ? "" : `<div class="xm">Đáp án đúng: <b class="jp">${rb(it.q.opts[it.q.answer - 1])}</b></div>`}
       </div>`;
     }).join("")).join("");
     $("#paperBody").innerHTML = `
