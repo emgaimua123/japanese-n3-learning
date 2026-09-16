@@ -42,12 +42,31 @@ EXAMS = {
         "q_bare": None,
         "ban": r"^(\d{1,2})ばん",
         "sec_marks": None,                 # suy ra từ số 問題 quay về 1
+        "sec_rx": None,
         "choukai_mark": "聴解",
         "m4_mark": "絵の問題",             # 問題4 không in tiêu đề, chỉ có dòng này
         "m4_split": [(1, 2), (3, 4)],      # mỗi ảnh chụp cả trang gồm 2 câu
         "mondai_fix": {},
         "skip": ("Bản chuyển sang text", "2023 年", "文法・読解",
                  "言語知識（文字・語彙）", "言語知識（文法）・読解"),
+    },
+    "2022-12": {
+        "file": "JLPT_N3_12_2022_text_gach_chan (1).docx",
+        "title": "Đề thi tháng 12/2022",
+        "q": r"^([0-9０-９]{1,2})[)）][　 ]*(.*)$",
+        # phần đọc đánh số lẫn lộn nửa rộng với toàn rộng ngay trong một số:
+        # "2３", "２4", "３1"...
+        "q_bare": r"^([0-9０-９]{1,2})[\s　]*[.．]?[\s　]+(\S.*)$",
+        "ban": r"^([0-9０-９]{1,2})[　 ]*番",
+        "sec_marks": None,
+        # không có tiêu đề phần riêng, nhận ra qua dòng tiêu đề lặp ở mỗi trang
+        "sec_rx": [("moji", "もじ・ごい"), ("bunpou", "文法・読解"), ("choukai", "聴解")],
+        "num_box": True,                   # số câu được gạch chân
+        "choukai_mark": None,
+        "m4_mark": None,
+        "m4_split": None,
+        "mondai_fix": {},
+        "skip": ("Bản chuyển sang text", "2022 年"),
     },
     "2022-07": {
         "file": "JLPT_N3_07_2022_text_gach_chan.docx",
@@ -59,6 +78,7 @@ EXAMS = {
         # 文法 và 読解 in thành hai tiêu đề nhưng là MỘT phần thi
         "sec_marks": {"文字・語彙": "moji", "文法": "bunpou", "読解": "bunpou",
                       "聴解": "choukai"},
+        "sec_rx": None,
         "choukai_mark": None,
         "m4_mark": None,
         "m4_split": None,
@@ -76,6 +96,7 @@ EXAMS = {
         "q_bare": r"^([0-9０-９]{1,2})[　 ]+(\S.*)$",
         "ban": r"^([0-9０-９]{1,2})[　 ]*番",
         "sec_marks": {"文字語彙": "moji", "文法・読解": "bunpou", "聴解": "choukai"},
+        "sec_rx": None,
         "choukai_mark": None,
         "m4_mark": None,                   # có tiêu đề 問題4 hẳn hoi
         "m4_split": None,                  # 4 ảnh, mỗi câu một ảnh
@@ -92,6 +113,7 @@ SECTIONS = {
 # bản gõ lại lẫn lộn 問題 với 間題 (nhận dạng sai chữ)
 RX_MONDAI = re.compile(r"^[問間]題[　 ]?([0-9０-９])(?![0-9０-９])")
 RX_BARE = re.compile(r"^(\d{1,2})$")
+RX_ONLY_NUM = re.compile(r"^[0-9０-９]{1,2}$")
 # Lựa chọn viết đủ kiểu: "1 あ", "１. あ", và dính liền "1「大きな家」と".
 # Không bắt buộc dấu cách — an toàn vì chỗ dùng còn đòi số phải đúng bằng
 # lựa chọn kế tiếp, nên dòng như "23 「私」は…" không lọt vào.
@@ -104,7 +126,7 @@ AUDIO_ONLY = {3: (3, 4), 5: (9, 3)}        # 問題: (số câu, số lựa ch�
 RX_HEADER = re.compile(r"^[０-９\d]{4}\s*年.*日本語能力試験")
 
 
-def para_text(p):
+def para_text(p, num_box=False):
     """Văn bản một đoạn, giữ hai thứ mà `.text` làm mất:
 
     - từ được gạch chân trong đề  -> bọc 【】
@@ -122,6 +144,13 @@ def para_text(p):
             out.append(" ★ ")
         elif not r.text.strip():
             out.append(" ＿＿＿ ")
+        elif num_box and RX_ONLY_NUM.match(r.text.strip()):
+            # Đề 12/2022 gạch chân cả SỐ CÂU (đề gốc in số trong ô vuông). Bọc
+            # 【】 vào đó là không mẫu nào nhận ra câu hỏi nữa — cả phần đọc hiểu
+            # từng mất sạch vì chỗ này. Chỉ bật cho đề cần: ở đề 7/2022, số ô
+            # trống (19)-(22) NẰM TRONG bài đọc cũng được gạch chân, bỏ 【】 đi
+            # là bài đọc bị cắt làm đôi ngay giữa chừng.
+            out.append(r.text.strip() + " ")
         else:
             out.append("【%s】" % r.text)
     return re.sub(r"[ \t]+", " ", "".join(out)).strip()
@@ -210,7 +239,7 @@ def parse(tag):
         buf = []
 
     for i, p in enumerate(doc.paragraphs):
-        t = para_text(p)
+        t = para_text(p, cfg.get("num_box"))
         # ảnh: chỉ phần nghe mới dùng, ảnh trong phần đọc chỉ là icon trang trí
         if i in imgs and cur_sec and cur_sec["key"] == "choukai":
             if cur_m and cur_m["no"] == 4:
@@ -220,6 +249,14 @@ def parse(tag):
                 name = "choukai-m%d-q%d.png" % (cur_m["no"], cur_q["label"])
                 open(os.path.join(imgdir, name), "wb").write(imgs[i])
                 cur_q["img"] = "../images/%s/%s" % (tag, name)
+        if cfg.get("sec_rx"):
+            for k, mark in cfg["sec_rx"]:
+                if mark in t:
+                    if cur_sec is None or cur_sec["key"] != k:
+                        flush(cur_q)
+                        cur_sec = new_sec(k)
+                        cur_m = cur_q = None
+                    break
         if not t or RX_HEADER.match(t) or t.startswith(cfg["skip"]):
             continue
         if cfg["sec_marks"] and t in cfg["sec_marks"]:
@@ -260,7 +297,8 @@ def parse(tag):
                     continue
             if cur_sec is None:
                 cur_sec = new_sec("moji")
-            elif not cfg["sec_marks"] and no == 1 and cur_sec["key"] == "moji":
+            elif (not cfg["sec_marks"] and not cfg.get("sec_rx")
+                  and no == 1 and cur_sec["key"] == "moji"):
                 cur_sec = new_sec("bunpou")
             cur_m = {"no": no, "instruction": t, "questions": []}
             cur_sec["mondai"].append(cur_m)

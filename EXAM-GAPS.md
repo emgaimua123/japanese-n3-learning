@@ -11,11 +11,11 @@ Phạm vi số câu của từng 問題 dưới đây đã **đối chiếu tậ
 |---|---|---|---|
 | **2021-07** | 101 | **101** ✅ | — xong hẳn |
 | **2022-07** | 100 | **100** ✅ | — xong hẳn |
-| 2022-12 | 75 | 59 | 26 câu chưa nhập |
+| **2022-12** | 101 | **101** ✅ | — xong hẳn |
 | **2023-07** | 101 | **101** ✅ | — xong hẳn |
 | **2023-12** | 101 | **101** ✅ | — xong hẳn |
 
-Tổng: **478/504 câu đã nhập**, trong đó **462 chấm được**. Bốn đề xong hẳn, chỉ còn 2022-12.
+Tổng: **504/504 câu — CẢ 5 ĐỀ ĐÃ XONG**, tất cả đều chấm điểm được.
 
 Kiểm tra dữ liệu bất cứ lúc nào bằng `cd tools && python check_exams.py [id đề]` — soi số câu so với
 format JLPT, lựa chọn trống/trùng, đáp án ngoài khoảng, thiếu file ảnh/audio, số thứ tự không liên tục.
@@ -52,29 +52,32 @@ Bảng đáp án **không có 問題5 phần từ vựng (câu 30–34)**; năm 
 
 ---
 
-## 2022-12 — thiếu 42 câu
+## 2022-12 — ✅ XONG (16/09)
 
-### 文字・語彙 (30 phút) — ✅ ĐỦ 35/35
+Nhập lại toàn bộ từ `source-pdf/exams/2022-12-typed.docx` bằng `tools/parse_docx_typed.py`,
+thay bản trích từ PDF (75 câu). **101/101 câu có đáp án**.
 
-### 文法・読解 (70 phút) — thiếu 18/38
-| 問題 | Đề in câu | Thiếu |
-|---|---|---|
-| 1 Ngữ pháp chọn đáp án | 1–13 | **câu 8, 9, 12, 13** |
-| 2 Sắp xếp câu ★ | 14–18 | **cả 5 câu** (mất vị trí ô ★ khi PDF bị làm phẳng) |
-| 3 Ngữ pháp trong đoạn văn | 19–22 | **câu 21, 22** (19, 20 đã lấy lại 15/09) |
-| 4 Đọc ngắn (4 bài) | 23–26 | **câu 23, 25** |
-| 5 Đọc trung | 27–32 | **câu 29** |
-| 6 Đọc dài | 33–36 | ✅ đủ |
-| 7 Tìm kiếm thông tin | 37–38 | ✅ đủ (lấy lại 15/09) |
+Hai chỗ phải vá thêm trong bộ trích:
 
-### 聴解 (40 phút) — thiếu 28 câu
-| 問題 | Câu số | Tình trạng |
-|---|---|---|
-| 1 課題理解 | 1–6 | có đủ, **chưa có đáp án** |
-| 2 ポイント理解 | 1–6 | có đủ, **chưa có đáp án** |
-| 3 概要理解 | 1–3 | ❌ đề không in gì |
-| 4 発話表現 | 1–4 | ❌ **có hình vẽ**, 3 lựa chọn |
-| 5 即時応答 | 1–9 | ❌ đề không in gì |
+- Không có tiêu đề phần thi riêng — nhận ra qua dòng tiêu đề lặp ở mỗi trang
+  (`もじ・ごい` / `文法・読解` / `聴解`), khai báo ở khoá `sec_rx`. Kèm theo phải **tắt** luật cũ
+  "số 問題 quay về 1 thì sang phần mới", vì nó tạo phần `bunpou` ngay giữa phần từ vựng.
+- **Số câu được gạch chân** (đề gốc in số trong ô vuông) nên bị bọc 【】 và không mẫu nào nhận ra
+  câu hỏi — cả phần đọc hiểu mất sạch. Khoá `num_box` bật riêng cho đề này; ở đề 7/2022 thì ngược
+  lại, số ô trống (19)–(22) *nằm trong* bài đọc cũng gạch chân, bỏ 【】 đi là bài đọc bị cắt đôi.
+
+### Đáp án — 5 chỗ dùng khác bảng
+
+Đối chiếu chéo với 59 đáp án cũ do AI giải: **khớp 54, lệch 5**. Cả năm chỗ nội dung đề chỉ cho
+một cách hiểu:
+
+| Câu | Bảng ghi | Đang dùng | Vì sao |
+|---|---|---|---|
+| 語彙 23 | 4 = 準備 | **3 = 希望** | 「部屋を希望したが空いていなかった」; 準備 không hợp nghĩa |
+| 文法 1 | 4 = が | **2 = で** | 「これで大丈夫でしょうか」 |
+| 文法 11 | 1 = いたします | **2 = おります** | khiêm nhường của いる là おる, nói về người công ty mình |
+| 文法 20 | 3 = は | **4 = が** | 「腕時計がないことに気がついた」 |
+| 読解 34 | 3 | **2** | bài đọc: làm ấm lõi cơ thể → nhiệt thoát ra → lõi **hạ** xuống |
 
 ---
 
