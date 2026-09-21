@@ -13,6 +13,7 @@ import winreg
 
 import pystray
 import webview
+from webview import http as _wvhttp
 from PIL import Image
 
 APP_NAME = "GunGun N3 Trainer"
@@ -65,6 +66,24 @@ def res_base():
 
 def res_path(rel):
     return os.path.join(res_base(), rel)
+
+
+class _ResServer(_wvhttp.BottleServer):
+    """Server nội bộ của pywebview nhưng lấy gốc là cả thư mục tài nguyên.
+
+    Mặc định pywebview lấy thư mục chứa index.html (resources/web/) làm gốc, nên
+    đường dẫn `../audio/…`, `../images/…` trong exams.json trỏ ra ngoài gốc và
+    không tải được — phần nghe không phát được, hình minh hoạ không hiện.
+    """
+
+    @classmethod
+    def start_server(cls, urls, http_port, keyfile=None, certfile=None):
+        address, _, server = super().start_server(urls, http_port, keyfile, certfile)
+        root = res_base()
+        server.root_path = root
+        server.common_path = root
+        cls.common_path = root
+        return address, root, server
 
 
 def _check_resources():
@@ -493,5 +512,5 @@ if __name__ == "__main__":
     _ui["tray_hint_shown"] = start_hidden
     window.events.closing += _on_closing
     _start_tray()
-    webview.start(private_mode=False, storage_path=STORAGE_DIR)
+    webview.start(private_mode=False, storage_path=STORAGE_DIR, server=_ResServer)
     _quit_app()

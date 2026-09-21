@@ -41,14 +41,17 @@ có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `res
 | `kanji.json` | 337 kanji + 1073 từ đi kèm trích từ PDF "GUNGUN N3 - KANJI" |
 | `grammar.json` | 151 mẫu ngữ pháp (26 bài) + 462 câu ví dụ + 462 câu luyện dịch kèm đáp án, trích từ PDF "GUNGUN N3 - NGỮ PHÁP" |
 | `reading.json` | 22 bài đọc (chương 5–9) + 31 câu hỏi kèm đáp án, câu chứa đáp án, giải thích và tips |
-| `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — đủ 504 câu, tất cả đều chấm điểm được, kèm furigana dạng `漢字《かんじ》`. **File thành phẩm, sinh ra bởi `tools/build_exams.py`** |
-| `exam_answers.json` | đáp án đề thi (key `<id đề>/<phần>/<số câu gốc>`), dùng khi dựng lại `exams.json` |
-| `exams_manual.json` | dữ liệu đề thi nhập tay (đề scan, audio, bài đọc là ảnh) — được merge đè lên kết quả trích từ PDF |
-| `tools/` | pipeline trích dữ liệu từ PDF (xem `HANDOFF.md` §8) |
+| `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — đủ 504 câu, tất cả đều chấm điểm được, kèm furigana dạng `漢字《かんじ》`. **Bản chốt cuối — sửa trực tiếp file này** (xem ghi chú dưới bảng) |
+| `tools/` | pipeline trích dữ liệu từ PDF (xem `HANDOFF.md` §8) — phần đề thi không còn chạy lại được, xem ghi chú dưới |
 | `EXAM-GAPS.md` | đề nào thiếu 問題 nào, câu số mấy — danh sách để nhập bổ sung |
 | `audio/` | file nghe phần 聴解 — `audio/<id đề>/choukai.mp3`, mỗi đề một file dài cho cả phần |
 | `source-pdf/` | toàn bộ PDF gốc (5 đề thi + 4 giáo trình) mà pipeline trích dữ liệu ra |
 | `images/` | hình minh hoạ phần nghe cắt từ PDF (`tools/crop_images.py`) |
+
+> **Bản chốt (21/09/2026)**: đã xoá các file JSON trung gian của pipeline (`exam_answers.json`,
+> `exams_manual.json`, `tools/exam_files.json`, `tools/reading_raw.json`). Repo chỉ còn 5 file dữ liệu
+> mà exe đọc. `exams.json` và `reading.json` giờ là bản gốc duy nhất — sửa trực tiếp; `build_exams.py`
+> không dựng lại được nữa. Cần dựng lại thì lấy các file trên từ lịch sử git (commit `98edfd6`).
 
 ## Build lại exe
 
@@ -87,7 +90,7 @@ cd tools
 python parse_vocab.py; python fix_vocab2.py   # vocab.json
 python parse_kanji.py                          # kanji.json
 python parse_grammar2.py                       # grammar.json
-python resolve.py; python build_exams.py       # exams.json (gộp exams_manual.json + furigana)
+python resolve.py; python build_exams.py       # exams.json — cần lấy lại exam_answers.json + exams_manual.json từ git (98edfd6)
 ```
 
 `build_exams.py` tự gọi `furigana.py` ở bước cuối. Chạy riêng cũng được:

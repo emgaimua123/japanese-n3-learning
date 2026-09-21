@@ -477,3 +477,17 @@ Sau khi sửa `app.py` — phải build exe hoặc chạy `python app.py` trên 
   `📋`) thì file còn lại 0 byte. Đã làm mất `HANDOFF.md` đúng kiểu này (14/09, khôi phục
   được bằng `git show <sha>:HANDOFF.md`). Dùng công cụ Edit, hoặc ghi ra file tạm rồi `os.replace`.
 - Người dùng giao tiếp bằng **tiếng Việt**; mọi chuỗi trong UI đều tiếng Việt.
+- **"Mất dữ liệu" lần 2 (21/09) thực ra là app không khởi động xong.** `loadData()` chỉ đợi pywebview
+  3 giây rồi rơi sang nhánh `fetch("../vocab.json")` của trình duyệt — trong exe request đó treo mãi,
+  không báo lỗi, app đứng ở dashboard trống. Dữ liệu trên đĩa vẫn nguyên. Giờ đợi tới 60 giây, chỉ
+  dùng `fetch` khi chạy ở server thử cổng 8123; boot lỗi thì hiện màn `#scr-boot` báo rõ, và `save()`
+  từ chối ghi khi chưa có `App.data` để không bao giờ ghi đè bản lưu thật bằng state rỗng.
+- **Server nội bộ của pywebview lấy gốc là thư mục chứa `index.html`** (`resources/web/`), nên mọi
+  đường dẫn `../audio/…`, `../images/…` trong `exams.json` đều không tải được trong exe (ở server thử
+  gốc là repo nên không lộ ra). `app.py` dùng `_ResServer` đặt gốc là `resources/`. Server này vẫn gửi
+  `no-cache` và hỗ trợ Range (tua audio được).
+- **`hidden` thua `display:` của class.** `.btn`, `.pactl`, `.parun` đặt `display:flex` nên JS gán
+  `el.hidden = true` không ẩn được gì: nút "Bắt đầu nghe" luôn hiện, nút tua 5s lọt vào chế độ Kiểm tra.
+  Đã thêm `[hidden]{display:none!important}` ở đầu CSS — đừng xoá.
+- **Thử UI trong pywebview mà app thật đang mở thì cổng 42001 đụng nhau**: cửa sổ thử sẽ nạp trang của
+  app đang chạy chứ không phải file trong repo. Truyền `http_port` khác khi viết script thử.

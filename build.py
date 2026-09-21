@@ -69,6 +69,8 @@ def sync_dir(src, dst, keep=None):
                 dirs[:] = []
                 continue
         for f in files:
+            if f.endswith(".md"):      # ghi chú cho người sửa repo, exe không cần
+                continue
             r = os.path.normpath(os.path.join(rel, f))
             want.add(r)
             if sync_file(os.path.join(root, f), os.path.join(dst, r)):
@@ -111,8 +113,7 @@ def copy_resources():
                 # file của đề chưa nhập xong, không cần nhét vào bản phát hành
                 keep = {e["id"] for e in json.load(
                     open(os.path.join(HERE, "exams.json"), encoding="utf-8"))}
-                keep.add("README.md")
-                note = " (đề: %s)" % ", ".join(sorted(x for x in keep if x != "README.md"))
+                note = " (đề: %s)" % ", ".join(sorted(keep))
             n, skip = sync_dir(src, dst, keep)
             print("   %-14s %d file chép, %d giữ nguyên%s" % (name + "/", n, skip, note))
         else:

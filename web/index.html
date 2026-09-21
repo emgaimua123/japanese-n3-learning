@@ -100,6 +100,10 @@ body.nosb #sidebar{display:none}
 .sechead{display:flex;align-items:center;gap:14px;margin:28px 0 14px;color:var(--ink2);
   font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}
 .sechead::before,.sechead::after{content:"";height:1px;background:var(--line);flex:1}
+/* `hidden` phải thắng mọi `display:` của class — thiếu dòng này thì .btn/.pactl
+   (display:flex) vẫn hiện dù JS đã đặt hidden: nút "Bắt đầu nghe" không bao giờ
+   ẩn, nút tua/tốc độ của Luyện tập lọt sang chế độ Kiểm tra. */
+[hidden]{display:none!important}
 .screen{display:none}
 .screen.on{display:block;animation:fade .18s ease}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -492,6 +496,15 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
   </aside>
   <main id="main">
   <!-- ===== name ===== -->
+  <!-- hiện tới khi boot() nạp xong dữ liệu; lỗi thì ghi rõ ở đây chứ không để dashboard trống -->
+  <section id="scr-boot" class="screen on">
+    <div class="card" style="max-width:520px;margin:18vh auto 0;text-align:center;padding:30px">
+      <div style="font-size:34px">語</div>
+      <h2 id="bootMsg" style="margin-top:10px">Đang tải dữ liệu…</h2>
+      <div class="sub" id="bootSub">Tiến trình học của bạn vẫn an toàn — app chỉ đang khởi động.</div>
+    </div>
+  </section>
+
   <section id="scr-name" class="screen">
     <div class="card namebox">
       <div class="logo jp">語</div>
@@ -854,13 +867,18 @@ const App = {
       `<button class="tsw t-${t.id}${t.id === cur ? " on" : ""}" title="${t.name}" onclick="App.setTheme('${t.id}')"></button>`).join("");
   },
   async loadData() {
-    // pywebview api, with a fetch fallback for browser development
-    for (let i = 0; i < 30; i++) {
-      if (window.pywebview && window.pywebview.api) {
+    // Trong exe: đợi pywebview gắn api xong. Trước đây chỉ đợi 3 giây rồi rơi sang
+    // nhánh fetch của trình duyệt — trong exe request đó treo mãi không báo lỗi,
+    // app đứng ở dashboard trống như thể mất hết dữ liệu (máy khởi động chậm là dính).
+    const inBrowserDev = location.protocol.startsWith("http") && location.port === "8123";
+    const deadline = Date.now() + (inBrowserDev ? 1500 : 60000);
+    while (Date.now() < deadline) {
+      if (window.pywebview && window.pywebview.api && window.pywebview.api.get_data) {
         try { return await window.pywebview.api.get_data(); } catch (e) {}
       }
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise(r => setTimeout(r, 150));
     }
+    if (!inBrowserDev) throw new Error("Không kết nối được với phần lõi của app (pywebview).");
     const v = await Promise.all([
       fetch("../vocab.json").then(r => r.json()),
       fetch("../kanji.json").then(r => r.json()),
@@ -887,6 +905,7 @@ const App = {
     return score(b) > score(a) ? b : a;
   },
   save() {
+    if (!this.state || !this.data) return;   // boot chưa xong: đừng ghi đè bản lưu thật
     this.state.savedAt = Date.now();
     const t = JSON.stringify(this.state);
     try { localStorage.setItem(STORE_KEY, t); } catch (e) {}
@@ -2028,7 +2047,12 @@ const App = {
   },
   startExamAudio() {
     const el = $("#paperAudioEl");
-    el.play().then(() => { $("#paperAudioStart").hidden = true; }).catch(() => {});
+    el.play().then(() => { $("#paperAudioStart").hidden = true; }).catch(e => {
+      // trước đây nuốt lỗi im lặng: bấm nút không thấy gì xảy ra
+      $("#paperAudioLab").textContent = "⚠ Không phát được audio: " + (el.error
+        ? `không tải được file ${el.getAttribute("src")} — kiểm tra thư mục resources\\audio`
+        : (e && e.message || e));
+    });
   },
   audioSeek(d) {
     const el = $("#paperAudioEl");
@@ -3249,7 +3273,16 @@ const App = {
   },
 };
 
-window.addEventListener("DOMContentLoaded", () => App.boot());
+window.addEventListener("DOMContentLoaded", () => App.boot().catch(e => {
+  // Không có dữ liệu thì tuyệt đối không cho dùng tiếp: state rỗng mà lỡ save()
+  // là ghi đè mất tiến trình thật trong state-backup.json.
+  App.state = null;
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("on"));
+  $("#scr-boot").classList.add("on");
+  $("#bootMsg").textContent = "Không tải được dữ liệu";
+  $("#bootSub").innerHTML = `${esc(e && e.message || e)}<br><br>Tiến trình học <b>không bị mất</b> (vẫn nằm trong
+    <span class="jp">%LOCALAPPDATA%\\GunGunN3Trainer</span>). Đóng hẳn app (chuột phải biểu tượng ở khay → Thoát) rồi mở lại.`;
+}));
 </script>
 </body>
 </html>
