@@ -2,10 +2,21 @@
 
 Ứng dụng desktop (Windows) luyện **từ vựng**, **kanji**, **ngữ pháp**, **đọc hiểu** và **thi thử đề JLPT N3** theo giáo trình GunGun Joutatsu N3.
 
-## Chạy ứng dụng
+[![Tải bản mới nhất](https://img.shields.io/github/v/release/emgaimua123/japanese-n3-learning?label=T%E1%BA%A3i%20b%E1%BA%A3n%20m%E1%BB%9Bi%20nh%E1%BA%A5t&style=for-the-badge&color=c2185b)](https://github.com/emgaimua123/japanese-n3-learning/releases/latest)
+[![Lượt tải](https://img.shields.io/github/downloads/emgaimua123/japanese-n3-learning/total?label=L%C6%B0%E1%BB%A3t%20t%E1%BA%A3i&style=for-the-badge)](https://github.com/emgaimua123/japanese-n3-learning/releases)
 
-Giải nén file zip phát hành rồi chạy `GunGunN3Trainer.exe` (không cần cài đặt gì thêm — chỉ cần Windows 10/11
-có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `resources\` cạnh file exe.
+## Tải về
+
+**→ [Vào trang Releases để tải](https://github.com/emgaimua123/japanese-n3-learning/releases/latest)**, lấy file
+`GunGunN3Trainer-v1.0-win64.zip` trong mục **Assets** (~140 MB). Hai file *Source code* bên dưới là mã nguồn,
+người dùng bình thường không cần tải.
+
+1. Giải nén — bên trong có sẵn `GunGunN3Trainer.exe` và thư mục `resources\`.
+2. Chạy `GunGunN3Trainer.exe`. Không cần cài đặt gì thêm.
+3. Giữ nguyên thư mục `resources\` cạnh file exe, đừng tách ra.
+
+Yêu cầu: Windows 10/11 (WebView2 đã có sẵn trong máy). Lần đầu mở, Windows SmartScreen có thể cảnh báo vì
+file chưa mua chứng chỉ ký số — bấm **More info → Run anyway**.
 
 ## Tính năng
 
