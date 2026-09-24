@@ -870,15 +870,19 @@ const App = {
     // Trong exe: đợi pywebview gắn api xong. Trước đây chỉ đợi 3 giây rồi rơi sang
     // nhánh fetch của trình duyệt — trong exe request đó treo mãi không báo lỗi,
     // app đứng ở dashboard trống như thể mất hết dữ liệu (máy khởi động chậm là dính).
-    const inBrowserDev = location.protocol.startsWith("http") && location.port === "8123";
-    const deadline = Date.now() + (inBrowserDev ? 1500 : 60000);
+    // window.pywebview xuất hiện sớm, còn .api thì gắn sau và có thể lâu vài chục
+    // giây lúc máy khởi động. Không thấy window.pywebview sau 3 giây nghĩa là đang
+    // mở bằng trình duyệt thường → đi thẳng sang fetch.
+    let deadline = Date.now() + 3000, extended = false;
     while (Date.now() < deadline) {
+      if (window.pywebview && !extended) { extended = true; deadline = Date.now() + 60000; }
       if (window.pywebview && window.pywebview.api && window.pywebview.api.get_data) {
         try { return await window.pywebview.api.get_data(); } catch (e) {}
       }
       await new Promise(r => setTimeout(r, 150));
     }
-    if (!inBrowserDev) throw new Error("Không kết nối được với phần lõi của app (pywebview).");
+    // Hết giờ chờ thì thử nốt đường fetch (server thử, hoặc mở thẳng địa chỉ
+    // server của app bằng trình duyệt) — lỗi ở đây sẽ hiện ra màn #scr-boot.
     const v = await Promise.all([
       fetch("../vocab.json").then(r => r.json()),
       fetch("../kanji.json").then(r => r.json()),
