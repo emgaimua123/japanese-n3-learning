@@ -120,7 +120,36 @@ def copy_resources():
             print("   %-14s %s" % (name, "đã chép" if sync_file(src, dst) else "giữ nguyên"))
 
 
+def make_zip(version):
+    """Gói bản phát hành: giải nén ra là thấy ngay exe cạnh thư mục resources.
+
+    Không bọc thêm một lớp thư mục nữa, vì Windows đã tự tạo thư mục mang tên
+    file zip rồi — bọc hai lớp thì phải bấm vào hai lần mới thấy exe.
+    """
+    import zipfile
+    out = os.path.join(os.path.dirname(OUT), "GunGunN3Trainer-%s-win64.zip" % version)
+    if os.path.isfile(out):
+        os.remove(out)
+    n = 0
+    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+        for root, _, files in os.walk(OUT):
+            for f in files:
+                p = os.path.join(root, f)
+                rel = os.path.relpath(p, OUT)
+                try:
+                    z.write(p, rel)
+                except PermissionError:
+                    # icon.ico hay bị app/Explorer giữ — lấy bản trong repo thay thế
+                    z.write(os.path.join(HERE, f), rel)
+                n += 1
+    print("\nzip: %s\n   %d file · %.1f MB" % (out, n, os.path.getsize(out) / 1048576))
+
+
 def main():
+    if "--zip" in sys.argv:
+        i = sys.argv.index("--zip")
+        make_zip(sys.argv[i + 1] if len(sys.argv) > i + 1 else "v1.0")
+        return
     if os.path.isfile(EXE):
         try:                                  # exe đang chạy thì Windows khoá file
             os.replace(EXE, EXE + ".old")
