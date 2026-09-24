@@ -42,8 +42,7 @@ có WebView2, mặc định đã có sẵn). Nhớ giữ nguyên thư mục `res
 | `grammar.json` | 151 mẫu ngữ pháp (26 bài) + 462 câu ví dụ + 462 câu luyện dịch kèm đáp án, trích từ PDF "GUNGUN N3 - NGỮ PHÁP" |
 | `reading.json` | 22 bài đọc (chương 5–9) + 31 câu hỏi kèm đáp án, câu chứa đáp án, giải thích và tips |
 | `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — đủ 504 câu, tất cả đều chấm điểm được, kèm furigana dạng `漢字《かんじ》`. **Bản chốt cuối — sửa trực tiếp file này** (xem ghi chú dưới bảng) |
-| `tools/` | pipeline trích dữ liệu từ PDF (xem `docs/HANDOFF.md` §8) — phần đề thi không còn chạy lại được, xem ghi chú dưới |
-| `docs/EXAM-GAPS.md` | đề nào thiếu 問題 nào, câu số mấy — danh sách để nhập bổ sung |
+| `tools/` | pipeline trích dữ liệu từ PDF — phần đề thi không còn chạy lại được, xem ghi chú dưới |
 | `audio/` | file nghe phần 聴解 — `audio/<id đề>/choukai.mp3`, mỗi đề một file dài cho cả phần |
 | `source-pdf/` | toàn bộ PDF gốc (5 đề thi + 4 giáo trình) mà pipeline trích dữ liệu ra |
 | `images/` | hình minh hoạ phần nghe cắt từ PDF (`tools/crop_images.py`) |
@@ -96,4 +95,4 @@ python resolve.py; python build_exams.py       # exams.json — cần lấy lạ
 `build_exams.py` tự gọi `furigana.py` ở bước cuối. Chạy riêng cũng được:
 `python tools/furigana.py` (đọc và ghi đè `exams.json`).
 
-Các script tự tìm PDF trong `C:\Users\Admin\Downloads`. Riêng `reading.json` cần `tools/reading_raw.json` (xem `docs/HANDOFF.md` §8).
+Các script tự tìm PDF trong `C:\Users\Admin\Downloads`. Riêng `reading.json` cần `tools/reading_raw.json`, lấy lại từ lịch sử git.
