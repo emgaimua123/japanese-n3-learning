@@ -870,19 +870,22 @@ const App = {
     // Trong exe: đợi pywebview gắn api xong. Trước đây chỉ đợi 3 giây rồi rơi sang
     // nhánh fetch của trình duyệt — trong exe request đó treo mãi không báo lỗi,
     // app đứng ở dashboard trống như thể mất hết dữ liệu (máy khởi động chậm là dính).
-    // window.pywebview xuất hiện sớm, còn .api thì gắn sau và có thể lâu vài chục
-    // giây lúc máy khởi động. Không thấy window.pywebview sau 3 giây nghĩa là đang
-    // mở bằng trình duyệt thường → đi thẳng sang fetch.
-    let deadline = Date.now() + 3000, extended = false;
-    while (Date.now() < deadline) {
-      if (window.pywebview && !extended) { extended = true; deadline = Date.now() + 60000; }
-      if (window.pywebview && window.pywebview.api && window.pywebview.api.get_data) {
-        try { return await window.pywebview.api.get_data(); } catch (e) {}
+    // Chạy trong app thì BẮT BUỘC phải có pywebview: thiếu nó là mất key API,
+    // mất autostart, mất cả việc ghi file backup tiến trình. Trước đây quá 3 giây
+    // là rơi sang đường fetch của trình duyệt, app vẫn hiện bài học nên trông như
+    // chạy bình thường, nhưng thật ra đã chạy thiếu nửa chức năng mà không báo gì.
+    // Chỉ server thử (cổng 8123) mới được dùng đường fetch.
+    const dev = location.port === "8123";
+    if (!dev) {
+      const deadline = Date.now() + 90000;
+      while (Date.now() < deadline) {
+        if (window.pywebview && window.pywebview.api && window.pywebview.api.get_data) {
+          try { return await window.pywebview.api.get_data(); } catch (e) {}
+        }
+        await new Promise(r => setTimeout(r, 150));
       }
-      await new Promise(r => setTimeout(r, 150));
+      throw new Error("Không kết nối được với phần lõi của app sau 90 giây.");
     }
-    // Hết giờ chờ thì thử nốt đường fetch (server thử, hoặc mở thẳng địa chỉ
-    // server của app bằng trình duyệt) — lỗi ở đây sẽ hiện ra màn #scr-boot.
     const v = await Promise.all([
       fetch("../vocab.json").then(r => r.json()),
       fetch("../kanji.json").then(r => r.json()),
