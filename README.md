@@ -1,4 +1,4 @@
-﻿# GunGun N3 Trainer
+# GunGun N3 Trainer
 
 Ứng dụng desktop (Windows) luyện **từ vựng**, **kanji**, **ngữ pháp**, **đọc hiểu** và **thi thử đề JLPT N3** theo giáo trình GunGun Joutatsu N3.
 
@@ -18,92 +18,75 @@ người dùng bình thường không cần tải.
 Yêu cầu: Windows 10/11 (WebView2 đã có sẵn trong máy). Lần đầu mở, Windows SmartScreen có thể cảnh báo vì
 file chưa mua chứng chỉ ký số — bấm **More info → Run anyway**.
 
-## Tính năng
+## Học gì trong app
 
-- **Session từ vựng**: mỗi session học 10 từ mới (theo thứ tự giáo trình) → ôn tập từng từ (kanji/kana, cách đọc, âm Hán-Việt, từ loại, nghĩa) → quiz.
-- **Session kanji**: mỗi session 4–5 chữ kanji kèm toàn bộ từ vựng đi theo chữ đó (âm 訓/音, Hán-Việt, câu chuyện ghi nhớ).
-- **Quiz**: Nhật → Việt là trắc nghiệm 4 đáp án; Việt → Nhật là tự luận (chấp nhận kanji hoặc kana). Chấm ngay từng câu kèm giải thích chi tiết.
-- Sau quiz: ôn lại các từ sai / làm lại quiz / kết thúc session.
-- **Kiểm tra bài cũ**: từ session thứ 2, trước khi vào bài mới sẽ có quiz ôn một session ngẫu nhiên trong quá khứ.
-- **Dashboard**: số session, số từ/kanji đã học, tỷ lệ đúng quiz, tỷ lệ thuộc bài cũ, biểu đồ kết quả theo session, checkpoint mục tiêu ngày (7 ngày gần nhất), lịch sử ôn tập (ngày giờ, thời lượng, điểm), đồng hồ trực tiếp.
-- **Session ngữ pháp**: mỗi bài của sách là một session — học từng mẫu (cấu trúc, giải thích y hệt sách, ví dụ, đáp án luyện dịch của sách), rồi quiz dịch câu ví dụ Nhật → Việt. Bài dịch được chấm theo **nghĩa**, không khoá cứng một đáp án: ưu tiên Claude API (nhập key trong Cài đặt), nếu không có key thì dùng bộ chấm ngoại tuyến đối chiếu ý với từ điển trong app. Dù đúng hay sai đều hiện lại cấu trúc ngữ pháp gốc gắn với câu đó.
-- **Đọc hiểu** (Học → Luyện đọc hiểu): 22 bài đọc luyện tập từ chương 5 đến 9. Làm xong mỗi câu có giải thích chi tiết, trích đúng câu chứa đáp án trong bài, lý do từng đáp án sai, và tip & trick cho dạng bài đó.
-- **Đề thi JLPT** (Kiểm tra → Đề thi JLPT N3): thi thử đề thật theo đúng cấu trúc và thời gian chuẩn (Từ vựng–Chữ Hán 30 phút · Ngữ pháp–Đọc hiểu 70 phút · Nghe hiểu 40 phút). Có bảng điều hướng câu hỏi bên phải (đã làm / đánh dấu phân vân / chưa làm đổi màu khác nhau), đồng hồ đếm ngược, hết giờ tự chuyển sang phần tiếp theo; cuối bài có điểm từng phần và bảng xem lại từng câu.
-  Đề có sẵn **furigana** cho các từ kanji (trừ từ đang được hỏi và đáp án của 問題1/問題2 — gắn vào là lộ đáp án);
-  nút `ふりがな` trên thanh đề bật/tắt được, tắt đi thì giống hệt bản in.
-- **Kiểm tra tổng hợp** (sidebar → Kiểm tra): gom tối đa N session ngẫu nhiên đã học thành bài kiểm tra có đếm giờ, không chấm từng câu — chấm điểm và giải thích toàn bộ ở cuối.
-- **Ôn tập** (sidebar): tất cả session đã học dạng thẻ, sắp xếp theo số session / tỷ lệ đúng / ngày học; mở ra xem lại toàn bộ nội dung và làm quiz ôn tập.
-- **Cài đặt** (sidebar, pop-up): đổi tên, giao diện, số từ/kanji mỗi session, số session mỗi bài kiểm tra, thời gian mỗi câu, mục tiêu session/ngày, khởi động cùng Windows, giờ nhắc học (thông báo Windows).
-- Đếm ngược tới kỳ thi JLPT kế tiếp (Chủ nhật đầu tiên của tháng 7 và tháng 12) ngay dưới đồng hồ.
-- **Học bù**: ngày không đạt mục tiêu được ghi nợ; học thêm vào ngày sau sẽ tự động trả nợ và tô đậm lại ngày đó (dấu ↻). App nhắc học bù bằng thông báo Windows (1 lần/ngày) và banner trên trang chính.
-- **Chạy ngầm**: bấm X sẽ hỏi *Chạy ngầm ở khay* hay *Thoát hẳn* (có thể ghi nhớ lựa chọn). Khi chạy ngầm, app thu về biểu tượng 語 ở khay hệ thống — nhấn biểu tượng (hoặc mở lại shortcut) để hiện cửa sổ, chuột phải để thoát. Thông báo nhắc học vẫn hoạt động khi chạy ngầm.
-- **Mục tiêu tự động**: mặc định app tự tính số session cần học mỗi ngày = số session chưa học ÷ số ngày còn lại tới kỳ JLPT, tính lại mỗi ngày một lần (chuyển sang tự đặt trong Cài đặt).
-- **Lịch học**: bấm vào checkpoint 7 ngày để mở lịch tháng đánh dấu ngày đã học / học bù / chưa đủ / bỏ lỡ, chuyển được giữa lịch Từ vựng và Kanji.
-- 5 theme: Sáng / Tối / 3 gradient động (Aurora đổi màu liên tục).
-- Tiến trình lưu cục bộ (localStorage của WebView2 + bản sao JSON tại `%LOCALAPPDATA%\GunGunN3Trainer\`).
+**Từ vựng** — 2016 từ theo đúng thứ tự giáo trình. Mỗi session 10 từ mới: xem từng từ (kanji/kana, cách đọc,
+âm Hán-Việt, từ loại, nghĩa) rồi làm quiz. Nhật → Việt là trắc nghiệm, Việt → Nhật là tự luận (gõ kanji hay
+kana đều được). Sai câu nào giải thích ngay câu đó; hết quiz có thể ôn lại các từ sai hoặc làm lại từ đầu.
 
-## Cấu trúc
+**Kanji** — 337 chữ kèm 1073 từ đi theo. Mỗi session 4–5 chữ: âm 訓/音, âm Hán-Việt, câu chuyện ghi nhớ, rồi
+quiz kanji → hiragana và hiragana → kanji.
 
-| File | Vai trò |
-|---|---|
-| `app.py` | Host desktop (pywebview + WebView2) |
-| `web/index.html` | Toàn bộ giao diện + logic (1 file) |
-| `vocab.json` | 2016 từ vựng trích từ PDF "GG N3 - TỪ VỰNG TỔNG HỢP" |
-| `kanji.json` | 337 kanji + 1073 từ đi kèm trích từ PDF "GUNGUN N3 - KANJI" |
-| `grammar.json` | 151 mẫu ngữ pháp (26 bài) + 462 câu ví dụ + 462 câu luyện dịch kèm đáp án, trích từ PDF "GUNGUN N3 - NGỮ PHÁP" |
-| `reading.json` | 22 bài đọc (chương 5–9) + 31 câu hỏi kèm đáp án, câu chứa đáp án, giải thích và tips |
-| `exams.json` | cả 5 đề thi JLPT thật (7/2021, 7/2022, 12/2022, 7/2023, 12/2023) — đủ 504 câu, tất cả đều chấm điểm được, kèm furigana dạng `漢字《かんじ》`. **Bản chốt cuối — sửa trực tiếp file này** (xem ghi chú dưới bảng) |
-| `tools/` | pipeline trích dữ liệu từ PDF — phần đề thi không còn chạy lại được, xem ghi chú dưới |
-| `audio/` | file nghe phần 聴解 — `audio/<id đề>/choukai.mp3`, mỗi đề một file dài cho cả phần |
-| `source-pdf/` | toàn bộ PDF gốc (5 đề thi + 4 giáo trình) mà pipeline trích dữ liệu ra |
-| `images/` | hình minh hoạ phần nghe cắt từ PDF (`tools/crop_images.py`) |
+**Ngữ pháp** — 151 mẫu chia theo 26 bài của sách. Học từng mẫu (cấu trúc, giải thích, ví dụ, đáp án luyện dịch
+của sách) rồi quiz dịch câu Nhật → Việt. Bài dịch chấm theo **nghĩa** chứ không khoá cứng một đáp án, nên diễn
+đạt khác sách vẫn được tính đúng; đúng hay sai đều hiện lại mẫu ngữ pháp gắn với câu đó.
 
-> **Bản chốt (21/09/2026)**: đã xoá các file JSON trung gian của pipeline (`exam_answers.json`,
-> `exams_manual.json`, `tools/exam_files.json`, `tools/reading_raw.json`). Repo chỉ còn 5 file dữ liệu
-> mà exe đọc. `exams.json` và `reading.json` giờ là bản gốc duy nhất — sửa trực tiếp; `build_exams.py`
-> không dựng lại được nữa. Cần dựng lại thì lấy các file trên từ lịch sử git (commit `98edfd6`).
+**Đọc hiểu** — 22 bài đọc luyện tập (chương 5–9). Mỗi câu có giải thích chi tiết, trích đúng câu chứa đáp án
+trong bài, lý do từng đáp án sai và tip cho dạng bài đó.
 
-## Build lại exe
+**Đề thi JLPT N3** — 5 đề thật: 7/2021, 7/2022, 12/2022, 7/2023, 12/2023, đủ **504 câu** và chấm điểm được hết.
 
-```powershell
-python -m pip install pywebview pyinstaller pystray pillow anthropic
-python build.py
-```
+## Thi thử đề JLPT
 
-Kết quả nằm ở `dist\GunGunN3Trainer\`:
+Vào **Kiểm tra → Đề thi JLPT N3**. Đề chạy đúng cấu trúc và thời gian chuẩn: Từ vựng–Chữ Hán 30 phút ·
+Ngữ pháp–Đọc hiểu 70 phút · Nghe hiểu 40 phút. Hết giờ tự chuyển sang phần tiếp theo; cuối bài có điểm từng
+phần và bảng xem lại từng câu.
 
-```
-GunGunN3Trainer.exe      ~34 MB — chỉ có Python runtime + pywebview + pystray
-resources\
-  web\index.html         giao diện
-  vocab.json …           5 file dữ liệu
-  audio\<id đề>\*.mp3    file nghe phần 聴解
-  icon.ico
-```
+- **Bảng điều hướng** bên phải: câu đã làm, câu đánh dấu phân vân và câu chưa làm có màu khác nhau, bấm để nhảy tới.
+- **Hai chế độ**: lần đầu vào thẳng *Kiểm tra*; từ lần thứ hai được chọn *Kiểm tra* hay *Luyện tập*.
+  - *Kiểm tra*: băng nghe chạy một mạch từ đầu đến cuối, không dừng, không tua — như phòng thi thật.
+  - *Luyện tập*: dừng, tua tới/lui 5 giây, đổi tốc độ thoải mái.
+- **Phần nghe** có audio cho cả 5 đề kèm hình minh hoạ của từng câu. Băng dài hơn 40 phút thì thời gian làm bài
+  lấy đúng bằng độ dài băng, không bị cắt giữa chừng.
+- **Furigana**: các từ kanji trong đề có sẵn phiên âm, trừ từ đang được hỏi và đáp án của 問題1/問題2 (gắn vào
+  là lộ đáp án). Bấm nút `ふりがな` trên thanh đề để tắt, khi đó đề giống hệt bản in.
 
-Tài nguyên **để ngoài exe** (kiểu `resources/` của app thường gặp) nên:
-- exe nhẹ, build nhanh; audio ~73 MB không làm phình exe;
-- sửa dữ liệu hay `web/index.html` thì chỉ cần chép đè vào `resources\`, **không phải build lại**
-  (`python -c "import build; build.copy_resources()"` — đồng bộ tại chỗ, chạy được cả khi app đang mở);
-- phát hành: nén cả thư mục `dist\GunGunN3Trainer` thành một file zip.
+## Theo dõi tiến độ
 
-Lưu ý khi build:
-- Phải **tắt app đang chạy** trước (exe bị khoá file) — `build.py` sẽ báo nếu gặp.
-- Thiếu file trong `resources\` thì app hiện hộp thoại nói rõ thiếu gì (trước đây crash im lặng do `--windowed`).
-- App vẫn chạy được với exe bản cũ (tài nguyên nhúng sẵn bên trong) — `res_base()` trong `app.py` tự nhận biết.
+- **Dashboard**: số session đã học, số từ/kanji đã thuộc, tỷ lệ đúng quiz, biểu đồ kết quả theo session, lịch sử
+  ôn tập và đồng hồ đếm ngược tới kỳ JLPT gần nhất (Chủ nhật đầu tiên của tháng 7 và tháng 12).
+- **Kiểm tra bài cũ**: từ session thứ hai, trước khi vào bài mới app cho ôn lại một session ngẫu nhiên đã học.
+- **Mục tiêu mỗi ngày**: mặc định app tự chia số session còn lại cho số ngày còn lại tới kỳ thi; muốn tự đặt thì
+  đổi trong Cài đặt.
+- **Học bù**: ngày nào không đạt mục tiêu sẽ bị ghi nợ, học thêm hôm sau là tự động trả nợ và tô đậm lại ngày đó.
+- **Lịch học**: bấm vào dải checkpoint 7 ngày để mở lịch tháng, xem ngày nào đã học / học bù / chưa đủ / bỏ lỡ.
+- **Ôn tập**: mọi session đã học nằm ở đây dạng thẻ, sắp xếp theo số session, tỷ lệ đúng hoặc ngày học.
+- **Kiểm tra tổng hợp**: gom nhiều session ngẫu nhiên đã học thành một bài có đếm giờ, chấm điểm và giải thích
+  toàn bộ ở cuối.
 
-## Dựng lại dữ liệu từ PDF
+## Cài đặt trong app
 
-```powershell
-python -m pip install pdfplumber janome
-cd tools
-python parse_vocab.py; python fix_vocab2.py   # vocab.json
-python parse_kanji.py                          # kanji.json
-python parse_grammar2.py                       # grammar.json
-python resolve.py; python build_exams.py       # exams.json — cần lấy lại exam_answers.json + exams_manual.json từ git (98edfd6)
-```
+Mở bằng nút **Cài đặt** ở thanh bên: đổi tên hiển thị, chọn 1 trong 5 giao diện (Sáng, Tối, 3 nền gradient động),
+số từ/kanji mỗi session, số session mỗi bài kiểm tra, thời gian mỗi câu, mục tiêu session mỗi ngày, bật khởi động
+cùng Windows và đặt giờ nhắc học.
 
-`build_exams.py` tự gọi `furigana.py` ở bước cuối. Chạy riêng cũng được:
-`python tools/furigana.py` (đọc và ghi đè `exams.json`).
+**Nhắc học và chạy ngầm**: bấm X sẽ hỏi *chạy ngầm ở khay* hay *thoát hẳn* (ghi nhớ được lựa chọn). Chạy ngầm thì
+app thu về biểu tượng 語 ở khay hệ thống — nhấn để hiện lại cửa sổ, chuột phải để thoát. Thông báo nhắc học vẫn
+hoạt động khi chạy ngầm.
 
-Các script tự tìm PDF trong `C:\Users\Admin\Downloads`. Riêng `reading.json` cần `tools/reading_raw.json`, lấy lại từ lịch sử git.
+**Chấm dịch kỹ hơn bằng AI** (tuỳ chọn): phần quiz dịch mặc định dùng bộ chấm ngoại tuyến, miễn phí. Nếu muốn
+nhận xét chi tiết hơn thì dán Claude API key của bạn vào Cài đặt rồi bấm nút 🤖 *Nhờ AI chấm kỹ* ở từng câu —
+chỉ khi đó app mới gọi ra ngoài, và mỗi câu chỉ tính tiền một lần vì kết quả được nhớ lại. Không nhập key thì app
+chạy hoàn toàn ngoại tuyến.
+
+## Tiến trình của bạn được lưu ở đâu
+
+Toàn bộ tiến trình nằm trên máy bạn, trong `%LOCALAPPDATA%\GunGunN3Trainer\`, gồm bản lưu chính và một bản sao
+dự phòng dạng JSON — mất một bản thì app tự lấy bản còn lại, nên dọn dẹp trình duyệt hay cập nhật app đều không
+làm mất dữ liệu học. Muốn chuyển sang máy khác thì chép nguyên thư mục đó. Gỡ app chỉ cần xoá thư mục đã giải
+nén; xoá luôn thư mục trên nếu muốn xoá sạch tiến trình.
+
+## Giấy phép
+
+Mã nguồn phát hành theo [giấy phép MIT](LICENSE). Nội dung học (giáo trình GunGun Joutatsu N3, đề thi JLPT và
+file nghe) thuộc bản quyền của các tác giả tương ứng, ở đây chỉ dùng cho mục đích học tập cá nhân.
