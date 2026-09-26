@@ -706,6 +706,17 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
     <div class="locknote" id="setLockNote">🔒 Đang trong bài học/kiểm tra — chỉ chỉnh được tên và giao diện. Các thông số khác sẽ mở khóa sau khi kết thúc.</div>
     <h2 style="margin-top:14px">Hồ sơ</h2>
     <div class="setrow"><label>Tên hiển thị</label><input id="setName" maxlength="30"></div>
+    <div class="setrow" style="grid-template-columns:230px 1fr">
+      <label>Tiến trình</label><span class="shint" id="setStateSrc"></span></div>
+    <div class="setrow" style="grid-template-columns:230px auto 1fr">
+      <label>Bản lưu theo ngày</label>
+      <div style="display:flex;gap:8px;align-items:center">
+        <select id="setSnap" style="font:inherit;font-size:13px;padding:6px 8px;border-radius:9px;
+                border:1.5px solid var(--line);background:var(--elev);color:var(--ink)"></select>
+        <button class="btn ghost" style="font-size:12.5px;padding:6px 12px"
+                onclick="App.restoreSnapshot()">Khôi phục</button>
+      </div>
+      <span class="shint">app tự lưu mỗi ngày một bản · chọn ngày rồi bấm Khôi phục nếu tiến trình có gì bất thường</span></div>
     <h2 style="margin-top:22px">Giao diện</h2>
     <div class="setrow" style="grid-template-columns:230px 1fr">
       <label>Chủ đề màu</label>
@@ -826,6 +837,11 @@ const App = {
     const bakText = await this.apiCall("load_backup");
     if (bakText) { try { bak = JSON.parse(bakText); } catch (e) {} }
     this.state = this.pickState(ls, bak);
+    // ghi lại nguồn để hiện trong Cài đặt — lần sau nghi mất dữ liệu là biết ngay
+    // app đang đọc từ đâu, thay vì phải đoán
+    this.stateSrc = !this.state ? "chưa có gì — bắt đầu mới"
+      : (this.state === ls ? "bản lưu trong app" : "file sao lưu")
+        + (ls && bak ? "" : bak ? " (bản lưu trong app trống)" : " (không đọc được file sao lưu)");
     if (this.state) this.save();          // resync both stores to the winner
     if (!this.state) {
       this.state = { name: null,
@@ -1505,12 +1521,17 @@ const App = {
     const rt = c.remindTimes || [];
     $("#setRT1").value = rt[0] || ""; $("#setRT2").value = rt[1] || "";
     $("#setClose").value = c.closeAction || "ask";
+    const sv = this.state.savedAt ? new Date(this.state.savedAt) : null;
+    $("#setStateSrc").textContent = `đọc từ ${this.stateSrc || "?"}`
+      + (sv ? ` · lưu lần cuối ${sv.toLocaleString("vi-VN")}` : "")
+      + ` · ${(this.state.vocab.sessions || []).length + (this.state.kanji.sessions || []).length} session đã học`;
     $("#setModel").innerHTML = AI_MODELS
       .map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join("");
     $("#setModel").value = AI_MODELS.some(m => m.id === c.aiModel)
       ? c.aiModel : CFG_DEFAULTS.aiModel;
     this.modelHint();
     this.refreshKeyStatus();
+    this.fillSnapshots();
     const as = (await this.apiCall("get_autostart")) || {};
     $("#setAuto").checked = !!as.enabled;
     $("#setAutoHidden").checked = !!as.hidden;
@@ -1560,6 +1581,41 @@ const App = {
       this.state.settings = Object.assign({}, this.cfg(), { aiModel: id });
       this.save();
     }
+  },
+  async fillSnapshots() {
+    const sel = $("#setSnap");
+    if (!sel) return;
+    const list = (await this.apiCall("list_snapshots")) || [];
+    sel.innerHTML = list.length
+      ? list.map(s => `<option value="${esc(s.name)}">${esc(s.day)} — ${s.score} mục</option>`).join("")
+      : `<option value="">(chưa có bản nào)</option>`;
+    sel.disabled = !list.length;
+  },
+  async restoreSnapshot() {
+    const name = $("#setSnap").value;
+    if (!name) return;
+    const text = await this.apiCall("read_snapshot", name);
+    let st = null;
+    try { st = JSON.parse(text); } catch (e) {}
+    if (!st) { this.toastSaved("⚠ Không đọc được bản lưu đó"); return; }
+    const cur = (this.state.vocab.sessions || []).length + (this.state.kanji.sessions || []).length;
+    const nw = ((st.vocab || {}).sessions || []).length + ((st.kanji || {}).sessions || []).length;
+    const ok = await this.askConfirm(
+      `Khôi phục bản lưu ngày ${name.slice(6, 16)}?\n\n` +
+      `Tiến trình hiện tại (${cur} session) sẽ được thay bằng bản đó (${nw} session).`,
+      "Khôi phục", nw < cur);
+    if (!ok) return;
+    for (const m of ["vocab", "kanji", "grammar"]) {   // bản cũ có thể thiếu mục
+      st[m] = st[m] || {}; st[m].sessions = st[m].sessions || []; st[m].reviews = st[m].reviews || [];
+    }
+    st.reading = st.reading || {}; st.reading.done = st.reading.done || [];
+    st.exams = st.exams || {}; st.exams.done = st.exams.done || [];
+    this.state = st;
+    this.save();
+    this.applyTheme();
+    this.closeSettings();
+    this.renderDash();
+    this.toastSaved("↩ Đã khôi phục bản lưu ngày " + name.slice(6, 16));
   },
   async refreshKeyStatus() {
     const k = (await this.apiCall("get_api_key")) || {};

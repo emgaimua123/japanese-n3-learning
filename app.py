@@ -86,6 +86,68 @@ class _ResServer(_wvhttp.BottleServer):
         return address, root, server
 
 
+def _write_atomic(path, text):
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write(text)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
+SNAP_DIR = os.path.join(STORAGE_DIR, "snapshots")
+SNAP_KEEP = 14
+
+
+def _snapshot_names():
+    try:
+        return [n for n in os.listdir(SNAP_DIR)
+                if n.startswith("state-") and n.endswith(".json")]
+    except OSError:
+        return []
+
+
+def _snapshot(text):
+    """Mỗi ngày giữ một bản chụp, để lỡ có ghi nhầm vẫn lùi lại được ngày hôm trước."""
+    try:
+        os.makedirs(SNAP_DIR, exist_ok=True)
+        day = datetime.date.today().isoformat()
+        p = os.path.join(SNAP_DIR, "state-%s.json" % day)
+        if os.path.isfile(p):        # trong ngày chỉ ghi đè khi bản mới đầy hơn
+            try:
+                with open(p, encoding="utf-8") as f:
+                    if _richness(text) < _richness(f.read()):
+                        return
+            except OSError:
+                pass
+        _write_atomic(p, text)
+        old = sorted(_snapshot_names(), reverse=True)[SNAP_KEEP:]
+        for n in old:
+            try:
+                os.remove(os.path.join(SNAP_DIR, n))
+            except OSError:
+                pass
+    except OSError:
+        pass
+
+
+def _richness(text):
+    """Đo xem một bản lưu có bao nhiêu tiến trình thật, để không ghi đè nhầm."""
+    try:
+        st = json.loads(text or "")
+    except (TypeError, ValueError):
+        return 0
+    if not isinstance(st, dict):
+        return 0
+    n = 1 if st.get("name") else 0
+    for mod in ("vocab", "kanji", "grammar"):
+        m = st.get(mod) or {}
+        n += len(m.get("sessions") or []) + len(m.get("reviews") or [])
+    for mod in ("reading", "exams"):
+        n += len((st.get(mod) or {}).get("done") or [])
+    return n
+
+
 def _check_resources():
     """Thiếu tài nguyên thì báo rõ — bản --windowed không có console để in lỗi."""
     missing = [r for r in RES_FILES if not os.path.isfile(res_path(r))]
@@ -404,17 +466,51 @@ class Api:
     # Mirror of localStorage state, so progress survives a WebView2 profile wipe.
     # Written atomically: a crash mid-write can never corrupt the existing backup.
     def save_backup(self, text):
+        path = os.path.join(STORAGE_DIR, "state-backup.json")
         try:
             os.makedirs(STORAGE_DIR, exist_ok=True)
-            tmp = os.path.join(STORAGE_DIR, "state-backup.json.tmp")
-            with open(tmp, "w", encoding="utf-8") as f:
-                f.write(text)
-                f.flush()
-                os.fsync(f.fileno())
-            os.replace(tmp, os.path.join(STORAGE_DIR, "state-backup.json"))
+            # Chốt chặn cuối: dù giao diện có lỗi gì đi nữa cũng không được phép
+            # lấy một state rỗng đè lên bản lưu đang có tiến trình thật.
+            if _richness(text) < _richness(self.load_backup()):
+                _write_atomic(path + ".rejected", text)
+                return False
+            if os.path.isfile(path):
+                try:
+                    with open(path, encoding="utf-8") as f:
+                        _write_atomic(path + ".prev", f.read())
+                except OSError:
+                    pass
+            _write_atomic(path, text)
+            _snapshot(text)
             return True
         except OSError:
             return False
+
+    def list_snapshots(self):
+        """Danh sách bản chụp để khôi phục, mới nhất trước."""
+        out = []
+        for name in sorted(_snapshot_names(), reverse=True):
+            p = os.path.join(SNAP_DIR, name)
+            try:
+                with open(p, encoding="utf-8") as f:
+                    text = f.read()
+            except OSError:
+                continue
+            out.append({"name": name,
+                        "day": name[len("state-"):-len(".json")],
+                        "score": _richness(text),
+                        "size": len(text)})
+        return out
+
+    def read_snapshot(self, name):
+        """Đọc một bản chụp. Chỉ nhận đúng tên file trong danh sách, không nhận đường dẫn."""
+        if name not in _snapshot_names():
+            return None
+        try:
+            with open(os.path.join(SNAP_DIR, name), encoding="utf-8") as f:
+                return f.read()
+        except OSError:
+            return None
 
     def load_backup(self):
         try:
