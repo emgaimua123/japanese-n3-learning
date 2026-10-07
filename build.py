@@ -28,6 +28,18 @@ REQUIRED = ["web", "vocab.json", "kanji.json", "grammar.json", "reading.json",
             "exams.json", "icon.ico"]
 
 
+# App chỉ cần pywebview + pystray + PIL (đọc icon khay) + anthropic. Mấy gói nặng
+# dưới đây chỉ cần có mặt trong máy là PyInstaller tự gom theo (numpy lọt vào qua
+# hook của PIL), làm exe phình thêm hàng chục MB mà không dùng tới dòng nào.
+EXCLUDE = ["numpy", "pandas", "matplotlib", "scipy", "sklearn", "tkinter",
+           "PyQt5", "PyQt6", "PySide2", "PySide6", "IPython", "jupyter",
+           "notebook", "pytest", "setuptools", "pip", "janome"]
+# anthropic nạp httpx & co muộn (lúc dựng client) nên PyInstaller dò tĩnh không
+# thấy, exe build ra thiếu hẳn — AI chấm bài hỏng. Phải khai báo tay.
+HIDDEN = ["pystray._win32", "httpx", "httpcore", "h11", "anyio", "sniffio",
+          "certifi", "distro", "jiter"]
+
+
 def build_exe():
     print("== PyInstaller ==")
     # dùng đường dẫn tuyệt đối: --specpath làm PyInstaller đổi gốc của đường dẫn tương đối
@@ -37,8 +49,33 @@ def build_exe():
            "--distpath", os.path.join(HERE, "build", "exe"),
            "--workpath", os.path.join(HERE, "build", "work"),
            "--specpath", os.path.join(HERE, "build"),
-           "--hidden-import", "pystray._win32", os.path.join(HERE, "app.py")]
+           ]
+    for m in HIDDEN:
+        cmd += ["--hidden-import", m]
+    for m in EXCLUDE:
+        cmd += ["--exclude-module", m]
+    cmd.append(os.path.join(HERE, "app.py"))
     subprocess.check_call(cmd, cwd=HERE)
+
+
+def selftest():
+    """Chạy exe vừa build với --selftest: loại nhầm thư viện là biết ngay tại đây."""
+    print("== tự kiểm tra ==")
+    out = os.path.join(os.environ.get("TEMP", HERE), "gungun-selftest.txt")
+    try:
+        os.remove(out)
+    except OSError:
+        pass
+    code = subprocess.call([EXE, "--selftest"])
+    msg = ""
+    try:
+        with open(out, encoding="utf-8") as f:
+            msg = f.read().strip()
+    except OSError:
+        pass
+    print("   " + (msg or "không nhận được kết quả"))
+    if code != 0:
+        raise SystemExit("exe thiếu thư viện — xem lại danh sách EXCLUDE")
 
 
 def sync_file(src, dst):
@@ -161,6 +198,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     build_exe()
     shutil.copy2(os.path.join(HERE, "build", "exe", "GunGunN3Trainer.exe"), EXE)
+    selftest()
     copy_resources()
     total = sum(os.path.getsize(os.path.join(r, f))
                 for r, _, fs in os.walk(OUT) for f in fs)

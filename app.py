@@ -577,7 +577,34 @@ class Api:
         return True
 
 
+def _selftest():
+    """`GunGunN3Trainer.exe --selftest`: kiểm tra bản đóng gói còn đủ thư viện.
+
+    build.py loại bớt mấy gói nặng không dùng (numpy, pandas…) cho exe nhẹ; hàm
+    này để lỡ loại nhầm thì biết ngay lúc build, chứ không đợi tới lúc người dùng
+    bấm nút mới phát hiện. Bản --windowed không có console nên ghi ra file.
+    """
+    missing = []
+    for mod in ("anthropic", "pystray", "pystray._win32", "PIL.Image", "webview",
+                "webview.http", "httpx", "pydantic"):
+        try:
+            __import__(mod)
+        except Exception as e:                      # noqa: BLE001 - báo lại mọi lỗi
+            missing.append("%s (%s: %s)" % (mod, e.__class__.__name__, e))
+    try:                       # dựng thử client (không gọi mạng) — đây mới là
+        import anthropic       # lúc anthropic thật sự nạp httpx và các gói con
+        anthropic.Anthropic(api_key="selftest")
+    except Exception as e:     # noqa: BLE001
+        missing.append("dựng client Anthropic (%s: %s)" % (e.__class__.__name__, e))
+    out = os.path.join(os.environ.get("TEMP", "."), "gungun-selftest.txt")
+    with open(out, "w", encoding="utf-8") as f:
+        f.write("THIEU: " + ", ".join(missing) if missing else "OK: du thu vien")
+    sys.exit(2 if missing else 0)
+
+
 if __name__ == "__main__":
+    if "--selftest" in sys.argv:
+        _selftest()
     # single instance only: two WebView2 processes sharing one profile folder
     # fight over the storage lock and progress can silently stop being saved
     ctypes.windll.kernel32.CreateMutexW(None, False, "GunGunN3Trainer_SingleInstance")
