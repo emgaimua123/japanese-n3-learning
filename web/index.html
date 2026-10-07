@@ -224,6 +224,9 @@ ruby rt{font-size:.56em;font-weight:400;color:var(--muted);letter-spacing:0;user
 .scorebar{height:7px;background:var(--line);border-radius:99px;margin-top:10px;overflow:hidden}
 .scorebar>i{display:block;height:100%;border-radius:99px}
 .suggest{margin-top:8px;font-size:14px;color:var(--ink2)}
+.glossw{display:inline-block;margin:0 10px 6px 0;padding:3px 9px;border-radius:8px;
+  background:var(--elev);border:1px solid var(--line);font-size:13px}
+.glossw b{margin-right:5px}
 /* ---------- reading ---------- */
 .readwrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
 @media (max-width:1100px){.readwrap{grid-template-columns:1fr}}
@@ -917,15 +920,29 @@ const App = {
   loadState() {
     try { const t = localStorage.getItem(STORE_KEY); return t ? JSON.parse(t) : null; } catch (e) { return null; }
   },
+  // Đếm tiến trình thật trong một bản lưu (giống _richness bên app.py).
+  stateScore(s) {
+    if (!s || typeof s !== "object") return -1;
+    let n = s.name ? 1 : 0;
+    for (const m of ["vocab", "kanji", "grammar"]) {
+      const o = s[m] || {};
+      n += ((o.sessions) || []).length + ((o.reviews) || []).length;
+    }
+    n += (((s.reading || {}).done) || []).length + (((s.exams || {}).done) || []).length;
+    return n;
+  },
   pickState(a, b) {
     if (!a) return b;
     if (!b) return a;
-    // both written together on every save, so a fresh timestamp means fresher data
+    // Bản NHIỀU tiến trình hơn thắng, không phải bản mới hơn. WebView2 bị tắt
+    // đột ngột (tắt/khởi động lại máy) có thể mất sạch bản lưu trong app; lần mở
+    // sau nó ghi lại một bản rỗng với dấu thời gian mới tinh, mà luật cũ "mới hơn
+    // thì thắng" lại để bản rỗng đó đè lên file sao lưu còn nguyên tiến trình —
+    // đúng cảnh "reset máy là mất data". Chỉ khi hai bên ngang nhau mới xét mới/cũ.
+    const sa = this.stateScore(a), sb = this.stateScore(b);
+    if (sa !== sb) return sa > sb ? a : b;
     if (a.savedAt && b.savedAt && a.savedAt !== b.savedAt) return a.savedAt > b.savedAt ? a : b;
-    // old format without timestamps: keep the one with more learning history
-    const score = s => (((s.vocab || {}).sessions) || []).length + (((s.kanji || {}).sessions) || []).length
-      + (((s.vocab || {}).reviews) || []).length + (((s.kanji || {}).reviews) || []).length;
-    return score(b) > score(a) ? b : a;
+    return a;
   },
   save() {
     if (!this.state || !this.data) return;   // boot chưa xong: đừng ghi đè bản lưu thật
@@ -1283,6 +1300,9 @@ const App = {
     if (!ok) return;
     this.closeSettings();
     localStorage.removeItem(STORE_KEY);
+    // Xoá luôn file sao lưu, nếu không lần mở sau nó đầy hơn nên sẽ thắng và
+    // dựng lại đúng cái vừa xoá. Bản chụp theo ngày vẫn giữ để còn đường lùi.
+    await this.apiCall("clear_backup");
     // every branch boot() guarantees must be here too: the screens read them
     // directly, and after a reset the app is not restarted
     this.state = { name: null, theme: this.state.theme,
@@ -3173,7 +3193,13 @@ const App = {
         missed.slice(0, 6).map(c => c.jp + " (" + head(c) + ")").join(", ") + ".");
       if (!patHit && it.meaning) fb.push("Chú ý thể hiện đúng sắc thái của mẫu: " + it.meaning + ".");
     }
-    return { ok: true, source: "offline", score, correct, thin,
+    // Sách chỉ in câu ví dụ bằng tiếng Nhật, không kèm bản dịch, nên bộ chấm
+    // ngoại tuyến không thể có "đáp án" cho đúng câu này. Thay vào đó đưa hai
+    // thứ tra được: nghĩa từng từ trong câu, và một câu luyện dịch cùng mẫu
+    // ngữ pháp mà sách đã cho sẵn cả tiếng Việt lẫn tiếng Nhật.
+    const gloss = concepts.map(c => ({ jp: c.jp, vi: head(c) }));
+    const drill = ((it.g || {}).drills || []).find(d => d.vi && d.jp) || null;
+    return { ok: true, source: "offline", score, correct, thin, gloss, drill,
              feedback: fb.join(" ") || "Chưa đủ dữ liệu để nhận xét chi tiết.",
              grammar_note: it.meaning ? ("Mẫu " + it.pattern + ": " + it.meaning) : ("Mẫu " + it.pattern),
              suggested: "" };
@@ -3215,6 +3241,18 @@ const App = {
         <div class="scorebar"><i style="width:${Math.max(2, Math.min(100, res.score))}%;background:${ok ? "var(--good)" : "var(--bad)"}"></i></div>
         <div style="margin-top:10px">${esc(res.feedback)}</div>
         ${res.suggested ? `<div class="suggest">Gợi ý dịch: <b>${esc(res.suggested)}</b></div>` : ""}
+        ${res.gloss && res.gloss.length ? `<div class="suggest">
+             <div style="font-weight:700;margin-bottom:6px">Nghĩa các từ trong câu</div>
+             ${res.gloss.map(w => `<span class="glossw"><b class="jp">${esc(w.jp)}</b> ${esc(w.vi)}</span>`).join("")}
+           </div>` : ""}
+        ${res.drill ? `<div class="suggest">
+             <div style="font-weight:700;margin-bottom:6px">Câu mẫu cùng mẫu ngữ pháp (sách)</div>
+             <div>${esc(res.drill.vi)}</div>
+             <div class="jp" style="margin-top:4px"><b>${esc(res.drill.jp)}</b></div>
+           </div>` : ""}
+        ${res.source !== "ai" ? `<div class="sub" style="font-size:12.5px;margin-top:10px">
+             Sách không in bản dịch cho câu ví dụ này, nên bộ chấm ngoại tuyến không có câu chữa mẫu —
+             bấm 🤖 bên dưới nếu muốn Claude dịch mẫu và chữa chi tiết.</div>` : ""}
         <div class="expl">
           <div class="sub" style="font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase">Cấu trúc ngữ pháp của câu này</div>
           ${this.grammarCardHTML(it.g, true)}

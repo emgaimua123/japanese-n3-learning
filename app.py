@@ -486,6 +486,16 @@ class Api:
         except OSError:
             return False
 
+    def clear_backup(self):
+        """Người dùng bấm 'Đặt lại toàn bộ dữ liệu': phải xoá cả file sao lưu,
+        nếu không lần mở sau nó đầy hơn nên sẽ thắng và dựng lại cái vừa xoá.
+        Bản chụp theo ngày trong snapshots/ vẫn giữ để còn đường lùi."""
+        try:
+            os.remove(os.path.join(STORAGE_DIR, "state-backup.json"))
+        except OSError:
+            pass
+        return True
+
     def list_snapshots(self):
         """Danh sách bản chụp để khôi phục, mới nhất trước."""
         out = []
