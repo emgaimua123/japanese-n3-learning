@@ -34,6 +34,11 @@ của sách) rồi quiz dịch câu Nhật → Việt. Bài dịch chấm theo *
 **Đọc hiểu** — 22 bài đọc luyện tập (chương 5–9). Mỗi câu có giải thích chi tiết, trích đúng câu chứa đáp án
 trong bài, lý do từng đáp án sai và tip cho dạng bài đó.
 
+**Cẩm nang** — 148 mục tra nhanh, chia theo nhóm: từ láy (tâm trạng, cơ thể, ăn uống, thời tiết, chuyển động,
+đồ vật, âm thanh), động từ ghép theo tiền tố (取り〜, 思い〜, やり〜, 打ち〜, 引き〜, 差し〜, 見〜, 立ち〜…),
+đuôi ghép sau thể ます (〜出す, 〜切る, 〜込む, 〜直す…) và tiền tố/hậu tố hay gặp (真っ〜, 不〜, 〜的, 〜がち…).
+Mỗi mục có nghĩa tiếng Việt kèm câu ví dụ đã dịch; tìm được bằng cả tiếng Nhật lẫn tiếng Việt.
+
 **Đề thi JLPT N3** — 5 đề thật: 7/2021, 7/2022, 12/2022, 7/2023, 12/2023, đủ **504 câu** và chấm điểm được hết.
 
 ## Thi thử đề JLPT
@@ -61,6 +66,8 @@ phần và bảng xem lại từng câu.
 - **Học bù**: ngày nào không đạt mục tiêu sẽ bị ghi nợ, học thêm hôm sau là tự động trả nợ và tô đậm lại ngày đó.
 - **Lịch học**: bấm vào dải checkpoint 7 ngày để mở lịch tháng, xem ngày nào đã học / học bù / chưa đủ / bỏ lỡ.
 - **Ôn tập**: mọi session đã học nằm ở đây dạng thẻ, sắp xếp theo số session, tỷ lệ đúng hoặc ngày học.
+- **Từ hay sai**: app tự ghi lại những từ bạn trả lời sai (cả từ vựng lẫn kanji) và gom tối đa 25 từ sai nhiều
+  nhất vào một bài riêng trong mục Kiểm tra. Trả lời đúng vài lần thì từ đó tự rời khỏi danh sách.
 - **Kiểm tra tổng hợp**: gom nhiều session ngẫu nhiên đã học thành một bài có đếm giờ, chấm điểm và giải thích
   toàn bộ ở cuối.
 
@@ -83,8 +90,12 @@ chạy hoàn toàn ngoại tuyến.
 
 Toàn bộ tiến trình nằm trên máy bạn, trong `%LOCALAPPDATA%\GunGunN3Trainer\`, gồm bản lưu chính và một bản sao
 dự phòng dạng JSON — mất một bản thì app tự lấy bản còn lại, nên dọn dẹp trình duyệt hay cập nhật app đều không
-làm mất dữ liệu học. Muốn chuyển sang máy khác thì chép nguyên thư mục đó. Gỡ app chỉ cần xoá thư mục đã giải
-nén; xoá luôn thư mục trên nếu muốn xoá sạch tiến trình.
+làm mất dữ liệu học. Gỡ app chỉ cần xoá thư mục đã giải nén; xoá luôn thư mục trên nếu muốn xoá sạch tiến trình.
+
+**Dùng trên hai máy**: vào Cài đặt → *Đồng bộ giữa các máy* → **Xuất file** để lưu tiến trình ra một file JSON,
+chép sang máy kia rồi bấm **Nhập file**. Hai bên được **gộp** chứ không ghi đè — máy nào học session nào cũng
+được giữ, số lần sai của cùng một từ được cộng lại. Cài đặt và giờ nhắc học thì giữ riêng theo từng máy, và
+file xuất ra **không chứa API key**.
 
 ## Giấy phép
 

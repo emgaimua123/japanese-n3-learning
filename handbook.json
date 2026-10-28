@@ -1,0 +1,296 @@
+{
+ "groups": [
+  {
+   "cat": "Từ láy",
+   "id": "onoma-cam-xuc",
+   "title": "Tâm trạng · cảm xúc",
+   "note": "Nhóm hay gặp nhất trong đề nghe N3. Phần lớn đi với する hoặc dùng như trạng từ.",
+   "items": [
+    {"w": "どきどき", "vi": "hồi hộp, tim đập thình thịch", "ex": "面接の前は胸がどきどきした。", "exvi": "Trước buổi phỏng vấn, tim tôi đập thình thịch."},
+    {"w": "わくわく", "vi": "háo hức, nôn nao (vì vui)", "ex": "旅行のことを考えるとわくわくする。", "exvi": "Cứ nghĩ đến chuyến đi là tôi lại háo hức."},
+    {"w": "いらいら", "vi": "bực bội, sốt ruột", "ex": "電車が遅れていらいらした。", "exvi": "Tàu đến trễ làm tôi bực cả người."},
+    {"w": "はらはら", "vi": "thót tim, lo nơm nớp (khi nhìn người khác)", "ex": "見ている方がはらはらした。", "exvi": "Người đứng xem còn thót cả tim."},
+    {"w": "がっかり", "vi": "thất vọng, hụt hẫng", "ex": "試合に負けてがっかりした。", "exvi": "Thua trận nên tôi thất vọng."},
+    {"w": "うんざり", "vi": "ngán ngẩm, phát chán", "ex": "毎日同じ料理でうんざりだ。", "exvi": "Ngày nào cũng món đó, chán ngấy."},
+    {"w": "ほっと", "vi": "nhẹ cả người, thở phào", "ex": "無事に着いたと聞いてほっとした。", "exvi": "Nghe tin đến nơi an toàn, tôi thở phào."},
+    {"w": "びっくり", "vi": "giật mình, bất ngờ", "ex": "大きな音にびっくりした。", "exvi": "Tiếng động lớn làm tôi giật mình."},
+    {"w": "のんびり", "vi": "thong thả, thư thái", "ex": "休みの日は家でのんびりする。", "exvi": "Ngày nghỉ tôi ở nhà thong thả."},
+    {"w": "そわそわ", "vi": "bồn chồn, đứng ngồi không yên", "ex": "結果が気になってそわそわしている。", "exvi": "Lo kết quả nên cậu ấy đứng ngồi không yên."},
+    {"w": "くよくよ", "vi": "day dứt, nghĩ ngợi mãi chuyện đã rồi", "ex": "済んだことをくよくよするな。", "exvi": "Chuyện qua rồi thì đừng nghĩ ngợi nữa."},
+    {"w": "いきいき", "vi": "sống động, đầy sức sống", "ex": "彼はいきいきと働いている。", "exvi": "Anh ấy làm việc đầy hứng khởi."}
+   ]
+  },
+  {
+   "cat": "Từ láy",
+   "id": "onoma-co-the",
+   "title": "Cơ thể · sức khoẻ",
+   "note": "Rất hay xuất hiện trong hội thoại ở phòng khám, hỏi thăm sức khoẻ.",
+   "items": [
+    {"w": "ずきずき", "vi": "đau nhói từng cơn (đầu, răng)", "ex": "歯がずきずき痛む。", "exvi": "Răng tôi đau nhói từng cơn."},
+    {"w": "ひりひり", "vi": "rát, xót (da, họng)", "ex": "日に焼けて背中がひりひりする。", "exvi": "Cháy nắng nên lưng rát."},
+    {"w": "くらくら", "vi": "choáng váng, xây xẩm", "ex": "立ち上がったら頭がくらくらした。", "exvi": "Vừa đứng dậy là đầu choáng váng."},
+    {"w": "ぐったり", "vi": "rũ rượi, lả đi vì mệt", "ex": "暑さで犬がぐったりしている。", "exvi": "Nóng quá nên con chó nằm lả ra."},
+    {"w": "すっきり", "vi": "nhẹ nhõm, thông thoáng, gọn gàng", "ex": "よく寝たら頭がすっきりした。", "exvi": "Ngủ đẫy giấc nên đầu óc nhẹ nhõm."},
+    {"w": "がんがん", "vi": "đau như búa bổ; ầm ầm", "ex": "二日酔いで頭ががんがんする。", "exvi": "Say rượu nên đầu đau như búa bổ."},
+    {"w": "ぺこぺこ", "vi": "đói meo", "ex": "お腹がぺこぺこだ。", "exvi": "Bụng đói meo rồi."},
+    {"w": "へとへと", "vi": "kiệt sức, mệt phờ", "ex": "一日歩いてへとへとになった。", "exvi": "Đi bộ cả ngày nên mệt phờ."}
+   ]
+  },
+  {
+   "cat": "Từ láy",
+   "id": "onoma-an-uong",
+   "title": "Ăn uống · vị",
+   "note": "",
+   "items": [
+    {"w": "もぐもぐ", "vi": "nhai nhồm nhoàm (miệng ngậm đồ ăn)", "ex": "口をもぐもぐさせながら話す。", "exvi": "Vừa nhai vừa nói."},
+    {"w": "ごくごく", "vi": "uống ừng ực", "ex": "水をごくごく飲んだ。", "exvi": "Tôi uống nước ừng ực."},
+    {"w": "がぶがぶ", "vi": "tu, uống ồng ộc (lượng lớn)", "ex": "ビールをがぶがぶ飲む。", "exvi": "Tu bia ồng ộc."},
+    {"w": "さっぱり", "vi": "thanh đạm, nhẹ miệng", "ex": "さっぱりした味が好きだ。", "exvi": "Tôi thích vị thanh."},
+    {"w": "こってり", "vi": "béo ngậy, đậm vị", "ex": "こってりしたラーメンを食べた。", "exvi": "Tôi ăn tô mì ramen béo ngậy."},
+    {"w": "あっさり", "vi": "nhạt vị, nhẹ nhàng; dứt khoát (việc)", "ex": "あっさりした料理が体にいい。", "exvi": "Món ăn thanh đạm thì tốt cho người."},
+    {"w": "ぱさぱさ", "vi": "khô khốc (bánh mì, cơm)", "ex": "パンがぱさぱさになった。", "exvi": "Bánh mì khô khốc rồi."}
+   ]
+  },
+  {
+   "cat": "Từ láy",
+   "id": "onoma-thoi-tiet",
+   "title": "Thời tiết · nước",
+   "note": "",
+   "items": [
+    {"w": "ざあざあ", "vi": "mưa ào ào, xối xả", "ex": "雨がざあざあ降っている。", "exvi": "Mưa đang đổ xối xả."},
+    {"w": "しとしと", "vi": "mưa lất phất, rả rích", "ex": "春の雨がしとしと降る。", "exvi": "Mưa xuân rơi rả rích."},
+    {"w": "ぽつぽつ", "vi": "mưa lác đác; lác đác (người, việc)", "ex": "雨がぽつぽつ降ってきた。", "exvi": "Mưa bắt đầu rơi lác đác."},
+    {"w": "じめじめ", "vi": "ẩm ướt, nồm", "ex": "梅雨はじめじめして嫌だ。", "exvi": "Mùa mưa ẩm ướt khó chịu."},
+    {"w": "からっと", "vi": "khô ráo, hanh; (chiên) giòn rụm", "ex": "今日はからっと晴れた。", "exvi": "Hôm nay trời hanh nắng."},
+    {"w": "むしむし", "vi": "oi bức, hầm hập", "ex": "部屋がむしむしする。", "exvi": "Phòng oi bức quá."}
+   ]
+  },
+  {
+   "cat": "Từ láy",
+   "id": "onoma-chuyen-dong",
+   "title": "Chuyển động · tốc độ",
+   "note": "Nhóm này hay bị hỏi trong 問題5 用法 (cách dùng từ).",
+   "items": [
+    {"w": "のろのろ", "vi": "chậm như rùa (ý chê)", "ex": "車がのろのろ走っている。", "exvi": "Xe chạy chậm như rùa."},
+    {"w": "さっさと", "vi": "nhanh lên, làm cho lẹ", "ex": "さっさと食べて出かけよう。", "exvi": "Ăn lẹ rồi đi thôi."},
+    {"w": "うろうろ", "vi": "loanh quanh, lớ ngớ (không biết đi đâu)", "ex": "駅の前をうろうろしていた。", "exvi": "Cậu ta cứ loanh quanh trước ga."},
+    {"w": "ぶらぶら", "vi": "đi dạo lang thang; ở không", "ex": "公園をぶらぶら歩いた。", "exvi": "Tôi thả bộ lanh quanh trong công viên."},
+    {"w": "てきぱき", "vi": "làm gọn gàng, nhanh nhẹn", "ex": "彼女は仕事をてきぱき片付ける。", "exvi": "Cô ấy xử lý công việc rất gọn."},
+    {"w": "ばたばた", "vi": "tất bật, loạn cả lên", "ex": "朝からばたばたしている。", "exvi": "Từ sáng đến giờ tất bật luôn tay."},
+    {"w": "ごろごろ", "vi": "nằm lăn lê; (sấm) ì ầm", "ex": "休みの日は家でごろごろしていた。", "exvi": "Ngày nghỉ tôi nằm lăn ở nhà."},
+    {"w": "どんどん", "vi": "ngày càng, ồ ạt", "ex": "人がどんどん増えてきた。", "exvi": "Người cứ đông lên nhanh chóng."}
+   ]
+  },
+  {
+   "cat": "Từ láy",
+   "id": "onoma-vat",
+   "title": "Trạng thái đồ vật · bề mặt",
+   "note": "",
+   "items": [
+    {"w": "ぴかぴか", "vi": "bóng loáng, sáng choang", "ex": "床をぴかぴかに磨いた。", "exvi": "Tôi lau sàn bóng loáng."},
+    {"w": "つるつる", "vi": "trơn nhẵn, trơn trượt", "ex": "道が凍ってつるつるだ。", "exvi": "Đường đóng băng trơn trượt."},
+    {"w": "ざらざら", "vi": "nhám, sạn", "ex": "砂で床がざらざらする。", "exvi": "Cát làm sàn nhà nhám rát."},
+    {"w": "べたべた", "vi": "dính nhớp", "ex": "手が汗でべたべたする。", "exvi": "Tay mồ hôi dính nhớp."},
+    {"w": "ぼろぼろ", "vi": "rách nát, tả tơi", "ex": "靴がぼろぼろになった。", "exvi": "Đôi giày rách tả tơi rồi."},
+    {"w": "ふわふわ", "vi": "mềm xốp, bồng bềnh", "ex": "ふわふわのパンが好きだ。", "exvi": "Tôi thích bánh mì mềm xốp."},
+    {"w": "かちかち", "vi": "cứng ngắc; (người) căng cứng vì hồi hộp", "ex": "ご飯がかちかちに固まった。", "exvi": "Cơm đông cứng ngắc."},
+    {"w": "ぎりぎり", "vi": "sát nút, vừa kịp", "ex": "ぎりぎり間に合った。", "exvi": "Tôi kịp sát nút."}
+   ]
+  },
+  {
+   "cat": "Từ láy",
+   "id": "onoma-am-thanh",
+   "title": "Nói cười · tiếng động · giấc ngủ",
+   "note": "",
+   "items": [
+    {"w": "にこにこ", "vi": "tươi cười", "ex": "赤ちゃんがにこにこ笑っている。", "exvi": "Em bé cười tươi rói."},
+    {"w": "にやにや", "vi": "cười nhếch mép, cười thầm", "ex": "何がおかしいのかにやにやしている。", "exvi": "Không biết buồn cười gì mà cứ cười thầm."},
+    {"w": "ぺらぺら", "vi": "nói trôi chảy (ngoại ngữ)", "ex": "彼は英語がぺらぺらだ。", "exvi": "Anh ấy nói tiếng Anh trôi chảy."},
+    {"w": "ぶつぶつ", "vi": "lẩm bẩm, càu nhàu", "ex": "一人でぶつぶつ言っている。", "exvi": "Cậu ta lẩm bẩm một mình."},
+    {"w": "がやがや", "vi": "ồn ào, nhốn nháo (đông người)", "ex": "教室ががやがやしている。", "exvi": "Lớp học ồn ào cả lên."},
+    {"w": "ぐうぐう", "vi": "ngáy khò khò", "ex": "隣でぐうぐう寝ている。", "exvi": "Bên cạnh có người ngủ ngáy khò khò."},
+    {"w": "うとうと", "vi": "lơ mơ, gà gật", "ex": "電車でうとうとしてしまった。", "exvi": "Tôi gà gật trên tàu."},
+    {"w": "ぐっすり", "vi": "ngủ say, ngon giấc", "ex": "昨夜はぐっすり眠れた。", "exvi": "Đêm qua tôi ngủ rất ngon."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-tori",
+   "title": "取り〜 (とり)",
+   "note": "取る = cầm/lấy. Ghép vào đầu động từ khác, phần lớn chỉ thao tác tay hoặc việc xử lý. Nhiều từ chỉ còn nghĩa nhấn mạnh, không còn nghĩa “lấy”.",
+   "items": [
+    {"w": "取り消す", "r": "とりけす", "vi": "huỷ bỏ (lời nói, đơn, đặt chỗ)", "ex": "予約を取り消した。", "exvi": "Tôi đã huỷ đặt chỗ."},
+    {"w": "取り替える", "r": "とりかえる", "vi": "thay, đổi cái mới", "ex": "電池を取り替えてください。", "exvi": "Hãy thay pin giúp."},
+    {"w": "取り出す", "r": "とりだす", "vi": "lấy ra, rút ra", "ex": "かばんから本を取り出した。", "exvi": "Tôi lấy quyển sách ra khỏi cặp."},
+    {"w": "取り入れる", "r": "とりいれる", "vi": "tiếp thu, đưa vào áp dụng; thu hoạch", "ex": "新しい技術を取り入れる。", "exvi": "Áp dụng kỹ thuật mới."},
+    {"w": "取り付ける", "r": "とりつける", "vi": "lắp đặt, gắn vào", "ex": "エアコンを取り付けた。", "exvi": "Tôi đã lắp máy lạnh."},
+    {"w": "取り組む", "r": "とりくむ", "vi": "bắt tay vào, dốc sức giải quyết", "ex": "環境問題に取り組む。", "exvi": "Bắt tay giải quyết vấn đề môi trường."},
+    {"w": "取り戻す", "r": "とりもどす", "vi": "lấy lại, giành lại (sức khoẻ, niềm tin)", "ex": "元気を取り戻した。", "exvi": "Cậu ấy đã lấy lại tinh thần."},
+    {"w": "取り上げる", "r": "とりあげる", "vi": "nhấc lên; đưa ra bàn; tước đi", "ex": "この問題を会議で取り上げる。", "exvi": "Đưa vấn đề này ra cuộc họp."},
+    {"w": "取り扱う", "r": "とりあつかう", "vi": "xử lý, kinh doanh mặt hàng", "ex": "この店は薬も取り扱っている。", "exvi": "Tiệm này có bán cả thuốc."},
+    {"w": "取り囲む", "r": "とりかこむ", "vi": "vây quanh", "ex": "記者が選手を取り囲んだ。", "exvi": "Phóng viên vây quanh vận động viên."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-omoi",
+   "title": "思い〜 (おもい)",
+   "note": "思う = nghĩ. Nhóm này nói về hoạt động trong đầu: nhớ ra, nảy ra, đinh ninh…",
+   "items": [
+    {"w": "思い出す", "r": "おもいだす", "vi": "nhớ ra, nhớ lại", "ex": "彼の名前を思い出せない。", "exvi": "Tôi không nhớ ra tên anh ấy."},
+    {"w": "思い付く", "r": "おもいつく", "vi": "chợt nảy ra ý", "ex": "いい方法を思い付いた。", "exvi": "Tôi vừa nảy ra một cách hay."},
+    {"w": "思い込む", "r": "おもいこむ", "vi": "đinh ninh, tin chắc (thường là nhầm)", "ex": "休みだと思い込んでいた。", "exvi": "Tôi cứ đinh ninh là được nghỉ."},
+    {"w": "思いやる", "r": "おもいやる", "vi": "quan tâm, nghĩ cho người khác", "ex": "相手を思いやる気持ちが大切だ。", "exvi": "Tấm lòng nghĩ cho đối phương là điều quan trọng."},
+    {"w": "思い切る", "r": "おもいきる", "vi": "quyết dứt khoát, dẹp hẳn ý nghĩ", "ex": "思い切って発表した。", "exvi": "Tôi đánh liều phát biểu."},
+    {"w": "思い浮かぶ", "r": "おもいうかぶ", "vi": "hiện lên trong đầu", "ex": "顔は思い浮かぶが名前が出ない。", "exvi": "Khuôn mặt thì hiện ra mà tên thì không nhớ nổi."},
+    {"w": "思い知る", "r": "おもいしる", "vi": "thấm thía, nhận ra (điều khó chịu)", "ex": "自分の弱さを思い知った。", "exvi": "Tôi thấm thía sự yếu kém của mình."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-yari",
+   "title": "やり〜",
+   "note": "やる = làm. Nhóm này nói về cách tiến hành một việc.",
+   "items": [
+    {"w": "やり直す", "r": "やりなおす", "vi": "làm lại từ đầu", "ex": "最初からやり直そう。", "exvi": "Làm lại từ đầu thôi."},
+    {"w": "やり遂げる", "r": "やりとげる", "vi": "hoàn thành đến cùng", "ex": "最後までやり遂げた。", "exvi": "Cậu ấy đã làm đến cùng."},
+    {"w": "やり取り", "r": "やりとり", "vi": "trao đổi qua lại (thư, lời)", "ex": "メールでやり取りしている。", "exvi": "Chúng tôi trao đổi qua email."},
+    {"w": "やり過ごす", "r": "やりすごす", "vi": "để trôi qua, cho qua", "ex": "雨をやり過ごしてから出た。", "exvi": "Tôi đợi mưa tạnh rồi mới đi."},
+    {"w": "やりかける", "r": "", "vi": "làm dở dang", "ex": "やりかけの仕事が残っている。", "exvi": "Vẫn còn việc làm dở."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-uchi",
+   "title": "打ち〜 (うち)",
+   "note": "打つ = đánh/gõ. Trong từ ghép phần lớn chỉ còn nghĩa nhấn mạnh.",
+   "items": [
+    {"w": "打ち合わせる", "r": "うちあわせる", "vi": "bàn bạc, họp trao đổi trước", "ex": "明日の予定を打ち合わせる。", "exvi": "Trao đổi trước lịch ngày mai."},
+    {"w": "打ち明ける", "r": "うちあける", "vi": "thổ lộ, nói thật chuyện giấu kín", "ex": "悩みを友達に打ち明けた。", "exvi": "Tôi thổ lộ nỗi lo với bạn."},
+    {"w": "打ち消す", "r": "うちけす", "vi": "phủ nhận, bác bỏ", "ex": "うわさを打ち消した。", "exvi": "Anh ấy bác bỏ tin đồn."},
+    {"w": "打ち込む", "r": "うちこむ", "vi": "dồn hết tâm sức; nhập (dữ liệu)", "ex": "研究に打ち込んでいる。", "exvi": "Anh ấy dốc sức vào nghiên cứu."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-hiki",
+   "title": "引き〜 (ひき)",
+   "note": "引く = kéo. Nhóm này chỉ việc kéo về phía mình, rút lui, hoặc nối tiếp.",
+   "items": [
+    {"w": "引き受ける", "r": "ひきうける", "vi": "nhận lãnh (việc, trách nhiệm)", "ex": "彼が司会を引き受けた。", "exvi": "Anh ấy nhận dẫn chương trình."},
+    {"w": "引き出す", "r": "ひきだす", "vi": "rút ra (tiền); khơi ra (năng lực)", "ex": "銀行でお金を引き出した。", "exvi": "Tôi rút tiền ở ngân hàng."},
+    {"w": "引き返す", "r": "ひきかえす", "vi": "quay trở lại giữa đường", "ex": "忘れ物をして家に引き返した。", "exvi": "Tôi quên đồ nên quay về nhà."},
+    {"w": "引き止める", "r": "ひきとめる", "vi": "giữ lại, can không cho đi", "ex": "帰ろうとする彼を引き止めた。", "exvi": "Tôi giữ cậu ấy lại khi cậu định về."},
+    {"w": "引き継ぐ", "r": "ひきつぐ", "vi": "tiếp quản, bàn giao lại", "ex": "前任者から仕事を引き継いだ。", "exvi": "Tôi tiếp quản công việc từ người trước."},
+    {"w": "引き分け", "r": "ひきわけ", "vi": "trận hoà", "ex": "試合は引き分けに終わった。", "exvi": "Trận đấu kết thúc hoà."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-sashi",
+   "title": "差し〜 (さし)",
+   "note": "Nhóm trang trọng, hay gặp trong văn viết và hội thoại lịch sự.",
+   "items": [
+    {"w": "差し上げる", "r": "さしあげる", "vi": "biếu, tặng (khiêm nhường của あげる)", "ex": "お土産を差し上げます。", "exvi": "Tôi xin biếu chút quà."},
+    {"w": "差し出す", "r": "さしだす", "vi": "chìa ra, đưa ra", "ex": "名刺を差し出した。", "exvi": "Anh ấy chìa danh thiếp ra."},
+    {"w": "差し支える", "r": "さしつかえる", "vi": "gây trở ngại, bất tiện", "ex": "明日の仕事に差し支える。", "exvi": "Sẽ ảnh hưởng tới công việc ngày mai."},
+    {"w": "差し込む", "r": "さしこむ", "vi": "cắm vào; (nắng) rọi vào", "ex": "プラグを差し込む。", "exvi": "Cắm phích vào."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-mi",
+   "title": "見〜 (み)",
+   "note": "Nhóm động từ về cách nhìn, hay ra ở 問題5.",
+   "items": [
+    {"w": "見つける", "r": "みつける", "vi": "tìm thấy", "ex": "なくした鍵を見つけた。", "exvi": "Tôi tìm thấy chiếc chìa khoá bị mất."},
+    {"w": "見直す", "r": "みなおす", "vi": "xem lại, rà lại; nhìn nhận lại (tốt hơn)", "ex": "答えをもう一度見直す。", "exvi": "Rà lại đáp án một lần nữa."},
+    {"w": "見送る", "r": "みおくる", "vi": "tiễn; tạm hoãn (kế hoạch)", "ex": "空港まで友達を見送った。", "exvi": "Tôi tiễn bạn ra sân bay."},
+    {"w": "見舞う", "r": "みまう", "vi": "thăm người ốm", "ex": "入院した祖母を見舞った。", "exvi": "Tôi đi thăm bà đang nằm viện."},
+    {"w": "見つめる", "r": "みつめる", "vi": "nhìn chăm chú", "ex": "じっと相手を見つめる。", "exvi": "Nhìn chăm chú vào đối phương."},
+    {"w": "見逃す", "r": "みのがす", "vi": "bỏ lỡ; bỏ qua lỗi", "ex": "大事な場面を見逃した。", "exvi": "Tôi bỏ lỡ mất cảnh quan trọng."},
+    {"w": "見渡す", "r": "みわたす", "vi": "nhìn bao quát", "ex": "屋上から町を見渡す。", "exvi": "Từ sân thượng nhìn bao quát cả thị trấn."},
+    {"w": "見下ろす", "r": "みおろす", "vi": "nhìn xuống (từ trên cao)", "ex": "山頂から町を見下ろした。", "exvi": "Từ đỉnh núi tôi nhìn xuống thị trấn."}
+   ]
+  },
+  {
+   "cat": "Động từ ghép",
+   "id": "v-khac",
+   "title": "立ち〜 · 言い〜 · 追い〜 · 乗り〜 · 申し〜 · 呼び〜",
+   "note": "Các nhóm nhỏ hơn nhưng vẫn hay gặp trong đề.",
+   "items": [
+    {"w": "立ち上がる", "r": "たちあがる", "vi": "đứng dậy", "ex": "彼は急に立ち上がった。", "exvi": "Anh ấy bật dậy."},
+    {"w": "立ち止まる", "r": "たちどまる", "vi": "dừng bước", "ex": "名前を呼ばれて立ち止まった。", "exvi": "Bị gọi tên nên tôi dừng lại."},
+    {"w": "立ち寄る", "r": "たちよる", "vi": "ghé qua", "ex": "帰りにスーパーに立ち寄った。", "exvi": "Trên đường về tôi ghé siêu thị."},
+    {"w": "言い出す", "r": "いいだす", "vi": "lên tiếng nói ra (đầu tiên)", "ex": "自分から言い出したことだ。", "exvi": "Chính cậu là người nói ra điều đó."},
+    {"w": "言い訳", "r": "いいわけ", "vi": "lời bào chữa, biện minh", "ex": "言い訳ばかりするな。", "exvi": "Đừng chỉ biết biện minh."},
+    {"w": "言い換える", "r": "いいかえる", "vi": "nói cách khác, diễn đạt lại", "ex": "難しい言葉を言い換える。", "exvi": "Diễn đạt lại từ khó cho dễ hiểu."},
+    {"w": "追い付く", "r": "おいつく", "vi": "đuổi kịp", "ex": "走って先生に追い付いた。", "exvi": "Tôi chạy theo và đuổi kịp thầy."},
+    {"w": "追い越す", "r": "おいこす", "vi": "vượt lên trước", "ex": "前の車を追い越した。", "exvi": "Tôi vượt chiếc xe phía trước."},
+    {"w": "乗り換える", "r": "のりかえる", "vi": "đổi tàu/xe", "ex": "新宿で乗り換えてください。", "exvi": "Hãy đổi tàu ở Shinjuku."},
+    {"w": "乗り越える", "r": "のりこえる", "vi": "vượt qua (khó khăn)", "ex": "困難を乗り越えた。", "exvi": "Anh ấy đã vượt qua khó khăn."},
+    {"w": "乗り遅れる", "r": "のりおくれる", "vi": "lỡ chuyến", "ex": "電車に乗り遅れた。", "exvi": "Tôi lỡ chuyến tàu."},
+    {"w": "申し込む", "r": "もうしこむ", "vi": "đăng ký, nộp đơn", "ex": "試験に申し込んだ。", "exvi": "Tôi đã đăng ký thi."},
+    {"w": "申し上げる", "r": "もうしあげる", "vi": "thưa, nói (khiêm nhường)", "ex": "お礼を申し上げます。", "exvi": "Tôi xin gửi lời cảm ơn."},
+    {"w": "呼びかける", "r": "よびかける", "vi": "kêu gọi", "ex": "節電を呼びかける。", "exvi": "Kêu gọi tiết kiệm điện."},
+    {"w": "呼び出す", "r": "よびだす", "vi": "gọi ra, triệu tập", "ex": "先生に呼び出された。", "exvi": "Tôi bị thầy gọi lên."}
+   ]
+  },
+  {
+   "cat": "Đuôi ghép",
+   "id": "suf-verb",
+   "title": "Đuôi ghép sau thể ます",
+   "note": "Bỏ ます rồi ghép đuôi. Đây là phần ăn điểm ở 問題1 文法 vì chỉ cần nhớ nghĩa của đuôi.",
+   "items": [
+    {"w": "〜出す", "r": "〜だす", "vi": "bỗng bắt đầu (đột ngột, ngoài ý muốn)", "ex": "赤ちゃんが急に泣き出した。", "exvi": "Em bé bỗng oà khóc."},
+    {"w": "〜始める", "r": "〜はじめる", "vi": "bắt đầu (chủ động, có kế hoạch)", "ex": "去年から日本語を習い始めた。", "exvi": "Tôi bắt đầu học tiếng Nhật từ năm ngoái."},
+    {"w": "〜続ける", "r": "〜つづける", "vi": "tiếp tục làm", "ex": "三時間歩き続けた。", "exvi": "Tôi đi bộ liên tục ba tiếng."},
+    {"w": "〜終わる", "r": "〜おわる", "vi": "làm xong", "ex": "本を読み終わった。", "exvi": "Tôi đọc xong quyển sách."},
+    {"w": "〜切る", "r": "〜きる", "vi": "làm trọn, hết sạch", "ex": "マラソンを走り切った。", "exvi": "Tôi chạy trọn đường marathon."},
+    {"w": "〜込む", "r": "〜こむ", "vi": "vào trong; làm sâu/kỹ", "ex": "電車に駆け込む。", "exvi": "Lao vội vào tàu."},
+    {"w": "〜直す", "r": "〜なおす", "vi": "làm lại cho đúng", "ex": "作文を書き直した。", "exvi": "Tôi viết lại bài văn."},
+    {"w": "〜合う", "r": "〜あう", "vi": "làm với nhau, qua lại", "ex": "意見を出し合う。", "exvi": "Cùng nhau đưa ra ý kiến."},
+    {"w": "〜過ぎる", "r": "〜すぎる", "vi": "quá mức", "ex": "食べ過ぎてお腹が痛い。", "exvi": "Ăn quá nhiều nên đau bụng."},
+    {"w": "〜かける", "r": "", "vi": "đang dở; suýt", "ex": "読みかけの本が机にある。", "exvi": "Quyển sách đọc dở nằm trên bàn."},
+    {"w": "〜きれない", "r": "", "vi": "không thể làm hết được", "ex": "多すぎて食べきれない。", "exvi": "Nhiều quá ăn không hết."},
+    {"w": "〜がたい", "r": "", "vi": "khó mà (làm được)", "ex": "信じがたい話だ。", "exvi": "Đó là chuyện khó tin."}
+   ]
+  },
+  {
+   "cat": "Tiền tố · hậu tố",
+   "id": "pre-noun",
+   "title": "Tiền tố hay gặp",
+   "note": "",
+   "items": [
+    {"w": "真っ〜", "r": "まっ〜", "vi": "hoàn toàn, ngay giữa (nhấn mạnh)", "ex": "顔が真っ赤になった。", "exvi": "Mặt đỏ bừng lên."},
+    {"w": "真っ最中", "r": "まっさいちゅう", "vi": "đang giữa lúc", "ex": "会議の真っ最中だ。", "exvi": "Đang giữa cuộc họp."},
+    {"w": "不〜", "r": "ふ〜", "vi": "bất, không (不便・不安・不足)", "ex": "この辺は交通が不便だ。", "exvi": "Vùng này giao thông bất tiện."},
+    {"w": "無〜", "r": "む〜", "vi": "vô, không có (無料・無理・無関係)", "ex": "入場は無料です。", "exvi": "Vào cửa miễn phí."},
+    {"w": "未〜", "r": "み〜", "vi": "chưa (未定・未完成)", "ex": "日程はまだ未定だ。", "exvi": "Lịch vẫn chưa định."},
+    {"w": "非〜", "r": "ひ〜", "vi": "phi, không phải (非常・非公開)", "ex": "非常口はあちらです。", "exvi": "Lối thoát hiểm ở đằng kia."},
+    {"w": "再〜", "r": "さい〜", "vi": "tái, lại lần nữa (再利用・再開)", "ex": "店は来月再開する。", "exvi": "Cửa tiệm mở lại vào tháng sau."},
+    {"w": "お〜 / ご〜", "r": "", "vi": "tiền tố lịch sự (お金・ご家族)", "ex": "ご家族によろしく。", "exvi": "Cho tôi gửi lời hỏi thăm gia đình."}
+   ]
+  },
+  {
+   "cat": "Tiền tố · hậu tố",
+   "id": "suf-noun",
+   "title": "Hậu tố hay gặp",
+   "note": "",
+   "items": [
+    {"w": "〜的", "r": "〜てき", "vi": "mang tính… (積極的・一般的)", "ex": "彼は積極的に発言する。", "exvi": "Anh ấy phát biểu rất tích cực."},
+    {"w": "〜性", "r": "〜せい", "vi": "tính chất (安全性・可能性)", "ex": "可能性は高い。", "exvi": "Khả năng là cao."},
+    {"w": "〜化", "r": "〜か", "vi": "sự… hoá (国際化・高齢化)", "ex": "社会の高齢化が進む。", "exvi": "Xã hội ngày càng già hoá."},
+    {"w": "〜さ", "r": "", "vi": "biến tính từ thành danh từ (高さ・便利さ)", "ex": "山の高さを測る。", "exvi": "Đo độ cao của núi."},
+    {"w": "〜み", "r": "", "vi": "danh từ hoá, thiên về cảm nhận (痛み・楽しみ)", "ex": "足の痛みが取れない。", "exvi": "Cơn đau ở chân không dứt."},
+    {"w": "〜っぽい", "r": "", "vi": "trông có vẻ, dễ… (子供っぽい・忘れっぽい)", "ex": "彼は忘れっぽい。", "exvi": "Anh ấy hay quên."},
+    {"w": "〜がち", "r": "", "vi": "hay bị, thường rơi vào (xấu)", "ex": "最近休みがちだ。", "exvi": "Dạo này cậu ấy hay nghỉ."},
+    {"w": "〜気味", "r": "〜ぎみ", "vi": "hơi có vẻ (風邪気味・疲れ気味)", "ex": "今日は風邪気味だ。", "exvi": "Hôm nay tôi hơi cảm."},
+    {"w": "〜中", "r": "〜ちゅう／〜じゅう", "vi": "đang trong / suốt (工事中・一日中)", "ex": "一日中雨だった。", "exvi": "Mưa suốt cả ngày."},
+    {"w": "〜らしい", "r": "", "vi": "đúng chất, ra dáng (男らしい・学生らしい)", "ex": "今日は春らしい天気だ。", "exvi": "Hôm nay thời tiết đúng chất mùa xuân."},
+    {"w": "〜だらけ", "r": "", "vi": "đầy rẫy (toàn thứ xấu)", "ex": "答案は間違いだらけだった。", "exvi": "Bài làm toàn lỗi sai."},
+    {"w": "〜ばかり", "r": "", "vi": "toàn là, chỉ mỗi", "ex": "彼は文句ばかり言う。", "exvi": "Anh ta chỉ toàn phàn nàn."}
+   ]
+  }
+ ]
+}

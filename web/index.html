@@ -125,6 +125,24 @@ h2{font-size:18px;font-weight:650}
 .btn.examC:hover{background:var(--exam-dark)}
 .chip.sec-e{background:var(--exam-soft);color:var(--exam-dark)}
 .startcard.e .ico{background:var(--exam-soft);color:var(--exam)}
+.startcard.w .ico{background:var(--bad-soft);color:var(--bad)}
+.hbsearch{font:inherit;font-size:14px;padding:9px 14px;border:1.5px solid var(--line);border-radius:11px;
+  background:var(--elev);color:var(--ink);min-width:260px}
+.hbtabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 4px}
+.hbtab{font:inherit;font-size:13px;font-weight:650;padding:7px 15px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--line);background:var(--elev);color:var(--muted)}
+.hbtab.on{background:var(--accent,var(--vocab));border-color:transparent;color:#fff}
+.hbgroup{margin-top:18px}
+.hbgroup h2{font-size:17px;margin:0}
+.hbnote{font-size:13px;color:var(--muted);margin:4px 0 12px;line-height:1.6;max-width:760px}
+.hbgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.hbitem{border:1.5px solid var(--line);border-radius:13px;padding:13px 15px;background:var(--elev)}
+.hbw{font-size:18px;font-weight:700}
+.hbr{font-size:12.5px;color:var(--muted);margin-left:7px}
+.hbvi{font-size:14px;margin-top:3px}
+.hbex{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:13.5px;line-height:1.75}
+.hbexvi{font-size:12.5px;color:var(--muted)}
+.hbcount{font-size:12.5px;color:var(--muted);font-weight:600}
 /* ---------- exam runner ---------- */
 .paperbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:10px 0 14px;border-bottom:1px solid var(--line);margin-bottom:16px;position:sticky;top:0;
@@ -493,6 +511,7 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
     <button class="navitem" id="nav-learn" onclick="App.navLearn()">📖&ensp;Học</button>
     <button class="navitem" id="nav-exam" onclick="App.navExam()">📝&ensp;Kiểm tra</button>
     <button class="navitem" id="nav-review" onclick="App.navReview()">📚&ensp;Ôn tập</button>
+    <button class="navitem" id="nav-handbook" onclick="App.navHandbook()">📙&ensp;Cẩm nang</button>
     <button class="navitem" id="nav-history" onclick="App.navHistory()">🕘&ensp;Lịch sử</button>
     <button class="navitem" id="nav-settings" onclick="App.openSettings()">⚙️&ensp;Cài đặt</button>
     <div class="sbspacer"></div>
@@ -659,6 +678,20 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
   </section>
 
   <!-- ===== history ===== -->
+  <!-- ===== cẩm nang: từ láy, động từ ghép, tiền tố/hậu tố ===== -->
+  <section id="scr-handbook" class="screen">
+    <div class="topbar">
+      <div class="hello">
+        <h1>Cẩm nang</h1>
+        <div class="sub" style="margin-top:2px">Từ láy, động từ ghép và các tiền tố/hậu tố hay gặp — tra nhanh theo nhóm</div>
+      </div>
+      <input id="hbSearch" class="hbsearch" placeholder="Tìm từ, cách đọc hay nghĩa…"
+             oninput="App.renderHandbook()" autocomplete="off">
+    </div>
+    <div class="hbtabs" id="hbTabs"></div>
+    <div id="hbBody"></div>
+  </section>
+
   <section id="scr-history" class="screen">
     <div class="topbar">
       <div class="hello">
@@ -720,6 +753,15 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
                 onclick="App.restoreSnapshot()">Khôi phục</button>
       </div>
       <span class="shint">app tự lưu mỗi ngày một bản · chọn ngày rồi bấm Khôi phục nếu tiến trình có gì bất thường</span></div>
+    <div class="setrow" style="grid-template-columns:230px auto 1fr">
+      <label>Đồng bộ giữa các máy</label>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn ghost" style="font-size:12.5px;padding:6px 12px"
+                onclick="App.exportState()">💾 Xuất file</button>
+        <button class="btn ghost" style="font-size:12.5px;padding:6px 12px"
+                onclick="App.importState()">📥 Nhập file</button>
+      </div>
+      <span class="shint">xuất ra 1 file JSON rồi chép sang máy kia và nhập vào — hai bên được <b>gộp</b>, không bên nào mất session. File không chứa API key.</span></div>
     <h2 style="margin-top:22px">Giao diện</h2>
     <div class="setrow" style="grid-template-columns:230px 1fr">
       <label>Chủ đề màu</label>
@@ -910,8 +952,9 @@ const App = {
       fetch("../kanji.json").then(r => r.json()),
       fetch("../grammar.json").then(r => r.json()),
       fetch("../reading.json").then(r => r.json()),
-      fetch("../exams.json").then(r => r.json())]);
-    return { vocab: v[0], kanji: v[1], grammar: v[2], reading: v[3], exams: v[4] };
+      fetch("../exams.json").then(r => r.json()),
+      fetch("../handbook.json").then(r => r.json())]);
+    return { vocab: v[0], kanji: v[1], grammar: v[2], reading: v[3], exams: v[4], handbook: v[5] };
   },
   async apiCall(fn, ...args) {
     try { if (window.pywebview && window.pywebview.api) return await window.pywebview.api[fn](...args); } catch (e) {}
@@ -963,12 +1006,55 @@ const App = {
     $("#nav-review").classList.toggle("on", id === "scr-review");
     $("#nav-exam").classList.toggle("on", id === "scr-exam");
     $("#nav-history").classList.toggle("on", id === "scr-history");
+    $("#nav-handbook").classList.toggle("on", id === "scr-handbook");
     window.scrollTo(0, 0);
   },
   navDash() { if (this.S) return; this.renderDash(); },
   navLearn() { if (this.S) return; this.renderLearn(); },
   navExam() { if (this.S) return; this.renderExamHub(); },
   navHistory() { if (this.S) return; this.show("scr-history"); this.renderHistory(); },
+  navHandbook() { if (this.S) return; this.show("scr-handbook"); this.renderHandbook(); },
+  /* ---------------- cẩm nang ---------------- */
+  renderHandbook() {
+    const groups = ((this.data.handbook || {}).groups) || [];
+    const cats = [...new Set(groups.map(g => g.cat))];
+    const cur = cats.includes(this.hbCat) ? this.hbCat : "all";
+    const raw = (($("#hbSearch") || {}).value || "").trim();
+    // normVi() bỏ sạch chữ Nhật nên gõ tiếng Nhật phải so khớp trên bản gốc
+    const isJp = /[ぁ-ゖァ-ヺ一-鿿々〜]/.test(raw);
+    const q = isJp ? raw : this.normVi(raw).trim();
+    $("#hbTabs").innerHTML =
+      [{ id: "all", label: "Tất cả" }, ...cats.map(c => ({ id: c, label: c }))]
+        .map(t => `<button class="hbtab${(t.id === "all" ? cur === "all" : cur === t.id) ? " on" : ""}"
+             onclick="App.setHbCat(${JSON.stringify(t.id).replace(/"/g, "&quot;")})">${esc(t.label)}</button>`).join("");
+    // tìm được cả theo từ tiếng Nhật, cách đọc lẫn nghĩa tiếng Việt
+    const hit = it => !q || (isJp
+      ? (it.w + " " + (it.r || "") + " " + (it.ex || "")).includes(q)
+      : this.normVi(it.w + " " + (it.r || "") + " " + it.vi + " " + (it.ex || "")).includes(q));
+    let n = 0;
+    const html = groups
+      .filter(g => cur === "all" || g.cat === cur)
+      .map(g => {
+        const items = g.items.filter(hit);
+        if (!items.length) return "";
+        n += items.length;
+        return `<div class="hbgroup">
+          <h2>${esc(g.title)} <span class="hbcount">· ${items.length} mục</span></h2>
+          ${g.note ? `<div class="hbnote">${esc(g.note)}</div>` : `<div style="height:10px"></div>`}
+          <div class="hbgrid">${items.map(it => `
+            <div class="hbitem">
+              <div><span class="hbw jp">${esc(it.w)}</span>${it.r ? `<span class="hbr jp">${esc(it.r)}</span>` : ""}</div>
+              <div class="hbvi">${esc(it.vi)}</div>
+              ${it.ex ? `<div class="hbex"><span class="jp">${esc(it.ex)}</span>
+                   <div class="hbexvi">${esc(it.exvi || "")}</div></div>` : ""}
+            </div>`).join("")}</div>
+        </div>`;
+      }).join("");
+    $("#hbBody").innerHTML = html || `<div class="card panel centered" style="margin-top:22px">
+      <p class="sub">Không tìm thấy mục nào khớp “${esc(($("#hbSearch") || {}).value || "")}”.</p></div>`;
+    $("#scr-handbook").style.setProperty("--accent", "var(--vocab)");
+  },
+  setHbCat(c) { this.hbCat = c; this.renderHandbook(); },
   navReview() { if (this.S) return; this.renderReview(); },
   navReading() { if (this.S) return; this.renderReadingList(); },
   setReviewSort(v) { this.reviewSort = v; this.renderReview(); },
@@ -1320,6 +1406,63 @@ const App = {
     take = Math.min(take, total - n);
     return Array.from({ length: take }, (_, i) => n + i);
   },
+  // Nghĩa dùng làm ĐỀ BÀI Việt→Nhật. Sách ghi chú lẫn tiếng Nhật vào phần nghĩa
+  // ("とける: được giải quyết", "chăm sóc ai đó (面倒を見る)"), bê nguyên vào đề là
+  // vừa lộ đáp án vừa khó đọc. Ở màn học/ôn tập vẫn hiện nguyên văn.
+  viText(meanings) {
+    const JP = /[ぁ-ゖァ-ヺ一-鿿々〜]/;
+    const out = [];
+    for (let m of meanings || []) {
+      m = String(m)
+        .replace(/^[ぁ-ゖァ-ヺ一-鿿々・／/\s]+[：:]\s*/, "")   // nhãn cách đọc đầu câu
+        .replace(/[（(][^）)]*[ぁ-ゖァ-ヺ一-鿿々][^）)]*[）)]?/g, "") // chú thích tiếng Nhật
+        .replace(/[（）]/g, "")
+        .replace(/\s{2,}/g, " ")
+        .trim()
+        .replace(/^[,;．。、]+|[,;、]+$/g, "")
+        .trim();
+      // ngoặc lẻ còn sót sau khi cắt chú thích
+      if ((m.match(/\(/g) || []).length !== (m.match(/\)/g) || []).length)
+        m = m.replace(/[()]/g, "").trim();
+      if (m && !JP.test(m)) out.push(m);
+    }
+    return out.length ? out.join("; ") : (meanings || []).join("; ");
+  },
+  /* -------- sổ ghi từ hay sai (dùng cho quiz tổng hợp ở màn Kiểm tra) -------- */
+  // state.missed = { "vocab:12": {w, r, last}, "kanji:3:5": {...} }
+  missKey(ref) {
+    if (!ref) return null;
+    return ref.mode === "vocab" ? "vocab:" + ref.idx : "kanji:" + ref.kIdx + ":" + ref.wIdx;
+  },
+  bumpMiss(it, wrong) {
+    const key = this.missKey(it && it.ref);
+    if (!key || !this.state) return;
+    const m = this.state.missed || (this.state.missed = {});
+    const e = m[key] || (m[key] = { w: 0, r: 0 });
+    if (wrong) e.w++; else e.r++;
+    e.last = Date.now();
+    // đã trả lời đúng nhiều hơn sai thì coi như thuộc rồi, bỏ khỏi sổ
+    if (e.r >= e.w + 2) delete m[key];
+  },
+  itemFromRef(ref) {
+    if (!ref) return null;
+    if (ref.mode === "vocab") return this.data.vocab[ref.idx] ? this.vocabItem(ref.idx) : null;
+    const k = this.data.kanji[ref.kIdx];
+    return k && k.words[ref.wIdx] ? this.kanjiWordItem(ref.kIdx, ref.wIdx) : null;
+  },
+  // Danh sách từ hay sai, sai nhiều xếp trước; chỉ lấy từ thuộc session đã học.
+  missedRefs() {
+    const m = (this.state && this.state.missed) || {};
+    return Object.keys(m)
+      .map(key => {
+        const p = key.split(":");
+        const ref = p[0] === "vocab" ? { mode: "vocab", idx: +p[1] }
+                                     : { mode: "kanji", kIdx: +p[1], wIdx: +p[2] };
+        return { ref, score: m[key].w - m[key].r, last: m[key].last || 0 };
+      })
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score || b.last - a.last);
+  },
   // unified quiz item: {jp, reading, kana[], meanText, meanings[], pos, hanviet, kref}
   vocabItem(idx) {
     const e = this.data.vocab[idx];
@@ -1330,13 +1473,13 @@ const App = {
         kana.push(mt[1] || mt[2]);
     }
     return { jp: e.word, reading: e.reading, kana,
-      meanings: e.meanings, meanText: e.meanings.join("; "),
+      meanings: e.meanings, meanText: this.viText(e.meanings),
       pos: e.pos, hanviet: e.hanviet, kref: null, ref: { mode: "vocab", idx } };
   },
   kanjiWordItem(kIdx, wIdx) {
     const k = this.data.kanji[kIdx], w = k.words[wIdx];
     return { jp: w.word, reading: this.kanaForm(w) || w.reading, kana: [this.kanaForm(w)].filter(Boolean),
-      meanings: [w.meaning], meanText: w.meaning,
+      meanings: [w.meaning], meanText: this.viText([w.meaning]),
       pos: "", hanviet: "", kref: k, ref: { mode: "kanji", kIdx, wIdx } };
   },
   kanaForm(w) {
@@ -1401,11 +1544,11 @@ const App = {
       let cand;
       if (this.S.mode === "vocab") {
         const e = this.data.vocab[Math.floor(Math.random() * this.data.vocab.length)];
-        cand = e.meanings.join("; ");
+        cand = this.viText(e.meanings);
       } else {
         const ks = this.data.kanji;
         const k = ks[Math.floor(Math.random() * ks.length)];
-        cand = k.words[Math.floor(Math.random() * k.words.length)].meaning;
+        cand = this.viText([k.words[Math.floor(Math.random() * k.words.length)].meaning]);
       }
       if (!cand || texts.has(cand)) continue;
       texts.add(cand); opts.push({ text: cand, ok: false });
@@ -1601,6 +1744,75 @@ const App = {
       this.state.settings = Object.assign({}, this.cfg(), { aiModel: id });
       this.save();
     }
+  },
+  /* -------- đồng bộ tiến trình giữa các máy (xuất / nhập file) -------- */
+  async exportState() {
+    const res = (await this.apiCall("export_state", JSON.stringify(this.state, null, 1))) || {};
+    if (res.ok) this.toastSaved("💾 Đã xuất: " + res.path.split(/[\\/]/).pop());
+    else if (res.error !== "cancelled") this.toastSaved("⚠ Không xuất được file");
+  },
+  // Gộp chứ không ghi đè: hai máy thường học những session khác nhau, thay thế
+  // là mất sạch phần của một bên.
+  mergeState(a, b) {
+    const out = JSON.parse(JSON.stringify(a));
+    out.name = a.name || b.name;
+    for (const mode of ["vocab", "kanji", "grammar"]) {
+      const ma = out[mode] || (out[mode] = { sessions: [], reviews: [] });
+      const mb = b[mode] || {};
+      const byId = new Map((ma.sessions || []).map(s => [s.id, s]));
+      for (const s of mb.sessions || []) if (!byId.has(s.id)) byId.set(s.id, s);
+      ma.sessions = [...byId.values()].sort((x, y) => x.id - y.id);
+      const seen = new Set((ma.reviews || []).map(r => r.sid + "|" + r.date));
+      for (const r of mb.reviews || [])
+        if (!seen.has(r.sid + "|" + r.date)) { ma.reviews.push(r); seen.add(r.sid + "|" + r.date); }
+      ma.reviews.sort((x, y) => String(x.date).localeCompare(String(y.date)));
+      const ea = ma.exams || [], eb = (mb.exams || []);
+      const se = new Set(ea.map(e => e.date));
+      ma.exams = ea.concat(eb.filter(e => !se.has(e.date)))
+        .sort((x, y) => String(x.date).localeCompare(String(y.date)));
+    }
+    for (const mode of ["reading", "exams"]) {
+      out[mode] = out[mode] || { done: [] };
+      const key = x => JSON.stringify(x);
+      const seen = new Set((out[mode].done || []).map(key));
+      for (const d of ((b[mode] || {}).done || []))
+        if (!seen.has(key(d))) { out[mode].done.push(d); seen.add(key(d)); }
+    }
+    out.missed = Object.assign({}, b.missed || {});
+    for (const [k, v] of Object.entries(a.missed || {})) {
+      const o = out.missed[k];
+      out.missed[k] = o ? { w: (o.w || 0) + (v.w || 0), r: (o.r || 0) + (v.r || 0),
+                            last: Math.max(o.last || 0, v.last || 0) } : v;
+    }
+    // Cài đặt, mục tiêu, giao diện giữ của máy này — giờ nhắc học mỗi máy mỗi khác.
+    return out;
+  },
+  async importState() {
+    const res = (await this.apiCall("import_state")) || {};
+    if (!res.ok) {
+      if (res.error !== "cancelled") this.toastSaved("⚠ Không đọc được file");
+      return;
+    }
+    let inc = null;
+    try { inc = JSON.parse(res.text); } catch (e) {}
+    if (!inc || typeof inc !== "object" || !("vocab" in inc)) {
+      this.toastSaved("⚠ File này không phải bản lưu tiến trình");
+      return;
+    }
+    const n = s => ["vocab", "kanji", "grammar"]
+      .reduce((t, m) => t + (((s[m] || {}).sessions) || []).length, 0);
+    const merged = this.mergeState(this.state, inc);
+    const ok = await this.askConfirm(
+      `Gộp tiến trình từ file này?\n\n` +
+      `Máy này: ${n(this.state)} session · File: ${n(inc)} session → sau khi gộp: ${n(merged)} session.\n` +
+      `Hai bên học session nào cũng được giữ, không mất gì. Cài đặt và giờ nhắc của máy này giữ nguyên.`,
+      "Gộp tiến trình", false);
+    if (!ok) return;
+    this.state = merged;
+    this.save();
+    this.closeSettings();
+    this.renderDash();
+    this.toastSaved("🔄 Đã gộp tiến trình");
   },
   async fillSnapshots() {
     const sel = $("#setSnap");
@@ -2570,14 +2782,67 @@ const App = {
     };
     const nExams = (this.data.exams || []).length;
     const doneEx = this.state.exams.done.length;
+    const miss = this.missedRefs();
+    const nv = miss.filter(m => m.ref.mode === "vocab").length;
+    const nk = miss.length - nv;
+    const missCard = miss.length
+      ? `<div class="card startcard w" onclick="App.startMissedQuiz()">
+           <div class="ico">✗</div>
+           <div><b>Từ hay sai</b>
+             <div class="det">${Math.min(miss.length, 25)} từ sai nhiều nhất${
+               nv && nk ? ` (${nv} từ vựng + ${nk} kanji)` : nk ? " (kanji)" : " (từ vựng)"
+             } · gom chung một bài</div></div>
+         </div>`
+      : `<div class="card startcard w" style="opacity:.55;cursor:default">
+           <div class="ico">✗</div>
+           <div><b>Từ hay sai</b>
+             <div class="det">Chưa có từ nào sai — cứ học rồi app tự gom những từ bạn hay quên vào đây</div></div>
+         </div>`;
     $("#examCards").innerHTML = mk("vocab", "v", "あ", "Kiểm tra từ vựng")
       + mk("kanji", "k", "漢", "Kiểm tra kanji")
       + mk("grammar", "g", "文", "Kiểm tra ngữ pháp")
+      + missCard
       + `<div class="card startcard e" onclick="App.navExamPapers()">
            <div class="ico">試</div>
            <div><b>Đề thi JLPT N3</b>
              <div class="det">${nExams} đề thi thật · thi theo đúng thời gian chuẩn${doneEx ? ` · đã làm ${doneEx} lượt` : ""}</div></div>
          </div>`;
+  },
+  // Quiz gom các từ hay sai của cả từ vựng lẫn kanji vào một bài.
+  // buildMC/buildKanjiMC lấy mồi nhử theo this.S.mode nên phải đổi mode theo từng
+  // câu trong lúc dựng, rồi trả lại như cũ.
+  buildMissedQuiz(refs) {
+    const saved = this.S.mode, qs = [];
+    refs.forEach((r, pos) => {
+      const it = this.itemFromRef(r.ref);
+      if (!it) return;
+      this.S.mode = r.ref.mode;
+      const mc = pos % 2 === 0;
+      if (r.ref.mode === "kanji") {
+        const hasKana = it.reading && it.reading !== it.jp;
+        qs.push(!hasKana ? this.buildMC(it)
+          : mc ? this.buildKanjiMC(it) : { type: "typed", qkind: "k-read", it });
+      } else {
+        qs.push(mc ? this.buildMC(it) : { type: "typed", it });
+      }
+    });
+    this.S.mode = saved;
+    return shuffle(qs);
+  },
+  startMissedQuiz() {
+    const refs = this.missedRefs().slice(0, 25);
+    if (!refs.length) return;
+    const cfg = this.cfg();
+    this.S = { mode: "vocab", exam: true, missed: true, id: null, items: [], sids: [] };
+    const qs = this.buildMissedQuiz(refs);
+    if (!qs.length) { this.S = null; return; }
+    this.S.quiz = { qs, i: 0, c: 0, wrong: [], answers: [] };
+    const total = qs.reduce((t, q) => t + (q.type === "mc" ? cfg.mcSec : cfg.typedSec), 0);
+    this.S.totalTime = total;
+    this.S.t0 = Date.now();
+    this.S.deadline = Date.now() + total * 1000;
+    this.S.timer = setInterval(() => this.tickExam(), 500);
+    this.gotoPhase("exam-quiz");
   },
   startExam(mode) {
     const st = this.state[mode];
@@ -2654,6 +2919,7 @@ const App = {
   recordExamAnswer(given, ok, pending) {
     const q = this.S.quiz, Q = q.qs[q.i];
     q.answers.push({ Q, given, ok, pending: !!pending });
+    if (!pending) this.bumpMiss(Q.it, !ok);
     if (ok) q.c++; else if (!pending) q.wrong.push(Q);
     q.i++;
     this.gotoPhase("exam-quiz");
@@ -2694,9 +2960,11 @@ const App = {
         if (a.ok) q.c++; else q.wrong.push(a.Q);
       }
     }
-    const st = this.state[this.S.mode];
-    (st.exams = st.exams || []).push({ date: new Date().toISOString(), dur: this.S.examDur,
-      c: q.c, t: q.qs.length, sids: this.S.sids });
+    if (!this.S.missed) {     // bài "từ hay sai" không tính vào lịch sử kiểm tra
+      const st = this.state[this.S.mode];
+      (st.exams = st.exams || []).push({ date: new Date().toISOString(), dur: this.S.examDur,
+        c: q.c, t: q.qs.length, sids: this.S.sids });
+    }
     this.save();
     this.gotoPhase("exam-result");
   },
@@ -2808,7 +3076,8 @@ const App = {
     const chip = $("#sessChip");
     chip.className = "chip " + { vocab: "sec-v", kanji: "sec-k", grammar: "sec-g" }[this.S.mode];
     const label = this.modeLabel();
-    chip.textContent = this.S.exam ? "Kiểm tra · " + label
+    chip.textContent = this.S.missed ? "Kiểm tra · Từ hay sai"
+      : this.S.exam ? "Kiểm tra · " + label
       : this.S.reviewOnly ? label + " · Ôn lại Session " + this.S.review.sid
       : label + " · Session " + this.S.id;
     document.getElementById("scr-session").style.setProperty("--accent", this.accent());
@@ -3295,6 +3564,7 @@ const App = {
   },
   finishAnswer(ok, typedVal) {
     const q = this.S.quiz, Q = q.qs[q.i];
+    this.bumpMiss(Q.it, !ok);
     if (ok) q.c++; else q.wrong.push(Q);
     const it = Q.it;
     const answerLine = Q.type !== "typed" ? "" : Q.qkind === "k-read"

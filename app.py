@@ -45,7 +45,7 @@ _ui = {"window": None, "tray": None, "quitting": False,
        "close_action": "ask", "tray_hint_shown": False}
 
 
-RES_FILES = ("vocab.json", "kanji.json", "grammar.json", "reading.json", "exams.json",
+RES_FILES = ("vocab.json", "kanji.json", "grammar.json", "reading.json", "exams.json", "handbook.json",
              "icon.ico", os.path.join("web", "index.html"))
 
 
@@ -351,7 +351,7 @@ def _load_close_pref():
 class Api:
     def get_data(self):
         out = {}
-        for name in ("vocab", "kanji", "grammar", "reading", "exams"):
+        for name in ("vocab", "kanji", "grammar", "reading", "exams", "handbook"):
             with open(res_path(name + ".json"), encoding="utf-8") as f:
                 out[name] = json.load(f)
         return out
@@ -485,6 +485,48 @@ class Api:
             return True
         except OSError:
             return False
+
+    # ---- đồng bộ giữa các máy: xuất/nhập một file JSON ------------------
+    # Cố ý KHÔNG kèm claude-api-key.txt: file này người dùng hay chép qua USB,
+    # qua chat, gửi cho nhau — key lọt ra ngoài là mất tiền thật.
+    def export_state(self, text):
+        w = _ui["window"]
+        if not w:
+            return {"ok": False, "error": "no_window"}
+        name = "gungun-n3-tien-trinh-%s.json" % datetime.date.today().isoformat()
+        try:
+            res = w.create_file_dialog(webview.SAVE_DIALOG, save_filename=name,
+                                       file_types=("JSON (*.json)",))
+        except Exception as e:                      # noqa: BLE001
+            return {"ok": False, "error": str(e)[:200]}
+        if not res:
+            return {"ok": False, "error": "cancelled"}
+        path = res if isinstance(res, str) else res[0]
+        if not path.lower().endswith(".json"):
+            path += ".json"
+        try:
+            _write_atomic(path, text)
+        except OSError as e:
+            return {"ok": False, "error": str(e)[:200]}
+        return {"ok": True, "path": path}
+
+    def import_state(self):
+        w = _ui["window"]
+        if not w:
+            return {"ok": False, "error": "no_window"}
+        try:
+            res = w.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=False,
+                                       file_types=("JSON (*.json)",))
+        except Exception as e:                      # noqa: BLE001
+            return {"ok": False, "error": str(e)[:200]}
+        if not res:
+            return {"ok": False, "error": "cancelled"}
+        path = res if isinstance(res, str) else res[0]
+        try:
+            with open(path, encoding="utf-8") as f:
+                return {"ok": True, "path": path, "text": f.read()}
+        except OSError as e:
+            return {"ok": False, "error": str(e)[:200]}
 
     def clear_backup(self):
         """Người dùng bấm 'Đặt lại toàn bộ dữ liệu': phải xoá cả file sao lưu,

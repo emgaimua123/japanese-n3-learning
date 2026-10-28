@@ -22,10 +22,10 @@ OUT = os.path.join(HERE, "dist", "GunGunN3Trainer")
 EXE = os.path.join(OUT, "GunGunN3Trainer.exe")
 # thư mục / file được chép vào resources/
 RES = ["web", "audio", "images", "vocab.json", "kanji.json", "grammar.json",
-       "reading.json", "exams.json", "icon.ico"]
+       "reading.json", "exams.json", "handbook.json", "icon.ico"]
 # 5 JSON này thiếu là app không chạy nổi
 REQUIRED = ["web", "vocab.json", "kanji.json", "grammar.json", "reading.json",
-            "exams.json", "icon.ico"]
+            "exams.json", "handbook.json", "icon.ico"]
 
 
 # App chỉ cần pywebview + pystray + PIL (đọc icon khay) + anthropic. Mấy gói nặng
