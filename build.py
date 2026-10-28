@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Đóng gói GunGun N3 Trainer: exe chỉ chứa runtime, tài nguyên để ngoài.
 
+    python -m pip install -r requirements.txt   # lần đầu, hoặc sau khi nâng Python
     python build.py
 
 Kết quả: dist/GunGunN3Trainer/
