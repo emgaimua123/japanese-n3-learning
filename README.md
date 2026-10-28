@@ -8,7 +8,7 @@
 ## Tải về
 
 **→ [Vào trang Releases để tải](https://github.com/emgaimua123/japanese-n3-learning/releases/latest)**, lấy file
-`GunGunN3Trainer-v1.0-win64.zip` trong mục **Assets** (~140 MB). Hai file *Source code* bên dưới là mã nguồn,
+`GunGunN3Trainer-v1.3-win64.zip` trong mục **Assets** (~141 MB). Hai file *Source code* bên dưới là mã nguồn,
 người dùng bình thường không cần tải.
 
 1. Giải nén — bên trong có sẵn `GunGunN3Trainer.exe` và thư mục `resources\`.
