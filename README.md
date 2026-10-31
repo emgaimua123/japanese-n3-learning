@@ -8,12 +8,16 @@
 ## Tải về
 
 **→ [Vào trang Releases để tải](https://github.com/emgaimua123/japanese-n3-learning/releases/latest)**, lấy file
-`GunGunN3Trainer-v1.3-win64.zip` trong mục **Assets** (~141 MB). Hai file *Source code* bên dưới là mã nguồn,
-người dùng bình thường không cần tải.
+`GunGunN3Trainer-v…-win64.zip` (số phiên bản mới nhất) trong mục **Assets** (~141 MB). Hai file *Source code*
+bên dưới là mã nguồn, người dùng bình thường không cần tải.
 
 1. Giải nén — bên trong có sẵn `GunGunN3Trainer.exe` và thư mục `resources\`.
 2. Chạy `GunGunN3Trainer.exe`. Không cần cài đặt gì thêm.
 3. Giữ nguyên thư mục `resources\` cạnh file exe, đừng tách ra.
+
+**Cập nhật lên bản mới**: **thoát hẳn app trước** — chuột phải biểu tượng 語 ở khay hệ thống → *Thoát hẳn* —
+rồi giải nén đè lên thư mục cũ và chọn *Replace* khi Windows hỏi. App còn chạy ngầm thì Windows không thay được
+file exe, mở lên vẫn là bản cũ. Tiến trình học không nằm trong thư mục app nên không bị ảnh hưởng.
 
 Yêu cầu: Windows 10/11 (WebView2 đã có sẵn trong máy). Lần đầu mở, Windows SmartScreen có thể cảnh báo vì
 file chưa mua chứng chỉ ký số — bấm **More info → Run anyway**.
@@ -93,9 +97,14 @@ dự phòng dạng JSON — mất một bản thì app tự lấy bản còn l�
 làm mất dữ liệu học. Gỡ app chỉ cần xoá thư mục đã giải nén; xoá luôn thư mục trên nếu muốn xoá sạch tiến trình.
 
 **Dùng trên hai máy**: vào Cài đặt → *Đồng bộ giữa các máy* → **Xuất file** để lưu tiến trình ra một file JSON,
-chép sang máy kia rồi bấm **Nhập file**. Hai bên được **gộp** chứ không ghi đè — máy nào học session nào cũng
-được giữ, số lần sai của cùng một từ được cộng lại. Cài đặt và giờ nhắc học thì giữ riêng theo từng máy, và
-file xuất ra **không chứa API key**.
+chép sang máy kia rồi bấm **Nhập file**. Hộp thoại hiện số từ vựng / kanji / bài ngữ pháp của máy đang dùng và
+của file, kèm giờ file được lưu — xem qua để chắc là đúng file — rồi chọn:
+
+- **Thay bằng file** — máy này lấy y nguyên tiến trình trong file. Dùng khi chuyển sang học ở máy khác.
+- **Gộp** — giữ phần đã học của cả hai máy (so theo từ đã học, nên hai máy đặt số từ mỗi session khác nhau
+  vẫn gộp đúng).
+
+Cài đặt, mục tiêu và giờ nhắc học giữ riêng theo từng máy, và file xuất ra **không chứa API key**.
 
 ## Giấy phép
 
