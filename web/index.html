@@ -1751,41 +1751,135 @@ const App = {
     if (res.ok) this.toastSaved("💾 Đã xuất: " + res.path.split(/[\\/]/).pop());
     else if (res.error !== "cancelled") this.toastSaved("⚠ Không xuất được file");
   },
+  // Bổ sung các mục mà màn hình đọc thẳng — bản lưu cũ hoặc file từ bản cũ có thể thiếu.
+  fillState(st) {
+    for (const m of ["vocab", "kanji", "grammar"]) {
+      st[m] = st[m] || {}; st[m].sessions = st[m].sessions || []; st[m].reviews = st[m].reviews || [];
+    }
+    st.reading = st.reading || {}; st.reading.done = st.reading.done || [];
+    st.exams = st.exams || {}; st.exams.done = st.exams.done || [];
+    return st;
+  },
+  // Ghi một state có thể ít tiến trình hơn bản đang lưu (thay bằng file, khôi
+  // phục bản chụp cũ). save_backup từ chối bản nghèo hơn — đúng khi app lỗi, sai
+  // khi chính người dùng chọn — rồi lần mở sau boot() chọn bản đầy hơn, tức là âm
+  // thầm hoàn tác. Nên xoá file sao lưu trước rồi mới ghi. Bản chụp trong ngày chỉ
+  // bị ghi đè bởi bản đầy hơn, nên bản cũ vẫn còn trong mục Khôi phục.
+  async commitState(st) {
+    this.state = st;
+    await this.apiCall("clear_backup");
+    this.save();
+  },
   // Gộp chứ không ghi đè: hai máy thường học những session khác nhau, thay thế
   // là mất sạch phần của một bên.
+  // Từ vựng / kanji KHÔNG so theo số session: số đó mỗi máy tự đếm (1, 2, 3…), nên
+  // "Session 5" ở hai máy có thể là hai nhóm từ khác nhau — nhất là khi hai máy đặt
+  // số từ mỗi session khác nhau. So theo TỪ đã học: session của b chỉ góp phần từ
+  // mà a chưa học, rồi đánh số lại theo thứ tự giáo trình và sửa số session mà lượt
+  // ôn / bài kiểm tra trỏ tới. Gộp lại cùng một file lần nữa không đổi gì.
   mergeState(a, b) {
     const out = JSON.parse(JSON.stringify(a));
+    b = JSON.parse(JSON.stringify(b));
     out.name = a.name || b.name;
     for (const mode of ["vocab", "kanji", "grammar"]) {
-      const ma = out[mode] || (out[mode] = { sessions: [], reviews: [] });
-      const mb = b[mode] || {};
-      const byId = new Map((ma.sessions || []).map(s => [s.id, s]));
-      for (const s of mb.sessions || []) if (!byId.has(s.id)) byId.set(s.id, s);
-      ma.sessions = [...byId.values()].sort((x, y) => x.id - y.id);
-      const seen = new Set((ma.reviews || []).map(r => r.sid + "|" + r.date));
-      for (const r of mb.reviews || [])
-        if (!seen.has(r.sid + "|" + r.date)) { ma.reviews.push(r); seen.add(r.sid + "|" + r.date); }
-      ma.reviews.sort((x, y) => String(x.date).localeCompare(String(y.date)));
-      const ea = ma.exams || [], eb = (mb.exams || []);
-      const se = new Set(ea.map(e => e.date));
-      ma.exams = ea.concat(eb.filter(e => !se.has(e.date)))
-        .sort((x, y) => String(x.date).localeCompare(String(y.date)));
+      const ma = out[mode] || (out[mode] = {}), mb = b[mode] || {};
+      for (const o of [ma, mb]) {
+        o.sessions = o.sessions || []; o.reviews = o.reviews || []; o.exams = o.exams || [];
+      }
+      let remap = (side, sid) => sid;
+      if (mode === "grammar") {
+        // ngữ pháp thì số session đúng là danh tính: session N luôn là bài N của sách
+        const byId = new Map(ma.sessions.map(s => [s.id, s]));
+        for (const s of mb.sessions) if (!byId.has(s.id)) byId.set(s.id, s);
+        ma.sessions = [...byId.values()].sort((x, y) => x.id - y.id);
+      } else {
+        const first = { a: new Map(ma.sessions.map(s => [s.id, s.items[0]])),
+                        b: new Map(mb.sessions.map(s => [s.id, s.items[0]])) };
+        const covered = new Set(ma.sessions.flatMap(s => s.items));
+        const list = [...ma.sessions];
+        for (const s of mb.sessions) {
+          const rest = s.items.filter(i => !covered.has(i));
+          rest.forEach(i => covered.add(i));
+          if (rest.length) list.push(Object.assign({}, s, { items: rest }));
+        }
+        const lo = s => s.items.length ? Math.min(...s.items) : Infinity;
+        list.sort((x, y) => lo(x) - lo(y));
+        const idOf = new Map();
+        list.forEach((s, k) => { s.id = k + 1; for (const i of s.items) idOf.set(i, k + 1); });
+        ma.sessions = list;
+        remap = (side, sid) => {
+          const it = first[side].get(sid);
+          return idOf.has(it) ? idOf.get(it) : sid;
+        };
+      }
+      const byDate = (x, y) => String(x.date).localeCompare(String(y.date));
+      const seenR = new Set(), reviews = [];
+      for (const [side, rs] of [["a", ma.reviews], ["b", mb.reviews]])
+        for (const r of rs) {
+          const nr = Object.assign({}, r, { sid: remap(side, r.sid) });
+          const k = nr.sid + "|" + nr.date;
+          if (!seenR.has(k)) { seenR.add(k); reviews.push(nr); }
+        }
+      ma.reviews = reviews.sort(byDate);
+      const seenE = new Set(), exams = [];
+      for (const [side, es] of [["a", ma.exams], ["b", mb.exams]])
+        for (const e of es)
+          if (!seenE.has(e.date)) {
+            seenE.add(e.date);
+            exams.push(Object.assign({}, e, { sids: (e.sids || []).map(x => remap(side, x)) }));
+          }
+      ma.exams = exams.sort(byDate);
     }
     for (const mode of ["reading", "exams"]) {
       out[mode] = out[mode] || { done: [] };
+      out[mode].done = out[mode].done || [];
       const key = x => JSON.stringify(x);
-      const seen = new Set((out[mode].done || []).map(key));
+      const seen = new Set(out[mode].done.map(key));
       for (const d of ((b[mode] || {}).done || []))
         if (!seen.has(key(d))) { out[mode].done.push(d); seen.add(key(d)); }
     }
-    out.missed = Object.assign({}, b.missed || {});
-    for (const [k, v] of Object.entries(a.missed || {})) {
-      const o = out.missed[k];
-      out.missed[k] = o ? { w: (o.w || 0) + (v.w || 0), r: (o.r || 0) + (v.r || 0),
-                            last: Math.max(o.last || 0, v.last || 0) } : v;
-    }
+    // Lấy số lớn hơn chứ không cộng: hai bản thường chung một quá khứ (máy này
+    // từng nhận tiến trình từ máy kia), cộng là đếm trùng — nhập lại cùng một file
+    // còn nhân đôi lên nữa.
+    out.missed = {};
+    for (const src of [b.missed || {}, a.missed || {}])
+      for (const [k, v] of Object.entries(src)) {
+        const o = out.missed[k];
+        out.missed[k] = !o ? Object.assign({}, v)
+          : { w: Math.max(o.w || 0, v.w || 0), r: Math.max(o.r || 0, v.r || 0),
+              last: Math.max(o.last || 0, v.last || 0) };
+      }
     // Cài đặt, mục tiêu, giao diện giữ của máy này — giờ nhắc học mỗi máy mỗi khác.
     return out;
+  },
+  // Thay bằng file: lấy y nguyên tiến trình trong file. Dùng khi chuyển máy, hoặc
+  // khi máy kia là nơi vừa học gần nhất. Cài đặt, mục tiêu, giao diện vẫn của máy này.
+  replaceState(a, b) {
+    const out = JSON.parse(JSON.stringify(a));
+    for (const k of ["vocab", "kanji", "grammar", "reading", "exams", "missed"]) {
+      if (k in b) out[k] = JSON.parse(JSON.stringify(b[k])); else delete out[k];
+    }
+    out.name = b.name || a.name;
+    return this.fillState(out);
+  },
+  // Hộp thoại nhiều lựa chọn: trả về value của nút được bấm, null nếu huỷ.
+  askChoice(msg, choices) {
+    return new Promise(res => {
+      const ov = document.createElement("div");
+      ov.className = "overlay";
+      ov.innerHTML = `<div class="modal card" style="width:min(500px,94vw)">
+        <div style="font-size:34px;text-align:center">❓</div>
+        <p style="margin-top:12px;white-space:pre-line">${msg}</p>
+        <div class="mbtns" style="justify-content:center;flex-wrap:wrap">
+          <button class="btn" data-a="">Hủy</button>
+          ${choices.map(c => `<button class="btn ${c.cls || ""}" data-a="${c.v}">${esc(c.label)}</button>`).join("")}
+        </div></div>`;
+      const done = v => { ov.remove(); res(v || null); };
+      ov.addEventListener("mousedown", e => { if (e.target === ov) done(null); });
+      ov.querySelectorAll("[data-a]").forEach(b => { b.onclick = () => done(b.dataset.a); });
+      document.body.appendChild(ov);
+      ov.querySelector('[data-a=""]').focus();
+    });
   },
   async importState() {
     const res = (await this.apiCall("import_state")) || {};
@@ -1799,20 +1893,32 @@ const App = {
       this.toastSaved("⚠ File này không phải bản lưu tiến trình");
       return;
     }
-    const n = s => ["vocab", "kanji", "grammar"]
-      .reduce((t, m) => t + (((s[m] || {}).sessions) || []).length, 0);
+    inc = this.fillState(inc);
+    const words = (s, m) => s[m].sessions.reduce((n, x) => n + (x.items || []).length, 0);
+    const cnt = s => ({ v: words(s, "vocab"), k: words(s, "kanji"), g: s.grammar.sessions.length });
+    const show = c => `${c.v} từ vựng · ${c.k} kanji · ${c.g} bài ngữ pháp`;
     const merged = this.mergeState(this.state, inc);
-    const ok = await this.askConfirm(
-      `Gộp tiến trình từ file này?\n\n` +
-      `Máy này: ${n(this.state)} session · File: ${n(inc)} session → sau khi gộp: ${n(merged)} session.\n` +
-      `Hai bên học session nào cũng được giữ, không mất gì. Cài đặt và giờ nhắc của máy này giữ nguyên.`,
-      "Gộp tiến trình", false);
-    if (!ok) return;
-    this.state = merged;
-    this.save();
+    const cur = cnt(this.state), file = cnt(inc), mer = cnt(merged);
+    const lose = [["từ vựng", "v"], ["kanji", "k"], ["bài ngữ pháp", "g"]]
+      .filter(([, f]) => file[f] < cur[f]).map(([l, f]) => `${l} (${file[f]} < ${cur[f]})`);
+    const when = inc.savedAt ? ` <span class="sub">· lưu lúc ${this.fmtDate(inc.savedAt)}</span>` : "";
+    const pick = await this.askChoice(
+      `<b>Nhập tiến trình từ file</b>\n\n` +
+      `Máy này: <b>${show(cur)}</b>\n` +
+      `File: <b>${show(file)}</b>${when}\n\n` +
+      `• <b>Gộp</b> — giữ phần đã học của cả hai máy → ${show(mer)}.\n` +
+      `• <b>Thay bằng file</b> — máy này lấy y nguyên tiến trình trong file, phần chỉ học ở máy này sẽ mất. ` +
+      `Dùng khi chuyển máy, hoặc khi máy kia là nơi bạn vừa học gần nhất.\n` +
+      (lose.length ? `\n⚠ File ít hơn máy này ở: ${lose.join(", ")} — thay thì mất phần chênh lệch.\n` : "") +
+      `\nCài đặt, giờ nhắc học và giao diện của máy này giữ nguyên.`,
+      [{ v: "merge", label: "Gộp", cls: "primary" },
+       { v: "replace", label: "Thay bằng file", cls: lose.length ? "danger" : "" }]);
+    if (!pick) return;
+    if (pick === "replace") await this.commitState(this.replaceState(this.state, inc));
+    else { this.state = merged; this.save(); }
     this.closeSettings();
     this.renderDash();
-    this.toastSaved("🔄 Đã gộp tiến trình");
+    this.toastSaved(pick === "replace" ? "🔄 Đã thay bằng tiến trình trong file" : "🔄 Đã gộp tiến trình");
   },
   async fillSnapshots() {
     const sel = $("#setSnap");
@@ -1837,13 +1943,9 @@ const App = {
       `Tiến trình hiện tại (${cur} session) sẽ được thay bằng bản đó (${nw} session).`,
       "Khôi phục", nw < cur);
     if (!ok) return;
-    for (const m of ["vocab", "kanji", "grammar"]) {   // bản cũ có thể thiếu mục
-      st[m] = st[m] || {}; st[m].sessions = st[m].sessions || []; st[m].reviews = st[m].reviews || [];
-    }
-    st.reading = st.reading || {}; st.reading.done = st.reading.done || [];
-    st.exams = st.exams || {}; st.exams.done = st.exams.done || [];
-    this.state = st;
-    this.save();
+    // bản chụp cũ thường ÍT tiến trình hơn hiện tại — save() thường sẽ bị chặn rồi
+    // lần mở sau tự hoàn tác, nên phải đi qua commitState
+    await this.commitState(this.fillState(st));
     this.applyTheme();
     this.closeSettings();
     this.renderDash();
