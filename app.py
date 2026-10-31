@@ -68,6 +68,24 @@ def res_path(rel):
     return os.path.join(res_base(), rel)
 
 
+# pywebview đặt Cache-Control: no-cache cho mọi file nó phục vụ, nhưng
+# bottle.static_file trả về một HTTPResponse mới mang bộ header riêng, đè mất
+# header đó. Chỉ còn Last-Modified nên WebView2 tự đoán hạn cache (~10% tuổi
+# file) và dùng lại index.html CŨ suốt mấy ngày sau khi cập nhật bản mới — exe và
+# resources đều mới mà giao diện vẫn cũ. Gắn lại header vào chính response đó:
+# vẫn được cache nhưng mỗi lần mở đều hỏi lại (không đổi thì chỉ nhận 304).
+_static_file = _wvhttp.bottle.static_file
+
+
+def _static_file_no_cache(*args, **kwargs):
+    res = _static_file(*args, **kwargs)
+    res.set_header("Cache-Control", "no-cache")
+    return res
+
+
+_wvhttp.bottle.static_file = _static_file_no_cache
+
+
 class _ResServer(_wvhttp.BottleServer):
     """Server nội bộ của pywebview nhưng lấy gốc là cả thư mục tài nguyên.
 
