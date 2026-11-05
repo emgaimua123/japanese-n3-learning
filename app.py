@@ -372,6 +372,13 @@ class Api:
         for name in ("vocab", "kanji", "grammar", "reading", "exams", "handbook"):
             with open(res_path(name + ".json"), encoding="utf-8") as f:
                 out[name] = json.load(f)
+        # bảng kanji dễ nhầm cho đáp án nhiễu của quiz — không bắt buộc: thiếu thì
+        # quiz tự lùi về cách chọn đáp án cũ chứ không được làm app không mở nổi
+        try:
+            with open(res_path("similar_kanji.json"), encoding="utf-8") as f:
+                out["similar"] = json.load(f).get("kanji") or {}
+        except (OSError, ValueError):
+            pass
         return out
 
     # ---- Claude-powered translation grading -------------------------------

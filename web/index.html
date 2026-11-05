@@ -583,7 +583,7 @@ body[data-theme="dark"] .makeupbar{background:#3a2f1d;color:#e6c081;border-color
     <div class="topbar">
       <div class="hello">
         <h1>Học</h1>
-        <div class="sub" style="margin-top:2px">Bắt đầu một session mới — học từ mới, ôn tập rồi làm quiz. Từ session thứ 2 sẽ có kiểm tra bài cũ trước khi vào bài.</div>
+        <div class="sub" style="margin-top:2px">Bắt đầu một session mới — học từ mới, ôn tập rồi làm quiz. Bài cũ được kiểm tra mỗi ngày một lần khi mở app.</div>
       </div>
     </div>
     <div class="startrow" id="startrow" style="margin-top:22px"></div>
@@ -846,6 +846,16 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 const pct = (c, t) => t ? Math.round(100 * c / t) : 0;
 
 const STORE_KEY = "gungun_n3_state_v1";
+// Kiểm tra bài cũ hằng ngày: bắt đầu hỏi khi đã học được từng này session (từ vựng
+// + kanji), mỗi lần lấy từng này từ bất kỳ trong mọi session đã học.
+const DAILY_MIN_SESSIONS = 3, DAILY_QUESTIONS = 15;
+// Âm Hán Việt cho những chữ trong sách mà dữ liệu chưa có ở đâu: bảng 337 kanji
+// không gồm, các từ vựng chứa chữ đó cũng không ghi Hán Việt. 込 là chữ người Nhật
+// tự tạo (国字), không có âm Hán Việt — cố ý để trống chứ không bịa.
+const HV_EXTRA = { 医: "Y", 凡: "PHÀM", 志: "CHÍ", 翻: "PHIÊN", 整: "CHỈNH", 極: "CỰC", 依: "Y",
+  択: "TRẠCH", 琵: "TỲ", 琶: "BÀ", 義: "NGHĨA", 哀: "AI", 千: "THIÊN", 円: "VIÊN", 簡: "GIẢN",
+  悟: "NGỘ", 駅: "DỊCH", 構: "CẤU", 販: "PHIẾN", 懸: "HUYỀN", 絡: "LẠC", 飯: "PHẠN", 幹: "CÁN",
+  準: "CHUẨN", 頑: "NGOAN", 屈: "KHUẤT", 攻: "CÔNG", 粧: "TRANG" };
 // Kết quả AI đã chấm, để khỏi trả tiền lại khi làm lại đúng câu đó. Cố ý để
 // riêng chứ không nhét vào state: state được mirror ra state-backup.json mỗi
 // lần save, không nên phình vì cache.
@@ -875,6 +885,8 @@ const App = {
   /* ---------------- boot ---------------- */
   async boot() {
     this.data = await this.loadData();
+    // exe từ v1.4 trở về trước không gửi kèm bảng này qua get_data — tự đi lấy
+    if (!this.data.similar) this.loadSimilar();
     // read BOTH stores and keep whichever is better — localStorage can silently
     // roll back if WebView2 is killed before flushing, the JSON file cannot
     const ls = this.loadState();
@@ -913,7 +925,11 @@ const App = {
     this.apiCall("set_reminders", this.cfg().remindTimes || []);
     this.apiCall("set_close_pref", this.cfg().closeAction || "ask");
     if (!this.state.name) this.show("scr-name");
-    else this.renderDash();
+    else { this.renderDash(); this.maybeOfferDaily(); }
+    // mở lại cửa sổ từ khay sang ngày mới cũng là "lần đầu mở app trong ngày"
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") this.maybeOfferDaily();
+    });
   },
   applyTheme() {
     document.body.dataset.theme = (this.state && this.state.theme) || "light";
@@ -1147,6 +1163,18 @@ const App = {
     const next = cands.filter(d => d >= today).sort((a, b) => a - b)[0];
     return { date: next, days: Math.round((next - today) / 86400000) };
   },
+  // Bảng kanji dễ nhầm (similar_kanji.json) cho đáp án nhiễu. Không chặn lúc mở
+  // app và không bắt buộc: chưa có thì quiz dùng cách chọn đáp án dự phòng.
+  async loadSimilar() {
+    this.data.similar = {};
+    try {
+      const ctl = new AbortController();
+      const t = setTimeout(() => ctl.abort(), 8000);
+      const r = await fetch("../similar_kanji.json", { signal: ctl.signal });
+      clearTimeout(t);
+      if (r.ok) this.data.similar = (await r.json()).kanji || {};
+    } catch (e) {}
+  },
   startClock() {
     const tick = () => {
       const n = new Date(), t = $("#clockTime"), d = $("#clockDate"), j = $("#jlptLine");
@@ -1169,6 +1197,7 @@ const App = {
           this.autoGoal(true);
           if (!this.S && document.querySelector(".screen.on") === $("#scr-dash")) this.renderDash();
           else this.pushMakeupToHost();
+          this.maybeOfferDaily();
         }
       }
     }, 1000);
@@ -1329,7 +1358,7 @@ const App = {
       }
       for (const r of this.state[mode].reviews) {
         rows.push({ date: r.date, html: `<div class="hrow">${chip}
-          <div class="ht"><b>Bài cũ · Session ${r.sid}</b> <span class="sub">· kiểm tra lại</span></div>
+          <div class="ht"><b>${r.daily ? "Bài cũ · ngẫu nhiên" : `Bài cũ · Session ${r.sid}`}</b> <span class="sub">· kiểm tra lại</span></div>
           <div class="hd">${this.fmtDate(r.date)}</div>
           <div class="hdur">⏱ ${this.fmtDur(r.dur)}</div>
           <div class="hscore">${pct(r.c, r.t)}% <span class="sub">(${r.c}/${r.t})</span></div></div>` });
@@ -1474,13 +1503,58 @@ const App = {
     }
     return { jp: e.word, reading: e.reading, kana,
       meanings: e.meanings, meanText: this.viText(e.meanings),
-      pos: e.pos, hanviet: e.hanviet, kref: null, ref: { mode: "vocab", idx } };
+      pos: e.pos, hanviet: e.hanviet || this.hanvietOf(e.word), kref: null, ref: { mode: "vocab", idx } };
   },
   kanjiWordItem(kIdx, wIdx) {
     const k = this.data.kanji[kIdx], w = k.words[wIdx];
     return { jp: w.word, reading: this.kanaForm(w) || w.reading, kana: [this.kanaForm(w)].filter(Boolean),
       meanings: [w.meaning], meanText: this.viText([w.meaning]),
-      pos: "", hanviet: "", kref: k, ref: { mode: "kanji", kIdx, wIdx } };
+      pos: "", hanviet: this.hanvietOf(w.word), kref: k, ref: { mode: "kanji", kIdx, wIdx } };
+  },
+  // Âm Hán Việt của cả từ. Từ có trong phần từ vựng của sách thì lấy nguyên của
+  // sách; không thì ghép âm từng chữ (âm hay dùng nhất trong sách — đúng ~96% khi
+  // thử ghép lại các từ sách đã ghi). Có chữ không rõ âm thì bỏ trống cả từ.
+  hanvietOf(word) {
+    const H = this.hvIndex(), f = this.normJP(word);
+    if (H.byForm.has(f)) return H.byForm.get(f);
+    const out = [];
+    for (const c of f) {
+      if (c === "々" && out.length) { out.push(out[out.length - 1]); continue; }
+      if (!this.isKanjiCh(c)) continue;
+      const hv = H.byChar.get(c);
+      if (!hv) return "";
+      out.push(hv);
+    }
+    return out.join(" ");
+  },
+  hvIndex() {
+    if (this._hv) return this._hv;
+    const votes = new Map();
+    const vote = (c, s, n) => {
+      if (!votes.has(c)) votes.set(c, new Map());
+      votes.get(c).set(s, (votes.get(c).get(s) || 0) + n);
+    };
+    for (const k of this.data.kanji) {
+      const hv = String(k.hanviet || "").split(/[\/,;]/)[0].trim().toUpperCase();   // "ĐIỀU/ ĐIỆU" → ĐIỀU
+      if (hv) vote(k.kanji, hv, 3);
+    }
+    for (const [c, hv] of Object.entries(HV_EXTRA)) vote(c, hv, 3);
+    const byForm = new Map();
+    for (const e of this.data.vocab) {
+      const hv = String(e.hanviet || "").trim().toUpperCase();
+      if (!hv) continue;
+      const f = this.normJP(e.word);
+      if (!byForm.has(f)) byForm.set(f, hv);
+      const kc = [];
+      for (const c of f) {
+        if (c === "々" && kc.length) kc.push(kc[kc.length - 1]);
+        else if (this.isKanjiCh(c)) kc.push(c);
+      }
+      const syl = hv.split(/\s+/);
+      if (syl.length === kc.length) kc.forEach((c, i) => vote(c, syl[i], 1));
+    }
+    const byChar = new Map([...votes].map(([c, m]) => [c, [...m].sort((a, b) => b[1] - a[1])[0][0]]));
+    return (this._hv = { byForm, byChar });
   },
   kanaForm(w) {
     // rebuild full kana reading: replace each kanji run with its furigana.
@@ -1535,48 +1609,179 @@ const App = {
     });
     return shuffle(qs);
   },
-  // MC distractors always drawn from the FULL word base, never just the session
-  buildMC(it) {
-    const texts = new Set([it.meanText]);
-    const opts = [{ text: it.meanText, ok: true }];
-    let guard = 0;
-    while (opts.length < 4 && guard++ < 400) {
-      let cand;
-      if (this.S.mode === "vocab") {
-        const e = this.data.vocab[Math.floor(Math.random() * this.data.vocab.length)];
-        cand = this.viText(e.meanings);
-      } else {
-        const ks = this.data.kanji;
-        const k = ks[Math.floor(Math.random() * ks.length)];
-        cand = this.viText([k.words[Math.floor(Math.random() * k.words.length)].meaning]);
+  /* -------- đáp án nhiễu kiểu JLPT --------
+     Lấy từ toàn bộ sách chứ không chỉ session đang học, và chọn những thứ DỄ
+     NHẦM thật sự: chữ na ná, chữ cùng âm, từ chung kanji — bốc ngẫu nhiên thì
+     nhìn qua là loại được ngay, chẳng luyện được gì. */
+  isKanjiCh(c) { return /[一-鿿]/.test(c); },          // 々 không tính: không thay được
+  // Mọi từ trong app (từ vựng + từ đi kèm kanji), dùng để chọn đáp án nhiễu và để
+  // kiểm tra một phương án bịa ra có lỡ là từ THẬT đọc y hệt đáp án hay không.
+  wordIndex() {
+    if (this._wIdx) return this._wIdx;
+    const all = [];
+    this.data.vocab.forEach((e, i) => all.push({ word: e.word, kana: e.reading,
+      mean: this.viText(e.meanings), meanings: e.meanings, pos: e.pos || "" }));
+    this.data.kanji.forEach(k => k.words.forEach(w => all.push({ word: w.word,
+      kana: this.kanaForm(w) || w.reading, mean: this.viText([w.meaning]), meanings: [w.meaning], pos: "" })));
+    const byForm = new Map(), byKanji = new Map();
+    for (const x of all) {
+      x.form = this.normJP(x.word);
+      x.key = this.readKey(x.kana);
+      x.kc = [...x.form].filter(c => this.isKanjiCh(c));
+      if (!byForm.has(x.form)) byForm.set(x.form, new Set());
+      byForm.get(x.form).add(x.key);
+      for (const c of new Set(x.kc)) {
+        if (!byKanji.has(c)) byKanji.set(c, []);
+        byKanji.get(c).push(x);
       }
-      if (!cand || texts.has(cand)) continue;
-      texts.add(cand); opts.push({ text: cand, ok: false });
     }
+    return (this._wIdx = { all, byForm, byKanji });
+  },
+  readKey(s) { return this.foldKana(this.normJP(s || "")).replace(/[・／/]/g, ""); },
+  // Chữ thay được cho c, tốt nhất trước: vừa trông giống vừa cùng âm (制→製, 招→紹),
+  // rồi xen kẽ chữ trông giống và chữ cùng âm.
+  kanjiSubs(c) {
+    const s = (this.data.similar || {})[c];
+    if (!s) return [];
+    const look = [...(s.look || "")], same = [...(s.same || "")];
+    const out = look.filter(x => same.includes(x));
+    for (let i = 0; i < Math.max(look.length, same.length); i++)
+      for (const x of [look[i], same[i]]) if (x && !out.includes(x)) out.push(x);
+    return out;
+  },
+  // xáo trộn nhưng vẫn ưu tiên phần đầu danh sách (chữ giống nhất hay ra hơn)
+  biased(list, k) {
+    return list.slice(0, k).map((x, i) => ({ x, r: i + Math.random() * 3 }))
+      .sort((a, b) => a.r - b.r).map(o => o.x);
+  },
+  // Đáp án nhiễu cho câu "chọn cách viết đúng" (JLPT 問題2 表記): giữ nguyên số
+  // kanji và phần kana, chỉ thay kanji bằng chữ na ná / cùng âm. Từ có từ 2 kanji
+  // dựng thành lưới như đề thật: AB (đúng) · A'B · AB' · A'B'.
+  formDistractors(word, reading, n = 3) {
+    const chars = [...word];
+    let depth = 0;
+    const pos = [];                                  // vị trí kanji, bỏ qua chú thích trong ngoặc
+    chars.forEach((c, i) => {
+      if (c === "（" || c === "(") depth++;
+      else if (c === "）" || c === ")") depth = Math.max(0, depth - 1);
+      else if (!depth && this.isKanjiCh(c)) pos.push(i);
+    });
+    const W = this.wordIndex(), key = this.readKey(reading);
+    const seen = new Set([this.normJP(word)]), out = [];
+    const valid = t => {
+      const f = this.normJP(t);
+      if (!f || seen.has(f)) return false;
+      const rd = W.byForm.get(f);
+      return !(rd && rd.has(key));                   // từ thật đọc y hệt = cũng là đáp án đúng
+    };
+    const take = t => { seen.add(this.normJP(t)); out.push(t); };
+    const put = (pairs) => { const c = chars.slice(); for (const [p, x] of pairs) c[p] = x; return c.join(""); };
+    const usable = shuffle(pos.filter(p => this.kanjiSubs(chars[p]).length));
+    if (usable.length >= 2 && n >= 3) {
+      const [p1, p2] = usable.slice(0, 2).sort((a, b) => a - b);
+      grid:
+      for (const a of this.biased(this.kanjiSubs(chars[p1]), 5))
+        for (const b of this.biased(this.kanjiSubs(chars[p2]), 5)) {
+          const g = [put([[p1, a]]), put([[p2, b]]), put([[p1, a], [p2, b]])];
+          if (new Set(g).size === 3 && g.every(valid)) { g.forEach(take); break grid; }
+        }
+    }
+    // từ 1 kanji, hoặc không dựng được lưới: thay lần lượt từng vị trí
+    const lists = usable.map(p => ({ p, subs: this.biased(this.kanjiSubs(chars[p]), 6) }));
+    for (let r = 0; out.length < n && lists.some(l => l.subs.length); r++)
+      for (const l of lists) {
+        if (out.length >= n) break;
+        const x = l.subs.shift();
+        if (x) { const t = put([[l.p, x]]); if (valid(t)) take(t); }
+      }
+    // còn thiếu: lấy tiếp "chữ giống của chữ giống" (痛 → 通 → 踊/桶…)
+    for (const p of usable) {
+      if (out.length >= n) break;
+      const first = this.kanjiSubs(chars[p]), second = [];
+      for (const y of first.slice(0, 4))
+        for (const z of this.kanjiSubs(y))
+          if (z !== chars[p] && !first.includes(z) && !second.includes(z)) second.push(z);
+      for (const z of second) { if (out.length >= n) break; const t = put([[p, z]]); if (valid(t)) take(t); }
+    }
+    // dự phòng cuối: từ thật cùng HÌNH DẠNG (cùng số kanji, cùng phần kana: 込む → 住む),
+    // rồi mới tới từ chỉ cùng số kanji; trong mỗi nhóm ưu tiên từ chung chữ với đáp án
+    if (out.length < n && pos.length) {
+      const shape = w => [...this.normJP(w)].map(c => this.isKanjiCh(c) ? "K" : c).join("");
+      const nk = pos.length, sh = shape(word), mine = new Set(pos.map(p => chars[p]));
+      const rank = x => (shape(x.word) === sh ? 0 : 10) - x.kc.filter(c => mine.has(c)).length;
+      const pool = shuffle(W.all.filter(x => x.kc.length === nk && x.key !== key))
+        .sort((a, b) => rank(a) - rank(b));
+      for (const x of pool) { if (out.length >= n) break; if (valid(x.word)) take(x.word); }
+    }
+    return out;
+  },
+  posFamily(p) {
+    p = String(p || "").replace(/\s+/g, "");
+    if (!p) return "";
+    if (/Aい/.test(p)) return "i";
+    if (/^Aな/.test(p)) return "na";
+    if (/^V|^する/.test(p)) return "v";
+    if (/^N/.test(p)) return "n";
+    return p.split("/")[0];
+  },
+  senses(meanings) {
+    const out = new Set();
+    for (const m of meanings || [])
+      for (let s of String(m).split(/[,;，、／/]/)) {
+        s = s.replace(/[（(][^）)]*[）)]/g, "").replace(/^[^:：]*[：:]/, "").trim().toLowerCase();
+        if (s.length >= 2) out.add(s);
+      }
+    return out;
+  },
+  // độ giống cách đọc (hệ số Dice trên cặp kana liền nhau): こうか / こうがい / ごうか
+  readSim(a, b) {
+    const bg = s => { const o = []; for (let i = 0; i < s.length - 1; i++) o.push(s.slice(i, i + 2)); return o; };
+    const A = bg(a), B = bg(b);
+    if (!A.length || !B.length) return 0;
+    const bs = B.slice(); let hit = 0;
+    for (const x of A) { const j = bs.indexOf(x); if (j >= 0) { hit++; bs.splice(j, 1); } }
+    return 2 * hit / (A.length + B.length);
+  },
+  // Đáp án nhiễu cho câu "chọn nghĩa đúng": nghĩa của những từ dễ nhầm với từ hỏi —
+  // chung kanji (改善 → 改正, 親善), có kanji na ná (待つ → 持つ), đọc gần giống,
+  // cùng loại từ — và tuyệt đối không trùng ý với nghĩa đúng.
+  meaningDistractors(it, n = 3) {
+    const W = this.wordIndex();
+    const form = this.normJP(it.jp), key = this.readKey(it.reading || it.jp);
+    const kc = [...form].filter(c => this.isKanjiCh(c));
+    const pf = this.posFamily(it.pos);
+    const bonus = new Map();
+    const add = (x, s) => bonus.set(x, (bonus.get(x) || 0) + s);
+    for (const c of new Set(kc)) {
+      for (const x of W.byKanji.get(c) || []) add(x, 3);
+      for (const y of this.kanjiSubs(c).slice(0, 6)) for (const x of W.byKanji.get(y) || []) add(x, 2);
+    }
+    const mine = this.senses(it.meanings), used = new Set([it.meanText]);
+    const ranked = W.all.map(x => {
+      if (x.form === form || !x.mean) return null;
+      let s = (bonus.get(x) || 0) + 2.5 * this.readSim(key, x.key);
+      if (pf && this.posFamily(x.pos) === pf) s += 1.5;
+      if (x.kc.length === kc.length) s += 1;
+      return { x, s: s + Math.random() * 1.5 };
+    }).filter(Boolean).sort((a, b) => b.s - a.s);
+    const out = [];
+    for (const { x } of ranked) {
+      if (out.length >= n) break;
+      if (used.has(x.mean)) continue;
+      const th = this.senses(x.meanings);
+      if ([...th].some(s => mine.has(s))) continue;   // trùng một nghĩa = cũng đúng
+      used.add(x.mean); out.push(x.mean);
+    }
+    return out;
+  },
+  buildMC(it) {
+    const opts = [{ text: it.meanText, ok: true },
+      ...this.meaningDistractors(it, 3).map(t => ({ text: t, ok: false }))];
     return { type: "mc", it, opts: shuffle(opts) };
   },
-  kanjiWordPool() {
-    if (!this._kwPool) {
-      this._kwPool = [];
-      for (const k of this.data.kanji)
-        for (const w of k.words) this._kwPool.push({ word: w.word, kana: this.kanaForm(w) });
-    }
-    return this._kwPool;
-  },
   buildKanjiMC(it) {
-    const pool = this.kanjiWordPool();
-    const key = this.foldKana(this.normJP(it.reading));
-    const texts = new Set([this.normJP(it.jp)]);
-    const opts = [{ text: it.jp, ok: true }];
-    let guard = 0;
-    while (opts.length < 4 && guard++ < 600) {
-      const c = pool[Math.floor(Math.random() * pool.length)];
-      const t = this.normJP(c.word);
-      if (!t || texts.has(t)) continue;
-      // skip homophones so only one option reads correctly
-      if (c.kana && this.foldKana(this.normJP(c.kana)) === key) continue;
-      texts.add(t); opts.push({ text: c.word, ok: false });
-    }
+    const opts = [{ text: it.jp, ok: true },
+      ...this.formDistractors(it.jp, it.reading, 3).map(t => ({ text: t, ok: false }))];
     return { type: "mc", qkind: "k-word", it, opts: shuffle(opts) };
   },
   normJP(s) {
@@ -1863,7 +2068,7 @@ const App = {
     return this.fillState(out);
   },
   // Hộp thoại nhiều lựa chọn: trả về value của nút được bấm, null nếu huỷ.
-  askChoice(msg, choices) {
+  askChoice(msg, choices, cancelLabel = "Hủy") {
     return new Promise(res => {
       const ov = document.createElement("div");
       ov.className = "overlay";
@@ -1871,7 +2076,7 @@ const App = {
         <div style="font-size:34px;text-align:center">❓</div>
         <p style="margin-top:12px;white-space:pre-line">${msg}</p>
         <div class="mbtns" style="justify-content:center;flex-wrap:wrap">
-          <button class="btn" data-a="">Hủy</button>
+          <button class="btn" data-a="">${esc(cancelLabel)}</button>
           ${choices.map(c => `<button class="btn ${c.cls || ""}" data-a="${c.v}">${esc(c.label)}</button>`).join("")}
         </div></div>`;
       const done = v => { ov.remove(); res(v || null); };
@@ -2064,7 +2269,7 @@ const App = {
         const e = this.data.vocab[i];
         return `<div class="row">
           <div><span class="w jp">${esc(e.word)}</span><span class="r jp">${esc(e.reading)}</span></div>
-          <div class="m">${e.hanviet ? `<span class="chip hv" style="margin-right:6px">${esc(e.hanviet)}</span>` : ""}${e.pos ? `<span class="chip pos" style="margin-right:6px">${esc(e.pos)}</span>` : ""}${esc(e.meanings.join("; "))}</div>
+          <div class="m">${(e.hanviet || this.hanvietOf(e.word)) ? `<span class="chip hv" style="margin-right:6px">${esc(e.hanviet || this.hanvietOf(e.word))}</span>` : ""}${e.pos ? `<span class="chip pos" style="margin-right:6px">${esc(e.pos)}</span>` : ""}${esc(e.meanings.join("; "))}</div>
         </div>`;
       }).join("") + `</div>`;
     } else {
@@ -2076,7 +2281,7 @@ const App = {
             <span class="sub" style="font-size:12.5px"> · <span class="jp">訓 ${esc(k.kun) || "—"} · 音 ${esc(k.on) || "—"}</span></span></div>
           <div class="kwords" style="margin-top:6px">${k.words.map(w => `<div class="row">
             <div><span class="w jp">${esc(w.word)}</span><span class="r jp">${esc(this.kanaForm(w))}</span></div>
-            <div class="m">${esc(w.meaning)}</div></div>`).join("")}</div>
+            <div class="m">${this.hanvietOf(w.word) ? `<span class="chip hv" style="margin-right:6px">${esc(this.hanvietOf(w.word))}</span>` : ""}${esc(w.meaning)}</div></div>`).join("")}</div>
         </div>`;
       }).join("");
     }
@@ -2900,9 +3105,22 @@ const App = {
            <div><b>Từ hay sai</b>
              <div class="det">Chưa có từ nào sai — cứ học rồi app tự gom những từ bạn hay quên vào đây</div></div>
          </div>`;
+    const nsVK = this.state.vocab.sessions.length + this.state.kanji.sessions.length;
+    const dailyCard = this.canDaily()
+      ? `<div class="card startcard v" onclick="App.startDailyReview()">
+           <div class="ico">↺</div>
+           <div><b>Bài cũ ngẫu nhiên</b>
+             <div class="det">${Math.min(DAILY_QUESTIONS, this.dailyPool().length)} từ bất kỳ trong ${nsVK} session đã học (từ vựng + kanji) · giải thích từng câu</div></div>
+         </div>`
+      : `<div class="card startcard v" style="opacity:.55;cursor:default">
+           <div class="ico">↺</div>
+           <div><b>Bài cũ ngẫu nhiên</b>
+             <div class="det">Học xong ${DAILY_MIN_SESSIONS} session từ vựng / kanji thì mở — app cũng tự hỏi mỗi ngày một lần</div></div>
+         </div>`;
     $("#examCards").innerHTML = mk("vocab", "v", "あ", "Kiểm tra từ vựng")
       + mk("kanji", "k", "漢", "Kiểm tra kanji")
       + mk("grammar", "g", "文", "Kiểm tra ngữ pháp")
+      + dailyCard
       + missCard
       + `<div class="card startcard e" onclick="App.navExamPapers()">
            <div class="ico">試</div>
@@ -2910,9 +3128,8 @@ const App = {
              <div class="det">${nExams} đề thi thật · thi theo đúng thời gian chuẩn${doneEx ? ` · đã làm ${doneEx} lượt` : ""}</div></div>
          </div>`;
   },
-  // Quiz gom các từ hay sai của cả từ vựng lẫn kanji vào một bài.
-  // buildMC/buildKanjiMC lấy mồi nhử theo this.S.mode nên phải đổi mode theo từng
-  // câu trong lúc dựng, rồi trả lại như cũ.
+  // Dựng một bài trộn từ vựng + kanji từ danh sách ref (từ hay sai, bài cũ hằng ngày):
+  // mỗi câu theo đúng dạng đề của phần mà từ đó thuộc về.
   buildMissedQuiz(refs) {
     const saved = this.S.mode, qs = [];
     refs.forEach((r, pos) => {
@@ -2930,6 +3147,48 @@ const App = {
     });
     this.S.mode = saved;
     return shuffle(qs);
+  },
+  /* -------- kiểm tra bài cũ hằng ngày -------- */
+  // mọi từ trong mọi session từ vựng / kanji đã học
+  dailyPool() {
+    const refs = [];
+    for (const s of this.state.vocab.sessions) for (const idx of s.items) refs.push({ mode: "vocab", idx });
+    for (const s of this.state.kanji.sessions)
+      for (const kIdx of s.items)
+        ((this.data.kanji[kIdx] || {}).words || []).forEach((_, wIdx) => refs.push({ mode: "kanji", kIdx, wIdx }));
+    return refs;
+  },
+  canDaily() {
+    const st = this.state;
+    return !!(st && st.name && this.data
+      && st.vocab.sessions.length + st.kanji.sessions.length >= DAILY_MIN_SESSIONS);
+  },
+  // Hỏi một lần khi mở app lần đầu trong ngày (cả khi mở lại từ khay, hay app chạy
+  // qua đêm). Làm xong hoặc bấm "Bỏ qua hôm nay" thì hôm đó thôi không hỏi nữa;
+  // bấm "Để sau" thì lần mở app sau trong ngày hỏi lại.
+  async maybeOfferDaily() {
+    const today = this.dayKey(new Date());
+    if (this.S || !this.canDaily() || this.state.dailyReview === today || this._dailyAsked === today) return;
+    if ([...document.querySelectorAll(".overlay")].some(o => o.style.display !== "none")) return;
+    this._dailyAsked = today;
+    const n = Math.min(DAILY_QUESTIONS, this.dailyPool().length);
+    const ns = this.state.vocab.sessions.length + this.state.kanji.sessions.length;
+    const pick = await this.askChoice(
+      `<b>📚 Kiểm tra bài cũ hôm nay</b>\n\n${n} từ bất kỳ trong ${ns} session bạn đã học, cả từ vựng lẫn kanji. ` +
+      `Làm nhanh vài phút để từ cũ không bị quên nhé!`,
+      [{ v: "skip", label: "Bỏ qua hôm nay" }, { v: "go", label: "Bắt đầu", cls: "primary" }], "Để sau");
+    if (pick === "go") this.startDailyReview();
+    else if (pick === "skip") { this.state.dailyReview = today; this.save(); }
+  },
+  startDailyReview() {
+    if (this.S || !this.canDaily()) return;
+    const refs = shuffle(this.dailyPool()).slice(0, DAILY_QUESTIONS).map(ref => ({ ref }));
+    this.S = { mode: "vocab", daily: true, reviewOnly: true, id: null, items: [], review: { sid: null } };
+    const qs = this.buildMissedQuiz(refs);
+    if (!qs.length) { this.S = null; return; }
+    this.S.reviewT0 = Date.now();
+    this.S.quiz = { qs, i: 0, c: 0, wrong: [], isReview: true };
+    this.gotoPhase("review-quiz");
   },
   startMissedQuiz() {
     const refs = this.missedRefs().slice(0, 25);
@@ -3133,12 +3392,8 @@ const App = {
     }
     this.S = { mode, items, id: st.sessions.length + 1,
       phase: null, review: null, quiz: null, firstDone: false, first: null };
-    // review pop-up from the 2nd session onward
-    if (st.sessions.length >= 1) {
-      const past = st.sessions[Math.floor(Math.random() * st.sessions.length)];
-      this.S.review = { sid: past.id, items: past.items };
-      this.gotoPhase("review-intro");
-    } else this.gotoPhase("study");
+    // bài cũ giờ kiểm tra mỗi ngày một lần (maybeOfferDaily), không chặn trước bài mới
+    this.gotoPhase("study");
   },
   sessionItems(idxs) {
     if (this.S.mode === "grammar") {
@@ -3178,14 +3433,14 @@ const App = {
     const chip = $("#sessChip");
     chip.className = "chip " + { vocab: "sec-v", kanji: "sec-k", grammar: "sec-g" }[this.S.mode];
     const label = this.modeLabel();
-    chip.textContent = this.S.missed ? "Kiểm tra · Từ hay sai"
+    chip.textContent = this.S.daily ? "Kiểm tra bài cũ · ngẫu nhiên"
+      : this.S.missed ? "Kiểm tra · Từ hay sai"
       : this.S.exam ? "Kiểm tra · " + label
       : this.S.reviewOnly ? label + " · Ôn lại Session " + this.S.review.sid
       : label + " · Session " + this.S.id;
     document.getElementById("scr-session").style.setProperty("--accent", this.accent());
     if (p === "study" && !this.S.t0) this.S.t0 = Date.now();
     const P = {
-      "review-intro": () => this.rReviewIntro(),
       "review-quiz": () => this.rQuiz(true),
       "review-result": () => this.rReviewResult(),
       "study": () => this.rStudy(),
@@ -3208,21 +3463,6 @@ const App = {
   },
 
   /* ---------------- phase renderers ---------------- */
-  rReviewIntro() {
-    $("#sessPhase").textContent = "Kiểm tra bài cũ";
-    $("#sessBody").innerHTML = `
-      <div class="card stagecard centered">
-        <div style="font-size:44px">📚</div>
-        <h1 style="margin-top:8px">Kiểm tra bài cũ!</h1>
-        <p class="sub" style="margin-top:10px;max-width:460px;margin-inline:auto">
-          Trước khi vào bài mới, hãy làm nhanh một quiz ôn lại
-          <b>Session ${this.S.review.sid}</b> (${this.S.mode === "vocab" ? "từ vựng" : "kanji"}) mà bạn đã học trước đây nhé.
-        </p>
-        <div class="choices">
-          <button class="btn ${this.btnClass()}" onclick="App.startReviewQuiz()">Bắt đầu kiểm tra</button>
-        </div>
-      </div>`;
-  },
   startReviewQuiz() {
     this.S.reviewT0 = Date.now();
     this.S.quiz = { qs: this.buildQuiz(this.sessionItems(this.S.review.items)), i: 0, c: 0, wrong: [], isReview: true };
@@ -3230,21 +3470,31 @@ const App = {
   },
   rReviewResult() {
     const q = this.S.quiz, p = pct(q.c, q.qs.length);
-    this.state[this.S.mode].reviews.push({ sid: this.S.review.sid, c: q.c, t: q.qs.length,
-      date: new Date().toISOString(), dur: Math.round((Date.now() - (this.S.reviewT0 || Date.now())) / 1000) });
+    const date = new Date().toISOString(), dur = Math.round((Date.now() - (this.S.reviewT0 || Date.now())) / 1000);
+    if (this.S.daily) {
+      // bài trộn: ghi riêng phần từ vựng / phần kanji để thống kê từng phần vẫn đúng
+      for (const mode of ["vocab", "kanji"]) {
+        const qs = q.qs.filter(Q => Q.it.ref && Q.it.ref.mode === mode);
+        if (!qs.length) continue;
+        this.state[mode].reviews.push({ sid: null, daily: true, date,
+          c: qs.filter(Q => !q.wrong.includes(Q)).length, t: qs.length,
+          dur: Math.round(dur * qs.length / q.qs.length) });
+      }
+      this.state.dailyReview = this.dayKey(new Date());
+    } else {
+      this.state[this.S.mode].reviews.push({ sid: this.S.review.sid, c: q.c, t: q.qs.length, date, dur });
+    }
     this.save();
     $("#sessPhase").textContent = "Kết quả bài cũ";
     $("#sessBody").innerHTML = `
       <div class="card stagecard centered">
         <div style="font-size:40px">${p >= 80 ? "🌟" : p >= 50 ? "💪" : "📖"}</div>
-        <h2 style="margin-top:6px">Bài cũ: Session ${this.S.review.sid}</h2>
+        <h2 style="margin-top:6px">${this.S.daily ? "Bài cũ hôm nay" : `Bài cũ: Session ${this.S.review.sid}`}</h2>
         <div class="scorebig" style="color:${p >= 50 ? "var(--good)" : "var(--bad)"}">${p}%<small> · ${q.c}/${q.qs.length} câu đúng</small></div>
         <p class="sub">${p >= 80 ? "Nhớ bài tốt lắm!" : p >= 50 ? "Ổn đấy, nhưng nên xem lại vài từ." : "Nhiều từ bị quên rồi — xem lại giải thích trong quiz nhé."}</p>
         ${q.wrong.length ? `<div class="wronglist centered">${q.wrong.map(w => `<span class="chip jp">${esc(w.it.jp)}</span>`).join("")}</div>` : ""}
         <div class="choices">
-          ${this.S.reviewOnly
-            ? `<button class="btn ${this.btnClass()}" onclick="App.S=null;App.navReview()">Hoàn tất ✔</button>`
-            : `<button class="btn ${this.btnClass()}" onclick="App.gotoPhase('study')">Vào bài mới →</button>`}
+          <button class="btn ${this.btnClass()}" onclick="App.S=null;${this.S.daily ? "App.renderDash()" : "App.navReview()"}">Hoàn tất ✔</button>
         </div>
       </div>`;
   },
@@ -3338,7 +3588,7 @@ const App = {
         <div class="kwords">
           ${k.words.map(w => `<div class="row">
              <div><span class="w jp">${esc(w.word)}</span><span class="r jp">${esc(App.kanaForm(w))}</span></div>
-             <div class="m">${esc(w.meaning)}</div></div>`).join("")}
+             <div class="m">${App.hanvietOf(w.word) ? `<span class="chip hv" style="margin-right:6px">${esc(App.hanvietOf(w.word))}</span>` : ""}${esc(w.meaning)}</div></div>`).join("")}
         </div>
       </div>
     </div>`;
@@ -3350,7 +3600,6 @@ const App = {
       return `<div class="centered qprompt">
         ${lab("Chọn cách viết đúng")}
         <div class="bigword jp" style="font-size:38px;margin-top:6px">${esc(Q.it.reading)}</div>
-        <div class="sub" style="margin-top:4px">“${esc(Q.it.meanText)}”</div>
       </div>`;
     }
     if (Q.type === "mc") {
@@ -3366,7 +3615,6 @@ const App = {
       return `<div class="centered qprompt">
         ${lab("Viết cách đọc bằng hiragana (hoặc romaji)")}
         <div class="bigword jp" style="font-size:44px;margin-top:6px">${esc(Q.it.jp)}</div>
-        <div class="sub" style="margin-top:4px">“${esc(Q.it.meanText)}”</div>
       </div>`;
     }
     return `<div class="centered qprompt">

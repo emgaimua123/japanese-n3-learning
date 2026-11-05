@@ -27,9 +27,13 @@ file chưa mua chứng chỉ ký số — bấm **More info → Run anyway**.
 **Từ vựng** — 2016 từ theo đúng thứ tự giáo trình. Mỗi session 10 từ mới: xem từng từ (kanji/kana, cách đọc,
 âm Hán-Việt, từ loại, nghĩa) rồi làm quiz. Nhật → Việt là trắc nghiệm, Việt → Nhật là tự luận (gõ kanji hay
 kana đều được). Sai câu nào giải thích ngay câu đó; hết quiz có thể ôn lại các từ sai hoặc làm lại từ đầu.
+Đáp án nhiễu của câu trắc nghiệm lấy từ cả cuốn sách và chọn từ **dễ nhầm** — chung chữ kanji, có chữ na ná, đọc
+gần giống, cùng loại từ (習慣 → ôn tập / thực tập / học tập) — chứ không bốc ngẫu nhiên.
 
 **Kanji** — 337 chữ kèm 1073 từ đi theo. Mỗi session 4–5 chữ: âm 訓/音, âm Hán-Việt, câu chuyện ghi nhớ, rồi
-quiz kanji → hiragana và hiragana → kanji.
+quiz kanji → hiragana và hiragana → kanji. Đề chỉ có chữ, không kèm nghĩa tiếng Việt. Câu chọn cách viết đúng ra
+theo kiểu 問題2 của đề JLPT: các đáp án giữ nguyên số chữ kanji, chỉ thay chữ bằng chữ trông na ná hoặc cùng âm
+(注意 → 柱意 · 注位 · 柱位).
 
 **Ngữ pháp** — 151 mẫu chia theo 26 bài của sách. Học từng mẫu (cấu trúc, giải thích, ví dụ, đáp án luyện dịch
 của sách) rồi quiz dịch câu Nhật → Việt. Bài dịch chấm theo **nghĩa** chứ không khoá cứng một đáp án, nên diễn
@@ -64,7 +68,9 @@ phần và bảng xem lại từng câu.
 
 - **Dashboard**: số session đã học, số từ/kanji đã thuộc, tỷ lệ đúng quiz, biểu đồ kết quả theo session, lịch sử
   ôn tập và đồng hồ đếm ngược tới kỳ JLPT gần nhất (Chủ nhật đầu tiên của tháng 7 và tháng 12).
-- **Kiểm tra bài cũ**: từ session thứ hai, trước khi vào bài mới app cho ôn lại một session ngẫu nhiên đã học.
+- **Kiểm tra bài cũ**: học được từ 3 session trở lên thì mỗi ngày, lần đầu mở app, app hỏi làm một bài 15 từ lấy
+  ngẫu nhiên trong **mọi** session đã học (cả từ vựng lẫn kanji). Bấm *Để sau* thì lần mở sau hỏi lại, *Bỏ qua hôm
+  nay* thì hôm đó thôi. Muốn làm thêm lúc nào cũng được: Kiểm tra → *Bài cũ ngẫu nhiên*.
 - **Mục tiêu mỗi ngày**: mặc định app tự chia số session còn lại cho số ngày còn lại tới kỳ thi; muốn tự đặt thì
   đổi trong Cài đặt.
 - **Học bù**: ngày nào không đạt mục tiêu sẽ bị ghi nợ, học thêm hôm sau là tự động trả nợ và tô đậm lại ngày đó.
@@ -108,5 +114,7 @@ Cài đặt, mục tiêu và giờ nhắc học giữ riêng theo từng máy, v
 
 ## Giấy phép
 
-Mã nguồn phát hành theo [giấy phép MIT](LICENSE). Nội dung học (giáo trình GunGun Joutatsu N3, đề thi JLPT và
+Mã nguồn phát hành theo [giấy phép MIT](LICENSE). Riêng `similar_kanji.json` (bảng chữ dễ nhầm cho đáp án nhiễu)
+dẫn xuất từ KANJIDIC2 và RADKFILE/KRADFILE của [EDRDG](https://www.edrdg.org/edrdg/licence.html), theo giấy phép
+CC BY-SA 4.0. Nội dung học (giáo trình GunGun Joutatsu N3, đề thi JLPT và
 file nghe) thuộc bản quyền của các tác giả tương ứng, ở đây chỉ dùng cho mục đích học tập cá nhân.
