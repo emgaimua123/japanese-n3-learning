@@ -43,6 +43,9 @@ def _find_pdf(*keywords):
 
 
 def find_pdf():
+    repo = os.path.join(HERE, "..", "source-pdf", "textbook", "kanji.pdf")
+    if os.path.isfile(repo):                 # bản lưu sẵn trong repo
+        return repo
     return _find_pdf("GUNGUN", "KANJI")
 
 
@@ -131,7 +134,11 @@ def parse():
 
                 vocab = []
                 for it in items:
-                    it["furi"].sort()
+                    # Furigana của MỘT từ luôn nằm trên cùng một dòng: chỉ xếp theo x.
+                    # Xếp theo (dòng, x) như trước thì hai mẩu furigana lệch nhau chút
+                    # chiều dọc mà rơi vào hai "dòng" khác nhau là bị đảo thứ tự —
+                    # お辞儀 thành おぎじ, 美術 thành じゅつび, 録画 thành がろく…
+                    it["furi"].sort(key=lambda t: t[0][1])
                     it["mean"].sort()
                     vocab.append({"word": it["w"]["text"],
                                   "reading": "".join(t for _, t in it["furi"]),
